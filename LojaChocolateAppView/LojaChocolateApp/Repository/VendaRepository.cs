@@ -144,7 +144,7 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirUnico(Venda venda)
         {
-            //venda.SetVendaId();
+            venda.SetVendaId();
             using (var file = new FileStream(_localDoArquivo, FileMode.Append))
             using (var escritor = new StreamWriter(file))
             {
@@ -161,7 +161,7 @@ namespace LojaChocolateApp.Repository
         {
             foreach (var venda in lista)
             {
-                //venda.SetVendaId();
+                venda.SetVendaId();
                 using (var file = new FileStream(_localDoArquivo, FileMode.Append))
                 using (var escritor = new StreamWriter(file))
                 {
