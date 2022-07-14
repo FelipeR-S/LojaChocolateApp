@@ -223,5 +223,54 @@ namespace LojaChocolateApp.Repository
                     return x.Id.CompareTo(y.Id);
             }
         }
+        /// <summary>
+        /// Altera o salário do <see cref="Funcionario"/> com id informado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="novoSalario"></param>
+        /// <returns>Retorna <see cref="bool"/> para se a operação foi realizada e o sálario antigo</returns>
+        public (bool, decimal) AlteraSalarioRepository(int id, decimal novoSalario)
+        {
+            var novoRepository = new List<Funcionario>();
+            var salarioAntigo = 0m;
+            var existe = false;
+            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
+            using (var leitor = new StreamReader(file))
+            {
+                while (!leitor.EndOfStream)
+                {
+                    var dados = leitor.ReadLine();
+                    var funcionario = ConverteAtributos(dados);
+
+                    if (funcionario.Id == id)
+                    {
+                        salarioAntigo += funcionario.Salario;
+                        funcionario.AlteraSalario(novoSalario);
+                        existe = true;
+                        novoRepository.Add(funcionario);
+                    }
+                    else
+                    {
+                        novoRepository.Add(funcionario);
+                    }
+                }
+            }
+            if (existe)
+            {
+                using (var novoFileStream = new FileStream(_ArquivoTemporario, FileMode.Create))
+                using (var escritor = new StreamWriter(novoFileStream))
+                {
+                    foreach (var funcionario in novoRepository)
+                    {
+                        escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
+                    }
+                }
+                File.Delete(_localDoArquivo);
+                File.Move(_ArquivoTemporario, _localDoArquivo);
+                return (true, salarioAntigo);
+            }
+            else
+                return (false, salarioAntigo);
+        }
     }
 }
