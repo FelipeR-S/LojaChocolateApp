@@ -1,8 +1,11 @@
-﻿using System;
+﻿using LojaChocolateApp.Model;
+using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +19,153 @@ namespace LojaChocolateApp
         {
             InitializeComponent();
             SubMenuDesign();
+            TelasDesign();
         }
+        // INICIO ------------------------------------ FUNCIONARIOS ------------------------------------ INICIO //
+        /// <summary>
+        /// Envia dados dos textbox para cadastro de <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEnviarCadastroFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var verifica = new FuncionarioRepository();
+                var id = Convert.ToInt32(textBoxId.Text);
+                var nome = textBoxNome.Text;
+                var cpf = textBoxCpf.Text;
+                var contato = textBoxContato.Text;
+                var salario = Convert.ToDecimal(textBoxSalario.Text);
+                var cargo = "";
+                if (comboBoxCargo.Text == "")
+                {
+                    cargo = "Vendedor";
+                }
+                else
+                {
+                    cargo = comboBoxCargo.Text;
+                }
+                var dataCadastro = DateTime.Now.ToShortDateString();
+                Funcionario novoFuncionario = null;
+                if (cpf.Length < 10)
+                {
+                    MessageBox.Show("CPF digitado incorretamente!");
+                }
+                else
+                {
+                    switch (cargo.ToLower())
+                    {
+                        case "vendedor":
+                            novoFuncionario = new Vendedor(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                        case "gerente":
+                            novoFuncionario = new Gerente(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                        default:
+                            novoFuncionario = new Vendedor(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                    }
+                    // Verifica se Funcionário já está Cadastrado
+                    (var existe, var msg) = verifica.Existente(novoFuncionario);
+                    if (existe)
+                    {
+                        MessageBox.Show(msg);
+                    }
+                    else
+                    {
+                        var repo = new FuncionarioRepository();
+                        repo.IncluirUnico(novoFuncionario);
+                        MessageBox.Show("Cadastro Concluído");
+                        //ApagaTextBoX();
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos corretamente!");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos corretamente!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Envia arquivo CSV com <see cref="Funcionario"/> para serem inseridos no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCadastrarListaFuncionarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var tratamentoDeArquivo = new FuncionarioRepository();
+                var arquivo = textBoxArquivo.Text;
+                var correto = true;
+                var linhaErrada = 0;
+                using (var fileStream = new FileStream(arquivo, FileMode.Open))
+                using (var sr = new StreamReader(fileStream))
+                {
+                    var contadorLinhas = 0;
+                    while (!sr.EndOfStream)
+                    {
+                        var linha = sr.ReadLine();
+                        //correto = CSVIsMatch(linha, "funcionario");
+                        if (!correto)
+                        {
+                            linhaErrada = contadorLinhas + 1;
+                            break;
+                        }
+                        contadorLinhas++;
+                    }
+                }
+                if (correto)
+                {
+                    (var lista, var naoAdicionados, var numeroDeConflitos) = tratamentoDeArquivo.TrataCSV(arquivo);
+                    tratamentoDeArquivo.IncluirVarios(lista);
+                    var erros = $"{numeroDeConflitos} linhas não foram adicionadas:\n";
+                    if (numeroDeConflitos != 0)
+                    {
+                        var contadorLinhas = 0;
+                        while (contadorLinhas < numeroDeConflitos)
+                        {
+                            erros += $"{naoAdicionados[contadorLinhas]}\n";
+                            contadorLinhas++;
+                        }
+                        MessageBox.Show($"Cadastro Concluído\n\n{erros}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cadastro Concluído");
+                    }
+                }
+                else
+                    MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Todos os dados devem ser informados.\nFavor verificar forma correta no botão info!");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Favor selecionar um arquivo CSV");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //ApagaTextBoX();
+            }
+        }
+
+
+        // FIM ------------------------------------ FUNCIONARIOS ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
         /// Esconde um submenu quando outro estiver vísivel
@@ -70,7 +219,7 @@ namespace LojaChocolateApp
         /// </summary>
         private void TelasDesign()
         {
-          //panelCadastrarFuncionario.Visible = false;
+          panelCadastrarFuncionario.Visible = false;
           //panelRemoverFuncionario.Visible = false;
           //panelConsultarFuncionario.Visible = false;
           //panelInserirProduto.Visible = false;
@@ -85,8 +234,8 @@ namespace LojaChocolateApp
         /// </summary>
         private void EsconderTelas()
         {
-           //if (panelCadastrarFuncionario.Visible == true)
-           //    panelCadastrarFuncionario.Visible = false;
+           if (panelCadastrarFuncionario.Visible == true)
+               panelCadastrarFuncionario.Visible = false;
            //if (panelRemoverFuncionario.Visible == true)
            //    panelRemoverFuncionario.Visible = false;
            //if (panelConsultarFuncionario.Visible == true)
@@ -112,16 +261,16 @@ namespace LojaChocolateApp
         /// <param name="telas">Objeto do tipo <see cref="Panel"/> que refere a uma tela invocada por botão de submenu</param>
         public void MostrarTelas(Panel telas)
         {
-           //if (telas.Visible == false)
-           //{
-           //    panelLogoPrincipal.Visible = false;
-           //    ApagaTextBoX();
-           //    EscondeTextoDetalhes();
-           //    EsconderTelas();
-           //    telas.Visible = true;
-           //}
-           //else
-           //    telas.Visible = false;
+           if (telas.Visible == false)
+           {
+              //panelLogoPrincipal.Visible = false;
+              //ApagaTextBoX();
+               EscondeTextoDetalhes();
+               EsconderTelas();
+               telas.Visible = true;
+           }
+           else
+               telas.Visible = false;
         }
         // FIM ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ INICIO //
@@ -142,7 +291,7 @@ namespace LojaChocolateApp
         private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelCadastrarFuncionario);
+            MostrarTelas(panelCadastrarFuncionario);
             EsconderSubMenu();
         }
         /// <summary>
