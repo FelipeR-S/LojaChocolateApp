@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,21 @@ namespace LojaChocolateApp.Model
             _vendedorNome = funcionarioNome;
             _valorTotal = valorTotal;
             _dataVenda = data;
+        }
+        public void SetVendaId()
+        {
+            var arquivo = "VendasRepository.CSV";
+            var id = 1;
+            using (var file = new FileStream(arquivo, FileMode.Open))
+            using (var leitor = new StreamReader(file))
+            {
+                while (!leitor.EndOfStream)
+                {
+                    leitor.ReadLine();
+                    id++;
+                }
+            }
+            this._vendaId = id;
         }
     }
 }
