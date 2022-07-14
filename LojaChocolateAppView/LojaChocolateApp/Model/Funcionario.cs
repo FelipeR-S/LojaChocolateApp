@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,24 @@ namespace LojaChocolateApp.Model
         public void AlteraSalario(decimal novoSalario)
         {
             _salario = novoSalario;
+        }
+        /// <summary>
+        /// Retorna o valor de <see cref="Funcionario.QuantidadeDeVendas"/>
+        /// </summary>
+        /// <returns></returns>
+        private int GetQuantidadeDeVendas()
+        {
+            var vendasId = 0;
+            var vendasRepo = new VendaRepository();
+            var listaVendas = vendasRepo.GetLista();
+            foreach (var venda in listaVendas)
+            {
+                if (venda.VendedorId == this.Id)
+                {
+                    vendasId++;
+                }
+            }
+            return vendasId;
         }
     }
 }
