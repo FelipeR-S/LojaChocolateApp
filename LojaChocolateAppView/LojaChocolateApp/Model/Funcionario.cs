@@ -35,5 +35,13 @@ namespace LojaChocolateApp.Model
             _cargo = cargo;
             _dataCadastro = dataCadastro;
         }
+        /// <summary>
+        /// Atualiza o valor de <see cref="Funcionario.Salario"/>
+        /// </summary>
+        /// <param name="novoSalario"></param>
+        public void AlteraSalario(decimal novoSalario)
+        {
+            _salario = novoSalario;
+        }
     }
 }
