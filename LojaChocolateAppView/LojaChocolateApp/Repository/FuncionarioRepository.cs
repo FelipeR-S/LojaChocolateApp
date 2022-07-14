@@ -11,7 +11,7 @@ namespace LojaChocolateApp.Repository
     public class FuncionarioRepository
     {
         /// <summary>
-        /// Atributo para ordenar o metodo Compare
+        /// Atributo para ordenar o metodo <see cref="Compare"/>
         /// </summary>
         private string _ordem { get; }
         public FuncionarioRepository()
@@ -78,8 +78,8 @@ namespace LojaChocolateApp.Repository
                         return (existe, "CPF já existe no cadastro!");
                     }
                 }
-                return (existe, "");
             }
+            return (existe, "");
         }
         public (bool, Funcionario) GetDetalhes(int id)
         {
@@ -99,12 +99,7 @@ namespace LojaChocolateApp.Repository
                     }
                 }
             }
-            if (existe == true)
-            {
-                return (existe, funcionario);
-            }
-            else
-                return (existe, funcionario);
+            return (existe, funcionario);
         }
         public List<Funcionario> GetLista()
         {
@@ -179,13 +174,13 @@ namespace LojaChocolateApp.Repository
         }
         public (List<Funcionario>, List<string>, int) TrataCSV(string arquivo)
         {
+            var lista = new List<Funcionario>();
+            var naoAdd = new List<string>();
+            var contadorLinhas = 0;
+            var numeroConflitos = 0;
             using (var file = new FileStream(arquivo, FileMode.Open))
             using (var leitor = new StreamReader(file))
             {
-                var lista = new List<Funcionario>();
-                var naoAdd = new List<string>();
-                var contadorLinhas = 0;
-                var numeroConflitos = 0;
                 while (!leitor.EndOfStream)
                 {
                     var dados = leitor.ReadLine();
@@ -204,8 +199,8 @@ namespace LojaChocolateApp.Repository
                         contadorLinhas++;
                     }
                 }
-                return (lista, naoAdd, numeroConflitos);
             }
+            return (lista, naoAdd, numeroConflitos);
         }
         /// <summary>
         /// Ordena a lista por nome, id ou cargo
