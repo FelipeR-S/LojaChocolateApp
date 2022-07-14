@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace LojaChocolateApp.Model
         private decimal _valor;
         private string _tipo;
         private int _estoque;
-        private int _quantidadeDeVendas { get; }
+        private int _quantidadeDeVendas { get => GetQuantidadeDeVendas(); }
         public int Id { get { return _id; } private set { } }
         public string Nome { get { return _nome; } private set { } }
         public decimal Peso { get { return _peso; } private set { } }
@@ -47,6 +48,31 @@ namespace LojaChocolateApp.Model
         public void AlteraValor(decimal novoValor)
         {
             _valor = novoValor;
+        }
+        /// <summary>
+        /// Retorna o valor do <see cref="Produto.QuantidadeDeVendas"/>
+        /// </summary>
+        /// <returns></returns>
+        private int GetQuantidadeDeVendas()
+        {
+            var vendasId = 0;
+            var vendasRepo = new VendaRepository();
+            var listaVendas = vendasRepo.GetLista();
+            foreach (var venda in listaVendas)
+            {
+                var produto = vendasRepo.GetDetalhesVenda(venda.VendaId);
+                foreach (var prod in produto)
+                {
+                    var linhaProduto = prod.Split('|');
+                    var prodId = Convert.ToInt32(linhaProduto[1].Remove(0, linhaProduto[1].IndexOf(':') + 1));
+                    var qtd = Convert.ToInt32(linhaProduto[0].Remove(0, linhaProduto[0].IndexOf(':') + 1));
+                    if (prodId == this.Id)
+                    {
+                        vendasId += qtd;
+                    }
+                }
+            }
+            return vendasId;
         }
     }
 }
