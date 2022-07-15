@@ -63,6 +63,26 @@ namespace LojaChocolateApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LojaDeChocolateLogoBranco {
+            get {
+                object obj = ResourceManager.GetObject("LojaDeChocolateLogoBranco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LojaDeChocolateLogoCor {
+            get {
+                object obj = ResourceManager.GetObject("LojaDeChocolateLogoCor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap userWhite {
             get {
                 object obj = ResourceManager.GetObject("userWhite", resourceCulture);
