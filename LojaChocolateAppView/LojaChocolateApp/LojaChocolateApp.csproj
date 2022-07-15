@@ -71,6 +71,12 @@
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\LayoutItems\LayoutFuncionarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\LayoutItems\LayoutFuncionarios.Designer.cs">
+      <DependentUpon>LayoutFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Popups\PopupInfoCSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Utils\LayoutItems\LayoutFuncionarios.resx">
+      <DependentUpon>LayoutFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
       <DependentUpon>PopupInfoCSV.cs</DependentUpon>
     </EmbeddedResource>

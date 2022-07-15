@@ -1,6 +1,8 @@
 ﻿using LojaChocolateApp.Model;
+using LojaChocolateApp.Properties;
 using LojaChocolateApp.Repository;
 using LojaChocolateApp.Utils;
+using LojaChocolateApp.Utils.LayoutItems;
 using LojaChocolateApp.Utils.Popups;
 using System;
 using System.Collections.Generic;
@@ -267,7 +269,127 @@ namespace LojaChocolateApp
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Recupera detalhes do <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/> quando ele existe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void btnExibeDetalhesFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+                TituloExibeFuncionario.Visible = false;
+                var id = Convert.ToInt32(textBoxIDDetalhesFuncionario.Text);
+                var repoFuncionario = new FuncionarioRepository();
 
+                (var existe, var funcionario) = repoFuncionario.GetDetalhes(id);
+
+                if (existe)
+                {
+                    PopulaExibeDetalhe(funcionario);
+                    textBoxIDDetalhesFuncionario.Text = "";
+                    comboBoxOrdenar.Text = "";
+
+                }
+                else
+                    MessageBox.Show($"Funcionário com ID nº {id} não encontrado!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show($"Funcionário não encontrado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega layout de detalhes de <see cref="Funcionario"/>
+        /// </summary>
+        /// <param name="funcionario"></param>
+        public void PopulaExibeDetalhe(Funcionario funcionario)
+        {
+            LayoutFuncionarios detalhes = new LayoutFuncionarios();
+            detalhes.Nome = funcionario.Nome;
+            detalhes.Id = funcionario.Id.ToString();
+            detalhes.Cargo = funcionario.Cargo;
+            detalhes.Cpf = funcionario.Cpf;
+            detalhes.Contato = funcionario.Contato;
+            detalhes.Salario = $"R$ {funcionario.Salario}";
+            detalhes.DataCadastro = funcionario.DataCadastro.ToString();
+            detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
+            //detalhes.Imagem = Resources.user;
+            detalhes.BackGroundColor = Color.FromArgb(238, 118, 0);
+            detalhes.btnMenosDetalhes.Visible = false;
+            detalhes.btnMaisDetalhes.Visible = false;
+
+            if (flowLayoutPanelFuncionario.Controls.Count < 0)
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+            }
+            flowLayoutPanelFuncionario.Controls.Add(detalhes);
+        }
+        /// <summary>
+        /// Recupera e exibe lista de todos os <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExibeTodosFuncionarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+                var ordem = comboBoxOrdenar.Text;
+                var repo = new FuncionarioRepository();
+                var lista = repo.GetLista();
+                TituloExibeFuncionario.Text = $"Total de {lista.Count} Funcionários Cadastrados";
+                TituloExibeFuncionario.Visible = true;
+                //lista.Sort(new FuncionarioRepository(ordem));
+                PopularExibeTodosFuncionarios(lista);
+                comboBoxOrdenar.Text = "";
+                textBoxIDDetalhesFuncionario.Text = "";
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Não há nenhum funcionário cadastrado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega layout que exibe lista de funcionários
+        /// </summary>
+        /// <param name="lista"></param>
+        private void PopularExibeTodosFuncionarios(List<Funcionario> lista)
+        {
+            LayoutFuncionarios[] layoutLista = new LayoutFuncionarios[lista.Count];
+            for (int i = 0; i < lista.Count; i++)
+            {
+                layoutLista[i] = new LayoutFuncionarios();
+                layoutLista[i].Nome = lista[i].Nome;
+                layoutLista[i].Id = lista[i].Id.ToString();
+                layoutLista[i].Cargo = lista[i].Cargo;
+                layoutLista[i].Cpf = lista[i].Cpf;
+                layoutLista[i].Contato = lista[i].Contato;
+                layoutLista[i].Salario = $"R$ {lista[i].Salario}";
+                layoutLista[i].DataCadastro = lista[i].DataCadastro.ToString();
+                layoutLista[i].Vendas = lista[i].QuantidadeDeVendas.ToString();
+                //layoutLista[i].Imagem = Resources.user;
+                layoutLista[i].BackGroundColor = Color.Gray;
+                layoutLista[i].panelExibeDetalhes.Visible = false;
+                layoutLista[i].Height = 80;
+                layoutLista[i].btnMenosDetalhes.Visible = false;
+
+                if (flowLayoutPanelFuncionario.Controls.Count < 0)
+                {
+                    flowLayoutPanelFuncionario.Controls.Clear();
+                }
+                flowLayoutPanelFuncionario.Controls.Add(layoutLista[i]);
+            }
+        }
         // FIM ------------------------------------ FUNCIONARIOS ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -310,53 +432,53 @@ namespace LojaChocolateApp
         /// </summary>
         private void EscondeTextoDetalhes()
         {
-           //flowLayoutPanelFuncionario.Controls.Clear();
-           //TituloExibeFuncionario.Visible = false;
-           //flowLayoutLayoutExibeProdutos.Controls.Clear();
-           //tituloExibeProdutos.Visible = false;
-           //panelQuantidadeProduto.Visible = false;
-           //panelNovoValorProduto.Visible = false;
+            //flowLayoutPanelFuncionario.Controls.Clear();
+            //TituloExibeFuncionario.Visible = false;
+            //flowLayoutLayoutExibeProdutos.Controls.Clear();
+            //tituloExibeProdutos.Visible = false;
+            //panelQuantidadeProduto.Visible = false;
+            //panelNovoValorProduto.Visible = false;
         }
         /// <summary>
         /// Deixa telas dos submenus não vísiveis ao iniciar a aplicação
         /// </summary>
         private void TelasDesign()
         {
-          panelCadastrarFuncionario.Visible = false;
-          panelRemoverFuncionario.Visible = false;
-          //panelConsultarFuncionario.Visible = false;
-          //panelInserirProduto.Visible = false;
-          //panelEstoqueProduto.Visible = false;
-          //panelExibirProdutos.Visible = false;
-          //panelCadastrarVendas.Visible = false;
-          //panelConsultaVendas.Visible = false;
-          //dataGridViewVendas.Visible = false;
+            panelCadastrarFuncionario.Visible = false;
+            panelRemoverFuncionario.Visible = false;
+            panelConsultarFuncionario.Visible = false;
+            //panelInserirProduto.Visible = false;
+            //panelEstoqueProduto.Visible = false;
+            //panelExibirProdutos.Visible = false;
+            //panelCadastrarVendas.Visible = false;
+            //panelConsultaVendas.Visible = false;
+            //dataGridViewVendas.Visible = false;
         }
         /// <summary>
         /// Esconde uma tela enquanto outra estiver ativa
         /// </summary>
         private void EsconderTelas()
         {
-           if (panelCadastrarFuncionario.Visible == true)
-               panelCadastrarFuncionario.Visible = false;
-           if (panelRemoverFuncionario.Visible == true)
-               panelRemoverFuncionario.Visible = false;
-           //if (panelConsultarFuncionario.Visible == true)
-           //    panelConsultarFuncionario.Visible = false;
-           //if (panelInserirProduto.Visible == true)
-           //    panelInserirProduto.Visible = false;
-           //if (panelEstoqueProduto.Visible == true)
-           //    panelEstoqueProduto.Visible = false;
-           //if (panelExibirProdutos.Visible == true)
-           //    panelExibirProdutos.Visible = false;
-           //if (panelCadastrarVendas.Visible == true)
-           //    panelCadastrarVendas.Visible = false;
-           //if (panelConsultaVendas.Visible == true)
-           //{
-           //    panelConsultaVendas.Visible = false;
-           //    dataGridViewVendas.Visible = false;
-           //    dataGridViewVendas.Rows.Clear();
-           //}
+            if (panelCadastrarFuncionario.Visible == true)
+                panelCadastrarFuncionario.Visible = false;
+            if (panelRemoverFuncionario.Visible == true)
+                panelRemoverFuncionario.Visible = false;
+            if (panelConsultarFuncionario.Visible == true)
+                panelConsultarFuncionario.Visible = false;
+            //if (panelInserirProduto.Visible == true)
+            //    panelInserirProduto.Visible = false;
+            //if (panelEstoqueProduto.Visible == true)
+            //    panelEstoqueProduto.Visible = false;
+            //if (panelExibirProdutos.Visible == true)
+            //    panelExibirProdutos.Visible = false;
+            //if (panelCadastrarVendas.Visible == true)
+            //    panelCadastrarVendas.Visible = false;
+            //if (panelConsultaVendas.Visible == true)
+            //{
+            //    panelConsultaVendas.Visible = false;
+            //    dataGridViewVendas.Visible = false;
+            //    dataGridViewVendas.Rows.Clear();
+            //}
         }
         /// <summary>
         /// Mostra uma tela ao ser invocada ou a esconde caso já esteja vísivel
@@ -364,16 +486,16 @@ namespace LojaChocolateApp
         /// <param name="telas">Objeto do tipo <see cref="Panel"/> que refere a uma tela invocada por botão de submenu</param>
         public void MostrarTelas(Panel telas)
         {
-           if (telas.Visible == false)
-           {
-              //panelLogoPrincipal.Visible = false;
-              //ApagaTextBoX();
-               EscondeTextoDetalhes();
-               EsconderTelas();
-               telas.Visible = true;
-           }
-           else
-               telas.Visible = false;
+            if (telas.Visible == false)
+            {
+                //panelLogoPrincipal.Visible = false;
+                ApagaTextBoX();
+                EscondeTextoDetalhes();
+                EsconderTelas();
+                telas.Visible = true;
+            }
+            else
+                telas.Visible = false;
         }
         // FIM ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ INICIO //
@@ -416,7 +538,7 @@ namespace LojaChocolateApp
         private void btnConsultarFuncionarios_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelConsultarFuncionario);
+            MostrarTelas(panelConsultarFuncionario);
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ FIM //
@@ -485,9 +607,9 @@ namespace LojaChocolateApp
             EsconderTelas();
             //MostrarTelas(panelCadastrarVendas);
             EsconderSubMenu();
-           //_addProdVenda = 0;
-           //textProdVendas.ReadOnly = true;
-           //textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            //_addProdVenda = 0;
+            //textProdVendas.ReadOnly = true;
+            //textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
         }
         /// <summary>
         /// Botão do submenu CONSULTAR do MENU VENDAS que invoca painel Lista de Vendas
