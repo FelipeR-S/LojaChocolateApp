@@ -243,9 +243,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(450, 280);
-            this.Controls.Add(this.panelRemoverProduto);
             this.Controls.Add(this.panelRemoverFuncionario);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelRemoverProduto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 280);

@@ -20,7 +20,7 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
-        private int _addProdVenda;
+        //private int _addProdVenda;
         public AppLoja()
         {
             InitializeComponent();
@@ -548,6 +548,145 @@ namespace LojaChocolateApp
                 background.Dispose();
             }
         }
+        /// <summary>
+        /// Altera Estoque removendo, aumentando, diminuindo a quantidade ou alterando o valor do <see cref="Produto"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAlterarEstoque_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Variaveis para alteração
+                var produtoRepo = new ProdutoRepository();
+                Produto produto = null;
+                var alternativa = comboBoxOpcaoProdutos.Text;
+                var id = Convert.ToInt32(textIdEstoqueProdutos.Text);
+
+                var qtdNegativo = "";
+                var quantidade = "";
+                var valorAnterior = 0m;
+                var novoValor = 0m;
+                var qtdAnterior = 0;
+                var concluido = false;
+                var existe = false;
+                var msg = "";
+
+                switch (alternativa)
+                {
+                    case "Remover":
+                        Form background = new Form();
+                        using (PopupRemover popupRemover = new PopupRemover(this))
+                        {
+                            var backGroundDesign = new BackGroundPopup();
+
+                            backGroundDesign.BackGroundPopupDesign(background);
+
+                            popupRemover.Owner = background;
+                            popupRemover.panelRemoverFuncionario.Visible = false;
+                            popupRemover.panelRemoverProduto.Visible = true;
+                            popupRemover.ShowDialog();
+                            background.Dispose();
+                        }
+                        break;
+                    case "Inserir":
+                        quantidade = textEstoqueQtdProdutos.Text;
+                        (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, Convert.ToInt32(quantidade));
+                        if (produto != null)
+                        {
+                            qtdAnterior = produto.Estoque - Convert.ToInt32(quantidade);
+                        }
+                        else
+                            msg = "Produto não encontrado!";
+                        break;
+                    case "Retirar":
+                        quantidade = textEstoqueQtdProdutos.Text;
+                        qtdNegativo += $"-{quantidade}";
+                        var qtdRetirar = Convert.ToInt32(qtdNegativo);
+                        (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, qtdRetirar);
+                        if (produto != null)
+                        {
+                            qtdAnterior = produto.Estoque + Convert.ToInt32(quantidade);
+                        }
+                        else
+                            msg += "Não foi possível retirar a quantidade informada!\nVerifique se o ID está correto ou se há produtos suficientes no estoque!";
+                        break;
+                    case "Alterar Valor":
+                        novoValor = Convert.ToDecimal(textNovoValorProduto.Text);
+                        (concluido, valorAnterior) = produtoRepo.AlteraValorProduto(id, novoValor);
+                        if (concluido)
+                        {
+                            (existe, produto) = produtoRepo.GetDetalhes(id);
+                        }
+                        else
+                            msg = "Produto não encontrado!";
+                        break;
+                    default:
+                        break;
+                }
+                if (alternativa != "Remover")
+                {
+                    if (concluido && produto != null)
+                    {
+                        switch (alternativa)
+                        {
+                            case "Alterar Valor":
+                                MessageBox.Show($"Alteração Concluída!\n" +
+                                    $"O produto {produto.Nome}\n teve ser valor alterada\n" +
+                                    $"de: {valorAnterior} para {produto.Valor}");
+                                break;
+                            default:
+                                MessageBox.Show($"Alteração Concluída!\n" +
+                                    $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
+                                    $"de: {qtdAnterior} para {produto.Estoque}");
+                                break;
+                        }
+                    }
+                    else
+                        MessageBox.Show(msg);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Favor inserir algum número de ID e Quantidade caso necessário!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                ApagaTextBoX();
+            }
+        }
+        /// <summary>
+        /// Padrão de Exibição de elementos do submenu ESTOQUE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxOpcaoProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var alternativas = comboBoxOpcaoProdutos.Text;
+            switch (alternativas)
+            {
+                case "Inserir":
+                    panelQuantidadeProduto.Visible = true;
+                    panelNovoValorProduto.Visible = false;
+                    break;
+                case "Retirar":
+                    panelQuantidadeProduto.Visible = true;
+                    panelNovoValorProduto.Visible = false;
+                    break;
+                case "Alterar Valor":
+                    panelNovoValorProduto.Visible = true;
+                    panelQuantidadeProduto.Visible = false;
+                    break;
+                default:
+                    panelQuantidadeProduto.Visible = false;
+                    panelNovoValorProduto.Visible = false;
+                    break;
+            }
+        }
         // FIM ------------------------------------ PRODUTO ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -592,10 +731,10 @@ namespace LojaChocolateApp
         {
             flowLayoutPanelFuncionario.Controls.Clear();
             TituloExibeFuncionario.Visible = false;
+            panelQuantidadeProduto.Visible = false;
+            panelNovoValorProduto.Visible = false;
             //flowLayoutLayoutExibeProdutos.Controls.Clear();
             //tituloExibeProdutos.Visible = false;
-            //panelQuantidadeProduto.Visible = false;
-            //panelNovoValorProduto.Visible = false;
         }
         /// <summary>
         /// Deixa telas dos submenus não vísiveis ao iniciar a aplicação
@@ -606,7 +745,7 @@ namespace LojaChocolateApp
             panelRemoverFuncionario.Visible = false;
             panelConsultarFuncionario.Visible = false;
             panelInserirProduto.Visible = false;
-            //panelEstoqueProduto.Visible = false;
+            panelEstoqueProduto.Visible = false;
             //panelExibirProdutos.Visible = false;
             //panelCadastrarVendas.Visible = false;
             //panelConsultaVendas.Visible = false;
@@ -625,8 +764,8 @@ namespace LojaChocolateApp
                 panelConsultarFuncionario.Visible = false;
             if (panelInserirProduto.Visible == true)
                 panelInserirProduto.Visible = false;
-            //if (panelEstoqueProduto.Visible == true)
-            //    panelEstoqueProduto.Visible = false;
+            if (panelEstoqueProduto.Visible == true)
+                panelEstoqueProduto.Visible = false;
             //if (panelExibirProdutos.Visible == true)
             //    panelExibirProdutos.Visible = false;
             //if (panelCadastrarVendas.Visible == true)
@@ -729,7 +868,7 @@ namespace LojaChocolateApp
         private void btnEstoque_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelEstoqueProduto);
+            MostrarTelas(panelEstoqueProduto);
             EsconderSubMenu();
         }
         /// <summary>
@@ -805,6 +944,7 @@ namespace LojaChocolateApp
             textTipoProduto.Text = "";
             comboBoxCargo.Text = "";
             comboBoxOrdenar.Text = "";
+            comboBoxOpcaoProdutos.Text = "";
         }
         /// <summary>
         /// Permite apenas numeros na textbox
