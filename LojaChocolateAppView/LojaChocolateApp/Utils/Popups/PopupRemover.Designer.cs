@@ -243,12 +243,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(450, 280);
-            this.Controls.Add(this.panelRemoverFuncionario);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelRemoverProduto);
+            this.Controls.Add(this.panelRemoverFuncionario);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 280);
             this.MinimizeBox = false;
