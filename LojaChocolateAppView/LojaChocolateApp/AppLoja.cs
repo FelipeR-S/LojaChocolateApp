@@ -1343,7 +1343,7 @@ namespace LojaChocolateApp
         {
             if (telas.Visible == false)
             {
-                //panelLogoPrincipal.Visible = false;
+                panelLogoPrincipal.Visible = false;
                 ApagaTextBoX();
                 EscondeTextoDetalhes();
                 EsconderTelas();
