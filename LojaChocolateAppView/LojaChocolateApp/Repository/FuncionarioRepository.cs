@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LojaChocolateApp.Repository
 {
-    public class FuncionarioRepository
+    public class FuncionarioRepository : IRepository<Funcionario>
     {
         /// <summary>
         /// Atributo para ordenar o metodo <see cref="Compare"/>

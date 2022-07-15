@@ -44,8 +44,30 @@
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
             this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelCadastrarFuncionario = new System.Windows.Forms.Panel();
+            this.textBoxSalario = new System.Windows.Forms.TextBox();
+            this.textBoxCpf = new System.Windows.Forms.TextBox();
+            this.comboBoxCargo = new System.Windows.Forms.ComboBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnCadastrarListaFuncionarios = new System.Windows.Forms.Button();
+            this.Informacoes = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxArquivo = new System.Windows.Forms.TextBox();
+            this.btnEnviarCadastroFuncionario = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxContato = new System.Windows.Forms.TextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.panelConsultarFuncionario = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFuncionario = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -76,33 +98,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.panelCadastrarFuncionario = new System.Windows.Forms.Panel();
-            this.textBoxSalario = new System.Windows.Forms.TextBox();
-            this.textBoxCpf = new System.Windows.Forms.TextBox();
-            this.comboBoxCargo = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnCadastrarListaFuncionarios = new System.Windows.Forms.Button();
-            this.Informacoes = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxArquivo = new System.Windows.Forms.TextBox();
-            this.btnEnviarCadastroFuncionario = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxContato = new System.Windows.Forms.TextBox();
-            this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.textBoxId = new System.Windows.Forms.TextBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelCadastrarFuncionario.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panelConsultarFuncionario.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -112,8 +115,6 @@
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panelCadastrarFuncionario.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -125,12 +126,13 @@
             this.panelMenuLateral.Controls.Add(this.btnProdutos);
             this.panelMenuLateral.Controls.Add(this.panelSubMenuFuncionario);
             this.panelMenuLateral.Controls.Add(this.btnFuncionarios);
+            this.panelMenuLateral.Controls.Add(this.panel1);
             this.panelMenuLateral.Controls.Add(this.panelLogo);
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(250, 561);
-            this.panelMenuLateral.TabIndex = 0;
+            this.panelMenuLateral.Size = new System.Drawing.Size(248, 561);
+            this.panelMenuLateral.TabIndex = 1;
             // 
             // panelSubMenuVendas
             // 
@@ -138,10 +140,10 @@
             this.panelSubMenuVendas.Controls.Add(this.btnConsultarVendas);
             this.panelSubMenuVendas.Controls.Add(this.btnCadastrarVendas);
             this.panelSubMenuVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuVendas.Location = new System.Drawing.Point(0, 446);
+            this.panelSubMenuVendas.Location = new System.Drawing.Point(0, 472);
             this.panelSubMenuVendas.Name = "panelSubMenuVendas";
-            this.panelSubMenuVendas.Size = new System.Drawing.Size(250, 66);
-            this.panelSubMenuVendas.TabIndex = 32;
+            this.panelSubMenuVendas.Size = new System.Drawing.Size(248, 70);
+            this.panelSubMenuVendas.TabIndex = 15;
             // 
             // btnConsultarVendas
             // 
@@ -151,15 +153,14 @@
             this.btnConsultarVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConsultarVendas.Location = new System.Drawing.Point(0, 33);
+            this.btnConsultarVendas.Location = new System.Drawing.Point(0, 35);
             this.btnConsultarVendas.Name = "btnConsultarVendas";
-            this.btnConsultarVendas.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnConsultarVendas.Size = new System.Drawing.Size(250, 33);
-            this.btnConsultarVendas.TabIndex = 22;
+            this.btnConsultarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultarVendas.Size = new System.Drawing.Size(248, 35);
+            this.btnConsultarVendas.TabIndex = 2;
             this.btnConsultarVendas.Text = "Consultar";
             this.btnConsultarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarVendas.UseVisualStyleBackColor = true;
-            this.btnConsultarVendas.Click += new System.EventHandler(this.btnConsultarVendas_Click);
             // 
             // btnCadastrarVendas
             // 
@@ -171,13 +172,12 @@
             this.btnCadastrarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCadastrarVendas.Location = new System.Drawing.Point(0, 0);
             this.btnCadastrarVendas.Name = "btnCadastrarVendas";
-            this.btnCadastrarVendas.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnCadastrarVendas.Size = new System.Drawing.Size(250, 33);
-            this.btnCadastrarVendas.TabIndex = 17;
+            this.btnCadastrarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCadastrarVendas.Size = new System.Drawing.Size(248, 35);
+            this.btnCadastrarVendas.TabIndex = 1;
             this.btnCadastrarVendas.Text = "Cadastrar";
             this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarVendas.UseVisualStyleBackColor = true;
-            this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
             // 
             // btnVendas
             // 
@@ -192,11 +192,11 @@
             this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVendas.IconSize = 25;
             this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(0, 404);
+            this.btnVendas.Location = new System.Drawing.Point(0, 427);
             this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(250, 42);
-            this.btnVendas.TabIndex = 31;
+            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVendas.Size = new System.Drawing.Size(248, 45);
+            this.btnVendas.TabIndex = 0;
             this.btnVendas.Text = "   Vendas";
             this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -210,10 +210,10 @@
             this.panelSubMenuProdutos.Controls.Add(this.btnEstoque);
             this.panelSubMenuProdutos.Controls.Add(this.btnInserirProduto);
             this.panelSubMenuProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuProdutos.Location = new System.Drawing.Point(0, 305);
+            this.panelSubMenuProdutos.Location = new System.Drawing.Point(0, 322);
             this.panelSubMenuProdutos.Name = "panelSubMenuProdutos";
-            this.panelSubMenuProdutos.Size = new System.Drawing.Size(250, 99);
-            this.panelSubMenuProdutos.TabIndex = 30;
+            this.panelSubMenuProdutos.Size = new System.Drawing.Size(248, 105);
+            this.panelSubMenuProdutos.TabIndex = 13;
             // 
             // btnConsultarProdutos
             // 
@@ -223,15 +223,14 @@
             this.btnConsultarProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConsultarProdutos.Location = new System.Drawing.Point(0, 66);
+            this.btnConsultarProdutos.Location = new System.Drawing.Point(0, 70);
             this.btnConsultarProdutos.Name = "btnConsultarProdutos";
-            this.btnConsultarProdutos.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnConsultarProdutos.Size = new System.Drawing.Size(250, 33);
-            this.btnConsultarProdutos.TabIndex = 24;
+            this.btnConsultarProdutos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultarProdutos.Size = new System.Drawing.Size(248, 35);
+            this.btnConsultarProdutos.TabIndex = 3;
             this.btnConsultarProdutos.Text = "Consultar";
             this.btnConsultarProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarProdutos.UseVisualStyleBackColor = true;
-            this.btnConsultarProdutos.Click += new System.EventHandler(this.btnConsultarProdutos_Click);
             // 
             // btnEstoque
             // 
@@ -241,15 +240,14 @@
             this.btnEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstoque.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEstoque.Location = new System.Drawing.Point(0, 33);
+            this.btnEstoque.Location = new System.Drawing.Point(0, 35);
             this.btnEstoque.Name = "btnEstoque";
-            this.btnEstoque.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnEstoque.Size = new System.Drawing.Size(250, 33);
-            this.btnEstoque.TabIndex = 20;
+            this.btnEstoque.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnEstoque.Size = new System.Drawing.Size(248, 35);
+            this.btnEstoque.TabIndex = 2;
             this.btnEstoque.Text = "Estoque";
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
-            this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
             // btnInserirProduto
             // 
@@ -261,13 +259,12 @@
             this.btnInserirProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnInserirProduto.Location = new System.Drawing.Point(0, 0);
             this.btnInserirProduto.Name = "btnInserirProduto";
-            this.btnInserirProduto.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnInserirProduto.Size = new System.Drawing.Size(250, 33);
-            this.btnInserirProduto.TabIndex = 18;
+            this.btnInserirProduto.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnInserirProduto.Size = new System.Drawing.Size(248, 35);
+            this.btnInserirProduto.TabIndex = 1;
             this.btnInserirProduto.Text = "Inserir";
             this.btnInserirProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInserirProduto.UseVisualStyleBackColor = true;
-            this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
             // btnProdutos
             // 
@@ -281,11 +278,11 @@
             this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProdutos.IconSize = 25;
             this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 263);
+            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
             this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnProdutos.Size = new System.Drawing.Size(250, 42);
-            this.btnProdutos.TabIndex = 29;
+            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
+            this.btnProdutos.TabIndex = 0;
             this.btnProdutos.Text = "  Produtos";
             this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -299,10 +296,10 @@
             this.panelSubMenuFuncionario.Controls.Add(this.btnExcluirFuncionario);
             this.panelSubMenuFuncionario.Controls.Add(this.btnCadastrarFuncionario);
             this.panelSubMenuFuncionario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuFuncionario.Location = new System.Drawing.Point(0, 160);
+            this.panelSubMenuFuncionario.Location = new System.Drawing.Point(0, 168);
             this.panelSubMenuFuncionario.Name = "panelSubMenuFuncionario";
-            this.panelSubMenuFuncionario.Size = new System.Drawing.Size(250, 103);
-            this.panelSubMenuFuncionario.TabIndex = 28;
+            this.panelSubMenuFuncionario.Size = new System.Drawing.Size(248, 109);
+            this.panelSubMenuFuncionario.TabIndex = 11;
             // 
             // btnConsultarFuncionarios
             // 
@@ -312,11 +309,11 @@
             this.btnConsultarFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarFuncionarios.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarFuncionarios.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConsultarFuncionarios.Location = new System.Drawing.Point(0, 66);
+            this.btnConsultarFuncionarios.Location = new System.Drawing.Point(0, 70);
             this.btnConsultarFuncionarios.Name = "btnConsultarFuncionarios";
-            this.btnConsultarFuncionarios.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnConsultarFuncionarios.Size = new System.Drawing.Size(250, 33);
-            this.btnConsultarFuncionarios.TabIndex = 25;
+            this.btnConsultarFuncionarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultarFuncionarios.Size = new System.Drawing.Size(248, 35);
+            this.btnConsultarFuncionarios.TabIndex = 3;
             this.btnConsultarFuncionarios.Text = "Consultar";
             this.btnConsultarFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarFuncionarios.UseVisualStyleBackColor = true;
@@ -330,11 +327,11 @@
             this.btnExcluirFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluirFuncionario.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluirFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnExcluirFuncionario.Location = new System.Drawing.Point(0, 33);
+            this.btnExcluirFuncionario.Location = new System.Drawing.Point(0, 35);
             this.btnExcluirFuncionario.Name = "btnExcluirFuncionario";
-            this.btnExcluirFuncionario.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnExcluirFuncionario.Size = new System.Drawing.Size(250, 33);
-            this.btnExcluirFuncionario.TabIndex = 21;
+            this.btnExcluirFuncionario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnExcluirFuncionario.Size = new System.Drawing.Size(248, 35);
+            this.btnExcluirFuncionario.TabIndex = 2;
             this.btnExcluirFuncionario.Text = "Alterar Cadastro";
             this.btnExcluirFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluirFuncionario.UseVisualStyleBackColor = true;
@@ -350,9 +347,9 @@
             this.btnCadastrarFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCadastrarFuncionario.Location = new System.Drawing.Point(0, 0);
             this.btnCadastrarFuncionario.Name = "btnCadastrarFuncionario";
-            this.btnCadastrarFuncionario.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnCadastrarFuncionario.Size = new System.Drawing.Size(250, 33);
-            this.btnCadastrarFuncionario.TabIndex = 19;
+            this.btnCadastrarFuncionario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCadastrarFuncionario.Size = new System.Drawing.Size(248, 35);
+            this.btnCadastrarFuncionario.TabIndex = 1;
             this.btnCadastrarFuncionario.Text = "Cadastrar";
             this.btnCadastrarFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
@@ -371,36 +368,329 @@
             this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFuncionarios.IconSize = 25;
             this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 118);
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
             this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnFuncionarios.Size = new System.Drawing.Size(250, 42);
-            this.btnFuncionarios.TabIndex = 23;
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
+            this.btnFuncionarios.TabIndex = 0;
             this.btnFuncionarios.Text = "  Funcionários";
             this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFuncionarios.UseVisualStyleBackColor = false;
             this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(247, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(717, 561);
+            this.panel1.TabIndex = 1;
+            // 
             // panelLogo
             // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 118);
-            this.panelLogo.TabIndex = 2;
+            this.panelLogo.Padding = new System.Windows.Forms.Padding(20);
+            this.panelLogo.Size = new System.Drawing.Size(248, 123);
+            this.panelLogo.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(229, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelCadastrarFuncionario
+            // 
+            this.panelCadastrarFuncionario.AutoSize = true;
+            this.panelCadastrarFuncionario.BackColor = System.Drawing.Color.White;
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxSalario);
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxCpf);
+            this.panelCadastrarFuncionario.Controls.Add(this.comboBoxCargo);
+            this.panelCadastrarFuncionario.Controls.Add(this.panel6);
+            this.panelCadastrarFuncionario.Controls.Add(this.btnCadastrarListaFuncionarios);
+            this.panelCadastrarFuncionario.Controls.Add(this.Informacoes);
+            this.panelCadastrarFuncionario.Controls.Add(this.label9);
+            this.panelCadastrarFuncionario.Controls.Add(this.label8);
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxArquivo);
+            this.panelCadastrarFuncionario.Controls.Add(this.btnEnviarCadastroFuncionario);
+            this.panelCadastrarFuncionario.Controls.Add(this.label6);
+            this.panelCadastrarFuncionario.Controls.Add(this.label5);
+            this.panelCadastrarFuncionario.Controls.Add(this.label4);
+            this.panelCadastrarFuncionario.Controls.Add(this.label3);
+            this.panelCadastrarFuncionario.Controls.Add(this.label2);
+            this.panelCadastrarFuncionario.Controls.Add(this.label1);
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxContato);
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxNome);
+            this.panelCadastrarFuncionario.Controls.Add(this.textBoxId);
+            this.panelCadastrarFuncionario.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelCadastrarFuncionario.Location = new System.Drawing.Point(250, 0);
+            this.panelCadastrarFuncionario.MinimumSize = new System.Drawing.Size(714, 561);
+            this.panelCadastrarFuncionario.Name = "panelCadastrarFuncionario";
+            this.panelCadastrarFuncionario.Size = new System.Drawing.Size(714, 561);
+            this.panelCadastrarFuncionario.TabIndex = 4;
+            // 
+            // textBoxSalario
+            // 
+            this.textBoxSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxSalario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxSalario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSalario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxSalario.Location = new System.Drawing.Point(186, 277);
+            this.textBoxSalario.MaxLength = 8;
+            this.textBoxSalario.Name = "textBoxSalario";
+            this.textBoxSalario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBoxSalario.Size = new System.Drawing.Size(401, 29);
+            this.textBoxSalario.TabIndex = 4;
+            this.textBoxSalario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
+            // 
+            // textBoxCpf
+            // 
+            this.textBoxCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxCpf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxCpf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCpf.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxCpf.Location = new System.Drawing.Point(186, 187);
+            this.textBoxCpf.MaxLength = 14;
+            this.textBoxCpf.Name = "textBoxCpf";
+            this.textBoxCpf.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxCpf.Size = new System.Drawing.Size(402, 29);
+            this.textBoxCpf.TabIndex = 2;
+            this.textBoxCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxCPF);
+            // 
+            // comboBoxCargo
+            // 
+            this.comboBoxCargo.BackColor = System.Drawing.Color.White;
+            this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCargo.FormattingEnabled = true;
+            this.comboBoxCargo.Items.AddRange(new object[] {
+            "Vendedor",
+            "Gerente"});
+            this.comboBoxCargo.Location = new System.Drawing.Point(187, 325);
+            this.comboBoxCargo.Name = "comboBoxCargo";
+            this.comboBoxCargo.Size = new System.Drawing.Size(400, 29);
+            this.comboBoxCargo.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(714, 74);
+            this.panel6.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label7.Location = new System.Drawing.Point(257, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(277, 32);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Cadastrar Funcionários";
+            // 
+            // btnCadastrarListaFuncionarios
+            // 
+            this.btnCadastrarListaFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnCadastrarListaFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarListaFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarListaFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarListaFuncionarios.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCadastrarListaFuncionarios.Location = new System.Drawing.Point(434, 469);
+            this.btnCadastrarListaFuncionarios.Name = "btnCadastrarListaFuncionarios";
+            this.btnCadastrarListaFuncionarios.Size = new System.Drawing.Size(93, 27);
+            this.btnCadastrarListaFuncionarios.TabIndex = 8;
+            this.btnCadastrarListaFuncionarios.Text = "Cadastrar";
+            this.btnCadastrarListaFuncionarios.UseVisualStyleBackColor = false;
+            this.btnCadastrarListaFuncionarios.Click += new System.EventHandler(this.btnCadastrarListaFuncionarios_Click);
+            // 
+            // Informacoes
+            // 
+            this.Informacoes.BackColor = System.Drawing.Color.Maroon;
+            this.Informacoes.FlatAppearance.BorderSize = 0;
+            this.Informacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Informacoes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Informacoes.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Informacoes.Location = new System.Drawing.Point(533, 469);
+            this.Informacoes.Name = "Informacoes";
+            this.Informacoes.Size = new System.Drawing.Size(54, 27);
+            this.Informacoes.TabIndex = 9;
+            this.Informacoes.Text = "Info";
+            this.Informacoes.UseVisualStyleBackColor = false;
+            this.Informacoes.Click += new System.EventHandler(this.infoFuncionario_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(80, 474);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 17);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Inserir Arquivo";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(263, 428);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(260, 25);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Cadastrar com arquivo CSV:";
+            // 
+            // textBoxArquivo
+            // 
+            this.textBoxArquivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxArquivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxArquivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxArquivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxArquivo.Location = new System.Drawing.Point(187, 469);
+            this.textBoxArquivo.Name = "textBoxArquivo";
+            this.textBoxArquivo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxArquivo.Size = new System.Drawing.Size(241, 29);
+            this.textBoxArquivo.TabIndex = 7;
+            this.textBoxArquivo.Click += new System.EventHandler(this.OpenFile);
+            // 
+            // btnEnviarCadastroFuncionario
+            // 
+            this.btnEnviarCadastroFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnEnviarCadastroFuncionario.FlatAppearance.BorderSize = 0;
+            this.btnEnviarCadastroFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarCadastroFuncionario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviarCadastroFuncionario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEnviarCadastroFuncionario.Location = new System.Drawing.Point(187, 372);
+            this.btnEnviarCadastroFuncionario.Name = "btnEnviarCadastroFuncionario";
+            this.btnEnviarCadastroFuncionario.Size = new System.Drawing.Size(400, 35);
+            this.btnEnviarCadastroFuncionario.TabIndex = 6;
+            this.btnEnviarCadastroFuncionario.Text = "Cadastrar";
+            this.btnEnviarCadastroFuncionario.UseVisualStyleBackColor = false;
+            this.btnEnviarCadastroFuncionario.Click += new System.EventHandler(this.btnEnviarCadastroFuncionario_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(125, 330);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Cargo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(125, 282);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Salario";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(125, 237);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Contato";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(125, 192);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "CPF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(125, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(125, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "ID";
+            // 
+            // textBoxContato
+            // 
+            this.textBoxContato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxContato.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxContato.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContato.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxContato.Location = new System.Drawing.Point(187, 232);
+            this.textBoxContato.MaxLength = 14;
+            this.textBoxContato.Name = "textBoxContato";
+            this.textBoxContato.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxContato.Size = new System.Drawing.Size(400, 29);
+            this.textBoxContato.TabIndex = 3;
+            this.textBoxContato.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxContato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxContato);
+            // 
+            // textBoxNome
+            // 
+            this.textBoxNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxNome.Location = new System.Drawing.Point(187, 140);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxNome.Size = new System.Drawing.Size(400, 29);
+            this.textBoxNome.TabIndex = 1;
+            this.textBoxNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyChars);
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textBoxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBoxId.Location = new System.Drawing.Point(187, 96);
+            this.textBoxId.MaxLength = 3;
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxId.Size = new System.Drawing.Size(400, 29);
+            this.textBoxId.TabIndex = 0;
+            this.textBoxId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // panelConsultarFuncionario
             // 
@@ -423,7 +713,7 @@
             this.flowLayoutPanelFuncionario.AutoScroll = true;
             this.flowLayoutPanelFuncionario.Location = new System.Drawing.Point(0, 185);
             this.flowLayoutPanelFuncionario.Name = "flowLayoutPanelFuncionario";
-            this.flowLayoutPanelFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.flowLayoutPanelFuncionario.Padding = new System.Windows.Forms.Padding(22, 0, 22, 20);
             this.flowLayoutPanelFuncionario.Size = new System.Drawing.Size(714, 376);
             this.flowLayoutPanelFuncionario.TabIndex = 4;
             // 
@@ -777,299 +1067,16 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "Remover Funcionários";
             // 
-            // panelCadastrarFuncionario
-            // 
-            this.panelCadastrarFuncionario.AutoSize = true;
-            this.panelCadastrarFuncionario.BackColor = System.Drawing.Color.White;
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxSalario);
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxCpf);
-            this.panelCadastrarFuncionario.Controls.Add(this.comboBoxCargo);
-            this.panelCadastrarFuncionario.Controls.Add(this.panel6);
-            this.panelCadastrarFuncionario.Controls.Add(this.btnCadastrarListaFuncionarios);
-            this.panelCadastrarFuncionario.Controls.Add(this.Informacoes);
-            this.panelCadastrarFuncionario.Controls.Add(this.label9);
-            this.panelCadastrarFuncionario.Controls.Add(this.label8);
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxArquivo);
-            this.panelCadastrarFuncionario.Controls.Add(this.btnEnviarCadastroFuncionario);
-            this.panelCadastrarFuncionario.Controls.Add(this.label6);
-            this.panelCadastrarFuncionario.Controls.Add(this.label5);
-            this.panelCadastrarFuncionario.Controls.Add(this.label4);
-            this.panelCadastrarFuncionario.Controls.Add(this.label3);
-            this.panelCadastrarFuncionario.Controls.Add(this.label2);
-            this.panelCadastrarFuncionario.Controls.Add(this.label1);
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxContato);
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxNome);
-            this.panelCadastrarFuncionario.Controls.Add(this.textBoxId);
-            this.panelCadastrarFuncionario.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelCadastrarFuncionario.Location = new System.Drawing.Point(249, 0);
-            this.panelCadastrarFuncionario.MinimumSize = new System.Drawing.Size(714, 561);
-            this.panelCadastrarFuncionario.Name = "panelCadastrarFuncionario";
-            this.panelCadastrarFuncionario.Size = new System.Drawing.Size(714, 561);
-            this.panelCadastrarFuncionario.TabIndex = 9;
-            // 
-            // textBoxSalario
-            // 
-            this.textBoxSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxSalario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSalario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSalario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxSalario.Location = new System.Drawing.Point(186, 277);
-            this.textBoxSalario.MaxLength = 8;
-            this.textBoxSalario.Name = "textBoxSalario";
-            this.textBoxSalario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxSalario.Size = new System.Drawing.Size(401, 29);
-            this.textBoxSalario.TabIndex = 4;
-            this.textBoxSalario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
-            // 
-            // textBoxCpf
-            // 
-            this.textBoxCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxCpf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCpf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCpf.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxCpf.Location = new System.Drawing.Point(186, 187);
-            this.textBoxCpf.MaxLength = 14;
-            this.textBoxCpf.Name = "textBoxCpf";
-            this.textBoxCpf.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxCpf.Size = new System.Drawing.Size(402, 29);
-            this.textBoxCpf.TabIndex = 2;
-            this.textBoxCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxCPF);
-            // 
-            // comboBoxCargo
-            // 
-            this.comboBoxCargo.BackColor = System.Drawing.Color.White;
-            this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCargo.FormattingEnabled = true;
-            this.comboBoxCargo.Items.AddRange(new object[] {
-            "Vendedor",
-            "Gerente"});
-            this.comboBoxCargo.Location = new System.Drawing.Point(187, 325);
-            this.comboBoxCargo.Name = "comboBoxCargo";
-            this.comboBoxCargo.Size = new System.Drawing.Size(400, 29);
-            this.comboBoxCargo.TabIndex = 5;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(714, 74);
-            this.panel6.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(257, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(277, 32);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Cadastrar Funcionários";
-            // 
-            // btnCadastrarListaFuncionarios
-            // 
-            this.btnCadastrarListaFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnCadastrarListaFuncionarios.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarListaFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarListaFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarListaFuncionarios.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadastrarListaFuncionarios.Location = new System.Drawing.Point(434, 469);
-            this.btnCadastrarListaFuncionarios.Name = "btnCadastrarListaFuncionarios";
-            this.btnCadastrarListaFuncionarios.Size = new System.Drawing.Size(93, 27);
-            this.btnCadastrarListaFuncionarios.TabIndex = 8;
-            this.btnCadastrarListaFuncionarios.Text = "Cadastrar";
-            this.btnCadastrarListaFuncionarios.UseVisualStyleBackColor = false;
-            this.btnCadastrarListaFuncionarios.Click += new System.EventHandler(this.btnCadastrarListaFuncionarios_Click);
-            // 
-            // Informacoes
-            // 
-            this.Informacoes.BackColor = System.Drawing.Color.Maroon;
-            this.Informacoes.FlatAppearance.BorderSize = 0;
-            this.Informacoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Informacoes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Informacoes.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Informacoes.Location = new System.Drawing.Point(533, 469);
-            this.Informacoes.Name = "Informacoes";
-            this.Informacoes.Size = new System.Drawing.Size(54, 27);
-            this.Informacoes.TabIndex = 9;
-            this.Informacoes.Text = "Info";
-            this.Informacoes.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(80, 474);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 17);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Inserir Arquivo";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(263, 428);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(260, 25);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Cadastrar com arquivo CSV:";
-            // 
-            // textBoxArquivo
-            // 
-            this.textBoxArquivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxArquivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxArquivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxArquivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxArquivo.Location = new System.Drawing.Point(187, 469);
-            this.textBoxArquivo.Name = "textBoxArquivo";
-            this.textBoxArquivo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxArquivo.Size = new System.Drawing.Size(241, 29);
-            this.textBoxArquivo.TabIndex = 7;
-            this.textBoxArquivo.Click += new System.EventHandler(this.OpenFile);
-            // 
-            // btnEnviarCadastroFuncionario
-            // 
-            this.btnEnviarCadastroFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnEnviarCadastroFuncionario.FlatAppearance.BorderSize = 0;
-            this.btnEnviarCadastroFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviarCadastroFuncionario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviarCadastroFuncionario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEnviarCadastroFuncionario.Location = new System.Drawing.Point(187, 372);
-            this.btnEnviarCadastroFuncionario.Name = "btnEnviarCadastroFuncionario";
-            this.btnEnviarCadastroFuncionario.Size = new System.Drawing.Size(400, 35);
-            this.btnEnviarCadastroFuncionario.TabIndex = 6;
-            this.btnEnviarCadastroFuncionario.Text = "Cadastrar";
-            this.btnEnviarCadastroFuncionario.UseVisualStyleBackColor = false;
-            this.btnEnviarCadastroFuncionario.Click += new System.EventHandler(this.btnEnviarCadastroFuncionario_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(125, 330);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Cargo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(125, 282);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Salario";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(125, 237);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Contato";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(125, 192);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "CPF";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(125, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Nome";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(125, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "ID";
-            // 
-            // textBoxContato
-            // 
-            this.textBoxContato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxContato.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxContato.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContato.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxContato.Location = new System.Drawing.Point(187, 232);
-            this.textBoxContato.MaxLength = 14;
-            this.textBoxContato.Name = "textBoxContato";
-            this.textBoxContato.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxContato.Size = new System.Drawing.Size(400, 29);
-            this.textBoxContato.TabIndex = 3;
-            this.textBoxContato.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxContato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxContato);
-            // 
-            // textBoxNome
-            // 
-            this.textBoxNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxNome.Location = new System.Drawing.Point(187, 140);
-            this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxNome.Size = new System.Drawing.Size(400, 29);
-            this.textBoxNome.TabIndex = 1;
-            this.textBoxNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyChars);
-            // 
-            // textBoxId
-            // 
-            this.textBoxId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textBoxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxId.Location = new System.Drawing.Point(187, 96);
-            this.textBoxId.MaxLength = 3;
-            this.textBoxId.Name = "textBoxId";
-            this.textBoxId.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxId.Size = new System.Drawing.Size(400, 29);
-            this.textBoxId.TabIndex = 0;
-            this.textBoxId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
-            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
-            this.Controls.Add(this.panelRemoverFuncionario);
-            this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelMenuLateral);
+            this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelCadastrarFuncionario);
+            this.Controls.Add(this.panelRemoverFuncionario);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -1084,6 +1091,10 @@
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelCadastrarFuncionario.ResumeLayout(false);
+            this.panelCadastrarFuncionario.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panelConsultarFuncionario.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -1100,10 +1111,6 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panelCadastrarFuncionario.ResumeLayout(false);
-            this.panelCadastrarFuncionario.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1126,8 +1133,30 @@
         private System.Windows.Forms.Button btnExcluirFuncionario;
         private System.Windows.Forms.Button btnCadastrarFuncionario;
         private FontAwesome.Sharp.IconButton btnFuncionarios;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelCadastrarFuncionario;
+        private System.Windows.Forms.TextBox textBoxSalario;
+        private System.Windows.Forms.TextBox textBoxCpf;
+        private System.Windows.Forms.ComboBox comboBoxCargo;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCadastrarListaFuncionarios;
+        private System.Windows.Forms.Button Informacoes;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxArquivo;
+        private System.Windows.Forms.Button btnEnviarCadastroFuncionario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxContato;
+        private System.Windows.Forms.TextBox textBoxNome;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Panel panelConsultarFuncionario;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFuncionario;
         private System.Windows.Forms.Panel panel7;
@@ -1158,27 +1187,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panelCadastrarFuncionario;
-        private System.Windows.Forms.TextBox textBoxSalario;
-        private System.Windows.Forms.TextBox textBoxCpf;
-        private System.Windows.Forms.ComboBox comboBoxCargo;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnCadastrarListaFuncionarios;
-        private System.Windows.Forms.Button Informacoes;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxArquivo;
-        private System.Windows.Forms.Button btnEnviarCadastroFuncionario;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxContato;
-        private System.Windows.Forms.TextBox textBoxNome;
-        private System.Windows.Forms.TextBox textBoxId;
     }
 }
 

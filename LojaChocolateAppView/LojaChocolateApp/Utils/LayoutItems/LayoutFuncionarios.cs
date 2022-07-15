@@ -53,14 +53,14 @@ namespace LojaChocolateApp.Utils.LayoutItems
 
         private void btnMaisDetalhes_Click(object sender, EventArgs e)
         {
-            this.Height = 280;
+            this.Height = 180;
             panelExibeDetalhes.Visible = true;
             btnMenosDetalhes.Visible = true;
         }
 
         private void btnMenosDetalhes_Click(object sender, EventArgs e)
         {
-            this.Height = 120;
+            this.Height = 80;
             panelExibeDetalhes.Visible = false;
             btnMenosDetalhes.Visible = false;
         }

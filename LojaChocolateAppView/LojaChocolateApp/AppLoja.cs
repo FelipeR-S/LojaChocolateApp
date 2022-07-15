@@ -20,6 +20,7 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
+        private int _addProdVenda;
         public AppLoja()
         {
             InitializeComponent();
@@ -204,6 +205,7 @@ namespace LojaChocolateApp
             {
                 background.Dispose();
             }
+
         }
         /// <summary>
         /// Invoca Popup para aceitar remoção do <see cref="Funcionario"/> do <see cref="FuncionarioRepository"/> caso ele exista
@@ -319,7 +321,7 @@ namespace LojaChocolateApp
             detalhes.Salario = $"R$ {funcionario.Salario}";
             detalhes.DataCadastro = funcionario.DataCadastro.ToString();
             detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
-            //detalhes.Imagem = Resources.user;
+            detalhes.Imagem = Resources.userWhite;
             detalhes.BackGroundColor = Color.FromArgb(238, 118, 0);
             detalhes.btnMenosDetalhes.Visible = false;
             detalhes.btnMaisDetalhes.Visible = false;
@@ -345,7 +347,7 @@ namespace LojaChocolateApp
                 var lista = repo.GetLista();
                 TituloExibeFuncionario.Text = $"Total de {lista.Count} Funcionários Cadastrados";
                 TituloExibeFuncionario.Visible = true;
-                //lista.Sort(new FuncionarioRepository(ordem));
+                lista.Sort(new FuncionarioRepository(ordem));
                 PopularExibeTodosFuncionarios(lista);
                 comboBoxOrdenar.Text = "";
                 textBoxIDDetalhesFuncionario.Text = "";
@@ -377,7 +379,6 @@ namespace LojaChocolateApp
                 layoutLista[i].Salario = $"R$ {lista[i].Salario}";
                 layoutLista[i].DataCadastro = lista[i].DataCadastro.ToString();
                 layoutLista[i].Vendas = lista[i].QuantidadeDeVendas.ToString();
-                //layoutLista[i].Imagem = Resources.user;
                 layoutLista[i].BackGroundColor = Color.Gray;
                 layoutLista[i].panelExibeDetalhes.Visible = false;
                 layoutLista[i].Height = 80;
