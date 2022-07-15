@@ -1,10 +1,18 @@
-﻿using System;
+﻿using LojaChocolateApp.Model;
+using LojaChocolateApp.Properties;
+using LojaChocolateApp.Repository;
+using LojaChocolateApp.Utils;
+using LojaChocolateApp.Utils.LayoutItems;
+using LojaChocolateApp.Utils.Popups;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +24,373 @@ namespace LojaChocolateApp
         {
             InitializeComponent();
             SubMenuDesign();
+            TelasDesign();
+            EscondeTextoDetalhes();
         }
+        // INICIO ------------------------------------ FUNCIONARIOS ------------------------------------ INICIO //
+        /// <summary>
+        /// Envia dados dos textbox para cadastro de <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEnviarCadastroFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var verifica = new FuncionarioRepository();
+                var id = Convert.ToInt32(textBoxId.Text);
+                var nome = textBoxNome.Text;
+                var cpf = textBoxCpf.Text;
+                var contato = textBoxContato.Text;
+                var salario = Convert.ToDecimal(textBoxSalario.Text);
+                var cargo = "";
+                if (comboBoxCargo.Text == "")
+                {
+                    cargo = "Vendedor";
+                }
+                else
+                {
+                    cargo = comboBoxCargo.Text;
+                }
+                var dataCadastro = DateTime.Now.ToShortDateString();
+                Funcionario novoFuncionario = null;
+                if (cpf.Length < 10)
+                {
+                    MessageBox.Show("CPF digitado incorretamente!");
+                }
+                else
+                {
+                    switch (cargo.ToLower())
+                    {
+                        case "vendedor":
+                            novoFuncionario = new Vendedor(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                        case "gerente":
+                            novoFuncionario = new Gerente(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                        default:
+                            novoFuncionario = new Vendedor(id, nome, cpf, contato, salario, cargo, dataCadastro);
+                            break;
+                    }
+                    // Verifica se Funcionário já está Cadastrado
+                    (var existe, var msg) = verifica.Existente(novoFuncionario);
+                    if (existe)
+                    {
+                        MessageBox.Show(msg);
+                    }
+                    else
+                    {
+                        var repo = new FuncionarioRepository();
+                        repo.IncluirUnico(novoFuncionario);
+                        MessageBox.Show("Cadastro Concluído");
+                        ApagaTextBoX();
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos corretamente!");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos corretamente!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Envia arquivo CSV com <see cref="Funcionario"/> para serem inseridos no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCadastrarListaFuncionarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var tratamentoDeArquivo = new FuncionarioRepository();
+                var arquivo = textBoxArquivo.Text;
+                var correto = true;
+                var linhaErrada = 0;
+                using (var fileStream = new FileStream(arquivo, FileMode.Open))
+                using (var sr = new StreamReader(fileStream))
+                {
+                    var contadorLinhas = 0;
+                    while (!sr.EndOfStream)
+                    {
+                        var linha = sr.ReadLine();
+                        correto = CSVIsMatch(linha, "funcionario");
+                        if (!correto)
+                        {
+                            linhaErrada = contadorLinhas + 1;
+                            break;
+                        }
+                        contadorLinhas++;
+                    }
+                }
+                if (correto)
+                {
+                    (var lista, var naoAdicionados, var numeroDeConflitos) = tratamentoDeArquivo.TrataCSV(arquivo);
+                    tratamentoDeArquivo.IncluirVarios(lista);
+                    var erros = $"{numeroDeConflitos} linhas não foram adicionadas:\n";
+                    if (numeroDeConflitos != 0)
+                    {
+                        var contadorLinhas = 0;
+                        while (contadorLinhas < numeroDeConflitos)
+                        {
+                            erros += $"{naoAdicionados[contadorLinhas]}\n";
+                            contadorLinhas++;
+                        }
+                        MessageBox.Show($"Cadastro Concluído\n\n{erros}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cadastro Concluído");
+                    }
+                }
+                else
+                    MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Todos os dados devem ser informados.\nFavor verificar forma correta no botão info!");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Favor selecionar um arquivo CSV");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //ApagaTextBoX();
+            }
+        }
+        /// <summary>
+        /// Exibe Popup com informações de formatação de CSV
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void infoFuncionario_Click(object sender, EventArgs e)
+        {
+            Form background = new Form();
+
+            try
+            {
+                using (PopupInfoCSV popupCSV = new PopupInfoCSV())
+                {
+                    var backGroundDesign = new BackGroundPopup();
+
+                    backGroundDesign.BackGroundPopupDesign(background);
+                    popupCSV.txtFuncionarioCSV.Visible = true;
+                    popupCSV.txtProdutoCSV.Visible = false;
+                    popupCSV.textInfoVendasCSV.Visible = false;
+                    popupCSV.txtFuncionarioCSV.ReadOnly = true;
+                    popupCSV.txtProdutoCSV.ReadOnly = true;
+                    popupCSV.textInfoVendasCSV.ReadOnly = true;
+                    popupCSV.Owner = background;
+                    popupCSV.ShowDialog();
+                    background.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                background.Dispose();
+            }
+        }
+        /// <summary>
+        /// Invoca Popup para aceitar remoção do <see cref="Funcionario"/> do <see cref="FuncionarioRepository"/> caso ele exista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoverFuncionario_Click(object sender, EventArgs e)
+        {
+            Form background = new Form();
+            try
+            {
+                using (PopupRemover popupRemover = new PopupRemover(this))
+                {
+                    var backGroundDesign = new BackGroundPopup();
+
+                    backGroundDesign.BackGroundPopupDesign(background);
+
+                    popupRemover.Owner = background;
+                    popupRemover.panelRemoverProduto.Visible = false;
+                    popupRemover.panelRemoverFuncionario.Visible = true;
+                    popupRemover.ShowDialog();
+                    background.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                background.Dispose();
+            }
+        }
+        /// <summary>
+        /// Altera salário de <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAlterarSalarioFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = Convert.ToInt32(textIdSlarioFuncionario.Text);
+                var salario = Convert.ToDecimal(textSalarioFuncionario.Text);
+                var repoFuncionario = new FuncionarioRepository();
+                (var existe, var salarioAntigo) = repoFuncionario.AlteraSalarioRepository(id, salario);
+                if (existe)
+                {
+                    MessageBox.Show($"O funcionário com id: {id} teve seu salário alterado de {salarioAntigo} para {salario}.");
+                    ApagaTextBoX();
+                }
+                else
+                {
+                    MessageBox.Show($"Funcionário não encontrado!");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show($"Funcionário não encontrado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Recupera detalhes do <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/> quando ele existe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void btnExibeDetalhesFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+                TituloExibeFuncionario.Visible = false;
+                var id = Convert.ToInt32(textBoxIDDetalhesFuncionario.Text);
+                var repoFuncionario = new FuncionarioRepository();
+
+                (var existe, var funcionario) = repoFuncionario.GetDetalhes(id);
+
+                if (existe)
+                {
+                    PopulaExibeDetalhe(funcionario);
+                    textBoxIDDetalhesFuncionario.Text = "";
+                    comboBoxOrdenar.Text = "";
+                }
+                else
+                    MessageBox.Show($"Funcionário com ID nº {id} não encontrado!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show($"Funcionário não encontrado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega layout de detalhes de <see cref="Funcionario"/>
+        /// </summary>
+        /// <param name="funcionario"></param>
+        public void PopulaExibeDetalhe(Funcionario funcionario)
+        {
+            LayoutFuncionarios detalhes = new LayoutFuncionarios();
+            detalhes.Nome = funcionario.Nome;
+            detalhes.Id = funcionario.Id.ToString();
+            detalhes.Cargo = funcionario.Cargo;
+            detalhes.Cpf = funcionario.Cpf;
+            detalhes.Contato = funcionario.Contato;
+            detalhes.Salario = $"R$ {funcionario.Salario}";
+            detalhes.DataCadastro = funcionario.DataCadastro.ToString();
+            detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
+            //detalhes.Imagem = Resources.user;
+            detalhes.BackGroundColor = Color.FromArgb(238, 118, 0);
+            detalhes.btnMenosDetalhes.Visible = false;
+            detalhes.btnMaisDetalhes.Visible = false;
+
+            if (flowLayoutPanelFuncionario.Controls.Count < 0)
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+            }
+            flowLayoutPanelFuncionario.Controls.Add(detalhes);
+        }
+        /// <summary>
+        /// Recupera e exibe lista de todos os <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExibeTodosFuncionarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                flowLayoutPanelFuncionario.Controls.Clear();
+                var ordem = comboBoxOrdenar.Text;
+                var repo = new FuncionarioRepository();
+                var lista = repo.GetLista();
+                TituloExibeFuncionario.Text = $"Total de {lista.Count} Funcionários Cadastrados";
+                TituloExibeFuncionario.Visible = true;
+                //lista.Sort(new FuncionarioRepository(ordem));
+                PopularExibeTodosFuncionarios(lista);
+                comboBoxOrdenar.Text = "";
+                textBoxIDDetalhesFuncionario.Text = "";
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Não há nenhum funcionário cadastrado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega layout que exibe lista de funcionários
+        /// </summary>
+        /// <param name="lista"></param>
+        private void PopularExibeTodosFuncionarios(List<Funcionario> lista)
+        {
+            LayoutFuncionarios[] layoutLista = new LayoutFuncionarios[lista.Count];
+            for (int i = 0; i < lista.Count; i++)
+            {
+                layoutLista[i] = new LayoutFuncionarios();
+                layoutLista[i].Nome = lista[i].Nome;
+                layoutLista[i].Id = lista[i].Id.ToString();
+                layoutLista[i].Cargo = lista[i].Cargo;
+                layoutLista[i].Cpf = lista[i].Cpf;
+                layoutLista[i].Contato = lista[i].Contato;
+                layoutLista[i].Salario = $"R$ {lista[i].Salario}";
+                layoutLista[i].DataCadastro = lista[i].DataCadastro.ToString();
+                layoutLista[i].Vendas = lista[i].QuantidadeDeVendas.ToString();
+                //layoutLista[i].Imagem = Resources.user;
+                layoutLista[i].BackGroundColor = Color.Gray;
+                layoutLista[i].panelExibeDetalhes.Visible = false;
+                layoutLista[i].Height = 80;
+                layoutLista[i].btnMenosDetalhes.Visible = false;
+
+                if (flowLayoutPanelFuncionario.Controls.Count < 0)
+                {
+                    flowLayoutPanelFuncionario.Controls.Clear();
+                }
+                flowLayoutPanelFuncionario.Controls.Add(layoutLista[i]);
+            }
+        }
+        // FIM ------------------------------------ FUNCIONARIOS ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
         /// Esconde um submenu quando outro estiver vísivel
@@ -58,53 +432,53 @@ namespace LojaChocolateApp
         /// </summary>
         private void EscondeTextoDetalhes()
         {
-           //flowLayoutPanelFuncionario.Controls.Clear();
-           //TituloExibeFuncionario.Visible = false;
-           //flowLayoutLayoutExibeProdutos.Controls.Clear();
-           //tituloExibeProdutos.Visible = false;
-           //panelQuantidadeProduto.Visible = false;
-           //panelNovoValorProduto.Visible = false;
+            flowLayoutPanelFuncionario.Controls.Clear();
+            TituloExibeFuncionario.Visible = false;
+            //flowLayoutLayoutExibeProdutos.Controls.Clear();
+            //tituloExibeProdutos.Visible = false;
+            //panelQuantidadeProduto.Visible = false;
+            //panelNovoValorProduto.Visible = false;
         }
         /// <summary>
         /// Deixa telas dos submenus não vísiveis ao iniciar a aplicação
         /// </summary>
         private void TelasDesign()
         {
-          //panelCadastrarFuncionario.Visible = false;
-          //panelRemoverFuncionario.Visible = false;
-          //panelConsultarFuncionario.Visible = false;
-          //panelInserirProduto.Visible = false;
-          //panelEstoqueProduto.Visible = false;
-          //panelExibirProdutos.Visible = false;
-          //panelCadastrarVendas.Visible = false;
-          //panelConsultaVendas.Visible = false;
-          //dataGridViewVendas.Visible = false;
+            panelCadastrarFuncionario.Visible = false;
+            panelRemoverFuncionario.Visible = false;
+            panelConsultarFuncionario.Visible = false;
+            //panelInserirProduto.Visible = false;
+            //panelEstoqueProduto.Visible = false;
+            //panelExibirProdutos.Visible = false;
+            //panelCadastrarVendas.Visible = false;
+            //panelConsultaVendas.Visible = false;
+            //dataGridViewVendas.Visible = false;
         }
         /// <summary>
         /// Esconde uma tela enquanto outra estiver ativa
         /// </summary>
         private void EsconderTelas()
         {
-           //if (panelCadastrarFuncionario.Visible == true)
-           //    panelCadastrarFuncionario.Visible = false;
-           //if (panelRemoverFuncionario.Visible == true)
-           //    panelRemoverFuncionario.Visible = false;
-           //if (panelConsultarFuncionario.Visible == true)
-           //    panelConsultarFuncionario.Visible = false;
-           //if (panelInserirProduto.Visible == true)
-           //    panelInserirProduto.Visible = false;
-           //if (panelEstoqueProduto.Visible == true)
-           //    panelEstoqueProduto.Visible = false;
-           //if (panelExibirProdutos.Visible == true)
-           //    panelExibirProdutos.Visible = false;
-           //if (panelCadastrarVendas.Visible == true)
-           //    panelCadastrarVendas.Visible = false;
-           //if (panelConsultaVendas.Visible == true)
-           //{
-           //    panelConsultaVendas.Visible = false;
-           //    dataGridViewVendas.Visible = false;
-           //    dataGridViewVendas.Rows.Clear();
-           //}
+            if (panelCadastrarFuncionario.Visible == true)
+                panelCadastrarFuncionario.Visible = false;
+            if (panelRemoverFuncionario.Visible == true)
+                panelRemoverFuncionario.Visible = false;
+            if (panelConsultarFuncionario.Visible == true)
+                panelConsultarFuncionario.Visible = false;
+            //if (panelInserirProduto.Visible == true)
+            //    panelInserirProduto.Visible = false;
+            //if (panelEstoqueProduto.Visible == true)
+            //    panelEstoqueProduto.Visible = false;
+            //if (panelExibirProdutos.Visible == true)
+            //    panelExibirProdutos.Visible = false;
+            //if (panelCadastrarVendas.Visible == true)
+            //    panelCadastrarVendas.Visible = false;
+            //if (panelConsultaVendas.Visible == true)
+            //{
+            //    panelConsultaVendas.Visible = false;
+            //    dataGridViewVendas.Visible = false;
+            //    dataGridViewVendas.Rows.Clear();
+            //}
         }
         /// <summary>
         /// Mostra uma tela ao ser invocada ou a esconde caso já esteja vísivel
@@ -112,16 +486,16 @@ namespace LojaChocolateApp
         /// <param name="telas">Objeto do tipo <see cref="Panel"/> que refere a uma tela invocada por botão de submenu</param>
         public void MostrarTelas(Panel telas)
         {
-           //if (telas.Visible == false)
-           //{
-           //    panelLogoPrincipal.Visible = false;
-           //    ApagaTextBoX();
-           //    EscondeTextoDetalhes();
-           //    EsconderTelas();
-           //    telas.Visible = true;
-           //}
-           //else
-           //    telas.Visible = false;
+            if (telas.Visible == false)
+            {
+                //panelLogoPrincipal.Visible = false;
+                ApagaTextBoX();
+                EscondeTextoDetalhes();
+                EsconderTelas();
+                telas.Visible = true;
+            }
+            else
+                telas.Visible = false;
         }
         // FIM ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ INICIO //
@@ -142,7 +516,7 @@ namespace LojaChocolateApp
         private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelCadastrarFuncionario);
+            MostrarTelas(panelCadastrarFuncionario);
             EsconderSubMenu();
         }
         /// <summary>
@@ -153,7 +527,7 @@ namespace LojaChocolateApp
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelRemoverFuncionario);
+            MostrarTelas(panelRemoverFuncionario);
             EsconderSubMenu();
         }
         /// <summary>
@@ -164,7 +538,7 @@ namespace LojaChocolateApp
         private void btnConsultarFuncionarios_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelConsultarFuncionario);
+            MostrarTelas(panelConsultarFuncionario);
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ FIM //
@@ -233,9 +607,9 @@ namespace LojaChocolateApp
             EsconderTelas();
             //MostrarTelas(panelCadastrarVendas);
             EsconderSubMenu();
-           //_addProdVenda = 0;
-           //textProdVendas.ReadOnly = true;
-           //textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            //_addProdVenda = 0;
+            //textProdVendas.ReadOnly = true;
+            //textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
         }
         /// <summary>
         /// Botão do submenu CONSULTAR do MENU VENDAS que invoca painel Lista de Vendas
@@ -249,5 +623,237 @@ namespace LojaChocolateApp
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
+        // INICIO ------------------------------------ TEXTBOX ------------------------------------ INICIO //
+        /// <summary>
+        /// Apaga conteudo de todas as textbox inseridas quando invocado
+        /// </summary>
+        private void ApagaTextBoX()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+            func(Controls);
+        }
+        /// <summary>
+        /// Permite apenas numeros na textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Permite apenas letras e "-" no textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnlyChars(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsDigit(c) && c != 8 && c != 45)
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Alterar formato de caracteres do CPF para inserção correta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxCPF(object sender, KeyPressEventArgs e)
+        {
+            var posicao = textBoxCpf.SelectionStart;
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+            else if (c == 8) posicao--;
+            else if (posicao == 3 && c != 8 || posicao == 7 && c != 8)
+            {
+                textBoxCpf.Text = textBoxCpf.Text.Insert(posicao, ".");
+                textBoxCpf.SelectionStart = posicao + 1;
+
+            }
+            else if (posicao == 11 && c != 8)
+            {
+                textBoxCpf.Text = textBoxCpf.Text.Insert(posicao, "-");
+                textBoxCpf.SelectionStart = posicao + 1;
+            }
+        }
+        /// <summary>
+        /// Formata o box para o celular contato padrao
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxContato(object sender, KeyPressEventArgs e)
+        {
+            var posicao = textBoxContato.SelectionStart;
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+            else if (c == 8) posicao--;
+            else if (posicao == 0 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, "(");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+            else if (posicao == 3 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, ")");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+            else if (posicao == 9 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, "-");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+        }
+        /// <summary>
+        /// Formata o box para o valor em dinheiro padrão
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxValor(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
+            {
+                TextBox t = (TextBox)sender;
+                if (t.Text.Length < 9 || e.KeyChar.Equals((char)Keys.Back))
+                {
+                    string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
+                    if (w == string.Empty) w = "00";
+
+                    if (e.KeyChar.Equals((char)Keys.Back))
+                        w = w.Substring(0, w.Length - 1);
+                    else
+                        w += e.KeyChar;
+                    t.Text = string.Format("{0:#,##0.00}", double.Parse(w) / 100);
+                    t.Select(t.Text.Length, 0);
+                }
+                else e.Handled = true;
+            }
+            e.Handled = true;
+        }
+        /// <summary>
+        /// Dialogo para selecionar arquivo para cadastro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenFile(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            OpenFileDialog file = new OpenFileDialog();
+            file.ShowDialog();
+            tb.Text = file.FileName;
+            tb.Text = file.FileName;
+        }
+        /// <summary>
+        /// Recebe arquivo CSV e verifica se está no padrão correto
+        /// </summary>
+        /// <param name="linha"></param>
+        /// <param name="caso"></param>
+        /// <returns>Retorna bool para correto ou incorreto</returns>
+        private bool CSVIsMatch(string linha, string caso)
+        {
+            var patternID = @"^\s*[0-9]{1,3}\s*$";
+            var patternData = @"^\s*[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}\s*$";
+            var patternValor = @"^\s*[0-9]{1,5}[,][0-9]{2}\s*$";
+            var patternTxt = @"^[A-Za-zÀ-ú\s]*$";
+            switch (caso)
+            {
+                case "funcionario":
+                    var splitFuncionario = linha.Split(';');
+                    var patternCPF = @"^\s*[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}\s*$";
+                    var patternContato = @"^\s*[0-9]{10,11}\s*$";
+                    if (!Regex.IsMatch(splitFuncionario[0], patternID) ||
+                        !Regex.IsMatch(splitFuncionario[1], patternTxt) ||
+                        !Regex.IsMatch(splitFuncionario[2], patternCPF) ||
+                        !Regex.IsMatch(splitFuncionario[3], patternContato) ||
+                        !Regex.IsMatch(splitFuncionario[4], patternValor) ||
+                        !Regex.IsMatch(splitFuncionario[5], patternTxt) ||
+                        !Regex.IsMatch(splitFuncionario[6], patternData))
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+                case "produto":
+                    var splitProduto = linha.Split(';');
+                    var patternEstoque = @"^\s*[0-9]{1,4}\s*$";
+                    if (!Regex.IsMatch(splitProduto[0], patternID) ||
+                        !Regex.IsMatch(splitProduto[1], patternTxt) ||
+                        !Regex.IsMatch(splitProduto[2], patternID) ||
+                        !Regex.IsMatch(splitProduto[3], patternValor) ||
+                        !Regex.IsMatch(splitProduto[4], patternTxt) ||
+                        !Regex.IsMatch(splitProduto[5], patternEstoque))
+                    {
+                        return false;
+                    }
+                    return true;
+                case "vendas":
+                    var splitVenda = linha.Split(';');
+                    var patternProduto = @"^\s*[0-9]{1,3}[|][0-9]{1,3}\s*$";
+                    var contador = 1;
+                    var listaIdProduto = new List<int>();
+                    var correto = false;
+                    if (!Regex.IsMatch(splitVenda[0], patternID))
+                    {
+                        return correto;
+                    }
+                    else
+                    {
+                        while (contador < splitVenda.Length - 1)
+                        {
+                            var vendaProduto = splitVenda[contador].Split('|');
+                            if (!Regex.IsMatch(splitVenda[contador], patternProduto))
+                            {
+                                correto = false;
+                                break;
+                            }
+                            var idProduto = Convert.ToInt32(vendaProduto[1]);
+                            if (listaIdProduto.Contains(idProduto))
+                            {
+                                correto = false;
+                                break;
+                            }
+                            else
+                            {
+                                correto = true;
+                                listaIdProduto.Add(idProduto);
+                                contador++;
+                            }
+                        }
+                        if (correto)
+                        {
+                            if (!Regex.IsMatch(splitVenda[splitVenda.Length - 1], patternData))
+                            {
+                                correto = false;
+                                return correto;
+                            }
+                            else
+                                return correto;
+                        }
+                        return correto;
+                    }
+                default:
+                    return false;
+            }
+        }
+        // INICIO ------------------------------------ FIM ------------------------------------ INICIO //
     }
 }
