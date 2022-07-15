@@ -20,7 +20,7 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
-        //private int _addProdVenda;
+        private int _addProdVenda;
         public AppLoja()
         {
             InitializeComponent();
@@ -804,6 +804,448 @@ namespace LojaChocolateApp
             }
         }
         // FIM ------------------------------------ PRODUTO ------------------------------------ FIM //
+        // INICIO ---------------------------------- VENDAS ---------------------------------- INICIO //
+        /// <summary>
+        /// Adiciona <see cref="Produto"/> ao texBox de venda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAdicionarProdVenda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textProdVendas.Visible = true;
+                if (_addProdVenda < 10)
+                {
+                    var quantidade = textQtdVendasProd.Text;
+                    var produto = cboProduto1.Text;
+                    if (quantidade == "" || produto == "")
+                    {
+                        MessageBox.Show("Quantidade e produto devem ser declarados!");
+                    }
+                    else if (textProdVendas.Text.Contains(produto))
+                    {
+                        MessageBox.Show("Produto já foi inserido!");
+                    }
+                    else
+                    {
+                        textProdVendas.Text += $"{quantidade} | {produto}\r\n";
+                        _addProdVenda++;
+                    }
+                }
+                else
+                    MessageBox.Show("Número máximo de produtos inserido!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                textQtdVendasProd.Text = "";
+                textIdRemoverVenda.Text = "";
+                cboProduto1.Text = "";
+            }
+        }
+        /// <summary>
+        /// Remove <see cref="Produto"/> do texBox de Venda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoverVenda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_addProdVenda > 0)
+                {
+                    var id = Convert.ToInt32(textIdRemoverVenda.Text);
+                    var linhas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
+                    var listaLinha = new List<string>();
+                    var contador = -1;
+
+                    for (int i = 0; i < linhas.Length - 1; i++)
+                    {
+                        var textoId = linhas[i].Split('|');
+                        if (id == Convert.ToInt32(textoId[1]))
+                        {
+                            contador = i;
+                        }
+                        else
+                            listaLinha.Add(linhas[i]);
+                    }
+                    if (contador >= 0)
+                    {
+                        _addProdVenda--;
+                        textProdVendas.Controls.Clear();
+                        textProdVendas.Text = "";
+                        foreach (var linha in listaLinha)
+                        {
+                            textProdVendas.Text += $"{linha}\r\n";
+                        }
+                        MessageBox.Show("Produto Removido!");
+                    }
+                    else
+                        MessageBox.Show("Produto não inserido!");
+                }
+                else
+                    MessageBox.Show("Nenhum produto para remover!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                textQtdVendasProd.Text = "";
+                textIdRemoverVenda.Text = "";
+                cboProduto1.Text = "";
+            }
+
+        }
+        /// <summary>
+        /// Carrega elementos do combobox do submenu cadastrar vendas de forma dinamica
+        /// </summary>
+        private void CarregaComboBox()
+        {
+            var repoProduto = new ProdutoRepository();
+            var lista = repoProduto.GetLista();
+            var listaProdutos = new List<Produto>();
+            var produtoVazio = new Produto(0, "", 0m, 0m, "", 0);
+            listaProdutos.Add(produtoVazio);
+            foreach (var p in lista)
+            {
+                var novoProduto = new Produto(p.Id, $"{p.Id} | {p.Nome} | R$ {p.Valor}", p.Peso, p.Valor, p.Tipo, p.Estoque);
+                listaProdutos.Add(novoProduto);
+            }
+
+            listaProdutos.Sort(new ProdutoRepository(""));
+
+            cboProduto1.DataSource = listaProdutos;
+            cboProduto1.ValueMember = "Id";
+            cboProduto1.DisplayMember = "Nome";
+        }
+        /// <summary>
+        /// Recebe dados de textBox para cadastrar venda com dados informados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCadastrarVendaUnica_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Entrada de dados
+                var vendas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
+                var funcionarioId = Convert.ToInt32(textIdVendasCadastro.Text);
+                var conflito = false;
+                var valorTotal = 0m;
+                var data = DateTime.Now;
+
+                //Repositorios
+                var repoFuncionario = new FuncionarioRepository();
+                var repoProduto = new ProdutoRepository();
+                var repoVendas = new VendaRepository();
+
+                //Listas
+                var listaProdVendas = new List<Tuple<int, Produto>>();
+
+                //Get Funcionario
+                (var existeFuncionario, var funcionario) = repoFuncionario.GetDetalhes(funcionarioId);
+                if (textProdVendas.Text != "")
+                {
+                    if (existeFuncionario)
+                    {
+                        // Verifica estoque
+                        for (int i = 0; i < vendas.Length - 1; i++)
+                        {
+                            var linha = vendas[i].Split('|');
+                            var qtdProdutos = Convert.ToInt32(linha[0]);
+                            (var exProd, var produto) = repoProduto.GetDetalhes(Convert.ToInt32(linha[1]));
+                            if (qtdProdutos > produto.Estoque || !exProd)
+                            {
+                                MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
+                                    $"{produto.Nome} | ID: {produto.Id} | Estoque: {produto.Estoque}\n" +
+                                    $"Quantidade tentada: {qtdProdutos}");
+                                conflito = true;
+                                break;
+                            }
+                            else
+                            {
+                                listaProdVendas.Add(new Tuple<int, Produto>(qtdProdutos, produto));
+                            }
+                        }
+                        if (!conflito)
+                        {
+                            foreach (var item in listaProdVendas)
+                            {
+                                (var qtd, var prod) = item;
+                                valorTotal += qtd * prod.Valor;
+                                var diminuiEstoque = $"-{qtd}";
+                                // Altera estoque de produtos
+                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
+                            }
+                            var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
+                            repoVendas.IncluirUnico(venda);
+                            _addProdVenda = 0;
+                            MessageBox.Show("Cadastro concluído!");
+                            ApagaTextBoX();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Funcionário não encontrado na base de dados!");
+                }
+                else
+                    MessageBox.Show("Favor informar os produtos e quantidades!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Favor inserir funcionário!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Exibe popup de informações dobre arquivo CSV
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInfoVendaCSV_Click(object sender, EventArgs e)
+        {
+            Form background = new Form();
+            try
+            {
+                using (PopupInfoCSV popupCSV = new PopupInfoCSV())
+                {
+                    var backGroundDesign = new BackGroundPopup();
+
+                    backGroundDesign.BackGroundPopupDesign(background);
+                    popupCSV.txtFuncionarioCSV.Visible = false;
+                    popupCSV.txtProdutoCSV.Visible = false;
+                    popupCSV.textInfoVendasCSV.Visible = true;
+                    popupCSV.txtFuncionarioCSV.ReadOnly = true;
+                    popupCSV.txtProdutoCSV.ReadOnly = true;
+                    popupCSV.textInfoVendasCSV.ReadOnly = true;
+                    popupCSV.Owner = background;
+                    popupCSV.ShowDialog();
+                    background.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                background.Dispose();
+            }
+        }
+        /// <summary>
+        /// Recebe arquivo CSV e adiciona informações para cadastro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCadastrarVendasCSV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var tratamentoArquivo = new VendaRepository();
+                var arquivo = textArquivoVendasCadastro.Text;
+                var correto = true;
+                var linhaErrada = 0;
+                using (var filestream = new FileStream(arquivo, FileMode.Open))
+                using (var leitor = new StreamReader(filestream))
+                {
+                    var contadorLinhas = 0;
+                    while (!leitor.EndOfStream)
+                    {
+                        var linha = leitor.ReadLine();
+                        correto = CSVIsMatch(linha, "vendas");
+                        if (!correto)
+                        {
+                            linhaErrada = contadorLinhas + 1;
+                            break;
+                        }
+                        contadorLinhas++;
+                    }
+                }
+                if (correto)
+                {
+                    (var inseridos, var conflitos, var qtdconflitos) = tratamentoArquivo.TrataCSV(arquivo);
+                    if (qtdconflitos != 0)
+                    {
+                        var erros = "";
+                        foreach (var msg in conflitos)
+                        {
+                            erros += $"{msg}\n";
+                        }
+                        MessageBox.Show(erros);
+                    }
+                    else
+                    {
+                        tratamentoArquivo.IncluirVarios(inseridos);
+                        MessageBox.Show("Vendas inseridas com sucesso!");
+                    }
+                }
+                else
+                    MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Favor selecionar um arquivo CSV");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                ApagaTextBoX();
+            }
+        }
+        /// <summary>
+        /// Insere dados na lista de vendas em um DataGrid
+        /// </summary>
+        private void PopulaListaVendas()
+        {
+            var repoVendas = new VendaRepository();
+            var listaVendas = repoVendas.GetLista();
+            DesignDataGrid();
+            foreach (var venda in listaVendas)
+            {
+                var qtdTotal = 0;
+                var produtos = repoVendas.GetDetalhesVenda(venda.VendaId);
+                foreach (var produto in produtos)
+                {
+                    var dados = produto.Split('|');
+                    var qtd = Convert.ToInt32(dados[0].Remove(0, dados[0].IndexOf(':') + 1));
+                    qtdTotal += qtd;
+                }
+                var id = $"{venda.VendaId}";
+                var descricao = $"Venda por {venda.VendedorNome}, id: {venda.VendedorId}, quantidade de produtos: {qtdTotal}";
+                var valor = $"{venda.Valor}";
+                var data = venda.DataVenda.ToShortDateString();
+                dataGridVendasBindingSource.Add(new DataGridVendas() { Id = id, Descricao = descricao, Valor = valor, Data = data, BtnText = "+" });
+            }
+            dataGridViewVendas.Visible = true;
+        }
+        /// <summary>
+        /// Exibe ou apaga detalhes do DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex != -1)
+                {
+                    var index = -1;
+                    //Remove detalhes
+                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "-" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
+                    {
+                        index = dataGridViewVendas.Rows[e.RowIndex].Index;
+                        var contador = index;
+                        while (contador + 1 < dataGridViewVendas.Rows.Count)
+                        {
+                            if (dataGridViewVendas.Rows[index + 1].Index == dataGridViewVendas.Rows.Count)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                if (dataGridViewVendas.Rows[index + 1].Cells[0].Value.ToString() == "")
+                                {
+                                    dataGridViewVendas.Rows.RemoveAt(index + 1);
+                                }
+                                else
+                                    break;
+                            }
+                        }
+                        dataGridViewVendas.Rows[index].Cells[4].Value = "+";
+                        goto SkipToEnd;
+                    }
+                    //Exibe detalhes
+                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "+" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
+                    {
+                        var id = Convert.ToInt32(dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value);
+                        index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
+                        var descricao = dataGridViewVendas.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        dataGridViewVendas.Rows[e.RowIndex].Selected = true;
+
+                        // Replace na venda clicada "-"
+                        dataGridViewVendas.Rows[index - 1].Cells[4].Value = "-";
+                        PopulaDetalhesBtn(id, index, descricao);
+                        goto SkipToEnd;
+                    }
+                    else
+                    {
+                        goto SkipToEnd;
+                    }
+                }
+            SkipToEnd:;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega a lista para exibição do datagrid em tela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCarregaListaVendas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewVendas.Rows.Clear();
+                PopulaListaVendas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Define parametros de colunas e outras informações de design para o DataGridVendas
+        /// </summary>
+        private void DesignDataGrid()
+        {
+            dataGridViewVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Lato", 10, FontStyle.Bold);
+            dataGridViewVendas.ColumnHeadersHeight = 30;
+            dataGridViewVendas.Columns[0].Width = 30;
+            dataGridViewVendas.Columns[0].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[1].Width = 410;
+            dataGridViewVendas.Columns[2].Width = 70;
+            dataGridViewVendas.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[3].Width = 100;
+            dataGridViewVendas.Columns[3].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[4].Width = 30;
+            dataGridViewVendas.Columns[4].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+        /// <summary>
+        /// Popula as linhas de detalhes de cada venda
+        /// </summary>
+        /// <param name="idVenda"></param>
+        /// <param name="index"></param>
+        /// <param name="descricao"></param>
+        private void PopulaDetalhesBtn(int idVenda, int index, string descricao)
+        {
+            var repovendas = new VendaRepository();
+            var produtos = repovendas.GetDetalhesVenda(idVenda);
+            // Detalhes adicionados
+            foreach (var produto in produtos)
+            {
+                var dados = produto.Split('|');
+                var descricaoProd = $"{dados[0]} | {dados[1]} | {dados[2]}";
+                var valorProd = $"{dados[3].Remove(0, dados[3].IndexOf(':') + 1)}";
+                dataGridVendasBindingSource
+                    .Insert(index, new DataGridVendas() { Id = "", Descricao = descricaoProd, Valor = valorProd, Data = "", BtnText = "" });
+                dataGridViewVendas.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(235, 167, 101);
+            }
+        }
+        // FIM ---------------------------------- VENDAS ---------------------------------- FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
         /// Esconde um submenu quando outro estiver vísivel
@@ -863,9 +1305,9 @@ namespace LojaChocolateApp
             panelInserirProduto.Visible = false;
             panelEstoqueProduto.Visible = false;
             panelExibirProdutos.Visible = false;
-            //panelCadastrarVendas.Visible = false;
-            //panelConsultaVendas.Visible = false;
-            //dataGridViewVendas.Visible = false;
+            panelCadastrarVendas.Visible = false;
+            panelConsultaVendas.Visible = false;
+            dataGridViewVendas.Visible = false;
         }
         /// <summary>
         /// Esconde uma tela enquanto outra estiver ativa
@@ -884,14 +1326,14 @@ namespace LojaChocolateApp
                 panelEstoqueProduto.Visible = false;
             if (panelExibirProdutos.Visible == true)
                 panelExibirProdutos.Visible = false;
-            //if (panelCadastrarVendas.Visible == true)
-            //    panelCadastrarVendas.Visible = false;
-            //if (panelConsultaVendas.Visible == true)
-            //{
-            //    panelConsultaVendas.Visible = false;
-            //    dataGridViewVendas.Visible = false;
-            //    dataGridViewVendas.Rows.Clear();
-            //}
+            if (panelCadastrarVendas.Visible == true)
+                panelCadastrarVendas.Visible = false;
+            if (panelConsultaVendas.Visible == true)
+            {
+                panelConsultaVendas.Visible = false;
+                dataGridViewVendas.Visible = false;
+                dataGridViewVendas.Rows.Clear();
+            }
         }
         /// <summary>
         /// Mostra uma tela ao ser invocada ou a esconde caso já esteja vísivel
@@ -1016,13 +1458,13 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnCadastrarVendas_Click(object sender, EventArgs e)
         {
-            //CarregaComboBox();
+            CarregaComboBox();
             EsconderTelas();
-            //MostrarTelas(panelCadastrarVendas);
+            MostrarTelas(panelCadastrarVendas);
             EsconderSubMenu();
-            //_addProdVenda = 0;
-            //textProdVendas.ReadOnly = true;
-            //textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            _addProdVenda = 0;
+            textProdVendas.ReadOnly = true;
+            textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
         }
         /// <summary>
         /// Botão do submenu CONSULTAR do MENU VENDAS que invoca painel Lista de Vendas
@@ -1032,7 +1474,7 @@ namespace LojaChocolateApp
         private void btnConsultarVendas_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelConsultaVendas);
+            MostrarTelas(panelConsultaVendas);
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
@@ -1063,6 +1505,7 @@ namespace LojaChocolateApp
             textTipoProduto.Text = "";
             comboBoxOpcaoProdutos.Text = "";
             comboBoxOrdemProdutos.Text = "";
+            cboProduto1.Text = "";
         }
         /// <summary>
         /// Permite apenas numeros na textbox
