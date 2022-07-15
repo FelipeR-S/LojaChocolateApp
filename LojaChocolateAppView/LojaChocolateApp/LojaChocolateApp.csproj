@@ -77,6 +77,12 @@
     <Compile Include="Utils\LayoutItems\LayoutFuncionarios.Designer.cs">
       <DependentUpon>LayoutFuncionarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LayoutItems\LayoutProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\LayoutItems\LayoutProdutos.Designer.cs">
+      <DependentUpon>LayoutProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Popups\PopupInfoCSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="Utils\LayoutItems\LayoutFuncionarios.resx">
       <DependentUpon>LayoutFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\LayoutItems\LayoutProdutos.resx">
+      <DependentUpon>LayoutProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
       <DependentUpon>PopupInfoCSV.cs</DependentUpon>
