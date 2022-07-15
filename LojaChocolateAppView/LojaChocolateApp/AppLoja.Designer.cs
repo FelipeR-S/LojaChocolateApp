@@ -31,18 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppLoja));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.panelSubMenuVendas = new System.Windows.Forms.Panel();
-            this.btnConsultarVendas = new System.Windows.Forms.Button();
-            this.btnCadastrarVendas = new System.Windows.Forms.Button();
+            this.btnVendas = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuProdutos = new System.Windows.Forms.Panel();
             this.btnConsultarProdutos = new System.Windows.Forms.Button();
             this.btnEstoque = new System.Windows.Forms.Button();
             this.btnInserirProduto = new System.Windows.Forms.Button();
+            this.btnProdutos = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuFuncionario = new System.Windows.Forms.Panel();
             this.btnConsultarFuncionarios = new System.Windows.Forms.Button();
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
+            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCadastrarFuncionario = new System.Windows.Forms.Panel();
             this.textBoxSalario = new System.Windows.Forms.TextBox();
             this.textBoxCpf = new System.Windows.Forms.TextBox();
@@ -145,15 +147,37 @@
             this.textIdBuscaProdutos = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
-            this.btnVendas = new FontAwesome.Sharp.IconButton();
-            this.btnProdutos = new FontAwesome.Sharp.IconButton();
-            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelCadastrarVendas = new System.Windows.Forms.Panel();
+            this.textProdVendas = new System.Windows.Forms.TextBox();
+            this.btnRemoverVenda = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textIdRemoverVenda = new System.Windows.Forms.TextBox();
+            this.btnAdicionarProdVenda = new System.Windows.Forms.Button();
+            this.cboProduto1 = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textQtdVendasProd = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.btnCadastrarVendasCSV = new System.Windows.Forms.Button();
+            this.btnInfoVendaCSV = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textArquivoVendasCadastro = new System.Windows.Forms.TextBox();
+            this.btnCadastrarVendaUnica = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.textIdVendasCadastro = new System.Windows.Forms.TextBox();
+            this.btnCadastrarVendas = new System.Windows.Forms.Button();
+            this.btnConsultarVendas = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCadastrarFuncionario.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panelConsultarFuncionario.SuspendLayout();
@@ -177,7 +201,8 @@
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelCadastrarVendas.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -208,41 +233,29 @@
             this.panelSubMenuVendas.Size = new System.Drawing.Size(248, 70);
             this.panelSubMenuVendas.TabIndex = 15;
             // 
-            // btnConsultarVendas
+            // btnVendas
             // 
-            this.btnConsultarVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultarVendas.FlatAppearance.BorderSize = 0;
-            this.btnConsultarVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
-            this.btnConsultarVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConsultarVendas.Location = new System.Drawing.Point(0, 35);
-            this.btnConsultarVendas.Name = "btnConsultarVendas";
-            this.btnConsultarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsultarVendas.Size = new System.Drawing.Size(248, 35);
-            this.btnConsultarVendas.TabIndex = 2;
-            this.btnConsultarVendas.Text = "Consultar";
-            this.btnConsultarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultarVendas.UseVisualStyleBackColor = true;
-            this.btnConsultarVendas.Click += new System.EventHandler(this.btnConsultarVendas_Click);
-            // 
-            // btnCadastrarVendas
-            // 
-            this.btnCadastrarVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCadastrarVendas.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
-            this.btnCadastrarVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCadastrarVendas.Location = new System.Drawing.Point(0, 0);
-            this.btnCadastrarVendas.Name = "btnCadastrarVendas";
-            this.btnCadastrarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCadastrarVendas.Size = new System.Drawing.Size(248, 35);
-            this.btnCadastrarVendas.TabIndex = 1;
-            this.btnCadastrarVendas.Text = "Cadastrar";
-            this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarVendas.UseVisualStyleBackColor = true;
-            this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
+            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendas.FlatAppearance.BorderSize = 0;
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnVendas.IconColor = System.Drawing.Color.White;
+            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVendas.IconSize = 25;
+            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.Location = new System.Drawing.Point(0, 427);
+            this.btnVendas.Name = "btnVendas";
+            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVendas.Size = new System.Drawing.Size(248, 45);
+            this.btnVendas.TabIndex = 0;
+            this.btnVendas.Text = "   Vendas";
+            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendas.UseVisualStyleBackColor = false;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // panelSubMenuProdutos
             // 
@@ -310,6 +323,29 @@
             this.btnInserirProduto.UseVisualStyleBackColor = true;
             this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
+            // btnProdutos
+            // 
+            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdutos.FlatAppearance.BorderSize = 0;
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnProdutos.IconColor = System.Drawing.Color.White;
+            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProdutos.IconSize = 25;
+            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
+            this.btnProdutos.TabIndex = 0;
+            this.btnProdutos.Text = "  Produtos";
+            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            // 
             // panelSubMenuFuncionario
             // 
             this.panelSubMenuFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -376,6 +412,30 @@
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
             this.btnCadastrarFuncionario.Click += new System.EventHandler(this.btnCadastrarFuncionario_Click);
             // 
+            // btnFuncionarios
+            // 
+            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
+            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFuncionarios.IconSize = 25;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
+            this.btnFuncionarios.Name = "btnFuncionarios";
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
+            this.btnFuncionarios.TabIndex = 0;
+            this.btnFuncionarios.Text = "  Funcionários";
+            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
+            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(247, 0);
@@ -393,6 +453,17 @@
             this.panelLogo.Padding = new System.Windows.Forms.Padding(20);
             this.panelLogo.Size = new System.Drawing.Size(248, 123);
             this.panelLogo.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panelCadastrarFuncionario
             // 
@@ -1701,87 +1772,342 @@
             this.label34.TabIndex = 14;
             this.label34.Text = "Consultar informações dos Produtos\r\n";
             // 
-            // btnVendas
+            // panelCadastrarVendas
             // 
-            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnVendas.IconColor = System.Drawing.Color.White;
-            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendas.IconSize = 25;
-            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(0, 427);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(248, 45);
-            this.btnVendas.TabIndex = 0;
-            this.btnVendas.Text = "   Vendas";
-            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendas.UseVisualStyleBackColor = false;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
+            this.panelCadastrarVendas.BackColor = System.Drawing.Color.White;
+            this.panelCadastrarVendas.Controls.Add(this.textProdVendas);
+            this.panelCadastrarVendas.Controls.Add(this.btnRemoverVenda);
+            this.panelCadastrarVendas.Controls.Add(this.label44);
+            this.panelCadastrarVendas.Controls.Add(this.textIdRemoverVenda);
+            this.panelCadastrarVendas.Controls.Add(this.btnAdicionarProdVenda);
+            this.panelCadastrarVendas.Controls.Add(this.cboProduto1);
+            this.panelCadastrarVendas.Controls.Add(this.label50);
+            this.panelCadastrarVendas.Controls.Add(this.label49);
+            this.panelCadastrarVendas.Controls.Add(this.textQtdVendasProd);
+            this.panelCadastrarVendas.Controls.Add(this.label42);
+            this.panelCadastrarVendas.Controls.Add(this.label43);
+            this.panelCadastrarVendas.Controls.Add(this.label41);
+            this.panelCadastrarVendas.Controls.Add(this.panel18);
+            this.panelCadastrarVendas.Controls.Add(this.btnCadastrarVendasCSV);
+            this.panelCadastrarVendas.Controls.Add(this.btnInfoVendaCSV);
+            this.panelCadastrarVendas.Controls.Add(this.label39);
+            this.panelCadastrarVendas.Controls.Add(this.label40);
+            this.panelCadastrarVendas.Controls.Add(this.textArquivoVendasCadastro);
+            this.panelCadastrarVendas.Controls.Add(this.btnCadastrarVendaUnica);
+            this.panelCadastrarVendas.Controls.Add(this.label46);
+            this.panelCadastrarVendas.Controls.Add(this.textIdVendasCadastro);
+            this.panelCadastrarVendas.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelCadastrarVendas.Location = new System.Drawing.Point(250, 0);
+            this.panelCadastrarVendas.Name = "panelCadastrarVendas";
+            this.panelCadastrarVendas.Size = new System.Drawing.Size(714, 561);
+            this.panelCadastrarVendas.TabIndex = 30;
             // 
-            // btnProdutos
+            // textProdVendas
             // 
-            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProdutos.FlatAppearance.BorderSize = 0;
-            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
-            this.btnProdutos.IconColor = System.Drawing.Color.White;
-            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdutos.IconSize = 25;
-            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
-            this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
-            this.btnProdutos.TabIndex = 0;
-            this.btnProdutos.Text = "  Produtos";
-            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdutos.UseVisualStyleBackColor = true;
-            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            this.textProdVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textProdVendas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textProdVendas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textProdVendas.Location = new System.Drawing.Point(187, 251);
+            this.textProdVendas.Multiline = true;
+            this.textProdVendas.Name = "textProdVendas";
+            this.textProdVendas.Size = new System.Drawing.Size(401, 130);
+            this.textProdVendas.TabIndex = 10;
             // 
-            // btnFuncionarios
+            // btnRemoverVenda
             // 
-            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
-            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
-            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFuncionarios.IconSize = 25;
-            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
-            this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
-            this.btnFuncionarios.TabIndex = 0;
-            this.btnFuncionarios.Text = "  Funcionários";
-            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFuncionarios.UseVisualStyleBackColor = false;
-            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
+            this.btnRemoverVenda.BackColor = System.Drawing.Color.DarkRed;
+            this.btnRemoverVenda.FlatAppearance.BorderSize = 0;
+            this.btnRemoverVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverVenda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRemoverVenda.Location = new System.Drawing.Point(83, 391);
+            this.btnRemoverVenda.Name = "btnRemoverVenda";
+            this.btnRemoverVenda.Size = new System.Drawing.Size(88, 35);
+            this.btnRemoverVenda.TabIndex = 5;
+            this.btnRemoverVenda.Text = "Remover";
+            this.btnRemoverVenda.UseVisualStyleBackColor = false;
+            this.btnRemoverVenda.Click += new System.EventHandler(this.btnRemoverVenda_Click);
             // 
-            // pictureBox1
+            // label44
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label44.Location = new System.Drawing.Point(87, 330);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(22, 17);
+            this.label44.TabIndex = 45;
+            this.label44.Text = "ID";
+            // 
+            // textIdRemoverVenda
+            // 
+            this.textIdRemoverVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textIdRemoverVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textIdRemoverVenda.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdRemoverVenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textIdRemoverVenda.Location = new System.Drawing.Point(83, 354);
+            this.textIdRemoverVenda.MaxLength = 3;
+            this.textIdRemoverVenda.Name = "textIdRemoverVenda";
+            this.textIdRemoverVenda.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textIdRemoverVenda.Size = new System.Drawing.Size(88, 25);
+            this.textIdRemoverVenda.TabIndex = 4;
+            this.textIdRemoverVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textIdRemoverVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // btnAdicionarProdVenda
+            // 
+            this.btnAdicionarProdVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnAdicionarProdVenda.FlatAppearance.BorderSize = 0;
+            this.btnAdicionarProdVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarProdVenda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionarProdVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAdicionarProdVenda.Location = new System.Drawing.Point(491, 216);
+            this.btnAdicionarProdVenda.Name = "btnAdicionarProdVenda";
+            this.btnAdicionarProdVenda.Size = new System.Drawing.Size(96, 27);
+            this.btnAdicionarProdVenda.TabIndex = 3;
+            this.btnAdicionarProdVenda.Text = "Adicionar";
+            this.btnAdicionarProdVenda.UseVisualStyleBackColor = false;
+            this.btnAdicionarProdVenda.Click += new System.EventHandler(this.btnAdicionarProdVenda_Click);
+            // 
+            // cboProduto1
+            // 
+            this.cboProduto1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProduto1.FormattingEnabled = true;
+            this.cboProduto1.Location = new System.Drawing.Point(187, 216);
+            this.cboProduto1.Name = "cboProduto1";
+            this.cboProduto1.Size = new System.Drawing.Size(298, 29);
+            this.cboProduto1.TabIndex = 2;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label50.Location = new System.Drawing.Point(302, 189);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(58, 17);
+            this.label50.TabIndex = 40;
+            this.label50.Text = "Produto";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label49.Location = new System.Drawing.Point(87, 191);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(80, 17);
+            this.label49.TabIndex = 35;
+            this.label49.Text = "Quantidade";
+            // 
+            // textQtdVendasProd
+            // 
+            this.textQtdVendasProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textQtdVendasProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textQtdVendasProd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textQtdVendasProd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textQtdVendasProd.Location = new System.Drawing.Point(83, 216);
+            this.textQtdVendasProd.MaxLength = 3;
+            this.textQtdVendasProd.Name = "textQtdVendasProd";
+            this.textQtdVendasProd.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textQtdVendasProd.Size = new System.Drawing.Size(88, 25);
+            this.textQtdVendasProd.TabIndex = 1;
+            this.textQtdVendasProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textQtdVendasProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // label42
+            // 
+            this.label42.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label42.Location = new System.Drawing.Point(187, 118);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(401, 73);
+            this.label42.TabIndex = 25;
+            this.label42.Text = resources.GetString("label42.Text");
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label43.Location = new System.Drawing.Point(95, 118);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(64, 17);
+            this.label43.TabIndex = 24;
+            this.label43.Text = "Produtos";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label41.Location = new System.Drawing.Point(258, 89);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(237, 17);
+            this.label41.TabIndex = 22;
+            this.label41.Text = "Informe o ID de quem realizou a venda";
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.label38);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(714, 74);
+            this.panel18.TabIndex = 21;
+            // 
+            // label38
+            // 
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label38.Location = new System.Drawing.Point(219, 31);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(276, 29);
+            this.label38.TabIndex = 14;
+            this.label38.Text = "Cadastrar Nova Venda";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCadastrarVendasCSV
+            // 
+            this.btnCadastrarVendasCSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnCadastrarVendasCSV.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarVendasCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarVendasCSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarVendasCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCadastrarVendasCSV.Location = new System.Drawing.Point(434, 491);
+            this.btnCadastrarVendasCSV.Name = "btnCadastrarVendasCSV";
+            this.btnCadastrarVendasCSV.Size = new System.Drawing.Size(93, 27);
+            this.btnCadastrarVendasCSV.TabIndex = 8;
+            this.btnCadastrarVendasCSV.Text = "Cadastrar";
+            this.btnCadastrarVendasCSV.UseVisualStyleBackColor = false;
+            this.btnCadastrarVendasCSV.Click += new System.EventHandler(this.btnCadastrarVendasCSV_Click);
+            // 
+            // btnInfoVendaCSV
+            // 
+            this.btnInfoVendaCSV.BackColor = System.Drawing.Color.DarkRed;
+            this.btnInfoVendaCSV.FlatAppearance.BorderSize = 0;
+            this.btnInfoVendaCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoVendaCSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoVendaCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInfoVendaCSV.Location = new System.Drawing.Point(533, 491);
+            this.btnInfoVendaCSV.Name = "btnInfoVendaCSV";
+            this.btnInfoVendaCSV.Size = new System.Drawing.Size(54, 27);
+            this.btnInfoVendaCSV.TabIndex = 9;
+            this.btnInfoVendaCSV.Text = "Info";
+            this.btnInfoVendaCSV.UseVisualStyleBackColor = false;
+            this.btnInfoVendaCSV.Click += new System.EventHandler(this.btnInfoVendaCSV_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label39.Location = new System.Drawing.Point(80, 496);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(100, 17);
+            this.label39.TabIndex = 16;
+            this.label39.Text = "Inserir Arquivo";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label40.Location = new System.Drawing.Point(264, 447);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(260, 25);
+            this.label40.TabIndex = 15;
+            this.label40.Text = "Cadastrar com arquivo CSV:";
+            // 
+            // textArquivoVendasCadastro
+            // 
+            this.textArquivoVendasCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textArquivoVendasCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textArquivoVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textArquivoVendasCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textArquivoVendasCadastro.Location = new System.Drawing.Point(187, 491);
+            this.textArquivoVendasCadastro.Name = "textArquivoVendasCadastro";
+            this.textArquivoVendasCadastro.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textArquivoVendasCadastro.Size = new System.Drawing.Size(241, 25);
+            this.textArquivoVendasCadastro.TabIndex = 7;
+            this.textArquivoVendasCadastro.Click += new System.EventHandler(this.OpenFile);
+            // 
+            // btnCadastrarVendaUnica
+            // 
+            this.btnCadastrarVendaUnica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnCadastrarVendaUnica.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarVendaUnica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarVendaUnica.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarVendaUnica.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCadastrarVendaUnica.Location = new System.Drawing.Point(187, 391);
+            this.btnCadastrarVendaUnica.Name = "btnCadastrarVendaUnica";
+            this.btnCadastrarVendaUnica.Size = new System.Drawing.Size(400, 35);
+            this.btnCadastrarVendaUnica.TabIndex = 6;
+            this.btnCadastrarVendaUnica.Text = "Cadastrar";
+            this.btnCadastrarVendaUnica.UseVisualStyleBackColor = false;
+            this.btnCadastrarVendaUnica.Click += new System.EventHandler(this.btnCadastrarVendaUnica_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label46.Location = new System.Drawing.Point(184, 88);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(72, 17);
+            this.label46.TabIndex = 6;
+            this.label46.Text = "Vendedor:";
+            // 
+            // textIdVendasCadastro
+            // 
+            this.textIdVendasCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textIdVendasCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdVendasCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textIdVendasCadastro.Location = new System.Drawing.Point(499, 83);
+            this.textIdVendasCadastro.MaxLength = 3;
+            this.textIdVendasCadastro.Name = "textIdVendasCadastro";
+            this.textIdVendasCadastro.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textIdVendasCadastro.Size = new System.Drawing.Size(88, 25);
+            this.textIdVendasCadastro.TabIndex = 0;
+            this.textIdVendasCadastro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textIdVendasCadastro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // btnCadastrarVendas
+            // 
+            this.btnCadastrarVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCadastrarVendas.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            this.btnCadastrarVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCadastrarVendas.Location = new System.Drawing.Point(0, 0);
+            this.btnCadastrarVendas.Name = "btnCadastrarVendas";
+            this.btnCadastrarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCadastrarVendas.Size = new System.Drawing.Size(248, 35);
+            this.btnCadastrarVendas.TabIndex = 47;
+            this.btnCadastrarVendas.Text = "Cadastrar";
+            this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastrarVendas.UseVisualStyleBackColor = true;
+            this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
+            // 
+            // btnConsultarVendas
+            // 
+            this.btnConsultarVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultarVendas.FlatAppearance.BorderSize = 0;
+            this.btnConsultarVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            this.btnConsultarVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarVendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConsultarVendas.Location = new System.Drawing.Point(0, 35);
+            this.btnConsultarVendas.Name = "btnConsultarVendas";
+            this.btnConsultarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultarVendas.Size = new System.Drawing.Size(248, 35);
+            this.btnConsultarVendas.TabIndex = 48;
+            this.btnConsultarVendas.Text = "Consultar";
+            this.btnConsultarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultarVendas.UseVisualStyleBackColor = true;
+            this.btnConsultarVendas.Click += new System.EventHandler(this.btnConsultarVendas_Click);
             // 
             // AppLoja
             // 
@@ -1789,6 +2115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
+            this.Controls.Add(this.panelCadastrarVendas);
             this.Controls.Add(this.panelExibirProdutos);
             this.Controls.Add(this.panelEstoqueProduto);
             this.Controls.Add(this.panelInserirProduto);
@@ -1809,6 +2136,7 @@
             this.panelSubMenuProdutos.ResumeLayout(false);
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCadastrarFuncionario.ResumeLayout(false);
             this.panelCadastrarFuncionario.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1849,7 +2177,9 @@
             this.panel14.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelCadastrarVendas.ResumeLayout(false);
+            this.panelCadastrarVendas.PerformLayout();
+            this.panel18.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1859,8 +2189,6 @@
 
         private System.Windows.Forms.Panel panelMenuLateral;
         private System.Windows.Forms.Panel panelSubMenuVendas;
-        private System.Windows.Forms.Button btnConsultarVendas;
-        private System.Windows.Forms.Button btnCadastrarVendas;
         private FontAwesome.Sharp.IconButton btnVendas;
         private System.Windows.Forms.Panel panelSubMenuProdutos;
         private System.Windows.Forms.Button btnConsultarProdutos;
@@ -1977,6 +2305,31 @@
         public System.Windows.Forms.TextBox textIdBuscaProdutos;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Panel panelCadastrarVendas;
+        private System.Windows.Forms.TextBox textProdVendas;
+        private System.Windows.Forms.Button btnRemoverVenda;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox textIdRemoverVenda;
+        private System.Windows.Forms.Button btnAdicionarProdVenda;
+        private System.Windows.Forms.ComboBox cboProduto1;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox textQtdVendasProd;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button btnCadastrarVendasCSV;
+        private System.Windows.Forms.Button btnInfoVendaCSV;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox textArquivoVendasCadastro;
+        private System.Windows.Forms.Button btnCadastrarVendaUnica;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox textIdVendasCadastro;
+        private System.Windows.Forms.Button btnConsultarVendas;
+        private System.Windows.Forms.Button btnCadastrarVendas;
     }
 }
 
