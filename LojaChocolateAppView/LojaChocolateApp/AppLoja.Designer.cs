@@ -33,20 +33,16 @@
             this.panelSubMenuVendas = new System.Windows.Forms.Panel();
             this.btnConsultarVendas = new System.Windows.Forms.Button();
             this.btnCadastrarVendas = new System.Windows.Forms.Button();
-            this.btnVendas = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuProdutos = new System.Windows.Forms.Panel();
             this.btnConsultarProdutos = new System.Windows.Forms.Button();
             this.btnEstoque = new System.Windows.Forms.Button();
             this.btnInserirProduto = new System.Windows.Forms.Button();
-            this.btnProdutos = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuFuncionario = new System.Windows.Forms.Panel();
             this.btnConsultarFuncionarios = new System.Windows.Forms.Button();
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
-            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCadastrarFuncionario = new System.Windows.Forms.Panel();
             this.textBoxSalario = new System.Windows.Forms.TextBox();
             this.textBoxCpf = new System.Windows.Forms.TextBox();
@@ -98,12 +94,66 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.panelInserirProduto = new System.Windows.Forms.Panel();
+            this.textValorProduto = new System.Windows.Forms.TextBox();
+            this.textTipoProduto = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnInserirProdutosCSV = new System.Windows.Forms.Button();
+            this.btnInfoProduto = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textArquivoProduto = new System.Windows.Forms.TextBox();
+            this.btnInserirProdutoUnico = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textEstoqueProduto = new System.Windows.Forms.TextBox();
+            this.textPesoProduto = new System.Windows.Forms.TextBox();
+            this.textNomeProduto = new System.Windows.Forms.TextBox();
+            this.textIdProduto = new System.Windows.Forms.TextBox();
+            this.panelEstoqueProduto = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.BtnAlterarEstoque = new System.Windows.Forms.Button();
+            this.panelNovoValorProduto = new System.Windows.Forms.Panel();
+            this.textNovoValorProduto = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.panelQuantidadeProduto = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textEstoqueQtdProdutos = new System.Windows.Forms.TextBox();
+            this.comboBoxOpcaoProdutos = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textIdEstoqueProdutos = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panelExibirProdutos = new System.Windows.Forms.Panel();
+            this.flowLayoutLayoutExibeProdutos = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tituloExibeProdutos = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.comboBoxOrdemProdutos = new System.Windows.Forms.ComboBox();
+            this.btnExibeTodosProdutos = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.btnBuscaIdProduto = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textIdBuscaProdutos = new System.Windows.Forms.TextBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.btnVendas = new FontAwesome.Sharp.IconButton();
+            this.btnProdutos = new FontAwesome.Sharp.IconButton();
+            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCadastrarFuncionario.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panelConsultarFuncionario.SuspendLayout();
@@ -115,6 +165,19 @@
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelInserirProduto.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panelEstoqueProduto.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panelNovoValorProduto.SuspendLayout();
+            this.panelQuantidadeProduto.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panelExibirProdutos.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -161,6 +224,7 @@
             this.btnConsultarVendas.Text = "Consultar";
             this.btnConsultarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarVendas.UseVisualStyleBackColor = true;
+            this.btnConsultarVendas.Click += new System.EventHandler(this.btnConsultarVendas_Click);
             // 
             // btnCadastrarVendas
             // 
@@ -178,30 +242,7 @@
             this.btnCadastrarVendas.Text = "Cadastrar";
             this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarVendas.UseVisualStyleBackColor = true;
-            // 
-            // btnVendas
-            // 
-            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnVendas.IconColor = System.Drawing.Color.White;
-            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendas.IconSize = 25;
-            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(0, 427);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(248, 45);
-            this.btnVendas.TabIndex = 0;
-            this.btnVendas.Text = "   Vendas";
-            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendas.UseVisualStyleBackColor = false;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
+            this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
             // 
             // panelSubMenuProdutos
             // 
@@ -231,6 +272,7 @@
             this.btnConsultarProdutos.Text = "Consultar";
             this.btnConsultarProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarProdutos.UseVisualStyleBackColor = true;
+            this.btnConsultarProdutos.Click += new System.EventHandler(this.btnConsultarProdutos_Click);
             // 
             // btnEstoque
             // 
@@ -248,6 +290,7 @@
             this.btnEstoque.Text = "Estoque";
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
+            this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
             // btnInserirProduto
             // 
@@ -265,29 +308,7 @@
             this.btnInserirProduto.Text = "Inserir";
             this.btnInserirProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInserirProduto.UseVisualStyleBackColor = true;
-            // 
-            // btnProdutos
-            // 
-            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProdutos.FlatAppearance.BorderSize = 0;
-            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
-            this.btnProdutos.IconColor = System.Drawing.Color.White;
-            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdutos.IconSize = 25;
-            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
-            this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
-            this.btnProdutos.TabIndex = 0;
-            this.btnProdutos.Text = "  Produtos";
-            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdutos.UseVisualStyleBackColor = true;
-            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
             // panelSubMenuFuncionario
             // 
@@ -355,30 +376,6 @@
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
             this.btnCadastrarFuncionario.Click += new System.EventHandler(this.btnCadastrarFuncionario_Click);
             // 
-            // btnFuncionarios
-            // 
-            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
-            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
-            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFuncionarios.IconSize = 25;
-            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
-            this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
-            this.btnFuncionarios.TabIndex = 0;
-            this.btnFuncionarios.Text = "  Funcionários";
-            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFuncionarios.UseVisualStyleBackColor = false;
-            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
-            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(247, 0);
@@ -396,17 +393,6 @@
             this.panelLogo.Padding = new System.Windows.Forms.Padding(20);
             this.panelLogo.Size = new System.Drawing.Size(248, 123);
             this.panelLogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // panelCadastrarFuncionario
             // 
@@ -1067,12 +1053,745 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "Remover Funcionários";
             // 
+            // panelInserirProduto
+            // 
+            this.panelInserirProduto.BackColor = System.Drawing.Color.White;
+            this.panelInserirProduto.Controls.Add(this.textValorProduto);
+            this.panelInserirProduto.Controls.Add(this.textTipoProduto);
+            this.panelInserirProduto.Controls.Add(this.panel9);
+            this.panelInserirProduto.Controls.Add(this.btnInserirProdutosCSV);
+            this.panelInserirProduto.Controls.Add(this.btnInfoProduto);
+            this.panelInserirProduto.Controls.Add(this.label17);
+            this.panelInserirProduto.Controls.Add(this.label19);
+            this.panelInserirProduto.Controls.Add(this.textArquivoProduto);
+            this.panelInserirProduto.Controls.Add(this.btnInserirProdutoUnico);
+            this.panelInserirProduto.Controls.Add(this.label20);
+            this.panelInserirProduto.Controls.Add(this.label21);
+            this.panelInserirProduto.Controls.Add(this.label22);
+            this.panelInserirProduto.Controls.Add(this.label23);
+            this.panelInserirProduto.Controls.Add(this.label24);
+            this.panelInserirProduto.Controls.Add(this.label25);
+            this.panelInserirProduto.Controls.Add(this.textEstoqueProduto);
+            this.panelInserirProduto.Controls.Add(this.textPesoProduto);
+            this.panelInserirProduto.Controls.Add(this.textNomeProduto);
+            this.panelInserirProduto.Controls.Add(this.textIdProduto);
+            this.panelInserirProduto.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelInserirProduto.Location = new System.Drawing.Point(250, 0);
+            this.panelInserirProduto.Name = "panelInserirProduto";
+            this.panelInserirProduto.Size = new System.Drawing.Size(714, 561);
+            this.panelInserirProduto.TabIndex = 26;
+            // 
+            // textValorProduto
+            // 
+            this.textValorProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textValorProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textValorProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValorProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textValorProduto.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textValorProduto.Location = new System.Drawing.Point(187, 231);
+            this.textValorProduto.MaxLength = 8;
+            this.textValorProduto.Name = "textValorProduto";
+            this.textValorProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textValorProduto.Size = new System.Drawing.Size(400, 29);
+            this.textValorProduto.TabIndex = 3;
+            this.textValorProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
+            // 
+            // textTipoProduto
+            // 
+            this.textTipoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTipoProduto.FormattingEnabled = true;
+            this.textTipoProduto.Items.AddRange(new object[] {
+            "Chocolate",
+            "Presentes"});
+            this.textTipoProduto.Location = new System.Drawing.Point(187, 321);
+            this.textTipoProduto.Name = "textTipoProduto";
+            this.textTipoProduto.Size = new System.Drawing.Size(400, 29);
+            this.textTipoProduto.TabIndex = 5;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label16);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(714, 74);
+            this.panel9.TabIndex = 21;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(293, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(200, 32);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Inserir Produtos";
+            // 
+            // btnInserirProdutosCSV
+            // 
+            this.btnInserirProdutosCSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnInserirProdutosCSV.FlatAppearance.BorderSize = 0;
+            this.btnInserirProdutosCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirProdutosCSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserirProdutosCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInserirProdutosCSV.Location = new System.Drawing.Point(434, 469);
+            this.btnInserirProdutosCSV.Name = "btnInserirProdutosCSV";
+            this.btnInserirProdutosCSV.Size = new System.Drawing.Size(93, 27);
+            this.btnInserirProdutosCSV.TabIndex = 8;
+            this.btnInserirProdutosCSV.Text = "Inserir";
+            this.btnInserirProdutosCSV.UseVisualStyleBackColor = false;
+            this.btnInserirProdutosCSV.Click += new System.EventHandler(this.btnInserirProdutosCSV_Click);
+            // 
+            // btnInfoProduto
+            // 
+            this.btnInfoProduto.BackColor = System.Drawing.Color.DarkRed;
+            this.btnInfoProduto.FlatAppearance.BorderSize = 0;
+            this.btnInfoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoProduto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInfoProduto.Location = new System.Drawing.Point(533, 469);
+            this.btnInfoProduto.Name = "btnInfoProduto";
+            this.btnInfoProduto.Size = new System.Drawing.Size(54, 27);
+            this.btnInfoProduto.TabIndex = 9;
+            this.btnInfoProduto.Text = "Info";
+            this.btnInfoProduto.UseVisualStyleBackColor = false;
+            this.btnInfoProduto.Click += new System.EventHandler(this.btnInfoProduto_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label17.Location = new System.Drawing.Point(80, 474);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 17);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Inserir Arquivo";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label19.Location = new System.Drawing.Point(263, 428);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(232, 25);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Inserir com arquivo CSV:";
+            // 
+            // textArquivoProduto
+            // 
+            this.textArquivoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textArquivoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textArquivoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textArquivoProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textArquivoProduto.Location = new System.Drawing.Point(187, 469);
+            this.textArquivoProduto.Name = "textArquivoProduto";
+            this.textArquivoProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textArquivoProduto.Size = new System.Drawing.Size(241, 29);
+            this.textArquivoProduto.TabIndex = 7;
+            this.textArquivoProduto.Click += new System.EventHandler(this.OpenFile);
+            // 
+            // btnInserirProdutoUnico
+            // 
+            this.btnInserirProdutoUnico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnInserirProdutoUnico.FlatAppearance.BorderSize = 0;
+            this.btnInserirProdutoUnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirProdutoUnico.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserirProdutoUnico.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInserirProdutoUnico.Location = new System.Drawing.Point(187, 372);
+            this.btnInserirProdutoUnico.Name = "btnInserirProdutoUnico";
+            this.btnInserirProdutoUnico.Size = new System.Drawing.Size(400, 35);
+            this.btnInserirProdutoUnico.TabIndex = 6;
+            this.btnInserirProdutoUnico.Text = "Inserir";
+            this.btnInserirProdutoUnico.UseVisualStyleBackColor = false;
+            this.btnInserirProdutoUnico.Click += new System.EventHandler(this.btnInserirProdutoUnico_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(124, 280);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(57, 17);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Estoque";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(124, 325);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(36, 17);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Tipo";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label22.Location = new System.Drawing.Point(124, 237);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(40, 17);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Valor";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(124, 192);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 17);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Peso";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label24.Location = new System.Drawing.Point(124, 145);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 17);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Nome";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label25.Location = new System.Drawing.Point(124, 101);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(22, 17);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "ID";
+            // 
+            // textEstoqueProduto
+            // 
+            this.textEstoqueProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textEstoqueProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textEstoqueProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEstoqueProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textEstoqueProduto.Location = new System.Drawing.Point(187, 276);
+            this.textEstoqueProduto.MaxLength = 4;
+            this.textEstoqueProduto.Name = "textEstoqueProduto";
+            this.textEstoqueProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textEstoqueProduto.Size = new System.Drawing.Size(400, 29);
+            this.textEstoqueProduto.TabIndex = 4;
+            this.textEstoqueProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textEstoqueProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // textPesoProduto
+            // 
+            this.textPesoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textPesoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textPesoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPesoProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textPesoProduto.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textPesoProduto.Location = new System.Drawing.Point(187, 186);
+            this.textPesoProduto.MaxLength = 4;
+            this.textPesoProduto.Name = "textPesoProduto";
+            this.textPesoProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textPesoProduto.Size = new System.Drawing.Size(400, 29);
+            this.textPesoProduto.TabIndex = 2;
+            this.textPesoProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textPesoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // textNomeProduto
+            // 
+            this.textNomeProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textNomeProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textNomeProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNomeProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textNomeProduto.Location = new System.Drawing.Point(187, 141);
+            this.textNomeProduto.Name = "textNomeProduto";
+            this.textNomeProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textNomeProduto.Size = new System.Drawing.Size(400, 29);
+            this.textNomeProduto.TabIndex = 1;
+            this.textNomeProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textNomeProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyChars);
+            // 
+            // textIdProduto
+            // 
+            this.textIdProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textIdProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textIdProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textIdProduto.Location = new System.Drawing.Point(187, 96);
+            this.textIdProduto.MaxLength = 3;
+            this.textIdProduto.Name = "textIdProduto";
+            this.textIdProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textIdProduto.Size = new System.Drawing.Size(400, 29);
+            this.textIdProduto.TabIndex = 0;
+            this.textIdProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textIdProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // panelEstoqueProduto
+            // 
+            this.panelEstoqueProduto.BackColor = System.Drawing.Color.White;
+            this.panelEstoqueProduto.Controls.Add(this.panel12);
+            this.panelEstoqueProduto.Controls.Add(this.panel10);
+            this.panelEstoqueProduto.Controls.Add(this.panel11);
+            this.panelEstoqueProduto.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelEstoqueProduto.Location = new System.Drawing.Point(250, 0);
+            this.panelEstoqueProduto.Name = "panelEstoqueProduto";
+            this.panelEstoqueProduto.Size = new System.Drawing.Size(714, 561);
+            this.panelEstoqueProduto.TabIndex = 28;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.BtnAlterarEstoque);
+            this.panel12.Controls.Add(this.panelNovoValorProduto);
+            this.panel12.Controls.Add(this.panelQuantidadeProduto);
+            this.panel12.Controls.Add(this.comboBoxOpcaoProdutos);
+            this.panel12.Controls.Add(this.label27);
+            this.panel12.Controls.Add(this.textIdEstoqueProdutos);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 308);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(714, 150);
+            this.panel12.TabIndex = 23;
+            // 
+            // BtnAlterarEstoque
+            // 
+            this.BtnAlterarEstoque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.BtnAlterarEstoque.FlatAppearance.BorderSize = 0;
+            this.BtnAlterarEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAlterarEstoque.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAlterarEstoque.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnAlterarEstoque.Location = new System.Drawing.Point(427, 33);
+            this.BtnAlterarEstoque.Name = "BtnAlterarEstoque";
+            this.BtnAlterarEstoque.Size = new System.Drawing.Size(173, 77);
+            this.BtnAlterarEstoque.TabIndex = 4;
+            this.BtnAlterarEstoque.Text = "Alterar Estoque";
+            this.BtnAlterarEstoque.UseVisualStyleBackColor = false;
+            this.BtnAlterarEstoque.Click += new System.EventHandler(this.BtnAlterarEstoque_Click);
+            // 
+            // panelNovoValorProduto
+            // 
+            this.panelNovoValorProduto.Controls.Add(this.textNovoValorProduto);
+            this.panelNovoValorProduto.Controls.Add(this.label37);
+            this.panelNovoValorProduto.Location = new System.Drawing.Point(251, 68);
+            this.panelNovoValorProduto.Name = "panelNovoValorProduto";
+            this.panelNovoValorProduto.Size = new System.Drawing.Size(165, 53);
+            this.panelNovoValorProduto.TabIndex = 38;
+            // 
+            // textNovoValorProduto
+            // 
+            this.textNovoValorProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textNovoValorProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textNovoValorProduto.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNovoValorProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textNovoValorProduto.Location = new System.Drawing.Point(56, 12);
+            this.textNovoValorProduto.MaxLength = 8;
+            this.textNovoValorProduto.Name = "textNovoValorProduto";
+            this.textNovoValorProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textNovoValorProduto.Size = new System.Drawing.Size(100, 33);
+            this.textNovoValorProduto.TabIndex = 3;
+            this.textNovoValorProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textNovoValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label37.Location = new System.Drawing.Point(4, 19);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(45, 17);
+            this.label37.TabIndex = 37;
+            this.label37.Text = "Valor:";
+            // 
+            // panelQuantidadeProduto
+            // 
+            this.panelQuantidadeProduto.Controls.Add(this.label32);
+            this.panelQuantidadeProduto.Controls.Add(this.textEstoqueQtdProdutos);
+            this.panelQuantidadeProduto.Location = new System.Drawing.Point(67, 69);
+            this.panelQuantidadeProduto.Name = "panelQuantidadeProduto";
+            this.panelQuantidadeProduto.Size = new System.Drawing.Size(161, 53);
+            this.panelQuantidadeProduto.TabIndex = 36;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label32.Location = new System.Drawing.Point(6, 19);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(84, 17);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "Quantidade:";
+            // 
+            // textEstoqueQtdProdutos
+            // 
+            this.textEstoqueQtdProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textEstoqueQtdProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textEstoqueQtdProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEstoqueQtdProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textEstoqueQtdProdutos.Location = new System.Drawing.Point(102, 12);
+            this.textEstoqueQtdProdutos.MaxLength = 4;
+            this.textEstoqueQtdProdutos.Name = "textEstoqueQtdProdutos";
+            this.textEstoqueQtdProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textEstoqueQtdProdutos.Size = new System.Drawing.Size(50, 33);
+            this.textEstoqueQtdProdutos.TabIndex = 2;
+            this.textEstoqueQtdProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textEstoqueQtdProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // comboBoxOpcaoProdutos
+            // 
+            this.comboBoxOpcaoProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxOpcaoProdutos.FormattingEnabled = true;
+            this.comboBoxOpcaoProdutos.Items.AddRange(new object[] {
+            "Remover",
+            "Inserir",
+            "Retirar",
+            "Alterar Valor"});
+            this.comboBoxOpcaoProdutos.Location = new System.Drawing.Point(256, 35);
+            this.comboBoxOpcaoProdutos.Name = "comboBoxOpcaoProdutos";
+            this.comboBoxOpcaoProdutos.Size = new System.Drawing.Size(151, 29);
+            this.comboBoxOpcaoProdutos.TabIndex = 1;
+            this.comboBoxOpcaoProdutos.SelectedIndexChanged += new System.EventHandler(this.comboBoxOpcaoProdutos_SelectedIndexChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label27.Location = new System.Drawing.Point(73, 40);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(26, 17);
+            this.label27.TabIndex = 23;
+            this.label27.Text = "ID:";
+            // 
+            // textIdEstoqueProdutos
+            // 
+            this.textIdEstoqueProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textIdEstoqueProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdEstoqueProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textIdEstoqueProdutos.Location = new System.Drawing.Point(113, 33);
+            this.textIdEstoqueProdutos.MaxLength = 3;
+            this.textIdEstoqueProdutos.Name = "textIdEstoqueProdutos";
+            this.textIdEstoqueProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textIdEstoqueProdutos.Size = new System.Drawing.Size(106, 33);
+            this.textIdEstoqueProdutos.TabIndex = 0;
+            this.textIdEstoqueProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textIdEstoqueProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label26);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 134);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(714, 174);
+            this.panel10.TabIndex = 22;
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Location = new System.Drawing.Point(50, 13);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(614, 147);
+            this.label26.TabIndex = 16;
+            this.label26.Text = resources.GetString("label26.Text");
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(714, 134);
+            this.panel11.TabIndex = 16;
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label28.Location = new System.Drawing.Point(226, 57);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(260, 29);
+            this.label28.TabIndex = 14;
+            this.label28.Text = "Estoque de Produtos";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelExibirProdutos
+            // 
+            this.panelExibirProdutos.AutoScroll = true;
+            this.panelExibirProdutos.BackColor = System.Drawing.Color.White;
+            this.panelExibirProdutos.Controls.Add(this.flowLayoutLayoutExibeProdutos);
+            this.panelExibirProdutos.Controls.Add(this.panel13);
+            this.panelExibirProdutos.Controls.Add(this.panel14);
+            this.panelExibirProdutos.Controls.Add(this.panel15);
+            this.panelExibirProdutos.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelExibirProdutos.Location = new System.Drawing.Point(250, 0);
+            this.panelExibirProdutos.Name = "panelExibirProdutos";
+            this.panelExibirProdutos.Size = new System.Drawing.Size(714, 561);
+            this.panelExibirProdutos.TabIndex = 29;
+            // 
+            // flowLayoutLayoutExibeProdutos
+            // 
+            this.flowLayoutLayoutExibeProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutLayoutExibeProdutos.AutoScroll = true;
+            this.flowLayoutLayoutExibeProdutos.Location = new System.Drawing.Point(0, 185);
+            this.flowLayoutLayoutExibeProdutos.Name = "flowLayoutLayoutExibeProdutos";
+            this.flowLayoutLayoutExibeProdutos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.flowLayoutLayoutExibeProdutos.Size = new System.Drawing.Size(714, 376);
+            this.flowLayoutLayoutExibeProdutos.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.tituloExibeProdutos);
+            this.panel13.Location = new System.Drawing.Point(0, 150);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(672, 35);
+            this.panel13.TabIndex = 30;
+            // 
+            // tituloExibeProdutos
+            // 
+            this.tituloExibeProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tituloExibeProdutos.AutoSize = true;
+            this.tituloExibeProdutos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloExibeProdutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.tituloExibeProdutos.Location = new System.Drawing.Point(51, 6);
+            this.tituloExibeProdutos.Name = "tituloExibeProdutos";
+            this.tituloExibeProdutos.Size = new System.Drawing.Size(64, 25);
+            this.tituloExibeProdutos.TabIndex = 15;
+            this.tituloExibeProdutos.Text = "Título";
+            this.tituloExibeProdutos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label30);
+            this.panel14.Controls.Add(this.comboBoxOrdemProdutos);
+            this.panel14.Controls.Add(this.btnExibeTodosProdutos);
+            this.panel14.Controls.Add(this.label31);
+            this.panel14.Controls.Add(this.btnBuscaIdProduto);
+            this.panel14.Controls.Add(this.label33);
+            this.panel14.Controls.Add(this.textIdBuscaProdutos);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 60);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(714, 90);
+            this.panel14.TabIndex = 28;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label30.Location = new System.Drawing.Point(446, 50);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(85, 17);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "Ordenar por:";
+            // 
+            // comboBoxOrdemProdutos
+            // 
+            this.comboBoxOrdemProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxOrdemProdutos.FormattingEnabled = true;
+            this.comboBoxOrdemProdutos.Items.AddRange(new object[] {
+            "Id",
+            "Nome",
+            "Valor"});
+            this.comboBoxOrdemProdutos.Location = new System.Drawing.Point(542, 46);
+            this.comboBoxOrdemProdutos.Name = "comboBoxOrdemProdutos";
+            this.comboBoxOrdemProdutos.Size = new System.Drawing.Size(110, 25);
+            this.comboBoxOrdemProdutos.TabIndex = 3;
+            // 
+            // btnExibeTodosProdutos
+            // 
+            this.btnExibeTodosProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnExibeTodosProdutos.FlatAppearance.BorderSize = 0;
+            this.btnExibeTodosProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExibeTodosProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibeTodosProdutos.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnExibeTodosProdutos.Location = new System.Drawing.Point(325, 45);
+            this.btnExibeTodosProdutos.Name = "btnExibeTodosProdutos";
+            this.btnExibeTodosProdutos.Size = new System.Drawing.Size(81, 27);
+            this.btnExibeTodosProdutos.TabIndex = 2;
+            this.btnExibeTodosProdutos.Text = "Todos";
+            this.btnExibeTodosProdutos.UseVisualStyleBackColor = false;
+            this.btnExibeTodosProdutos.Click += new System.EventHandler(this.btnExibeTodosProdutos_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label31.Location = new System.Drawing.Point(109, 17);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(496, 17);
+            this.label31.TabIndex = 31;
+            this.label31.Text = "Informe o ID para exibir detalhes do produto desejado ou clique no botão \"Todos\"";
+            // 
+            // btnBuscaIdProduto
+            // 
+            this.btnBuscaIdProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnBuscaIdProduto.FlatAppearance.BorderSize = 0;
+            this.btnBuscaIdProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaIdProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscaIdProduto.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnBuscaIdProduto.Location = new System.Drawing.Point(230, 45);
+            this.btnBuscaIdProduto.Name = "btnBuscaIdProduto";
+            this.btnBuscaIdProduto.Size = new System.Drawing.Size(81, 27);
+            this.btnBuscaIdProduto.TabIndex = 1;
+            this.btnBuscaIdProduto.Text = "Buscar";
+            this.btnBuscaIdProduto.UseVisualStyleBackColor = false;
+            this.btnBuscaIdProduto.Click += new System.EventHandler(this.btnBuscaIdProduto_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label33.Location = new System.Drawing.Point(52, 50);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(87, 17);
+            this.label33.TabIndex = 29;
+            this.label33.Text = "Informe o ID";
+            // 
+            // textIdBuscaProdutos
+            // 
+            this.textIdBuscaProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
+            this.textIdBuscaProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textIdBuscaProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdBuscaProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textIdBuscaProdutos.Location = new System.Drawing.Point(152, 47);
+            this.textIdBuscaProdutos.MaxLength = 3;
+            this.textIdBuscaProdutos.Name = "textIdBuscaProdutos";
+            this.textIdBuscaProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textIdBuscaProdutos.Size = new System.Drawing.Size(64, 25);
+            this.textIdBuscaProdutos.TabIndex = 0;
+            this.textIdBuscaProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textIdBuscaProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.label34);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(714, 60);
+            this.panel15.TabIndex = 16;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.label34.Location = new System.Drawing.Point(132, 16);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(433, 32);
+            this.label34.TabIndex = 14;
+            this.label34.Text = "Consultar informações dos Produtos\r\n";
+            // 
+            // btnVendas
+            // 
+            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendas.FlatAppearance.BorderSize = 0;
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnVendas.IconColor = System.Drawing.Color.White;
+            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVendas.IconSize = 25;
+            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.Location = new System.Drawing.Point(0, 427);
+            this.btnVendas.Name = "btnVendas";
+            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVendas.Size = new System.Drawing.Size(248, 45);
+            this.btnVendas.TabIndex = 0;
+            this.btnVendas.Text = "   Vendas";
+            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendas.UseVisualStyleBackColor = false;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
+            // 
+            // btnProdutos
+            // 
+            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdutos.FlatAppearance.BorderSize = 0;
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnProdutos.IconColor = System.Drawing.Color.White;
+            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProdutos.IconSize = 25;
+            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
+            this.btnProdutos.TabIndex = 0;
+            this.btnProdutos.Text = "  Produtos";
+            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            // 
+            // btnFuncionarios
+            // 
+            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
+            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFuncionarios.IconSize = 25;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
+            this.btnFuncionarios.Name = "btnFuncionarios";
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
+            this.btnFuncionarios.TabIndex = 0;
+            this.btnFuncionarios.Text = "  Funcionários";
+            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
+            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
+            this.Controls.Add(this.panelExibirProdutos);
+            this.Controls.Add(this.panelEstoqueProduto);
+            this.Controls.Add(this.panelInserirProduto);
             this.Controls.Add(this.panelMenuLateral);
             this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelCadastrarFuncionario);
@@ -1090,7 +1809,6 @@
             this.panelSubMenuProdutos.ResumeLayout(false);
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCadastrarFuncionario.ResumeLayout(false);
             this.panelCadastrarFuncionario.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1111,6 +1829,27 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelInserirProduto.ResumeLayout(false);
+            this.panelInserirProduto.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panelEstoqueProduto.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panelNovoValorProduto.ResumeLayout(false);
+            this.panelNovoValorProduto.PerformLayout();
+            this.panelQuantidadeProduto.ResumeLayout(false);
+            this.panelQuantidadeProduto.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panelExibirProdutos.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1187,6 +1926,57 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panelInserirProduto;
+        private System.Windows.Forms.TextBox textValorProduto;
+        private System.Windows.Forms.ComboBox textTipoProduto;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnInserirProdutosCSV;
+        private System.Windows.Forms.Button btnInfoProduto;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textArquivoProduto;
+        private System.Windows.Forms.Button btnInserirProdutoUnico;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textEstoqueProduto;
+        private System.Windows.Forms.TextBox textPesoProduto;
+        private System.Windows.Forms.TextBox textNomeProduto;
+        private System.Windows.Forms.TextBox textIdProduto;
+        private System.Windows.Forms.Panel panelEstoqueProduto;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button BtnAlterarEstoque;
+        private System.Windows.Forms.Panel panelNovoValorProduto;
+        public System.Windows.Forms.TextBox textNovoValorProduto;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Panel panelQuantidadeProduto;
+        private System.Windows.Forms.Label label32;
+        public System.Windows.Forms.TextBox textEstoqueQtdProdutos;
+        private System.Windows.Forms.ComboBox comboBoxOpcaoProdutos;
+        private System.Windows.Forms.Label label27;
+        public System.Windows.Forms.TextBox textIdEstoqueProdutos;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel panelExibirProdutos;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutLayoutExibeProdutos;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label tituloExibeProdutos;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label30;
+        public System.Windows.Forms.ComboBox comboBoxOrdemProdutos;
+        private System.Windows.Forms.Button btnExibeTodosProdutos;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button btnBuscaIdProduto;
+        private System.Windows.Forms.Label label33;
+        public System.Windows.Forms.TextBox textIdBuscaProdutos;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label34;
     }
 }
 

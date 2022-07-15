@@ -226,10 +226,17 @@ namespace LojaChocolateApp.Repository
                     var produto = ConverteAtributos(dados);
                     if (produto.Id == id)
                     {
-                        produtoAnterior = produto;
-                        produto.AlteraEstoque(quantidade);
-                        novoRepo.Add(produto);
-                        existe = true;
+                        if (produto.Estoque + quantidade <= 0)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            produtoAnterior = produto;
+                            produto.AlteraEstoque(quantidade);
+                            novoRepo.Add(produto);
+                            existe = true;
+                        }
                     }
                     else
                         novoRepo.Add(produto);

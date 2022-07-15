@@ -31,7 +31,7 @@ namespace LojaChocolateApp.Utils.Popups
         private void PopupRemoverFuncionario_Load(object sender, EventArgs e)
         {
             textBoxIDPopup.Text = appLoja.textBoxRemoverFuncionario.Text;
-            //textBoxIdProduto.Text = appLoja.textIdEstoqueProdutos.Text;
+            textBoxIdProduto.Text = appLoja.textIdEstoqueProdutos.Text;
         }
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
