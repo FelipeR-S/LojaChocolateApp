@@ -1,5 +1,7 @@
 ﻿using LojaChocolateApp.Model;
 using LojaChocolateApp.Repository;
+using LojaChocolateApp.Utils;
+using LojaChocolateApp.Utils.Popups;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -77,7 +80,7 @@ namespace LojaChocolateApp
                         var repo = new FuncionarioRepository();
                         repo.IncluirUnico(novoFuncionario);
                         MessageBox.Show("Cadastro Concluído");
-                        //ApagaTextBoX();
+                        ApagaTextBoX();
                     }
                 }
             }
@@ -114,7 +117,7 @@ namespace LojaChocolateApp
                     while (!sr.EndOfStream)
                     {
                         var linha = sr.ReadLine();
-                        //correto = CSVIsMatch(linha, "funcionario");
+                        correto = CSVIsMatch(linha, "funcionario");
                         if (!correto)
                         {
                             linhaErrada = contadorLinhas + 1;
@@ -163,8 +166,42 @@ namespace LojaChocolateApp
                 //ApagaTextBoX();
             }
         }
+        /// <summary>
+        /// Exibe Popup com informações de formatação de CSV
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void infoFuncionario_Click(object sender, EventArgs e)
+        {
+            Form background = new Form();
 
+            try
+            {
+                using (PopupInfoCSV popupCSV = new PopupInfoCSV())
+                {
+                    var backGroundDesign = new BackGroundPopup();
 
+                    backGroundDesign.BackGroundPopupDesign(background);
+                    popupCSV.txtFuncionarioCSV.Visible = true;
+                    popupCSV.txtProdutoCSV.Visible = false;
+                    popupCSV.textInfoVendasCSV.Visible = false;
+                    popupCSV.txtFuncionarioCSV.ReadOnly = true;
+                    popupCSV.txtProdutoCSV.ReadOnly = true;
+                    popupCSV.textInfoVendasCSV.ReadOnly = true;
+                    popupCSV.Owner = background;
+                    popupCSV.ShowDialog();
+                    background.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                background.Dispose();
+            }
+        }
         // FIM ------------------------------------ FUNCIONARIOS ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -398,5 +435,226 @@ namespace LojaChocolateApp
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
+        // INICIO ------------------------------------ TEXTBOX ------------------------------------ INICIO //
+        /// <summary>
+        /// Apaga conteudo de todas as textbox inseridas quando invocado
+        /// </summary>
+        private void ApagaTextBoX()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+            func(Controls);
+        }
+        /// <summary>
+        /// Permite apenas letras e "-" no textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnlyChars(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsDigit(c) && c != 8 && c != 45)
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Alterar formato de caracteres do CPF para inserção correta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxCPF(object sender, KeyPressEventArgs e)
+        {
+            var posicao = textBoxCpf.SelectionStart;
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+            else if (c == 8) posicao--;
+            else if (posicao == 3 && c != 8 || posicao == 7 && c != 8)
+            {
+                textBoxCpf.Text = textBoxCpf.Text.Insert(posicao, ".");
+                textBoxCpf.SelectionStart = posicao + 1;
+
+            }
+            else if (posicao == 11 && c != 8)
+            {
+                textBoxCpf.Text = textBoxCpf.Text.Insert(posicao, "-");
+                textBoxCpf.SelectionStart = posicao + 1;
+            }
+        }
+        /// <summary>
+        /// Formata o box para o celular contato padrao
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxContato(object sender, KeyPressEventArgs e)
+        {
+            var posicao = textBoxContato.SelectionStart;
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+            else if (c == 8) posicao--;
+            else if (posicao == 0 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, "(");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+            else if (posicao == 3 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, ")");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+            else if (posicao == 9 && c != 8)
+            {
+                textBoxContato.Text = textBoxContato.Text.Insert(posicao, "-");
+                textBoxContato.SelectionStart = posicao + 1;
+            }
+
+
+        }
+        /// <summary>
+        /// Formata o box para o valor em dinheiro padrão
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoxValor(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
+            {
+                TextBox t = (TextBox)sender;
+                if (t.Text.Length < 9 || e.KeyChar.Equals((char)Keys.Back))
+                {
+                    string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
+                    if (w == string.Empty) w = "00";
+
+                    if (e.KeyChar.Equals((char)Keys.Back))
+                        w = w.Substring(0, w.Length - 1);
+                    else
+                        w += e.KeyChar;
+                    t.Text = string.Format("{0:#,##0.00}", double.Parse(w) / 100);
+                    t.Select(t.Text.Length, 0);
+                }
+                else e.Handled = true;
+            }
+            e.Handled = true;
+        }
+        /// <summary>
+        /// Dialogo para selecionar arquivo para cadastro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenFile(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            OpenFileDialog file = new OpenFileDialog();
+            file.ShowDialog();
+            tb.Text = file.FileName;
+            tb.Text = file.FileName;
+        }
+        /// <summary>
+        /// Recebe arquivo CSV e verifica se está no padrão correto
+        /// </summary>
+        /// <param name="linha"></param>
+        /// <param name="caso"></param>
+        /// <returns>Retorna bool para correto ou incorreto</returns>
+        private bool CSVIsMatch(string linha, string caso)
+        {
+            var patternID = @"^\s*[0-9]{1,3}\s*$";
+            var patternData = @"^\s*[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}\s*$";
+            var patternValor = @"^\s*[0-9]{1,5}[,][0-9]{2}\s*$";
+            var patternTxt = @"^[A-Za-zÀ-ú\s]*$";
+            switch (caso)
+            {
+                case "funcionario":
+                    var splitFuncionario = linha.Split(';');
+                    var patternCPF = @"^\s*[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}\s*$";
+                    var patternContato = @"^\s*[0-9]{10,11}\s*$";
+                    if (!Regex.IsMatch(splitFuncionario[0], patternID) ||
+                        !Regex.IsMatch(splitFuncionario[1], patternTxt) ||
+                        !Regex.IsMatch(splitFuncionario[2], patternCPF) ||
+                        !Regex.IsMatch(splitFuncionario[3], patternContato) ||
+                        !Regex.IsMatch(splitFuncionario[4], patternValor) ||
+                        !Regex.IsMatch(splitFuncionario[5], patternTxt) ||
+                        !Regex.IsMatch(splitFuncionario[6], patternData))
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+                case "produto":
+                    var splitProduto = linha.Split(';');
+                    var patternEstoque = @"^\s*[0-9]{1,4}\s*$";
+                    if (!Regex.IsMatch(splitProduto[0], patternID) ||
+                        !Regex.IsMatch(splitProduto[1], patternTxt) ||
+                        !Regex.IsMatch(splitProduto[2], patternID) ||
+                        !Regex.IsMatch(splitProduto[3], patternValor) ||
+                        !Regex.IsMatch(splitProduto[4], patternTxt) ||
+                        !Regex.IsMatch(splitProduto[5], patternEstoque))
+                    {
+                        return false;
+                    }
+                    return true;
+                case "vendas":
+                    var splitVenda = linha.Split(';');
+                    var patternProduto = @"^\s*[0-9]{1,3}[|][0-9]{1,3}\s*$";
+                    var contador = 1;
+                    var listaIdProduto = new List<int>();
+                    var correto = false;
+                    if (!Regex.IsMatch(splitVenda[0], patternID))
+                    {
+                        return correto;
+                    }
+                    else
+                    {
+                        while (contador < splitVenda.Length - 1)
+                        {
+                            var vendaProduto = splitVenda[contador].Split('|');
+                            if (!Regex.IsMatch(splitVenda[contador], patternProduto))
+                            {
+                                correto = false;
+                                break;
+                            }
+                            var idProduto = Convert.ToInt32(vendaProduto[1]);
+                            if (listaIdProduto.Contains(idProduto))
+                            {
+                                correto = false;
+                                break;
+                            }
+                            else
+                            {
+                                correto = true;
+                                listaIdProduto.Add(idProduto);
+                                contador++;
+                            }
+                        }
+                        if (correto)
+                        {
+                            if (!Regex.IsMatch(splitVenda[splitVenda.Length - 1], patternData))
+                            {
+                                correto = false;
+                                return correto;
+                            }
+                            else
+                                return correto;
+                        }
+                        return correto;
+                    }
+                default:
+                    return false;
+            }
+        }
+        // INICIO ------------------------------------ FIM ------------------------------------ INICIO //
     }
 }

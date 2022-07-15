@@ -471,6 +471,7 @@
             this.btnCadastrarListaFuncionarios.TabIndex = 8;
             this.btnCadastrarListaFuncionarios.Text = "Cadastrar";
             this.btnCadastrarListaFuncionarios.UseVisualStyleBackColor = false;
+            this.btnCadastrarListaFuncionarios.Click += new System.EventHandler(this.btnCadastrarListaFuncionarios_Click);
             // 
             // Informacoes
             // 
@@ -486,6 +487,7 @@
             this.Informacoes.TabIndex = 9;
             this.Informacoes.Text = "Info";
             this.Informacoes.UseVisualStyleBackColor = false;
+            this.Informacoes.Click += new System.EventHandler(this.infoFuncionario_Click);
             // 
             // label9
             // 
@@ -538,6 +540,7 @@
             this.btnEnviarCadastroFuncionario.TabIndex = 6;
             this.btnEnviarCadastroFuncionario.Text = "Cadastrar";
             this.btnEnviarCadastroFuncionario.UseVisualStyleBackColor = false;
+            this.btnEnviarCadastroFuncionario.Click += new System.EventHandler(this.btnEnviarCadastroFuncionario_Click);
             // 
             // label6
             // 

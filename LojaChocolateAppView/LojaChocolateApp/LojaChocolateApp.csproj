@@ -64,23 +64,21 @@
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\Venda.cs" />
     <Compile Include="Model\Vendedor.cs" />
-    <Compile Include="Panels\Funcionarios\Cadastrar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Panels\Funcionarios\Cadastrar.Designer.cs">
-      <DependentUpon>Cadastrar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\FuncionarioRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
+    <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\Popups\PopupInfoCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Popups\PopupInfoCSV.Designer.cs">
+      <DependentUpon>PopupInfoCSV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AppLoja.resx">
       <DependentUpon>AppLoja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\Funcionarios\Cadastrar.resx">
-      <DependentUpon>Cadastrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
+      <DependentUpon>PopupInfoCSV.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
