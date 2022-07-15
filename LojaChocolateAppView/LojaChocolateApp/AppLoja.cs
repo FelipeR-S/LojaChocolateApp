@@ -1103,7 +1103,148 @@ namespace LojaChocolateApp
                 ApagaTextBoX();
             }
         }
+        /// <summary>
+        /// Insere dados na lista de vendas em um DataGrid
+        /// </summary>
+        private void PopulaListaVendas()
+        {
+            var repoVendas = new VendaRepository();
+            var listaVendas = repoVendas.GetLista();
+            DesignDataGrid();
+            foreach (var venda in listaVendas)
+            {
+                var qtdTotal = 0;
+                var produtos = repoVendas.GetDetalhesVenda(venda.VendaId);
+                foreach (var produto in produtos)
+                {
+                    var dados = produto.Split('|');
+                    var qtd = Convert.ToInt32(dados[0].Remove(0, dados[0].IndexOf(':') + 1));
+                    qtdTotal += qtd;
+                }
+                var id = $"{venda.VendaId}";
+                var descricao = $"Venda por {venda.VendedorNome}, id: {venda.VendedorId}, quantidade de produtos: {qtdTotal}";
+                var valor = $"{venda.Valor}";
+                var data = venda.DataVenda.ToShortDateString();
+                dataGridVendasBindingSource.Add(new DataGridVendas() { Id = id, Descricao = descricao, Valor = valor, Data = data, BtnText = "+" });
+            }
+            dataGridViewVendas.Visible = true;
+        }
+        /// <summary>
+        /// Exibe ou apaga detalhes do DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex != -1)
+                {
+                    var index = -1;
+                    //Remove detalhes
+                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "-" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
+                    {
+                        index = dataGridViewVendas.Rows[e.RowIndex].Index;
+                        var contador = index;
+                        while (contador + 1 < dataGridViewVendas.Rows.Count)
+                        {
+                            if (dataGridViewVendas.Rows[index + 1].Index == dataGridViewVendas.Rows.Count)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                if (dataGridViewVendas.Rows[index + 1].Cells[0].Value.ToString() == "")
+                                {
+                                    dataGridViewVendas.Rows.RemoveAt(index + 1);
+                                }
+                                else
+                                    break;
+                            }
+                        }
+                        dataGridViewVendas.Rows[index].Cells[4].Value = "+";
+                        goto SkipToEnd;
+                    }
+                    //Exibe detalhes
+                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "+" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
+                    {
+                        var id = Convert.ToInt32(dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value);
+                        index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
+                        var descricao = dataGridViewVendas.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        dataGridViewVendas.Rows[e.RowIndex].Selected = true;
 
+                        // Replace na venda clicada "-"
+                        dataGridViewVendas.Rows[index - 1].Cells[4].Value = "-";
+                        PopulaDetalhesBtn(id, index, descricao);
+                        goto SkipToEnd;
+                    }
+                    else
+                    {
+                        goto SkipToEnd;
+                    }
+                }
+            SkipToEnd:;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Carrega a lista para exibição do datagrid em tela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCarregaListaVendas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewVendas.Rows.Clear();
+                PopulaListaVendas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Define parametros de colunas e outras informações de design para o DataGridVendas
+        /// </summary>
+        private void DesignDataGrid()
+        {
+            dataGridViewVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Lato", 10, FontStyle.Bold);
+            dataGridViewVendas.ColumnHeadersHeight = 30;
+            dataGridViewVendas.Columns[0].Width = 30;
+            dataGridViewVendas.Columns[0].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[1].Width = 410;
+            dataGridViewVendas.Columns[2].Width = 70;
+            dataGridViewVendas.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[3].Width = 100;
+            dataGridViewVendas.Columns[3].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.Columns[4].Width = 30;
+            dataGridViewVendas.Columns[4].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+        /// <summary>
+        /// Popula as linhas de detalhes de cada venda
+        /// </summary>
+        /// <param name="idVenda"></param>
+        /// <param name="index"></param>
+        /// <param name="descricao"></param>
+        private void PopulaDetalhesBtn(int idVenda, int index, string descricao)
+        {
+            var repovendas = new VendaRepository();
+            var produtos = repovendas.GetDetalhesVenda(idVenda);
+            // Detalhes adicionados
+            foreach (var produto in produtos)
+            {
+                var dados = produto.Split('|');
+                var descricaoProd = $"{dados[0]} | {dados[1]} | {dados[2]}";
+                var valorProd = $"{dados[3].Remove(0, dados[3].IndexOf(':') + 1)}";
+                dataGridVendasBindingSource
+                    .Insert(index, new DataGridVendas() { Id = "", Descricao = descricaoProd, Valor = valorProd, Data = "", BtnText = "" });
+                dataGridViewVendas.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(235, 167, 101);
+            }
+        }
         // FIM ---------------------------------- VENDAS ---------------------------------- FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -1165,8 +1306,8 @@ namespace LojaChocolateApp
             panelEstoqueProduto.Visible = false;
             panelExibirProdutos.Visible = false;
             panelCadastrarVendas.Visible = false;
-            //panelConsultaVendas.Visible = false;
-            //dataGridViewVendas.Visible = false;
+            panelConsultaVendas.Visible = false;
+            dataGridViewVendas.Visible = false;
         }
         /// <summary>
         /// Esconde uma tela enquanto outra estiver ativa
@@ -1187,12 +1328,12 @@ namespace LojaChocolateApp
                 panelExibirProdutos.Visible = false;
             if (panelCadastrarVendas.Visible == true)
                 panelCadastrarVendas.Visible = false;
-            //if (panelConsultaVendas.Visible == true)
-            //{
-            //    panelConsultaVendas.Visible = false;
-            //    dataGridViewVendas.Visible = false;
-            //    dataGridViewVendas.Rows.Clear();
-            //}
+            if (panelConsultaVendas.Visible == true)
+            {
+                panelConsultaVendas.Visible = false;
+                dataGridViewVendas.Visible = false;
+                dataGridViewVendas.Rows.Clear();
+            }
         }
         /// <summary>
         /// Mostra uma tela ao ser invocada ou a esconde caso já esteja vísivel
@@ -1333,7 +1474,7 @@ namespace LojaChocolateApp
         private void btnConsultarVendas_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelConsultaVendas);
+            MostrarTelas(panelConsultaVendas);
             EsconderSubMenu();
         }
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
@@ -1364,7 +1505,7 @@ namespace LojaChocolateApp
             textTipoProduto.Text = "";
             comboBoxOpcaoProdutos.Text = "";
             comboBoxOrdemProdutos.Text = "";
-            //cboProduto1.Text = "";
+            cboProduto1.Text = "";
         }
         /// <summary>
         /// Permite apenas numeros na textbox

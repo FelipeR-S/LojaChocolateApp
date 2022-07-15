@@ -71,6 +71,7 @@
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\DataGridVendas.cs" />
     <Compile Include="Utils\LayoutItems\LayoutFuncionarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +122,7 @@
       <DependentUpon>PopupRemover.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LojaChocolateApp.Utils.DataGridVendas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
