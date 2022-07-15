@@ -53,7 +53,7 @@ namespace LojaChocolateApp.Repository
                     else
                     {
                         produtos.Add(new Tuple<int, Produto>(Convert.ToInt32(qtdProd), produto));
-                        foreach(var prodVenda in produtos)
+                        foreach (var prodVenda in produtos)
                         {
                             (var qtd, var prod) = prodVenda;
                             valorTotal += qtd * prod.Valor;
@@ -188,26 +188,36 @@ namespace LojaChocolateApp.Repository
             using (var leitor = new StreamReader(file))
             {
                 var lista = new List<Venda>();
+                var numeroLinha = 0;
                 var naoAdicionados = new List<string>();
                 var numeroDeConflitos = 0;
                 while (!leitor.EndOfStream)
                 {
+                    numeroLinha++;
                     //dados de entrada
                     var dados = leitor.ReadLine();
                     var novaVenda = ConverteAtributos(dados);
-                    //Verifica Estoque
-                    foreach (var venda in novaVenda.Produtos)
+                    if (novaVenda != null)
                     {
-                        (var qtd, var prod) = venda;
-                        if (qtd > prod.Estoque)
+                        //Verifica Estoque
+                        foreach (var produto in novaVenda.Produtos)
                         {
-                            numeroDeConflitos++;
-                            naoAdicionados.Add($"Produto de Id {prod.Id} com estoque insuficiente\n" +
-                                $"Quantidade solicitadade: {qtd} | Quantidade em estoque: {prod.Estoque}\n");
-                            return (lista, naoAdicionados, numeroDeConflitos);
+                            (var qtd, var prod) = produto;
+                            if (qtd > prod.Estoque)
+                            {
+                                numeroDeConflitos++;
+                                naoAdicionados.Add($"Linha nº {numeroLinha} com Produto de Id {prod.Id} com estoque insuficiente\n" +
+                                    $"Quantidade solicitadade: {qtd} | Quantidade em estoque: {prod.Estoque}\n");
+                                return (lista, naoAdicionados, numeroDeConflitos);
+                            }
                         }
+                        lista.Add(novaVenda);
                     }
-                    lista.Add(novaVenda);
+                    else
+                    {
+                        numeroDeConflitos++;
+                        naoAdicionados.Add($"Linha nº {numeroLinha} não está de acordo com os padrões.");
+                    }
                 }
                 return (lista, naoAdicionados, numeroDeConflitos);
             }

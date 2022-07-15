@@ -1077,7 +1077,7 @@ namespace LojaChocolateApp
                         var erros = "";
                         foreach (var msg in conflitos)
                         {
-                            erros += $"{msg}";
+                            erros += $"{msg}\n";
                         }
                         MessageBox.Show(erros);
                     }
