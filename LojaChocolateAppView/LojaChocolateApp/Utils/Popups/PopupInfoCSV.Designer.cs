@@ -63,6 +63,7 @@
             this.btnFechaPopup.TabIndex = 0;
             this.btnFechaPopup.Text = "FECHAR";
             this.btnFechaPopup.UseVisualStyleBackColor = false;
+            this.btnFechaPopup.Click += new System.EventHandler(this.btnFechaPopup_Click);
             // 
             // txtFuncionarioCSV
             // 

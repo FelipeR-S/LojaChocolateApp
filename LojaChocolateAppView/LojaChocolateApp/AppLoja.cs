@@ -202,6 +202,72 @@ namespace LojaChocolateApp
                 background.Dispose();
             }
         }
+        /// <summary>
+        /// Invoca Popup para aceitar remoção do <see cref="Funcionario"/> do <see cref="FuncionarioRepository"/> caso ele exista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoverFuncionario_Click(object sender, EventArgs e)
+        {
+            Form background = new Form();
+            try
+            {
+                using (PopupRemover popupRemover = new PopupRemover(this))
+                {
+                    var backGroundDesign = new BackGroundPopup();
+
+                    backGroundDesign.BackGroundPopupDesign(background);
+
+                    popupRemover.Owner = background;
+                    popupRemover.panelRemoverProduto.Visible = false;
+                    popupRemover.panelRemoverFuncionario.Visible = true;
+                    popupRemover.ShowDialog();
+                    background.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                background.Dispose();
+            }
+        }
+        /// <summary>
+        /// Altera salário de <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAlterarSalarioFuncionario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = Convert.ToInt32(textIdSlarioFuncionario.Text);
+                var salario = Convert.ToDecimal(textSalarioFuncionario.Text);
+                var repoFuncionario = new FuncionarioRepository();
+                (var existe, var salarioAntigo) = repoFuncionario.AlteraSalarioRepository(id, salario);
+                if (existe)
+                {
+                    MessageBox.Show($"O funcionário com id: {id} teve seu salário alterado de {salarioAntigo} para {salario}.");
+                    ApagaTextBoX();
+                }
+                else
+                {
+                    MessageBox.Show($"Funcionário não encontrado!");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show($"Funcionário não encontrado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         // FIM ------------------------------------ FUNCIONARIOS ------------------------------------ FIM //
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -257,7 +323,7 @@ namespace LojaChocolateApp
         private void TelasDesign()
         {
           panelCadastrarFuncionario.Visible = false;
-          //panelRemoverFuncionario.Visible = false;
+          panelRemoverFuncionario.Visible = false;
           //panelConsultarFuncionario.Visible = false;
           //panelInserirProduto.Visible = false;
           //panelEstoqueProduto.Visible = false;
@@ -273,8 +339,8 @@ namespace LojaChocolateApp
         {
            if (panelCadastrarFuncionario.Visible == true)
                panelCadastrarFuncionario.Visible = false;
-           //if (panelRemoverFuncionario.Visible == true)
-           //    panelRemoverFuncionario.Visible = false;
+           if (panelRemoverFuncionario.Visible == true)
+               panelRemoverFuncionario.Visible = false;
            //if (panelConsultarFuncionario.Visible == true)
            //    panelConsultarFuncionario.Visible = false;
            //if (panelInserirProduto.Visible == true)
@@ -339,7 +405,7 @@ namespace LojaChocolateApp
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
             EsconderTelas();
-            //MostrarTelas(panelRemoverFuncionario);
+            MostrarTelas(panelRemoverFuncionario);
             EsconderSubMenu();
         }
         /// <summary>
@@ -531,24 +597,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void BoxValor(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
-            {
-                TextBox t = (TextBox)sender;
-                if (t.Text.Length < 9 || e.KeyChar.Equals((char)Keys.Back))
-                {
-                    string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
-                    if (w == string.Empty) w = "00";
 
-                    if (e.KeyChar.Equals((char)Keys.Back))
-                        w = w.Substring(0, w.Length - 1);
-                    else
-                        w += e.KeyChar;
-                    t.Text = string.Format("{0:#,##0.00}", double.Parse(w) / 100);
-                    t.Select(t.Text.Length, 0);
-                }
-                else e.Handled = true;
-            }
-            e.Handled = true;
         }
         /// <summary>
         /// Dialogo para selecionar arquivo para cadastro
