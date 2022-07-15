@@ -355,8 +355,6 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.panelDetalhes);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaximumSize = new System.Drawing.Size(450, 180);
-            this.MinimumSize = new System.Drawing.Size(450, 180);
             this.Name = "LayoutFuncionarios";
             this.Size = new System.Drawing.Size(450, 180);
             this.panelDetalhes.ResumeLayout(false);

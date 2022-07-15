@@ -25,6 +25,7 @@ namespace LojaChocolateApp
             InitializeComponent();
             SubMenuDesign();
             TelasDesign();
+            EscondeTextoDetalhes();
         }
         // INICIO ------------------------------------ FUNCIONARIOS ------------------------------------ INICIO //
         /// <summary>
@@ -290,7 +291,6 @@ namespace LojaChocolateApp
                     PopulaExibeDetalhe(funcionario);
                     textBoxIDDetalhesFuncionario.Text = "";
                     comboBoxOrdenar.Text = "";
-
                 }
                 else
                     MessageBox.Show($"Funcionário com ID nº {id} não encontrado!");
@@ -432,8 +432,8 @@ namespace LojaChocolateApp
         /// </summary>
         private void EscondeTextoDetalhes()
         {
-            //flowLayoutPanelFuncionario.Controls.Clear();
-            //TituloExibeFuncionario.Visible = false;
+            flowLayoutPanelFuncionario.Controls.Clear();
+            TituloExibeFuncionario.Visible = false;
             //flowLayoutLayoutExibeProdutos.Controls.Clear();
             //tituloExibeProdutos.Visible = false;
             //panelQuantidadeProduto.Visible = false;
@@ -642,6 +642,19 @@ namespace LojaChocolateApp
             func(Controls);
         }
         /// <summary>
+        /// Permite apenas numeros na textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (!Char.IsDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
         /// Permite apenas letras e "-" no textbox
         /// </summary>
         /// <param name="sender"></param>
@@ -709,8 +722,6 @@ namespace LojaChocolateApp
                 textBoxContato.Text = textBoxContato.Text.Insert(posicao, "-");
                 textBoxContato.SelectionStart = posicao + 1;
             }
-
-
         }
         /// <summary>
         /// Formata o box para o valor em dinheiro padrão
@@ -719,7 +730,24 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void BoxValor(object sender, KeyPressEventArgs e)
         {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
+            {
+                TextBox t = (TextBox)sender;
+                if (t.Text.Length < 9 || e.KeyChar.Equals((char)Keys.Back))
+                {
+                    string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
+                    if (w == string.Empty) w = "00";
 
+                    if (e.KeyChar.Equals((char)Keys.Back))
+                        w = w.Substring(0, w.Length - 1);
+                    else
+                        w += e.KeyChar;
+                    t.Text = string.Format("{0:#,##0.00}", double.Parse(w) / 100);
+                    t.Select(t.Text.Length, 0);
+                }
+                else e.Handled = true;
+            }
+            e.Handled = true;
         }
         /// <summary>
         /// Dialogo para selecionar arquivo para cadastro
