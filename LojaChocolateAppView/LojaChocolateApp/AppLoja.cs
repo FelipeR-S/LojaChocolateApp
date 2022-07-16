@@ -905,21 +905,35 @@ namespace LojaChocolateApp
         /// <summary>
         /// Carrega elementos do combobox do submenu cadastrar vendas de forma dinamica
         /// </summary>
-        private void CarregaComboBox()
+        private void CarregaComboBoxProduto()
         {
+            //ComboBox Funcionario
+            var repoFuncionario = new FuncionarioRepository();
+            var listaFuncionarioRepo = repoFuncionario.GetLista();
+            var funcionarioVazio = new Vendedor(0, "", "", "", 0m, "", "0");
+            var listaFuncionarios = new List<Funcionario>();
+            listaFuncionarios.Add(funcionarioVazio);
+            foreach (var f in listaFuncionarioRepo)
+            {
+                var novoFuncionario = new Vendedor(f.Id, $"{f.Id} | {f.Nome}", f.Cpf, f.Contato, f.Salario, f.Cargo, f.DataCadastro);
+                listaFuncionarios.Add(novoFuncionario);
+            }
+            listaFuncionarios.Sort(new FuncionarioRepository(""));
+            textIdVendasCadastro.DataSource = listaFuncionarios;
+            textIdVendasCadastro.ValueMember = "Id";
+            textIdVendasCadastro.DisplayMember = "Nome";
+            //ComboBox Produto
             var repoProduto = new ProdutoRepository();
-            var lista = repoProduto.GetLista();
+            var listaProdutoRepo = repoProduto.GetLista();
             var listaProdutos = new List<Produto>();
             var produtoVazio = new Produto(0, "", 0m, 0m, "", 0);
             listaProdutos.Add(produtoVazio);
-            foreach (var p in lista)
+            foreach (var p in listaProdutoRepo)
             {
                 var novoProduto = new Produto(p.Id, $"{p.Id} | {p.Nome} | R$ {p.Valor}", p.Peso, p.Valor, p.Tipo, p.Estoque);
                 listaProdutos.Add(novoProduto);
             }
-
             listaProdutos.Sort(new ProdutoRepository(""));
-
             cboProduto1.DataSource = listaProdutos;
             cboProduto1.ValueMember = "Id";
             cboProduto1.DisplayMember = "Nome";
@@ -935,7 +949,8 @@ namespace LojaChocolateApp
             {
                 //Entrada de dados
                 var vendas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
-                var funcionarioId = Convert.ToInt32(textIdVendasCadastro.Text);
+                var entradaFuncionarioId = textIdVendasCadastro.Text.Split('|');
+                var funcionarioId = Convert.ToInt32(entradaFuncionarioId[0]);
                 var conflito = false;
                 var valorTotal = 0m;
                 var data = DateTime.Now;
@@ -1458,7 +1473,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnCadastrarVendas_Click(object sender, EventArgs e)
         {
-            CarregaComboBox();
+            CarregaComboBoxProduto();
             EsconderTelas();
             MostrarTelas(panelCadastrarVendas);
             EsconderSubMenu();
