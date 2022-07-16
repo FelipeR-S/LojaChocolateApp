@@ -30,23 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppLoja));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.panelSubMenuVendas = new System.Windows.Forms.Panel();
             this.btnConsultarVendas = new System.Windows.Forms.Button();
             this.btnCadastrarVendas = new System.Windows.Forms.Button();
+            this.btnVendas = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuProdutos = new System.Windows.Forms.Panel();
             this.btnConsultarProdutos = new System.Windows.Forms.Button();
             this.btnEstoque = new System.Windows.Forms.Button();
             this.btnInserirProduto = new System.Windows.Forms.Button();
+            this.btnProdutos = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuFuncionario = new System.Windows.Forms.Panel();
             this.btnConsultarFuncionarios = new System.Windows.Forms.Button();
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
+            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCadastrarFuncionario = new System.Windows.Forms.Panel();
             this.textBoxSalario = new System.Windows.Forms.TextBox();
             this.textBoxCpf = new System.Windows.Forms.TextBox();
@@ -171,7 +175,6 @@
             this.textArquivoVendasCadastro = new System.Windows.Forms.TextBox();
             this.btnCadastrarVendaUnica = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
-            this.textIdVendasCadastro = new System.Windows.Forms.TextBox();
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
@@ -181,21 +184,19 @@
             this.label52 = new System.Windows.Forms.Label();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textIdVendasCadastro = new System.Windows.Forms.ComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnVendas = new FontAwesome.Sharp.IconButton();
-            this.btnProdutos = new FontAwesome.Sharp.IconButton();
-            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCadastrarFuncionario.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panelConsultarFuncionario.SuspendLayout();
@@ -228,7 +229,6 @@
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -294,6 +294,30 @@
             this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarVendas.UseVisualStyleBackColor = true;
             this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
+            // 
+            // btnVendas
+            // 
+            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendas.FlatAppearance.BorderSize = 0;
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnVendas.IconColor = System.Drawing.Color.White;
+            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVendas.IconSize = 25;
+            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.Location = new System.Drawing.Point(0, 427);
+            this.btnVendas.Name = "btnVendas";
+            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVendas.Size = new System.Drawing.Size(248, 45);
+            this.btnVendas.TabIndex = 0;
+            this.btnVendas.Text = "   Vendas";
+            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendas.UseVisualStyleBackColor = false;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // panelSubMenuProdutos
             // 
@@ -361,6 +385,29 @@
             this.btnInserirProduto.UseVisualStyleBackColor = true;
             this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
+            // btnProdutos
+            // 
+            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdutos.FlatAppearance.BorderSize = 0;
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnProdutos.IconColor = System.Drawing.Color.White;
+            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProdutos.IconSize = 25;
+            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
+            this.btnProdutos.TabIndex = 0;
+            this.btnProdutos.Text = "  Produtos";
+            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            // 
             // panelSubMenuFuncionario
             // 
             this.panelSubMenuFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -427,6 +474,30 @@
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
             this.btnCadastrarFuncionario.Click += new System.EventHandler(this.btnCadastrarFuncionario_Click);
             // 
+            // btnFuncionarios
+            // 
+            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
+            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFuncionarios.IconSize = 25;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
+            this.btnFuncionarios.Name = "btnFuncionarios";
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
+            this.btnFuncionarios.TabIndex = 0;
+            this.btnFuncionarios.Text = "  Funcionários";
+            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
+            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(247, 0);
@@ -444,6 +515,17 @@
             this.panelLogo.Padding = new System.Windows.Forms.Padding(20);
             this.panelLogo.Size = new System.Drawing.Size(248, 123);
             this.panelLogo.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoBranco;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panelCadastrarFuncionario
             // 
@@ -508,6 +590,7 @@
             // comboBoxCargo
             // 
             this.comboBoxCargo.BackColor = System.Drawing.Color.White;
+            this.comboBoxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCargo.FormattingEnabled = true;
             this.comboBoxCargo.Items.AddRange(new object[] {
@@ -805,6 +888,7 @@
             // 
             // comboBoxOrdenar
             // 
+            this.comboBoxOrdenar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrdenar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOrdenar.FormattingEnabled = true;
             this.comboBoxOrdenar.Items.AddRange(new object[] {
@@ -1150,6 +1234,7 @@
             // 
             // textTipoProduto
             // 
+            this.textTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.textTipoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTipoProduto.FormattingEnabled = true;
             this.textTipoProduto.Items.AddRange(new object[] {
@@ -1499,6 +1584,7 @@
             // 
             // comboBoxOpcaoProdutos
             // 
+            this.comboBoxOpcaoProdutos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOpcaoProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOpcaoProdutos.FormattingEnabled = true;
             this.comboBoxOpcaoProdutos.Items.AddRange(new object[] {
@@ -1654,6 +1740,7 @@
             // 
             // comboBoxOrdemProdutos
             // 
+            this.comboBoxOrdemProdutos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrdemProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOrdemProdutos.FormattingEnabled = true;
             this.comboBoxOrdemProdutos.Items.AddRange(new object[] {
@@ -1755,6 +1842,7 @@
             // panelCadastrarVendas
             // 
             this.panelCadastrarVendas.BackColor = System.Drawing.Color.White;
+            this.panelCadastrarVendas.Controls.Add(this.textIdVendasCadastro);
             this.panelCadastrarVendas.Controls.Add(this.textProdVendas);
             this.panelCadastrarVendas.Controls.Add(this.btnRemoverVenda);
             this.panelCadastrarVendas.Controls.Add(this.label44);
@@ -1775,7 +1863,6 @@
             this.panelCadastrarVendas.Controls.Add(this.textArquivoVendasCadastro);
             this.panelCadastrarVendas.Controls.Add(this.btnCadastrarVendaUnica);
             this.panelCadastrarVendas.Controls.Add(this.label46);
-            this.panelCadastrarVendas.Controls.Add(this.textIdVendasCadastro);
             this.panelCadastrarVendas.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelCadastrarVendas.Location = new System.Drawing.Point(250, 0);
             this.panelCadastrarVendas.Name = "panelCadastrarVendas";
@@ -1815,9 +1902,9 @@
             this.label44.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label44.Location = new System.Drawing.Point(87, 330);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(22, 17);
+            this.label44.Size = new System.Drawing.Size(74, 17);
             this.label44.TabIndex = 45;
-            this.label44.Text = "ID";
+            this.label44.Text = "Id Produto";
             // 
             // textIdRemoverVenda
             // 
@@ -1851,7 +1938,8 @@
             // 
             // cboProduto1
             // 
-            this.cboProduto1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProduto1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProduto1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboProduto1.FormattingEnabled = true;
             this.cboProduto1.Location = new System.Drawing.Point(187, 216);
             this.cboProduto1.Name = "cboProduto1";
@@ -1921,7 +2009,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label41.Location = new System.Drawing.Point(258, 89);
+            this.label41.Location = new System.Drawing.Point(169, 87);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(237, 17);
             this.label41.TabIndex = 22;
@@ -2032,26 +2120,11 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label46.Location = new System.Drawing.Point(184, 88);
+            this.label46.Location = new System.Drawing.Point(95, 86);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(72, 17);
             this.label46.TabIndex = 6;
             this.label46.Text = "Vendedor:";
-            // 
-            // textIdVendasCadastro
-            // 
-            this.textIdVendasCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
-            this.textIdVendasCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIdVendasCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdVendasCadastro.Location = new System.Drawing.Point(499, 83);
-            this.textIdVendasCadastro.MaxLength = 3;
-            this.textIdVendasCadastro.Name = "textIdVendasCadastro";
-            this.textIdVendasCadastro.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdVendasCadastro.Size = new System.Drawing.Size(88, 25);
-            this.textIdVendasCadastro.TabIndex = 0;
-            this.textIdVendasCadastro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textIdVendasCadastro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // panelConsultaVendas
             // 
@@ -2083,23 +2156,23 @@
             this.dataGridViewVendas.AllowUserToAddRows = false;
             this.dataGridViewVendas.AllowUserToDeleteRows = false;
             this.dataGridViewVendas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewVendas.AutoGenerateColumns = false;
             this.dataGridViewVendas.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewVendas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewVendas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewVendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -2115,11 +2188,11 @@
             this.dataGridViewVendas.ReadOnly = true;
             this.dataGridViewVendas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewVendas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewVendas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewVendas.RowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewVendas.RowTemplate.ReadOnly = true;
             this.dataGridViewVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewVendas.Size = new System.Drawing.Size(674, 464);
@@ -2187,6 +2260,16 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // textIdVendasCadastro
+            // 
+            this.textIdVendasCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdVendasCadastro.FormattingEnabled = true;
+            this.textIdVendasCadastro.Location = new System.Drawing.Point(413, 82);
+            this.textIdVendasCadastro.Name = "textIdVendasCadastro";
+            this.textIdVendasCadastro.Size = new System.Drawing.Size(174, 29);
+            this.textIdVendasCadastro.TabIndex = 46;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -2226,104 +2309,22 @@
             // 
             this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
             // 
-            // btnVendas
-            // 
-            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnVendas.IconColor = System.Drawing.Color.White;
-            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendas.IconSize = 25;
-            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(0, 427);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(248, 45);
-            this.btnVendas.TabIndex = 0;
-            this.btnVendas.Text = "   Vendas";
-            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendas.UseVisualStyleBackColor = false;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
-            // 
-            // btnProdutos
-            // 
-            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProdutos.FlatAppearance.BorderSize = 0;
-            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
-            this.btnProdutos.IconColor = System.Drawing.Color.White;
-            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdutos.IconSize = 25;
-            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 277);
-            this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
-            this.btnProdutos.TabIndex = 0;
-            this.btnProdutos.Text = "  Produtos";
-            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdutos.UseVisualStyleBackColor = true;
-            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
-            // 
-            // btnFuncionarios
-            // 
-            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
-            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
-            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFuncionarios.IconSize = 25;
-            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
-            this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
-            this.btnFuncionarios.TabIndex = 0;
-            this.btnFuncionarios.Text = "  Funcionários";
-            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFuncionarios.UseVisualStyleBackColor = false;
-            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoBranco;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 83);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
-            this.Controls.Add(this.panelLogoPrincipal);
-            this.Controls.Add(this.panelConsultaVendas);
+            this.Controls.Add(this.panelMenuLateral);
             this.Controls.Add(this.panelCadastrarVendas);
             this.Controls.Add(this.panelExibirProdutos);
             this.Controls.Add(this.panelEstoqueProduto);
             this.Controls.Add(this.panelInserirProduto);
-            this.Controls.Add(this.panelMenuLateral);
             this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelCadastrarFuncionario);
             this.Controls.Add(this.panelRemoverFuncionario);
+            this.Controls.Add(this.panelLogoPrincipal);
+            this.Controls.Add(this.panelConsultaVendas);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -2337,6 +2338,7 @@
             this.panelSubMenuProdutos.ResumeLayout(false);
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCadastrarFuncionario.ResumeLayout(false);
             this.panelCadastrarFuncionario.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -2388,7 +2390,6 @@
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2536,7 +2537,6 @@
         private System.Windows.Forms.TextBox textArquivoVendasCadastro;
         private System.Windows.Forms.Button btnCadastrarVendaUnica;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textIdVendasCadastro;
         private System.Windows.Forms.Button btnConsultarVendas;
         private System.Windows.Forms.Button btnCadastrarVendas;
         private System.Windows.Forms.Panel panelConsultaVendas;
@@ -2554,6 +2554,7 @@
         private System.Windows.Forms.BindingSource dataGridVendasBindingSource;
         private System.Windows.Forms.Panel panelLogoPrincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ComboBox textIdVendasCadastro;
     }
 }
 
