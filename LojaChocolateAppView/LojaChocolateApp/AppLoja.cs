@@ -55,7 +55,7 @@ namespace LojaChocolateApp
                 }
                 var dataCadastro = DateTime.Now.ToShortDateString();
                 Funcionario novoFuncionario = null;
-                if (cpf.Length < 10)
+                if (cpf.Length < 14)
                 {
                     MessageBox.Show("CPF digitado incorretamente!");
                 }
