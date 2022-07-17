@@ -9,7 +9,7 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 <a href="#sobre">Sobre</a> •
 <a href="#features">Features</a> •
 <a href="#tecnologias">Tecnologias</a> •
-<a href="#pre-requisitos">Pré-Requisitos</a> •
+<a href="#pré-requisitos">Pré-Requisitos</a> •
 <a href="#autor">Autor</a> 
 </p><br>
 
@@ -78,6 +78,3 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 
 | [<img src="https://avatars.githubusercontent.com/u/107010683?v=4" width=115><br><sub>Felipe Rodrigues Santos</sub>](https://github.com/FelipeR-S) |  
 | :---: |
-
-
-
