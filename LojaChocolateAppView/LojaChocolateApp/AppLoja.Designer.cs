@@ -154,6 +154,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.panelCadastrarVendas = new System.Windows.Forms.Panel();
+            this.textIdVendasCadastro = new System.Windows.Forms.ComboBox();
             this.textProdVendas = new System.Windows.Forms.TextBox();
             this.btnRemoverVenda = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
@@ -178,19 +179,18 @@
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.btnCarregaListaVendas = new System.Windows.Forms.Button();
-            this.label52 = new System.Windows.Forms.Label();
-            this.panelLogoPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textIdVendasCadastro = new System.Windows.Forms.ComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnCarregaListaVendas = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
+            this.panelLogoPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
@@ -225,10 +225,10 @@
             this.panelConsultaVendas.SuspendLayout();
             this.panelDataGridVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -1869,6 +1869,16 @@
             this.panelCadastrarVendas.Size = new System.Drawing.Size(714, 561);
             this.panelCadastrarVendas.TabIndex = 30;
             // 
+            // textIdVendasCadastro
+            // 
+            this.textIdVendasCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdVendasCadastro.FormattingEnabled = true;
+            this.textIdVendasCadastro.Location = new System.Drawing.Point(413, 82);
+            this.textIdVendasCadastro.Name = "textIdVendasCadastro";
+            this.textIdVendasCadastro.Size = new System.Drawing.Size(174, 29);
+            this.textIdVendasCadastro.TabIndex = 46;
+            // 
             // textProdVendas
             // 
             this.textProdVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -2199,6 +2209,45 @@
             this.dataGridViewVendas.TabIndex = 1;
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // btnTextDataGridViewTextBoxColumn
+            // 
+            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
+            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
+            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
+            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridVendasBindingSource
+            // 
+            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
+            // 
             // panel19
             // 
             this.panel19.Location = new System.Drawing.Point(0, 60);
@@ -2260,55 +2309,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // textIdVendasCadastro
-            // 
-            this.textIdVendasCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIdVendasCadastro.FormattingEnabled = true;
-            this.textIdVendasCadastro.Location = new System.Drawing.Point(413, 82);
-            this.textIdVendasCadastro.Name = "textIdVendasCadastro";
-            this.textIdVendasCadastro.Size = new System.Drawing.Size(174, 29);
-            this.textIdVendasCadastro.TabIndex = 46;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // btnTextDataGridViewTextBoxColumn
-            // 
-            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
-            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
-            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
-            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridVendasBindingSource
-            // 
-            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
-            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2327,6 +2327,7 @@
             this.Controls.Add(this.panelConsultarFuncionario);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximumSize = new System.Drawing.Size(980, 600);
             this.MinimumSize = new System.Drawing.Size(980, 600);
@@ -2385,11 +2386,11 @@
             this.panelConsultaVendas.ResumeLayout(false);
             this.panelDataGridVendas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
