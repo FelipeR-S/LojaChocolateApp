@@ -1,6 +1,8 @@
 ﻿using LojaChocolateApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -121,7 +123,7 @@ namespace LojaChocolateApp.Repository
             using (var file = new FileStream(_localDoArquivo, FileMode.Append))
             using (var escritor = new StreamWriter(file))
             {
-                escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
+                escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};//{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};/{funcionario.DataCadastro}");
             }
         }
         public void IncluirVarios(List<Funcionario> lista)
