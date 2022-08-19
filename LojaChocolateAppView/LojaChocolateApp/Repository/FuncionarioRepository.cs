@@ -27,14 +27,6 @@ namespace LojaChocolateApp.Repository
         {
             _ordem = ordem;
         }
-        /// <summary>
-        /// Local padrão para o <see cref="FuncionarioRepository"/>
-        /// </summary>
-        private static string _localDoArquivo = "FuncionarioRepository.CSV";
-        /// <summary>
-        /// Local temporário para alterar ou remover objeto do <see cref="FuncionarioRepository"/>
-        /// </summary>
-        private static string _ArquivoTemporario = "temp.CSV";
         public Funcionario ConverteAtributos(string linha)
         {
             var dados = linha.Split(';');
@@ -42,9 +34,12 @@ namespace LojaChocolateApp.Repository
             var nome = dados[1];
             var cpf = dados[2];
             var contato = dados[3];
-            var salario = Convert.ToDecimal(dados[4]);
+            var salario = Math.Round(Convert.ToDecimal(dados[4]), 2);
             var cargo = dados[5];
-            var dataCadastro = dados[6];
+            // Converte Data Cadastro
+            var date = Convert.ToDateTime(dados[6]);
+            var dataCadastro = date.ToShortDateString();
+            // Converte Data Cadastroa
             switch (cargo.ToLower())
             {
                 case "vendedor":
@@ -98,36 +93,50 @@ namespace LojaChocolateApp.Repository
         }
         public (bool, Funcionario) GetDetalhes(int id)
         {
-            var existe = false;
             Funcionario funcionario = null;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var existe = false;
+            var funcionarioString = "";
+
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var cadastrado = ConverteAtributos(linha);
-                    if (cadastrado.Id == id)
-                    {
-                        existe = true;
-                        funcionario = cadastrado;
-                    }
+                    funcionarioString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)};{srd.GetValue(6)}";
                 }
+                connection.Close();
             }
-            return (existe, funcionario);
+            if (funcionarioString == "")
+            {
+                return (existe, funcionario);
+            }
+            else
+            {
+                existe = true;
+                funcionario = ConverteAtributos(funcionarioString);
+                return (existe, funcionario);
+            }
         }
         public List<Funcionario> GetLista()
         {
             var lista = new List<Funcionario>();
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var funcionarioString = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro] FROM [dbo].[Funcionarios]";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(linha);
+                    funcionarioString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)};{srd.GetValue(6)}";
+                    var funcionario = ConverteAtributos(funcionarioString);
                     lista.Add(funcionario);
                 }
+                connection.Close();
             }
             return lista;
         }

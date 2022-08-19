@@ -319,7 +319,7 @@ namespace LojaChocolateApp
             detalhes.Cpf = funcionario.Cpf;
             detalhes.Contato = funcionario.Contato;
             detalhes.Salario = $"R$ {funcionario.Salario}";
-            detalhes.DataCadastro = funcionario.DataCadastro.ToString();
+            detalhes.DataCadastro = funcionario.DataCadastro;
             detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
             detalhes.Imagem = Resources.userWhite;
             detalhes.BackGroundColor = Color.FromArgb(238, 118, 0);
