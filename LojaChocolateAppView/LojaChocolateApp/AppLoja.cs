@@ -168,7 +168,7 @@ namespace LojaChocolateApp
             }
             finally
             {
-                //ApagaTextBoX();
+                ApagaTextBoX();
             }
         }
         /// <summary>
@@ -1654,14 +1654,14 @@ namespace LojaChocolateApp
         {
             var patternID = @"^\s*[0-9]{1,3}\s*$";
             var patternData = @"^\s*[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}\s*$";
-            var patternValor = @"^\s*[0-9]{1,5}[,][0-9]{2}\s*$";
+            var patternValor = @"^\s*[0-9]{1,5}[,|.][0-9]{2}\s*$";
             var patternTxt = @"^[A-Za-zÀ-ú\s]*$";
             switch (caso)
             {
                 case "funcionario":
                     var splitFuncionario = linha.Split(';');
-                    var patternCPF = @"^\s*[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}\s*$";
-                    var patternContato = @"^\s*[0-9]{10,11}\s*$";
+                    var patternCPF = @"^[\s]?[0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[\-]?[0-9]{2}[\s]?$";
+                    var patternContato = @"^[\s]?[\(]?[0-9]{2}[\)]?[0-9]{4,5}[\-]?[0-9]{4}[\s]?$";
                     if (!Regex.IsMatch(splitFuncionario[0], patternID) ||
                         !Regex.IsMatch(splitFuncionario[1], patternTxt) ||
                         !Regex.IsMatch(splitFuncionario[2], patternCPF) ||
@@ -1676,8 +1676,9 @@ namespace LojaChocolateApp
                         return true;
                 case "produto":
                     var splitProduto = linha.Split(';');
-                    var patternEstoque = @"^\s*[0-9]{1,4}\s*$";
-                    if (!Regex.IsMatch(splitProduto[0], patternID) ||
+                    var patternCodProd = @"^[\s]?[0-9]{12}[\s]?$";
+                    var patternEstoque = @"^[\s]?[0-9]{1,4}[\s]?$";
+                    if (!Regex.IsMatch(splitProduto[0], patternCodProd) ||
                         !Regex.IsMatch(splitProduto[1], patternTxt) ||
                         !Regex.IsMatch(splitProduto[2], patternID) ||
                         !Regex.IsMatch(splitProduto[3], patternValor) ||
@@ -1689,7 +1690,7 @@ namespace LojaChocolateApp
                     return true;
                 case "vendas":
                     var splitVenda = linha.Split(';');
-                    var patternProduto = @"^\s*[0-9]{1,3}[|][0-9]{1,3}\s*$";
+                    var patternProduto = @"^[\s]?[0-9]{12}[|][0-9]{12}[\s]?$";
                     var contador = 1;
                     var listaIdProduto = new List<int>();
                     var correto = false;

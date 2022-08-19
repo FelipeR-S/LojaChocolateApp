@@ -154,20 +154,29 @@ namespace LojaChocolateApp.Repository
                     connection.Close();
                 }
             }
-            //using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            //using (var escritor = new StreamWriter(file))
-            //{
-            //    escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};//{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};/{funcionario.DataCadastro}");
-            //}
         }
         public void IncluirVarios(List<Funcionario> lista)
         {
-            using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                foreach (var funcionario in lista)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
+                    foreach (var funcionario in lista)
+                    {
+                        command.Parameters.AddWithValue("@Matricula", funcionario.Id.ToString());
+                        command.Parameters.AddWithValue("@Nome", funcionario.Nome);
+                        command.Parameters.AddWithValue("@CPF", funcionario.Cpf);
+                        command.Parameters.AddWithValue("@Contato", funcionario.Contato);
+                        command.Parameters.AddWithValue("@Salario", funcionario.Salario.ToString().Replace(',', '.'));
+                        command.Parameters.AddWithValue("@Cargo", funcionario.Cargo);
+                        command.Parameters.AddWithValue("@Cadastro", funcionario.DataCadastro);
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
+                    }
                 }
             }
         }

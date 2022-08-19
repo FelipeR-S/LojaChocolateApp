@@ -8,7 +8,7 @@ namespace LojaChocolateApp.Repository
 {
     public class SQLServerConn
     {
-        private static string server = @"DESKTOP-6OJPNF6";
+        private static string server = Environment.MachineName;
         private static string database = "Loja_Chocolate";
         private static string user = "administrador";
         private static string password = "1234";
