@@ -58,30 +58,44 @@ namespace LojaChocolateApp.Repository
         public (bool, string) Existente(Funcionario funcionario)
         {
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLMatricula = "";
+            var stringSQLCPF = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [CPF] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{funcionario.Id}' or [CPF] = '{funcionario.Cpf}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var cadastrado = leitor.ReadLine().Split(';');
-                    if (cadastrado[0] == funcionario.Id.ToString() && cadastrado[2] == funcionario.Cpf)
-                    {
-                        existe = true;
-                        return (existe, "ID e CPF já existem no cadastro!");
-                    }
-                    if (cadastrado[0] == funcionario.Id.ToString())
-                    {
-                        existe = true;
-                        return (existe, "ID já existe no cadastro!");
-                    }
-                    if (cadastrado[2] == funcionario.Cpf)
-                    {
-                        existe = true;
-                        return (existe, "CPF já existe no cadastro!");
-                    }
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                    stringSQLCPF = srd.GetValue(1).ToString();
+                }
+                connection.Close();
+            }
+            if (stringSQLMatricula == "" && stringSQLCPF == "")
+            {
+                return (existe, "");
+            }
+            else
+            {
+                if (stringSQLMatricula == funcionario.Id.ToString() && stringSQLCPF == funcionario.Cpf)
+                {
+                    existe = true;
+                    return (existe, "ID e CPF já existem no cadastro!");
+                }
+                if (stringSQLMatricula == funcionario.Id.ToString())
+                {
+                    existe = true;
+                    return (existe, "ID já existe no cadastro!");
+                }
+                else
+                {
+                    existe = true;
+                    return (existe, "CPF já existe no cadastro!");
                 }
             }
-            return (existe, "");
+
         }
         public (bool, Funcionario) GetDetalhes(int id)
         {
@@ -120,11 +134,31 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirUnico(Funcionario funcionario)
         {
-            using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};//{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};/{funcionario.DataCadastro}");
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
+                    command.Parameters.AddWithValue("@Matricula", funcionario.Id.ToString());
+                    command.Parameters.AddWithValue("@Nome", funcionario.Nome);
+                    command.Parameters.AddWithValue("@CPF", funcionario.Cpf);
+                    command.Parameters.AddWithValue("@Contato", funcionario.Contato);
+                    command.Parameters.AddWithValue("@Salario", funcionario.Salario.ToString().Replace(',', '.'));
+                    command.Parameters.AddWithValue("@Cargo", funcionario.Cargo);
+                    command.Parameters.AddWithValue("@Cadastro", funcionario.DataCadastro);
+
+                    connection.Open();
+                    int recordsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
+            //using (var file = new FileStream(_localDoArquivo, FileMode.Append))
+            //using (var escritor = new StreamWriter(file))
+            //{
+            //    escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};//{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};/{funcionario.DataCadastro}");
+            //}
         }
         public void IncluirVarios(List<Funcionario> lista)
         {

@@ -789,6 +789,7 @@
             this.textBoxNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxNome.Location = new System.Drawing.Point(187, 140);
+            this.textBoxNome.MaxLength = 150;
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBoxNome.Size = new System.Drawing.Size(400, 29);

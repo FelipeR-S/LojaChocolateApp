@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace LojaChocolateApp
         {
             try
             {
-                var verifica = new FuncionarioRepository();
+                var repo = new FuncionarioRepository();
                 var id = Convert.ToInt32(textBoxId.Text);
                 var nome = textBoxNome.Text;
                 var cpf = textBoxCpf.Text;
@@ -74,19 +75,19 @@ namespace LojaChocolateApp
                             break;
                     }
                     // Verifica se Funcionário já está Cadastrado
-                    (var existe, var msg) = verifica.Existente(novoFuncionario);
+                    (var existe, var msg) = repo.Existente(novoFuncionario);
                     if (existe)
                     {
                         MessageBox.Show(msg);
                     }
                     else
                     {
-                        var repo = new FuncionarioRepository();
                         repo.IncluirUnico(novoFuncionario);
                         MessageBox.Show("Cadastro Concluído");
                         ApagaTextBoX();
                     }
                 }
+
             }
             catch (FormatException)
             {
