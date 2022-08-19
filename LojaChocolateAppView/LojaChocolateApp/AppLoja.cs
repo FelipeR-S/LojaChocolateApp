@@ -233,7 +233,6 @@ namespace LojaChocolateApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -1654,7 +1653,7 @@ namespace LojaChocolateApp
         {
             var patternID = @"^\s*[0-9]{1,3}\s*$";
             var patternData = @"^\s*[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}\s*$";
-            var patternValor = @"^\s*[0-9]{1,5}[,|.][0-9]{2}\s*$";
+            var patternValor = @"^\s*[0-9]{1,5}[,][0-9]{2}\s*$";
             var patternTxt = @"^[A-Za-zÀ-ú\s]*$";
             switch (caso)
             {

@@ -95,7 +95,6 @@ namespace LojaChocolateApp.Repository
                     return (existe, "CPF já existe no cadastro!");
                 }
             }
-
         }
         public (bool, Funcionario) GetDetalhes(int id)
         {
@@ -182,40 +181,38 @@ namespace LojaChocolateApp.Repository
         }
         public bool Remover(int id)
         {
-            var novoRepo = new List<Funcionario>();
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLMatricula = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(dados);
-                    if (funcionario.Id == id)
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                }
+                connection.Close();
+                if (stringSQLMatricula == "")
+                {
+                    return existe;
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        existe = true;
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"DELETE FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                        novoRepo.Add(funcionario);
+                    return existe;
                 }
             }
-            if (existe)
-            {
-                using (var novoFile = new FileStream(_ArquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(novoFile))
-                {
-                    foreach (var funcionario in novoRepo)
-                    {
-                        escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
-
-                    }
-                }
-                File.Delete(_localDoArquivo);
-                File.Move(_ArquivoTemporario, _localDoArquivo);
-                return existe;
-            }
-            else
-                return existe;
         }
         public (List<Funcionario>, List<string>, int) TrataCSV(string arquivo)
         {
@@ -276,46 +273,41 @@ namespace LojaChocolateApp.Repository
         /// <returns>Retorna <see cref="bool"/> para se a operação foi realizada e o sálario antigo</returns>
         public (bool, decimal) AlteraSalarioRepository(int id, decimal novoSalario)
         {
-            var novoRepository = new List<Funcionario>();
-            var salarioAntigo = 0m;
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var salarioAntigo = 0m;
+            var stringSQLMatricula = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Salario] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(dados);
-
-                    if (funcionario.Id == id)
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                    salarioAntigo += Convert.ToDecimal(srd.GetValue(1));
+                }
+                connection.Close();
+                if (stringSQLMatricula == "")
+                {
+                    salarioAntigo = 0m;
+                    return (existe, salarioAntigo);
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        salarioAntigo += funcionario.Salario;
-                        funcionario.AlteraSalario(novoSalario);
-                        existe = true;
-                        novoRepository.Add(funcionario);
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"UPDATE [dbo].[Funcionarios] SET [Salario] = '{novoSalario.ToString().Replace(',','.')}' WHERE [Matricula] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                    {
-                        novoRepository.Add(funcionario);
-                    }
+                    return (existe, salarioAntigo);
                 }
             }
-            if (existe)
-            {
-                using (var novoFileStream = new FileStream(_ArquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(novoFileStream))
-                {
-                    foreach (var funcionario in novoRepository)
-                    {
-                        escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
-                    }
-                }
-                File.Delete(_localDoArquivo);
-                File.Move(_ArquivoTemporario, _localDoArquivo);
-                return (true, salarioAntigo);
-            }
-            else
-                return (false, salarioAntigo);
         }
     }
 }

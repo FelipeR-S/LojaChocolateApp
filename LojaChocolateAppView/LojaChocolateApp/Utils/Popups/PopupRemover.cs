@@ -51,7 +51,7 @@ namespace LojaChocolateApp.Utils.Popups
                     var repositorioProduto = new ProdutoRepository();
                     removido = repositorioProduto.Remover(id);
                 }
-                if (removido == false)
+                if (!removido)
                 {
                     MessageBox.Show($"ID nº {id} não encontrado!");
                 }
