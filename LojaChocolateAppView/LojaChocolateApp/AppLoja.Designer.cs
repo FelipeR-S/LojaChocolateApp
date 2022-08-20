@@ -179,18 +179,18 @@
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.btnCarregaListaVendas = new System.Windows.Forms.Button();
-            this.label52 = new System.Windows.Forms.Label();
-            this.panelLogoPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnCarregaListaVendas = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
+            this.panelLogoPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
@@ -225,10 +225,10 @@
             this.panelConsultaVendas.SuspendLayout();
             this.panelDataGridVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -1615,13 +1615,13 @@
             // 
             this.textIdEstoqueProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textIdEstoqueProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdEstoqueProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdEstoqueProdutos.Location = new System.Drawing.Point(113, 33);
-            this.textIdEstoqueProdutos.MaxLength = 3;
+            this.textIdEstoqueProdutos.Location = new System.Drawing.Point(112, 37);
+            this.textIdEstoqueProdutos.MaxLength = 12;
             this.textIdEstoqueProdutos.Name = "textIdEstoqueProdutos";
             this.textIdEstoqueProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdEstoqueProdutos.Size = new System.Drawing.Size(106, 33);
+            this.textIdEstoqueProdutos.Size = new System.Drawing.Size(106, 25);
             this.textIdEstoqueProdutos.TabIndex = 0;
             this.textIdEstoqueProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdEstoqueProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -2211,6 +2211,45 @@
             this.dataGridViewVendas.TabIndex = 1;
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // btnTextDataGridViewTextBoxColumn
+            // 
+            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
+            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
+            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
+            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridVendasBindingSource
+            // 
+            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
+            // 
             // panel19
             // 
             this.panel19.Location = new System.Drawing.Point(0, 60);
@@ -2272,45 +2311,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // btnTextDataGridViewTextBoxColumn
-            // 
-            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
-            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
-            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
-            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridVendasBindingSource
-            // 
-            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
-            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2318,6 +2318,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
             this.Controls.Add(this.panelMenuLateral);
+            this.Controls.Add(this.panelEstoqueProduto);
             this.Controls.Add(this.panelInserirProduto);
             this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelCadastrarFuncionario);
@@ -2326,7 +2327,6 @@
             this.Controls.Add(this.panelConsultaVendas);
             this.Controls.Add(this.panelCadastrarVendas);
             this.Controls.Add(this.panelExibirProdutos);
-            this.Controls.Add(this.panelEstoqueProduto);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2388,11 +2388,11 @@
             this.panelConsultaVendas.ResumeLayout(false);
             this.panelDataGridVendas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

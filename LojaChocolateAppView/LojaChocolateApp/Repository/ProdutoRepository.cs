@@ -82,21 +82,30 @@ namespace LojaChocolateApp.Repository
         {
             var existe = false;
             Produto produto = null;
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var produtoString = "";
+
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo], [Nome], [Peso], [Valor], [Tipo], [Estoque] FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var cadastrado = ConverteAtributos(linha);
-                    if (cadastrado.Id == id)
-                    {
-                        existe = true;
-                        produto = cadastrado;
-                    }
+                    produtoString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)}";
                 }
+                connection.Close();
             }
-            return (existe, produto);
+            if (produtoString == "")
+            {
+                return (existe, produto);
+            }
+            else
+            {
+                existe = true;
+                produto = ConverteAtributos(produtoString);
+                return (existe, produto);
+            }
         }
         public List<Produto> GetLista()
         {
@@ -160,38 +169,38 @@ namespace LojaChocolateApp.Repository
         }
         public bool Remover(string id)
         {
-            var novoRepo = new List<Produto>();
             var existe = false;
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLMatricula = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo] FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var produto = ConverteAtributos(dados);
-                    if (produto.Id == id)
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                }
+                connection.Close();
+                if (stringSQLMatricula == "")
+                {
+                    return existe;
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        existe = true;
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"DELETE FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                        novoRepo.Add(produto);
+                    return existe;
                 }
             }
-            if (existe)
-            {
-                using (var newFile = new FileStream(_arquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(newFile))
-                {
-                    foreach (var produto in novoRepo)
-                    {
-                        escritor.WriteLine($"{produto.Id};{produto.Nome};{produto.Peso};{produto.Valor};{produto.Tipo};{produto.Estoque}");
-                    }
-                }
-                File.Delete(_localdoArquivo);
-                File.Move(_arquivoTemporario, _localdoArquivo);
-                return existe;
-            }
-            return existe;
         }
         public (List<Produto>, List<string>, int) TrataCSV(string arquivo)
         {
@@ -250,50 +259,45 @@ namespace LojaChocolateApp.Repository
         /// <returns><see cref="true"/> para estoque alterado, <see cref="false"/> quando não há no cadastro e o <see cref="Produto"/> alterado</returns>
         public (bool, Produto) AlteraEstoqueRepository(string id, int quantidade)
         {
-            var novoRepo = new List<Produto>();
-            Produto produtoAnterior = null;
             var existe = false;
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            Produto produtoAnterior = null;
+            var SQLCodigo = "";
+            var SQLEstoque = 0;
+            var SQLLinha = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo], [Nome], [Peso], [Valor], [Tipo], [Estoque]  FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var produto = ConverteAtributos(dados);
-                    if (produto.Id == id)
+                    SQLCodigo = srd.GetValue(0).ToString();
+                    SQLEstoque = Convert.ToInt32(srd.GetValue(5));
+                    SQLLinha = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)}";
+                }
+                connection.Close();
+                if (SQLCodigo == "" || SQLEstoque + quantidade <= 0)
+                {
+                    return (existe, produtoAnterior);
+                }
+                else
+                {
+                    existe = true;
+                    var novoEstoque = SQLEstoque + quantidade;
+                    produtoAnterior = ConverteAtributos(SQLLinha);
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (produto.Estoque + quantidade <= 0)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            produtoAnterior = produto;
-                            produto.AlteraEstoque(quantidade);
-                            novoRepo.Add(produto);
-                            existe = true;
-                        }
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"UPDATE [dbo].[Produtos] SET [Estoque] = {novoEstoque} WHERE [Codigo] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                        novoRepo.Add(produto);
+                    return (existe, produtoAnterior);
                 }
             }
-            if (existe)
-            {
-                using (var newFile = new FileStream(_arquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(newFile))
-                {
-                    foreach (var produto in novoRepo)
-                    {
-                        escritor.WriteLine($"{produto.Id};{produto.Nome};{produto.Peso};{produto.Valor};{produto.Tipo};{produto.Estoque}");
-                    }
-                }
-                File.Delete(_localdoArquivo);
-                File.Move(_arquivoTemporario, _localdoArquivo);
-                return (existe, produtoAnterior);
-            }
-            else
-                return (existe, produtoAnterior);
         }
         /// <summary>
         /// Verifica se <see cref="Produto"/> existe no cadastro e altera seu valor
@@ -303,43 +307,40 @@ namespace LojaChocolateApp.Repository
         /// <returns>Retorna <see cref="bool"/> para a conclusão do serviço e <see cref="decimal"/> para o valor anterior a mudança</returns>
         public (bool, decimal) AlteraValorProduto(string id, decimal novoValor)
         {
-            var novoRepo = new List<Produto>();
-            var valorAnterior = 0m;
             var existe = false;
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var valorAnterior = 0m;
+            var SQLCodigo = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo], [Valor] FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var produto = ConverteAtributos(dados);
-                    if (produto.Id == id)
+                    SQLCodigo = srd.GetValue(0).ToString();
+                    valorAnterior = Convert.ToDecimal(srd.GetValue(1));
+                }
+                connection.Close();
+                if (SQLCodigo == "")
+                {
+                    return (existe, valorAnterior);
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        valorAnterior += produto.Valor;
-                        produto.AlteraValor(novoValor);
-                        novoRepo.Add(produto);
-                        existe = true;
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"UPDATE [dbo].[Produtos] SET [Valor] = {novoValor.ToString().Replace(',','.')} WHERE [Codigo] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                        novoRepo.Add(produto);
+                    return (existe, valorAnterior);
                 }
             }
-            if (existe)
-            {
-                using (var newFile = new FileStream(_arquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(newFile))
-                {
-                    foreach (var produto in novoRepo)
-                    {
-                        escritor.WriteLine($"{produto.Id};{produto.Nome};{produto.Peso};{produto.Valor};{produto.Tipo};{produto.Estoque}");
-                    }
-                }
-                File.Delete(_localdoArquivo);
-                File.Move(_arquivoTemporario, _localdoArquivo);
-                return (existe, valorAnterior);
-            }
-            else
-                return (existe, valorAnterior);
         }
     }
 }

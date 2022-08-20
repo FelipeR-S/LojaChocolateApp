@@ -454,64 +454,63 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnInserirProdutosCSV_Click(object sender, EventArgs e)
         {
-            var tratamentoArquivo = new ProdutoRepository();
-            var arquivo = textArquivoProduto.Text;
-            var correto = true;
-            var linhaErrada = 0;
-            using (var fileStream = new FileStream(arquivo, FileMode.Open))
-            using (var sr = new StreamReader(fileStream))
+            try
             {
-                var contadorLinhas = 0;
-                while (!sr.EndOfStream)
-                {
-                    var linha = sr.ReadLine();
-                    correto = CSVIsMatch(linha, "produto");
-                    if (!correto)
-                    {
-                        linhaErrada = contadorLinhas + 1;
-                        break;
-                    }
-                    contadorLinhas++;
-                }
-            }
-            if (correto)
-            {
-                (var inseridos, var conflitos, var qtdconflitos) = tratamentoArquivo.TrataCSV(arquivo);
-                tratamentoArquivo.IncluirVarios(inseridos);
-                var erros = $"{qtdconflitos} linhas não foram adicionadas:\n";
-                if (qtdconflitos != 0)
+                var tratamentoArquivo = new ProdutoRepository();
+                var arquivo = textArquivoProduto.Text;
+                var correto = true;
+                var linhaErrada = 0;
+                using (var fileStream = new FileStream(arquivo, FileMode.Open))
+                using (var sr = new StreamReader(fileStream))
                 {
                     var contadorLinhas = 0;
-                    while (contadorLinhas < qtdconflitos)
+                    while (!sr.EndOfStream)
                     {
-                        erros += $"{conflitos[contadorLinhas]}\n";
+                        var linha = sr.ReadLine();
+                        correto = CSVIsMatch(linha, "produto");
+                        if (!correto)
+                        {
+                            linhaErrada = contadorLinhas + 1;
+                            break;
+                        }
                         contadorLinhas++;
                     }
-                    MessageBox.Show($"Cadastro Concluído\n\n{erros}");
+                }
+                if (correto)
+                {
+                    (var inseridos, var conflitos, var qtdconflitos) = tratamentoArquivo.TrataCSV(arquivo);
+                    tratamentoArquivo.IncluirVarios(inseridos);
+                    var erros = $"{qtdconflitos} linhas não foram adicionadas:\n";
+                    if (qtdconflitos != 0)
+                    {
+                        var contadorLinhas = 0;
+                        while (contadorLinhas < qtdconflitos)
+                        {
+                            erros += $"{conflitos[contadorLinhas]}\n";
+                            contadorLinhas++;
+                        }
+                        MessageBox.Show($"Cadastro Concluído\n\n{erros}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produtos inseridos com sucesso!");
+                    }
                 }
                 else
-                {
-                    MessageBox.Show("Produtos inseridos com sucesso!");
-                }
+                    MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
             }
-            else
-                MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
-          //try
-          //{
-          //
-          //}
-          //catch (ArgumentException)
-          //{
-          //    MessageBox.Show("Favor selecionar um arquivo CSV");
-          //}
-          //catch (Exception ex)
-          //{
-          //    MessageBox.Show(ex.Message);
-          //}
-          //finally
-          //{
-          //    ApagaTextBoX();
-          //}
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Favor selecionar um arquivo CSV");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                ApagaTextBoX();
+            }
         }
         /// <summary>
         /// Exibe popup de informações dobre arquivo CSV
@@ -564,11 +563,9 @@ namespace LojaChocolateApp
                 var alternativa = comboBoxOpcaoProdutos.Text;
                 var id = textIdEstoqueProdutos.Text;
 
-                var qtdNegativo = "";
                 var quantidade = "";
                 var valorAnterior = 0m;
                 var novoValor = 0m;
-                var qtdAnterior = 0;
                 var concluido = false;
                 var existe = false;
                 var msg = "";
@@ -593,24 +590,33 @@ namespace LojaChocolateApp
                     case "Inserir":
                         quantidade = textEstoqueQtdProdutos.Text;
                         (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, Convert.ToInt32(quantidade));
-                        if (produto != null)
+                        if (concluido && produto != null)
                         {
-                            qtdAnterior = produto.Estoque - Convert.ToInt32(quantidade);
+                            MessageBox.Show($"Alteração Concluída!\n" +
+                                $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
+                                $"de: {produto.Estoque} para {produto.Estoque + Convert.ToInt32(quantidade)}");
                         }
                         else
+                        {
                             msg = "Produto não encontrado!";
+                            MessageBox.Show(msg);
+                        }
                         break;
                     case "Retirar":
                         quantidade = textEstoqueQtdProdutos.Text;
-                        qtdNegativo += $"-{quantidade}";
-                        var qtdRetirar = Convert.ToInt32(qtdNegativo);
+                        var qtdRetirar = Convert.ToInt32($"-{quantidade}");
                         (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, qtdRetirar);
-                        if (produto != null)
+                        if (concluido && produto != null)
                         {
-                            qtdAnterior = produto.Estoque + Convert.ToInt32(quantidade);
+                            MessageBox.Show($"Alteração Concluída!\n" +
+                                $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
+                                $"de: {produto.Estoque} para {produto.Estoque + qtdRetirar}");
                         }
                         else
+                        {
                             msg += "Não foi possível retirar a quantidade informada!\nVerifique se o ID está correto ou se há produtos suficientes no estoque!";
+                            MessageBox.Show(msg);
+                        }
                         break;
                     case "Alterar Valor":
                         novoValor = Convert.ToDecimal(textNovoValorProduto.Text);
@@ -618,33 +624,18 @@ namespace LojaChocolateApp
                         if (concluido)
                         {
                             (existe, produto) = produtoRepo.GetDetalhes(id);
+                            MessageBox.Show($"Alteração Concluída!\n" +
+                                $"O produto {produto.Nome}\n teve ser valor alterada\n" +
+                                $"de: {valorAnterior} para {produto.Valor}");
                         }
                         else
+                        {
                             msg = "Produto não encontrado!";
+                            MessageBox.Show(msg);
+                        }
                         break;
                     default:
                         break;
-                }
-                if (alternativa != "Remover")
-                {
-                    if (concluido && produto != null)
-                    {
-                        switch (alternativa)
-                        {
-                            case "Alterar Valor":
-                                MessageBox.Show($"Alteração Concluída!\n" +
-                                    $"O produto {produto.Nome}\n teve ser valor alterada\n" +
-                                    $"de: {valorAnterior} para {produto.Valor}");
-                                break;
-                            default:
-                                MessageBox.Show($"Alteração Concluída!\n" +
-                                    $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
-                                    $"de: {qtdAnterior} para {produto.Estoque}");
-                                break;
-                        }
-                    }
-                    else
-                        MessageBox.Show(msg);
                 }
             }
             catch (FormatException)
