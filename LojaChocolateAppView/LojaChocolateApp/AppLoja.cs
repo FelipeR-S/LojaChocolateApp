@@ -40,7 +40,7 @@ namespace LojaChocolateApp
             try
             {
                 var repo = new FuncionarioRepository();
-                var id = Convert.ToInt32(textBoxId.Text);
+                var id = textBoxId.Text;
                 var nome = textBoxNome.Text;
                 var cpf = textBoxCpf.Text;
                 var contato = textBoxContato.Text;
@@ -283,7 +283,7 @@ namespace LojaChocolateApp
             {
                 flowLayoutPanelFuncionario.Controls.Clear();
                 TituloExibeFuncionario.Visible = false;
-                var id = Convert.ToInt32(textBoxIDDetalhesFuncionario.Text);
+                var id = textBoxIDDetalhesFuncionario.Text;
                 var repoFuncionario = new FuncionarioRepository();
 
                 (var existe, var funcionario) = repoFuncionario.GetDetalhes(id);
@@ -403,7 +403,7 @@ namespace LojaChocolateApp
             try
             {
                 var verifica = new ProdutoRepository();
-                var id = Convert.ToInt32(textIdProduto.Text);
+                var id = textIdProduto.Text;
                 var nome = textNomeProduto.Text;
                 var peso = Convert.ToDecimal(textPesoProduto.Text);
                 var valor = Convert.ToDecimal(textValorProduto.Text);
@@ -454,63 +454,64 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnInserirProdutosCSV_Click(object sender, EventArgs e)
         {
-            try
+            var tratamentoArquivo = new ProdutoRepository();
+            var arquivo = textArquivoProduto.Text;
+            var correto = true;
+            var linhaErrada = 0;
+            using (var fileStream = new FileStream(arquivo, FileMode.Open))
+            using (var sr = new StreamReader(fileStream))
             {
-                var tratamentoArquivo = new ProdutoRepository();
-                var arquivo = textArquivoProduto.Text;
-                var correto = true;
-                var linhaErrada = 0;
-                using (var fileStream = new FileStream(arquivo, FileMode.Open))
-                using (var sr = new StreamReader(fileStream))
+                var contadorLinhas = 0;
+                while (!sr.EndOfStream)
+                {
+                    var linha = sr.ReadLine();
+                    correto = CSVIsMatch(linha, "produto");
+                    if (!correto)
+                    {
+                        linhaErrada = contadorLinhas + 1;
+                        break;
+                    }
+                    contadorLinhas++;
+                }
+            }
+            if (correto)
+            {
+                (var inseridos, var conflitos, var qtdconflitos) = tratamentoArquivo.TrataCSV(arquivo);
+                tratamentoArquivo.IncluirVarios(inseridos);
+                var erros = $"{qtdconflitos} linhas não foram adicionadas:\n";
+                if (qtdconflitos != 0)
                 {
                     var contadorLinhas = 0;
-                    while (!sr.EndOfStream)
+                    while (contadorLinhas < qtdconflitos)
                     {
-                        var linha = sr.ReadLine();
-                        correto = CSVIsMatch(linha, "produto");
-                        if (!correto)
-                        {
-                            linhaErrada = contadorLinhas + 1;
-                            break;
-                        }
+                        erros += $"{conflitos[contadorLinhas]}\n";
                         contadorLinhas++;
                     }
-                }
-                if (correto)
-                {
-                    (var inseridos, var conflitos, var qtdconflitos) = tratamentoArquivo.TrataCSV(arquivo);
-                    tratamentoArquivo.IncluirVarios(inseridos);
-                    var erros = $"{qtdconflitos} linhas não foram adicionadas:\n";
-                    if (qtdconflitos != 0)
-                    {
-                        var contadorLinhas = 0;
-                        while (contadorLinhas < qtdconflitos)
-                        {
-                            erros += $"{conflitos[contadorLinhas]}\n";
-                            contadorLinhas++;
-                        }
-                        MessageBox.Show($"Cadastro Concluído\n\n{erros}");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produtos inseridos com sucesso!");
-                    }
+                    MessageBox.Show($"Cadastro Concluído\n\n{erros}");
                 }
                 else
-                    MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
+                {
+                    MessageBox.Show("Produtos inseridos com sucesso!");
+                }
             }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("Favor selecionar um arquivo CSV");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                ApagaTextBoX();
-            }
+            else
+                MessageBox.Show($"Linha nº {linhaErrada} em formato incorreto no arquivo!");
+          //try
+          //{
+          //
+          //}
+          //catch (ArgumentException)
+          //{
+          //    MessageBox.Show("Favor selecionar um arquivo CSV");
+          //}
+          //catch (Exception ex)
+          //{
+          //    MessageBox.Show(ex.Message);
+          //}
+          //finally
+          //{
+          //    ApagaTextBoX();
+          //}
         }
         /// <summary>
         /// Exibe popup de informações dobre arquivo CSV
@@ -561,7 +562,7 @@ namespace LojaChocolateApp
                 var produtoRepo = new ProdutoRepository();
                 Produto produto = null;
                 var alternativa = comboBoxOpcaoProdutos.Text;
-                var id = Convert.ToInt32(textIdEstoqueProdutos.Text);
+                var id = textIdEstoqueProdutos.Text;
 
                 var qtdNegativo = "";
                 var quantidade = "";
@@ -698,7 +699,7 @@ namespace LojaChocolateApp
             {
                 flowLayoutLayoutExibeProdutos.Controls.Clear();
                 tituloExibeProdutos.Visible = false;
-                var id = Convert.ToInt32(textIdBuscaProdutos.Text);
+                var id = textIdBuscaProdutos.Text;
                 var repoFuncionario = new ProdutoRepository();
 
                 (var existe, var produto) = repoFuncionario.GetDetalhes(id);
@@ -910,7 +911,7 @@ namespace LojaChocolateApp
             //ComboBox Funcionario
             var repoFuncionario = new FuncionarioRepository();
             var listaFuncionarioRepo = repoFuncionario.GetLista();
-            var funcionarioVazio = new Vendedor(0, "", "", "", 0m, "", "0");
+            var funcionarioVazio = new Vendedor("", "", "", "", 0m, "", "0");
             var listaFuncionarios = new List<Funcionario>();
             listaFuncionarios.Add(funcionarioVazio);
             foreach (var f in listaFuncionarioRepo)
@@ -926,7 +927,7 @@ namespace LojaChocolateApp
             var repoProduto = new ProdutoRepository();
             var listaProdutoRepo = repoProduto.GetLista();
             var listaProdutos = new List<Produto>();
-            var produtoVazio = new Produto(0, "", 0m, 0m, "", 0);
+            var produtoVazio = new Produto("", "", 0m, 0m, "", 0);
             listaProdutos.Add(produtoVazio);
             foreach (var p in listaProdutoRepo)
             {
@@ -950,7 +951,7 @@ namespace LojaChocolateApp
                 //Entrada de dados
                 var vendas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
                 var entradaFuncionarioId = textIdVendasCadastro.Text.Split('|');
-                var funcionarioId = Convert.ToInt32(entradaFuncionarioId[0]);
+                var funcionarioId = entradaFuncionarioId[0];
                 var conflito = false;
                 var valorTotal = 0m;
                 var data = DateTime.Now;
@@ -974,7 +975,7 @@ namespace LojaChocolateApp
                         {
                             var linha = vendas[i].Split('|');
                             var qtdProdutos = Convert.ToInt32(linha[0]);
-                            (var exProd, var produto) = repoProduto.GetDetalhes(Convert.ToInt32(linha[1]));
+                            (var exProd, var produto) = repoProduto.GetDetalhes(linha[1]);
                             if (qtdProdutos > produto.Estoque || !exProd)
                             {
                                 MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
@@ -1183,7 +1184,7 @@ namespace LojaChocolateApp
                     //Exibe detalhes
                     if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "+" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
                     {
-                        var id = Convert.ToInt32(dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value);
+                        var id = dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value.ToString();
                         index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
                         var descricao = dataGridViewVendas.Rows[e.RowIndex].Cells[1].Value.ToString();
                         dataGridViewVendas.Rows[e.RowIndex].Selected = true;
@@ -1245,7 +1246,7 @@ namespace LojaChocolateApp
         /// <param name="idVenda"></param>
         /// <param name="index"></param>
         /// <param name="descricao"></param>
-        private void PopulaDetalhesBtn(int idVenda, int index, string descricao)
+        private void PopulaDetalhesBtn(string idVenda, int index, string descricao)
         {
             var repovendas = new VendaRepository();
             var produtos = repovendas.GetDetalhesVenda(idVenda);
@@ -1654,7 +1655,7 @@ namespace LojaChocolateApp
             var patternID = @"^\s*[0-9]{1,3}\s*$";
             var patternData = @"^\s*[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}\s*$";
             var patternValor = @"^\s*[0-9]{1,5}[,][0-9]{2}\s*$";
-            var patternTxt = @"^[A-Za-zÀ-ú\s]*$";
+            var patternTxt = @"^[A-Za-zÀ-ú\s]{1,150}$";
             switch (caso)
             {
                 case "funcionario":
@@ -1677,8 +1678,10 @@ namespace LojaChocolateApp
                     var splitProduto = linha.Split(';');
                     var patternCodProd = @"^[\s]?[0-9]{12}[\s]?$";
                     var patternEstoque = @"^[\s]?[0-9]{1,4}[\s]?$";
+                    var patternTxtProd = @"^.{1,150}$";
+
                     if (!Regex.IsMatch(splitProduto[0], patternCodProd) ||
-                        !Regex.IsMatch(splitProduto[1], patternTxt) ||
+                        !Regex.IsMatch(splitProduto[1], patternTxtProd) ||
                         !Regex.IsMatch(splitProduto[2], patternID) ||
                         !Regex.IsMatch(splitProduto[3], patternValor) ||
                         !Regex.IsMatch(splitProduto[4], patternTxt) ||

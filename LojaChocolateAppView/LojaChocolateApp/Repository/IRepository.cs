@@ -18,7 +18,7 @@ namespace LojaChocolateApp.Repository
         /// </summary>
         /// <param name="id">Atributo id do objeto</param>
         /// <returns><see cref="true"/> se o objeto existe, <see cref="false"/> se não e o proprio objeto</returns>
-        (bool, T) GetDetalhes(int id);
+        (bool, T) GetDetalhes(string id);
         /// <summary>
         /// Incluí objeto ao repositório
         /// </summary>
@@ -34,7 +34,7 @@ namespace LojaChocolateApp.Repository
         /// </summary>
         /// <param name="id">Id do objeto escolhido</param>
         /// <returns><see cref="true"/> para removido e <see cref="false"/> para não removido</returns>
-        bool Remover(int id);
+        bool Remover(string id);
         /// <summary>
         /// Verifica se o objeto existe no repositório
         /// </summary>

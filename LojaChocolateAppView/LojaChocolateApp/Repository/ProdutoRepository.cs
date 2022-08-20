@@ -1,6 +1,8 @@
 ﻿using LojaChocolateApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -36,10 +38,10 @@ namespace LojaChocolateApp.Repository
         public Produto ConverteAtributos(string linha)
         {
             var dados = linha.Split(';');
-            var id = Convert.ToInt32(dados[0]);
+            var id = dados[0];
             var nome = dados[1];
             var peso = Convert.ToDecimal(dados[2]);
-            var valor = Convert.ToDecimal(dados[3]);
+            var valor = Math.Round(Convert.ToDecimal(dados[3]), 2);
             var tipo = dados[4];
             var estoque = Convert.ToInt32(dados[5]);
             var produto = new Produto(id, nome, peso, valor, tipo, estoque);
@@ -48,27 +50,35 @@ namespace LojaChocolateApp.Repository
         public (bool, string) Existente(Produto produto)
         {
             var existe = false;
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLCodigo = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo] FROM [dbo].[Produtos] WHERE [Codigo] = '{produto.Id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var cadastrado = leitor.ReadLine().Split(';');
-                    if (cadastrado[0] == produto.Id.ToString())
-                    {
-                        existe = true;
-                        return (existe, "ID já existe no cadastro!");
-                    }
-                    if (cadastrado[1] == produto.Nome.ToString())
-                    {
-                        existe = true;
-                        return (existe, "Nome já existe no cadastro!");
-                    }
+                    stringSQLCodigo = srd.GetValue(0).ToString();
                 }
+                connection.Close();
             }
-            return (existe, "");
+            if (stringSQLCodigo == "")
+            {
+                return (existe, "");
+            }
+            else
+            {
+                if (stringSQLCodigo == produto.Id.ToString())
+                {
+                    existe = true;
+                    return (existe, "Código de produto já existe no cadastro!");
+                }
+                else
+                    return (existe, "Código de produto já existe no cadastro!");
+            }
         }
-        public (bool, Produto) GetDetalhes(int id)
+        public (bool, Produto) GetDetalhes(string id)
         {
             var existe = false;
             Produto produto = null;
@@ -105,24 +115,50 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirUnico(Produto produto)
         {
-            using (var file = new FileStream(_localdoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                escritor.WriteLine($"{produto.Id};{produto.Nome};{produto.Peso};{produto.Valor};{produto.Tipo};{produto.Estoque}");
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO[dbo].[Produtos] ([Codigo], [Nome], [Peso], [Valor], [Estoque], [Tipo]) VALUES(@Codigo, @Nome, @Peso, @Valor, @Estoque, @Tipo)";
+                    command.Parameters.AddWithValue("@Codigo", produto.Id);
+                    command.Parameters.AddWithValue("@Nome", produto.Nome);
+                    command.Parameters.AddWithValue("@Peso", produto.Peso.ToString().Replace(',', '.'));
+                    command.Parameters.AddWithValue("@Valor", produto.Valor.ToString().Replace(',', '.'));
+                    command.Parameters.AddWithValue("@Estoque", produto.Estoque);
+                    command.Parameters.AddWithValue("@Tipo", produto.Tipo);
+                    connection.Open();
+                    int recordsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
         }
         public void IncluirVarios(List<Produto> lista)
         {
-            using (var file = new FileStream(_localdoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
+                connection.Open();
                 foreach (var produto in lista)
                 {
-                    escritor.WriteLine($"{produto.Id};{produto.Nome};{produto.Peso};{produto.Valor};{produto.Tipo};{produto.Estoque}");
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = "INSERT INTO[dbo].[Produtos] ([Codigo], [Nome], [Peso], [Valor], [Estoque], [Tipo]) VALUES(@Codigo, @Nome, @Peso, @Valor, @Estoque, @Tipo)";
+                        command.Parameters.AddWithValue("@Codigo", produto.Id);
+                        command.Parameters.AddWithValue("@Nome", produto.Nome);
+                        command.Parameters.AddWithValue("@Peso", produto.Peso.ToString().Replace(',', '.'));
+                        command.Parameters.AddWithValue("@Valor", produto.Valor.ToString().Replace(',', '.'));
+                        command.Parameters.AddWithValue("@Estoque", produto.Estoque);
+                        command.Parameters.AddWithValue("@Tipo", produto.Tipo);
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
                 }
+                connection.Close();
             }
         }
-        public bool Remover(int id)
+        public bool Remover(string id)
         {
             var novoRepo = new List<Produto>();
             var existe = false;
@@ -212,7 +248,7 @@ namespace LojaChocolateApp.Repository
         /// <param name="id"></param>
         /// <param name="quantidade"></param>
         /// <returns><see cref="true"/> para estoque alterado, <see cref="false"/> quando não há no cadastro e o <see cref="Produto"/> alterado</returns>
-        public (bool, Produto) AlteraEstoqueRepository(int id, int quantidade)
+        public (bool, Produto) AlteraEstoqueRepository(string id, int quantidade)
         {
             var novoRepo = new List<Produto>();
             Produto produtoAnterior = null;
@@ -265,7 +301,7 @@ namespace LojaChocolateApp.Repository
         /// <param name="id"></param>
         /// <param name="novoValor"></param>
         /// <returns>Retorna <see cref="bool"/> para a conclusão do serviço e <see cref="decimal"/> para o valor anterior a mudança</returns>
-        public (bool, decimal) AlteraValorProduto(int id, decimal novoValor)
+        public (bool, decimal) AlteraValorProduto(string id, decimal novoValor)
         {
             var novoRepo = new List<Produto>();
             var valorAnterior = 0m;

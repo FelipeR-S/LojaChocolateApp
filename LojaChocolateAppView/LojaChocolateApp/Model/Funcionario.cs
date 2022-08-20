@@ -9,7 +9,7 @@ namespace LojaChocolateApp.Model
 {
     public abstract class Funcionario
     {
-        private int _id;
+        private string _id;
         private string _nome;
         private string _cpf;
         private string _contato;
@@ -17,7 +17,7 @@ namespace LojaChocolateApp.Model
         private string _cargo;
         private int _quantidadeDeVendas { get => GetQuantidadeDeVendas(); }
         private string _dataCadastro;
-        public int Id { get { return _id; } private set { } }
+        public string Id { get { return _id; } private set { } }
         public string Nome { get { return _nome; } private set { } }
         public string Cpf { get { return _cpf; } private set { } }
         public string Contato { get { return _contato; } private set { } }
@@ -26,7 +26,7 @@ namespace LojaChocolateApp.Model
         public int QuantidadeDeVendas { get => _quantidadeDeVendas; }
         public string DataCadastro { get { return _dataCadastro; } private set { } }
 
-        public Funcionario(int id, string nome, string cpf, string contato, decimal salario, string cargo, string dataCadastro)
+        public Funcionario(string id, string nome, string cpf, string contato, decimal salario, string cargo, string dataCadastro)
         {
             _id = id;
             _nome = nome;

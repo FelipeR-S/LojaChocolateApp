@@ -28,7 +28,7 @@ namespace LojaChocolateApp.Repository
 
             //Vendedor
             var funcionarioRepo = new FuncionarioRepository();
-            (var vendedorExiste, var vendedor) = funcionarioRepo.GetDetalhes(Convert.ToInt32(idFuncionario));
+            (var vendedorExiste, var vendedor) = funcionarioRepo.GetDetalhes(idFuncionario);
             if (!vendedorExiste)
             {
                 return vendaFalha;
@@ -45,7 +45,7 @@ namespace LojaChocolateApp.Repository
                     var prodId = vendaProduto[1];
 
                     var produtoRepo = new ProdutoRepository();
-                    (var existe, var produto) = produtoRepo.GetDetalhes(Convert.ToInt32(prodId));
+                    (var existe, var produto) = produtoRepo.GetDetalhes(prodId);
                     if (!existe)
                     {
                         return vendaFalha;
@@ -77,7 +77,7 @@ namespace LojaChocolateApp.Repository
         {
             throw new NotImplementedException();
         }
-        public (bool, Venda) GetDetalhes(int id)
+        public (bool, Venda) GetDetalhes(string id)
         {
             throw new NotImplementedException();
         }
@@ -86,7 +86,7 @@ namespace LojaChocolateApp.Repository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<string> GetDetalhesVenda(int id)
+        public List<string> GetDetalhesVenda(string id)
         {
             var existe = false;
             var listaProdutos = new List<string>();
@@ -97,7 +97,7 @@ namespace LojaChocolateApp.Repository
                 {
                     var linha = reader.ReadLine().ToString().Split(';');
                     var idVenda = linha[0].Remove(0, linha[0].ToString().IndexOf(':') + 1);
-                    if (Convert.ToInt32(idVenda) == id)
+                    if (idVenda == id)
                     {
                         existe = true;
                         var contador = 2;
@@ -130,9 +130,9 @@ namespace LojaChocolateApp.Repository
                 {
                     var linha = leitor.ReadLine();
                     var dados = linha.Split(';');
-                    var id = Convert.ToInt32(dados[0].Remove(0, dados[0].IndexOf(':') + 1));
+                    var id = dados[0].Remove(0, dados[0].IndexOf(':') + 1);
                     var funcionario = dados[1].Split('|');
-                    var funcionarioId = Convert.ToInt32(funcionario[0].Remove(0, funcionario[0].IndexOf(':') + 1));
+                    var funcionarioId = funcionario[0].Remove(0, funcionario[0].IndexOf(':') + 1);
                     var funcionarioNome = funcionario[1];
                     var valorTotal = Convert.ToDecimal(dados[dados.Length - 2].Remove(0, dados[dados.Length - 2].IndexOf(':') + 1));
                     var data = Convert.ToDateTime(dados[dados.Length - 1].Remove(0, dados[dados.Length - 1].IndexOf(':') + 1));
@@ -178,7 +178,7 @@ namespace LojaChocolateApp.Repository
                 }
             }
         }
-        public bool Remover(int id)
+        public bool Remover(string id)
         {
             throw new NotImplementedException();
         }

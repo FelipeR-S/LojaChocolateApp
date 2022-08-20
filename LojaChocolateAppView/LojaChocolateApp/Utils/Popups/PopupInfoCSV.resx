@@ -120,7 +120,7 @@
   <data name="txtFuncionarioCSV.Text" xml:space="preserve">
     <value>Os seguintes parâmetros devem ser seguidos para que sua lista de funcionários seja cadastrada corretamente:
 Cada item deve ser separado por “;”
-ID deve conter apenas dígitos numéricos
+MATRÍCULA deve conter apenas dígitos numéricos
 NOME deve conter apenas letras
 CPF deve conter 14 dígitos entre números e pontos.
 CONTATO deve conter apenas dígitos numéricos
@@ -129,7 +129,7 @@ CARGO deve conter apenas letras
 Data deve ser no formato dia, mes e ano
 A formatação deverá ficar da seguinte maneira:
 
-000(id);NOME;000.000.000-00(cpf);0000000000(contato);
+000(Matrícula);NOME;000.000.000-00(cpf);0000000000(contato);
 0000,00(salario);CARGO;dd/mm/yyyy(data)
 </value>
   </data>
@@ -137,13 +137,13 @@ A formatação deverá ficar da seguinte maneira:
     <value>Os seguintes parâmetros devem ser seguidos para que sua lista de Vendas seja cadastrada corretamente:
 Cada item deve ser separado por “;” e atributos de produto por "|"
 
-ID Funcionario deve conter apenas dígitos numéricos
-QUANTIDADE de Produtos deve conter apenas dígitos numéricos.
-ID Produto deve conter apenas dígitos numéricos
-DATA deve ser no formato dia, mes e ano
+Matrícula Funcionario deve conter apenas dígitos numéricos
+Quantidade de Produtos deve conter apenas dígitos numéricos.
+Código do Produto deve conter apenas dígitos numéricos
+Data deve ser no formato dia, mes e ano
 A formatação deverá ficar da seguinte maneira:
 
-000(Funcionário);000(Quantidade1)|000(Produto1);...
+000(Matrícula Funcionário);000(Quantidade1)|000000000000(Código Produto1);...
 000(QuantidadeN)|000(ProdutoN);dd/mm/yyyy
 
 Obs.: Não repetir id de produtos na mesma linha.</value>
@@ -152,7 +152,7 @@ Obs.: Não repetir id de produtos na mesma linha.</value>
     <value>Os seguintes parâmetros devem ser seguidos para que sua lista de Produtos seja inserida corretamente:
 
 Cada item deve ser separado por “;”
-ID deve conter apenas dígitos numéricos
+MATRÍCULA deve conter apenas dígitos numéricos
 NOME deve conter apenas letras
 PESO deve conter apenas dígitos apenas numéricos
 VALOR deve conter apenas dígitos numéricos e decimais separados por vírgula
@@ -160,8 +160,8 @@ TIPO deve conter apenas letras
 ESTOQUE deve conter apenas dígitos numéricos
 
 A formatação deverá ficar da seguinte maneira:
-
-000(id);NOME;000(peso);000,00(valor);TIPO;00(estoque)
+000000000000(Codigo);NOME;000(peso);
+000,00(valor);TIPO;00(estoque)
 </value>
   </data>
 </root>

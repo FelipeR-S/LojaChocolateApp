@@ -9,14 +9,14 @@ namespace LojaChocolateApp.Model
 {
     public class Produto
     {
-        private int _id;
+        private string _id;
         private string _nome;
         private decimal _peso;
         private decimal _valor;
         private string _tipo;
         private int _estoque;
         private int _quantidadeDeVendas { get => GetQuantidadeDeVendas(); }
-        public int Id { get { return _id; } private set { } }
+        public string Id { get { return _id; } private set { } }
         public string Nome { get { return _nome; } private set { } }
         public decimal Peso { get { return _peso; } private set { } }
         public decimal Valor { get { return _valor; } private set { } }
@@ -24,7 +24,7 @@ namespace LojaChocolateApp.Model
         public int Estoque { get { return _estoque; } private set { } }
         public int QuantidadeDeVendas { get => _quantidadeDeVendas; }
 
-        public Produto(int id, string nome, decimal peso, decimal valor, string tipo, int estoque)
+        public Produto(string id, string nome, decimal peso, decimal valor, string tipo, int estoque)
         {
             _id = id;
             _nome = nome;
@@ -64,7 +64,7 @@ namespace LojaChocolateApp.Model
                 foreach (var prod in produto)
                 {
                     var linhaProduto = prod.Split('|');
-                    var prodId = Convert.ToInt32(linhaProduto[1].Remove(0, linhaProduto[1].IndexOf(':') + 1));
+                    var prodId = linhaProduto[1];
                     var qtd = Convert.ToInt32(linhaProduto[0].Remove(0, linhaProduto[0].IndexOf(':') + 1));
                     if (prodId == this.Id)
                     {

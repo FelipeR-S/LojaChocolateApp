@@ -179,18 +179,18 @@
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnCarregaListaVendas = new System.Windows.Forms.Button();
             this.label52 = new System.Windows.Forms.Label();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
@@ -225,10 +225,10 @@
             this.panelConsultaVendas.SuspendLayout();
             this.panelDataGridVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -1014,7 +1014,7 @@
             this.textSalarioFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textSalarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalarioFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textSalarioFuncionario.Location = new System.Drawing.Point(452, 373);
+            this.textSalarioFuncionario.Location = new System.Drawing.Point(452, 374);
             this.textSalarioFuncionario.MaxLength = 3;
             this.textSalarioFuncionario.Name = "textSalarioFuncionario";
             this.textSalarioFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1043,7 +1043,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label36.Location = new System.Drawing.Point(327, 380);
+            this.label36.Location = new System.Drawing.Point(354, 382);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(91, 17);
             this.label36.TabIndex = 28;
@@ -1054,11 +1054,11 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label35.Location = new System.Drawing.Point(147, 380);
+            this.label35.Location = new System.Drawing.Point(147, 382);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(26, 17);
+            this.label35.Size = new System.Drawing.Size(70, 17);
             this.label35.TabIndex = 26;
-            this.label35.Text = "ID:";
+            this.label35.Text = "Matrícula:";
             // 
             // textIdSlarioFuncionario
             // 
@@ -1066,7 +1066,7 @@
             this.textIdSlarioFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdSlarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdSlarioFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdSlarioFuncionario.Location = new System.Drawing.Point(205, 373);
+            this.textIdSlarioFuncionario.Location = new System.Drawing.Point(235, 374);
             this.textIdSlarioFuncionario.MaxLength = 3;
             this.textIdSlarioFuncionario.Name = "textIdSlarioFuncionario";
             this.textIdSlarioFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1126,11 +1126,11 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(78, 44);
+            this.label18.Location = new System.Drawing.Point(44, 44);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(26, 17);
+            this.label18.Size = new System.Drawing.Size(70, 17);
             this.label18.TabIndex = 23;
-            this.label18.Text = "ID:";
+            this.label18.Text = "Matrícula:";
             // 
             // textBoxRemoverFuncionario
             // 
@@ -1165,8 +1165,9 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(533, 34);
             this.label10.TabIndex = 16;
-            this.label10.Text = "Para remover o funcionário declare o respectivo ID e clique em REMOVER.\r\nA ação v" +
-    "ai remover do cadastro, porém o funcionário poderá ser cadastrado novamente.";
+            this.label10.Text = "Para remover o funcionário declare a respectiva Matrícula e clique em REMOVER.\r\nA" +
+    " ação vai remover do cadastro, porém o funcionário poderá ser cadastrado novamen" +
+    "te.";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -1408,9 +1409,9 @@
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label25.Location = new System.Drawing.Point(124, 101);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(22, 17);
+            this.label25.Size = new System.Drawing.Size(52, 17);
             this.label25.TabIndex = 6;
-            this.label25.Text = "ID";
+            this.label25.Text = "Código";
             // 
             // textEstoqueProduto
             // 
@@ -1450,12 +1451,12 @@
             this.textNomeProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNomeProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textNomeProduto.Location = new System.Drawing.Point(187, 141);
+            this.textNomeProduto.MaxLength = 150;
             this.textNomeProduto.Name = "textNomeProduto";
             this.textNomeProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textNomeProduto.Size = new System.Drawing.Size(400, 29);
             this.textNomeProduto.TabIndex = 1;
             this.textNomeProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textNomeProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyChars);
             // 
             // textIdProduto
             // 
@@ -1464,7 +1465,7 @@
             this.textIdProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textIdProduto.Location = new System.Drawing.Point(187, 96);
-            this.textIdProduto.MaxLength = 3;
+            this.textIdProduto.MaxLength = 12;
             this.textIdProduto.Name = "textIdProduto";
             this.textIdProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textIdProduto.Size = new System.Drawing.Size(400, 29);
@@ -2210,45 +2211,6 @@
             this.dataGridViewVendas.TabIndex = 1;
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // btnTextDataGridViewTextBoxColumn
-            // 
-            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
-            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
-            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
-            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridVendasBindingSource
-            // 
-            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
-            // 
             // panel19
             // 
             this.panel19.Location = new System.Drawing.Point(0, 60);
@@ -2310,6 +2272,45 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // btnTextDataGridViewTextBoxColumn
+            // 
+            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
+            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
+            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
+            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridVendasBindingSource
+            // 
+            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
+            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2317,6 +2318,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
             this.Controls.Add(this.panelMenuLateral);
+            this.Controls.Add(this.panelInserirProduto);
+            this.Controls.Add(this.panelConsultarFuncionario);
             this.Controls.Add(this.panelCadastrarFuncionario);
             this.Controls.Add(this.panelRemoverFuncionario);
             this.Controls.Add(this.panelLogoPrincipal);
@@ -2324,8 +2327,6 @@
             this.Controls.Add(this.panelCadastrarVendas);
             this.Controls.Add(this.panelExibirProdutos);
             this.Controls.Add(this.panelEstoqueProduto);
-            this.Controls.Add(this.panelInserirProduto);
-            this.Controls.Add(this.panelConsultarFuncionario);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2387,11 +2388,11 @@
             this.panelConsultaVendas.ResumeLayout(false);
             this.panelDataGridVendas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -30,7 +30,7 @@ namespace LojaChocolateApp.Repository
         public Funcionario ConverteAtributos(string linha)
         {
             var dados = linha.Split(';');
-            var id = Convert.ToInt32(dados[0]);
+            var id = dados[0];
             var nome = dados[1];
             var cpf = dados[2];
             var contato = dados[3];
@@ -91,7 +91,7 @@ namespace LojaChocolateApp.Repository
                 }
             }
         }
-        public (bool, Funcionario) GetDetalhes(int id)
+        public (bool, Funcionario) GetDetalhes(string id)
         {
             Funcionario funcionario = null;
             var existe = false;
@@ -167,13 +167,14 @@ namespace LojaChocolateApp.Repository
         {
             using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                using (SqlCommand command = new SqlCommand())
+                connection.Open();
+                foreach (var funcionario in lista)
                 {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-                    command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
-                    foreach (var funcionario in lista)
+                    using (SqlCommand command = new SqlCommand())
                     {
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
                         command.Parameters.AddWithValue("@Matricula", funcionario.Id.ToString());
                         command.Parameters.AddWithValue("@Nome", funcionario.Nome);
                         command.Parameters.AddWithValue("@CPF", funcionario.Cpf);
@@ -181,14 +182,13 @@ namespace LojaChocolateApp.Repository
                         command.Parameters.AddWithValue("@Salario", funcionario.Salario.ToString().Replace(',', '.'));
                         command.Parameters.AddWithValue("@Cargo", funcionario.Cargo);
                         command.Parameters.AddWithValue("@Cadastro", funcionario.DataCadastro);
-                        connection.Open();
                         int recordsAffected = command.ExecuteNonQuery();
-                        connection.Close();
                     }
                 }
+                connection.Close();
             }
         }
-        public bool Remover(int id)
+        public bool Remover(string id)
         {
             var existe = false;
             var stringSQLMatricula = "";
@@ -310,7 +310,7 @@ namespace LojaChocolateApp.Repository
                         connection.Open();
                         command.Connection = connection;
                         command.CommandType = CommandType.Text;
-                        command.CommandText = $"UPDATE [dbo].[Funcionarios] SET [Salario] = '{novoSalario.ToString().Replace(',','.')}' WHERE [Matricula] = '{id}'";
+                        command.CommandText = $"UPDATE [dbo].[Funcionarios] SET [Salario] = '{novoSalario.ToString().Replace(',', '.')}' WHERE [Matricula] = '{id}'";
                         int recordsAffected = command.ExecuteNonQuery();
                         connection.Close();
                     }
