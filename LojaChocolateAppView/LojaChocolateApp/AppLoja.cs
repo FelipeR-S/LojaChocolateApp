@@ -724,7 +724,7 @@ namespace LojaChocolateApp
             layoutProdutos.Id = produto.Id.ToString();
             layoutProdutos.Peso = $"{produto.Peso}g";
             layoutProdutos.Estoque = produto.Estoque.ToString();
-            layoutProdutos.Valor = $"R$ {produto.Valor}";
+            layoutProdutos.Valor = $"R$ {produto.Valor.ToString().Replace('.', ',')}";
             layoutProdutos.Tipo = produto.Tipo;
             layoutProdutos.Vendas = produto.QuantidadeDeVendas.ToString();
             if (flowLayoutLayoutExibeProdutos.Controls.Count < 0)
@@ -740,25 +740,25 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnExibeTodosProdutos_Click(object sender, EventArgs e)
         {
+            flowLayoutLayoutExibeProdutos.Controls.Clear();
+            var ordem = comboBoxOrdemProdutos.Text;
+            var repo = new ProdutoRepository();
+            var lista = repo.GetLista();
+            var quantidade = 0;
+            foreach (var produto in lista)
+            {
+                quantidade += produto.Estoque;
+            }
+
+            tituloExibeProdutos.Text = $"Total de {lista.Count} tipos de produtos e {quantidade} produtos no estoque";
+            tituloExibeProdutos.Visible = true;
+            lista.Sort(new ProdutoRepository(ordem));
+            PopulaTodosProdutos(lista);
+            comboBoxOrdemProdutos.Text = "";
+            textIdBuscaProdutos.Text = "";
             try
             {
 
-                flowLayoutLayoutExibeProdutos.Controls.Clear();
-                var ordem = comboBoxOrdemProdutos.Text;
-                var repo = new ProdutoRepository();
-                var lista = repo.GetLista();
-                var quantidade = 0;
-                foreach (var produto in lista)
-                {
-                    quantidade += produto.Estoque;
-                }
-
-                tituloExibeProdutos.Text = $"Total de {lista.Count} tipos de produtos e {quantidade} produtos no estoque";
-                tituloExibeProdutos.Visible = true;
-                lista.Sort(new ProdutoRepository(ordem));
-                PopulaTodosProdutos(lista);
-                comboBoxOrdemProdutos.Text = "";
-                textIdBuscaProdutos.Text = "";
             }
             catch (FormatException)
             {

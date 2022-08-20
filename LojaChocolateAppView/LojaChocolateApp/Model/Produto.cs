@@ -34,22 +34,6 @@ namespace LojaChocolateApp.Model
             _estoque = estoque;
         }
         /// <summary>
-        /// Atualiza a quantidade do <see cref="Produto.Estoque"/>
-        /// </summary>
-        /// <param name="quantidade"></param>
-        public void AlteraEstoque(int quantidade)
-        {
-            _estoque += quantidade;
-        }
-        /// <summary>
-        /// Atualiza o valor do <see cref="Produto.Valor"/>
-        /// </summary>
-        /// <param name="novoValor"></param>
-        public void AlteraValor(decimal novoValor)
-        {
-            _valor = novoValor;
-        }
-        /// <summary>
         /// Retorna o valor do <see cref="Produto.QuantidadeDeVendas"/>
         /// </summary>
         /// <returns></returns>

@@ -27,14 +27,6 @@ namespace LojaChocolateApp.Repository
         {
             _ordem = ordem;
         }
-        /// <summary>
-        /// Local padrão do <see cref="ProdutoRepository"/>
-        /// </summary>
-        private static string _localdoArquivo = "ProdutoRepository.CSV";
-        /// <summary>
-        /// Local temporário para excluir itens presentes no repositório
-        /// </summary>
-        private static string _arquivoTemporario = "temp.CSV";
         public Produto ConverteAtributos(string linha)
         {
             var dados = linha.Split(';');
@@ -110,15 +102,20 @@ namespace LojaChocolateApp.Repository
         public List<Produto> GetLista()
         {
             var lista = new List<Produto>();
-            using (var file = new FileStream(_localdoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var produtoString = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Codigo], [Nome], [Peso], [Valor],[Tipo], [Estoque] FROM [dbo].[Produtos]";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var produto = ConverteAtributos(linha);
+                    produtoString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)}";
+                    var produto = ConverteAtributos(produtoString);
                     lista.Add(produto);
                 }
+                connection.Close();
             }
             return lista;
         }

@@ -179,18 +179,18 @@
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnCarregaListaVendas = new System.Windows.Forms.Button();
             this.label52 = new System.Windows.Forms.Label();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
@@ -225,10 +225,10 @@
             this.panelConsultaVendas.SuspendLayout();
             this.panelDataGridVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -706,7 +706,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(125, 330);
+            this.label6.Location = new System.Drawing.Point(111, 330);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 11;
@@ -717,7 +717,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(125, 282);
+            this.label5.Location = new System.Drawing.Point(111, 282);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 17);
             this.label5.TabIndex = 10;
@@ -728,7 +728,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(125, 237);
+            this.label4.Location = new System.Drawing.Point(111, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 9;
@@ -739,7 +739,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(125, 192);
+            this.label3.Location = new System.Drawing.Point(111, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 17);
             this.label3.TabIndex = 8;
@@ -750,7 +750,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(125, 145);
+            this.label2.Location = new System.Drawing.Point(111, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 7;
@@ -761,11 +761,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(125, 101);
+            this.label1.Location = new System.Drawing.Point(111, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 17);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "ID";
+            this.label1.Text = "Matrícula";
             // 
             // textBoxContato
             // 
@@ -921,12 +921,12 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(109, 17);
+            this.label13.Location = new System.Drawing.Point(87, 17);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(513, 17);
+            this.label13.Size = new System.Drawing.Size(554, 17);
             this.label13.TabIndex = 31;
-            this.label13.Text = "Informe o ID para exibir detalhes do funcionário desejado ou clique no botão \"Tod" +
-    "os\"";
+            this.label13.Text = "Informe a Matrícula para exibir detalhes do funcionário desejado ou clique no bot" +
+    "ão \"Todos\"";
             // 
             // btnBuscaIdFuncionario
             // 
@@ -948,11 +948,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(52, 50);
+            this.label11.Location = new System.Drawing.Point(73, 50);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 17);
+            this.label11.Size = new System.Drawing.Size(66, 17);
             this.label11.TabIndex = 29;
-            this.label11.Text = "Informe o ID";
+            this.label11.Text = "Matrícula";
             // 
             // textBoxIDDetalhesFuncionario
             // 
@@ -1506,9 +1506,9 @@
             this.BtnAlterarEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAlterarEstoque.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAlterarEstoque.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnAlterarEstoque.Location = new System.Drawing.Point(427, 33);
+            this.BtnAlterarEstoque.Location = new System.Drawing.Point(445, 33);
             this.BtnAlterarEstoque.Name = "BtnAlterarEstoque";
-            this.BtnAlterarEstoque.Size = new System.Drawing.Size(173, 77);
+            this.BtnAlterarEstoque.Size = new System.Drawing.Size(173, 78);
             this.BtnAlterarEstoque.TabIndex = 4;
             this.BtnAlterarEstoque.Text = "Alterar Estoque";
             this.BtnAlterarEstoque.UseVisualStyleBackColor = false;
@@ -1518,7 +1518,7 @@
             // 
             this.panelNovoValorProduto.Controls.Add(this.textNovoValorProduto);
             this.panelNovoValorProduto.Controls.Add(this.label37);
-            this.panelNovoValorProduto.Location = new System.Drawing.Point(251, 68);
+            this.panelNovoValorProduto.Location = new System.Drawing.Point(269, 65);
             this.panelNovoValorProduto.Name = "panelNovoValorProduto";
             this.panelNovoValorProduto.Size = new System.Drawing.Size(165, 53);
             this.panelNovoValorProduto.TabIndex = 38;
@@ -1543,7 +1543,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label37.Location = new System.Drawing.Point(4, 19);
+            this.label37.Location = new System.Drawing.Point(4, 20);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(45, 17);
             this.label37.TabIndex = 37;
@@ -1553,9 +1553,9 @@
             // 
             this.panelQuantidadeProduto.Controls.Add(this.label32);
             this.panelQuantidadeProduto.Controls.Add(this.textEstoqueQtdProdutos);
-            this.panelQuantidadeProduto.Location = new System.Drawing.Point(67, 69);
+            this.panelQuantidadeProduto.Location = new System.Drawing.Point(67, 65);
             this.panelQuantidadeProduto.Name = "panelQuantidadeProduto";
-            this.panelQuantidadeProduto.Size = new System.Drawing.Size(161, 53);
+            this.panelQuantidadeProduto.Size = new System.Drawing.Size(182, 53);
             this.panelQuantidadeProduto.TabIndex = 36;
             // 
             // label32
@@ -1563,7 +1563,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label32.Location = new System.Drawing.Point(6, 19);
+            this.label32.Location = new System.Drawing.Point(6, 20);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(84, 17);
             this.label32.TabIndex = 34;
@@ -1575,7 +1575,7 @@
             this.textEstoqueQtdProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textEstoqueQtdProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEstoqueQtdProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textEstoqueQtdProdutos.Location = new System.Drawing.Point(102, 12);
+            this.textEstoqueQtdProdutos.Location = new System.Drawing.Point(119, 12);
             this.textEstoqueQtdProdutos.MaxLength = 4;
             this.textEstoqueQtdProdutos.Name = "textEstoqueQtdProdutos";
             this.textEstoqueQtdProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1594,7 +1594,7 @@
             "Inserir",
             "Retirar",
             "Alterar Valor"});
-            this.comboBoxOpcaoProdutos.Location = new System.Drawing.Point(256, 35);
+            this.comboBoxOpcaoProdutos.Location = new System.Drawing.Point(274, 35);
             this.comboBoxOpcaoProdutos.Name = "comboBoxOpcaoProdutos";
             this.comboBoxOpcaoProdutos.Size = new System.Drawing.Size(151, 29);
             this.comboBoxOpcaoProdutos.TabIndex = 1;
@@ -1607,9 +1607,9 @@
             this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label27.Location = new System.Drawing.Point(73, 40);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(26, 17);
+            this.label27.Size = new System.Drawing.Size(56, 17);
             this.label27.TabIndex = 23;
-            this.label27.Text = "ID:";
+            this.label27.Text = "Código:";
             // 
             // textIdEstoqueProdutos
             // 
@@ -1617,7 +1617,7 @@
             this.textIdEstoqueProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdEstoqueProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdEstoqueProdutos.Location = new System.Drawing.Point(112, 37);
+            this.textIdEstoqueProdutos.Location = new System.Drawing.Point(131, 37);
             this.textIdEstoqueProdutos.MaxLength = 12;
             this.textIdEstoqueProdutos.Name = "textIdEstoqueProdutos";
             this.textIdEstoqueProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1746,7 +1746,7 @@
             this.comboBoxOrdemProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOrdemProdutos.FormattingEnabled = true;
             this.comboBoxOrdemProdutos.Items.AddRange(new object[] {
-            "Id",
+            "Código",
             "Nome",
             "Valor"});
             this.comboBoxOrdemProdutos.Location = new System.Drawing.Point(542, 46);
@@ -1761,7 +1761,7 @@
             this.btnExibeTodosProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExibeTodosProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExibeTodosProdutos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnExibeTodosProdutos.Location = new System.Drawing.Point(325, 45);
+            this.btnExibeTodosProdutos.Location = new System.Drawing.Point(348, 45);
             this.btnExibeTodosProdutos.Name = "btnExibeTodosProdutos";
             this.btnExibeTodosProdutos.Size = new System.Drawing.Size(81, 27);
             this.btnExibeTodosProdutos.TabIndex = 2;
@@ -1776,9 +1776,10 @@
             this.label31.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label31.Location = new System.Drawing.Point(109, 17);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(496, 17);
+            this.label31.Size = new System.Drawing.Size(525, 17);
             this.label31.TabIndex = 31;
-            this.label31.Text = "Informe o ID para exibir detalhes do produto desejado ou clique no botão \"Todos\"";
+            this.label31.Text = "Informe o código para exibir detalhes do produto desejado ou clique no botão \"Tod" +
+    "os\"";
             // 
             // btnBuscaIdProduto
             // 
@@ -1787,7 +1788,7 @@
             this.btnBuscaIdProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscaIdProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscaIdProduto.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBuscaIdProduto.Location = new System.Drawing.Point(230, 45);
+            this.btnBuscaIdProduto.Location = new System.Drawing.Point(253, 45);
             this.btnBuscaIdProduto.Name = "btnBuscaIdProduto";
             this.btnBuscaIdProduto.Size = new System.Drawing.Size(81, 27);
             this.btnBuscaIdProduto.TabIndex = 1;
@@ -1802,9 +1803,9 @@
             this.label33.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label33.Location = new System.Drawing.Point(52, 50);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(87, 17);
+            this.label33.Size = new System.Drawing.Size(52, 17);
             this.label33.TabIndex = 29;
-            this.label33.Text = "Informe o ID";
+            this.label33.Text = "Código";
             // 
             // textIdBuscaProdutos
             // 
@@ -1812,11 +1813,11 @@
             this.textIdBuscaProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdBuscaProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdBuscaProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdBuscaProdutos.Location = new System.Drawing.Point(152, 47);
-            this.textIdBuscaProdutos.MaxLength = 3;
+            this.textIdBuscaProdutos.Location = new System.Drawing.Point(105, 47);
+            this.textIdBuscaProdutos.MaxLength = 12;
             this.textIdBuscaProdutos.Name = "textIdBuscaProdutos";
             this.textIdBuscaProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdBuscaProdutos.Size = new System.Drawing.Size(64, 25);
+            this.textIdBuscaProdutos.Size = new System.Drawing.Size(138, 25);
             this.textIdBuscaProdutos.TabIndex = 0;
             this.textIdBuscaProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdBuscaProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -1876,9 +1877,9 @@
             this.textIdVendasCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.textIdVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdVendasCadastro.FormattingEnabled = true;
-            this.textIdVendasCadastro.Location = new System.Drawing.Point(413, 82);
+            this.textIdVendasCadastro.Location = new System.Drawing.Point(413, 81);
             this.textIdVendasCadastro.Name = "textIdVendasCadastro";
-            this.textIdVendasCadastro.Size = new System.Drawing.Size(174, 29);
+            this.textIdVendasCadastro.Size = new System.Drawing.Size(228, 29);
             this.textIdVendasCadastro.TabIndex = 46;
             // 
             // textProdVendas
@@ -1889,7 +1890,7 @@
             this.textProdVendas.Location = new System.Drawing.Point(187, 251);
             this.textProdVendas.Multiline = true;
             this.textProdVendas.Name = "textProdVendas";
-            this.textProdVendas.Size = new System.Drawing.Size(401, 130);
+            this.textProdVendas.Size = new System.Drawing.Size(454, 130);
             this.textProdVendas.TabIndex = 10;
             // 
             // btnRemoverVenda
@@ -1899,9 +1900,9 @@
             this.btnRemoverVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverVenda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoverVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRemoverVenda.Location = new System.Drawing.Point(83, 391);
+            this.btnRemoverVenda.Location = new System.Drawing.Point(56, 391);
             this.btnRemoverVenda.Name = "btnRemoverVenda";
-            this.btnRemoverVenda.Size = new System.Drawing.Size(88, 35);
+            this.btnRemoverVenda.Size = new System.Drawing.Size(115, 35);
             this.btnRemoverVenda.TabIndex = 5;
             this.btnRemoverVenda.Text = "Remover";
             this.btnRemoverVenda.UseVisualStyleBackColor = false;
@@ -1912,11 +1913,12 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label44.Location = new System.Drawing.Point(87, 330);
+            this.label44.Location = new System.Drawing.Point(80, 311);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(74, 17);
+            this.label44.Size = new System.Drawing.Size(72, 34);
             this.label44.TabIndex = 45;
-            this.label44.Text = "Id Produto";
+            this.label44.Text = "Código do\r\nProduto";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textIdRemoverVenda
             // 
@@ -1924,11 +1926,11 @@
             this.textIdRemoverVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdRemoverVenda.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdRemoverVenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textIdRemoverVenda.Location = new System.Drawing.Point(83, 354);
-            this.textIdRemoverVenda.MaxLength = 3;
+            this.textIdRemoverVenda.Location = new System.Drawing.Point(56, 354);
+            this.textIdRemoverVenda.MaxLength = 12;
             this.textIdRemoverVenda.Name = "textIdRemoverVenda";
             this.textIdRemoverVenda.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdRemoverVenda.Size = new System.Drawing.Size(88, 25);
+            this.textIdRemoverVenda.Size = new System.Drawing.Size(115, 25);
             this.textIdRemoverVenda.TabIndex = 4;
             this.textIdRemoverVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdRemoverVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -1940,7 +1942,7 @@
             this.btnAdicionarProdVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProdVenda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarProdVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAdicionarProdVenda.Location = new System.Drawing.Point(491, 216);
+            this.btnAdicionarProdVenda.Location = new System.Drawing.Point(545, 216);
             this.btnAdicionarProdVenda.Name = "btnAdicionarProdVenda";
             this.btnAdicionarProdVenda.Size = new System.Drawing.Size(96, 27);
             this.btnAdicionarProdVenda.TabIndex = 3;
@@ -1955,7 +1957,7 @@
             this.cboProduto1.FormattingEnabled = true;
             this.cboProduto1.Location = new System.Drawing.Point(187, 216);
             this.cboProduto1.Name = "cboProduto1";
-            this.cboProduto1.Size = new System.Drawing.Size(298, 29);
+            this.cboProduto1.Size = new System.Drawing.Size(347, 29);
             this.cboProduto1.TabIndex = 2;
             // 
             // label50
@@ -1974,7 +1976,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label49.Location = new System.Drawing.Point(87, 191);
+            this.label49.Location = new System.Drawing.Point(78, 188);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(80, 17);
             this.label49.TabIndex = 35;
@@ -1986,11 +1988,11 @@
             this.textQtdVendasProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textQtdVendasProd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textQtdVendasProd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textQtdVendasProd.Location = new System.Drawing.Point(83, 216);
+            this.textQtdVendasProd.Location = new System.Drawing.Point(56, 216);
             this.textQtdVendasProd.MaxLength = 3;
             this.textQtdVendasProd.Name = "textQtdVendasProd";
             this.textQtdVendasProd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textQtdVendasProd.Size = new System.Drawing.Size(88, 25);
+            this.textQtdVendasProd.Size = new System.Drawing.Size(115, 25);
             this.textQtdVendasProd.TabIndex = 1;
             this.textQtdVendasProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textQtdVendasProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -2001,7 +2003,7 @@
             this.label42.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label42.Location = new System.Drawing.Point(187, 118);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(401, 73);
+            this.label42.Size = new System.Drawing.Size(454, 73);
             this.label42.TabIndex = 25;
             this.label42.Text = resources.GetString("label42.Text");
             // 
@@ -2010,7 +2012,7 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label43.Location = new System.Drawing.Point(95, 118);
+            this.label43.Location = new System.Drawing.Point(53, 118);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(64, 17);
             this.label43.TabIndex = 24;
@@ -2021,11 +2023,11 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label41.Location = new System.Drawing.Point(169, 87);
+            this.label41.Location = new System.Drawing.Point(128, 87);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(237, 17);
+            this.label41.Size = new System.Drawing.Size(278, 17);
             this.label41.TabIndex = 22;
-            this.label41.Text = "Informe o ID de quem realizou a venda";
+            this.label41.Text = "Informe a Matrícula de quem realizou a venda";
             // 
             // panel18
             // 
@@ -2054,7 +2056,7 @@
             this.btnCadastrarVendasCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarVendasCSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarVendasCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadastrarVendasCSV.Location = new System.Drawing.Point(434, 491);
+            this.btnCadastrarVendasCSV.Location = new System.Drawing.Point(488, 492);
             this.btnCadastrarVendasCSV.Name = "btnCadastrarVendasCSV";
             this.btnCadastrarVendasCSV.Size = new System.Drawing.Size(93, 27);
             this.btnCadastrarVendasCSV.TabIndex = 8;
@@ -2069,7 +2071,7 @@
             this.btnInfoVendaCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfoVendaCSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfoVendaCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnInfoVendaCSV.Location = new System.Drawing.Point(533, 491);
+            this.btnInfoVendaCSV.Location = new System.Drawing.Point(587, 492);
             this.btnInfoVendaCSV.Name = "btnInfoVendaCSV";
             this.btnInfoVendaCSV.Size = new System.Drawing.Size(54, 27);
             this.btnInfoVendaCSV.TabIndex = 9;
@@ -2082,7 +2084,7 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label39.Location = new System.Drawing.Point(80, 496);
+            this.label39.Location = new System.Drawing.Point(53, 497);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(100, 17);
             this.label39.TabIndex = 16;
@@ -2105,10 +2107,10 @@
             this.textArquivoVendasCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textArquivoVendasCadastro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textArquivoVendasCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textArquivoVendasCadastro.Location = new System.Drawing.Point(187, 491);
+            this.textArquivoVendasCadastro.Location = new System.Drawing.Point(187, 493);
             this.textArquivoVendasCadastro.Name = "textArquivoVendasCadastro";
             this.textArquivoVendasCadastro.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textArquivoVendasCadastro.Size = new System.Drawing.Size(241, 25);
+            this.textArquivoVendasCadastro.Size = new System.Drawing.Size(295, 25);
             this.textArquivoVendasCadastro.TabIndex = 7;
             this.textArquivoVendasCadastro.Click += new System.EventHandler(this.OpenFile);
             // 
@@ -2121,7 +2123,7 @@
             this.btnCadastrarVendaUnica.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCadastrarVendaUnica.Location = new System.Drawing.Point(187, 391);
             this.btnCadastrarVendaUnica.Name = "btnCadastrarVendaUnica";
-            this.btnCadastrarVendaUnica.Size = new System.Drawing.Size(400, 35);
+            this.btnCadastrarVendaUnica.Size = new System.Drawing.Size(454, 35);
             this.btnCadastrarVendaUnica.TabIndex = 6;
             this.btnCadastrarVendaUnica.Text = "Cadastrar";
             this.btnCadastrarVendaUnica.UseVisualStyleBackColor = false;
@@ -2132,7 +2134,7 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label46.Location = new System.Drawing.Point(95, 86);
+            this.label46.Location = new System.Drawing.Point(53, 86);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(72, 17);
             this.label46.TabIndex = 6;
@@ -2211,45 +2213,6 @@
             this.dataGridViewVendas.TabIndex = 1;
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // btnTextDataGridViewTextBoxColumn
-            // 
-            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
-            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
-            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
-            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridVendasBindingSource
-            // 
-            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
-            // 
             // panel19
             // 
             this.panel19.Location = new System.Drawing.Point(0, 60);
@@ -2311,6 +2274,45 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // btnTextDataGridViewTextBoxColumn
+            // 
+            this.btnTextDataGridViewTextBoxColumn.DataPropertyName = "BtnText";
+            this.btnTextDataGridViewTextBoxColumn.HeaderText = "+";
+            this.btnTextDataGridViewTextBoxColumn.Name = "btnTextDataGridViewTextBoxColumn";
+            this.btnTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridVendasBindingSource
+            // 
+            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
+            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2318,6 +2320,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
             this.Controls.Add(this.panelMenuLateral);
+            this.Controls.Add(this.panelExibirProdutos);
             this.Controls.Add(this.panelEstoqueProduto);
             this.Controls.Add(this.panelInserirProduto);
             this.Controls.Add(this.panelConsultarFuncionario);
@@ -2326,7 +2329,6 @@
             this.Controls.Add(this.panelLogoPrincipal);
             this.Controls.Add(this.panelConsultaVendas);
             this.Controls.Add(this.panelCadastrarVendas);
-            this.Controls.Add(this.panelExibirProdutos);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2388,11 +2390,11 @@
             this.panelConsultaVendas.ResumeLayout(false);
             this.panelDataGridVendas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
