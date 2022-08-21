@@ -1,6 +1,8 @@
 ﻿using LojaChocolateApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -144,38 +146,57 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirUnico(Venda venda)
         {
-            venda.SetVendaId();
-            using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            var numeroNF = 0;
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                var linhaProduto = "";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "insert into [Vendas_NF] ([Vendedor Matricula], [Vendedor Nome], [Total], [Data]) VALUES(@Matricula, @Vendedor, @Total, @Data)";
+                    command.Parameters.AddWithValue("@Matricula", venda.VendedorId);
+                    command.Parameters.AddWithValue("@Vendedor", venda.VendedorNome);
+                    command.Parameters.AddWithValue("@Total", venda.Valor);
+                    command.Parameters.AddWithValue("@Data", venda.DataVenda.ToShortDateString());
+                    int recordsAffected = command.ExecuteNonQuery();
+                }
+                var SQLnumeroNF = "SELECT MAX([Numero]) FROM [Vendas_NF]";
+                SqlCommand cmd = new SqlCommand(SQLnumeroNF, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
+                {
+                    numeroNF = Convert.ToInt32(srd.GetValue(0));
+                }
+                connection.Close();
+            }
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
+            {
+                connection.Open();
                 foreach (var produto in venda.Produtos)
                 {
-                    (var qtd, var prod) = produto;
-                    linhaProduto += $"Quantidade:{qtd}|Id:{prod.Id}|{prod.Nome}|Valor R$:{prod.Valor};";
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        (var qtd, var prod) = produto;
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = "insert into [Vendas_Itens] ([Numero], [Produto Codigo], [Produto Nome], [Quantidade], [Valor]) VALUES(@Numero, @Codigo, @Nome, @Quantidade, @Valor)";
+                        command.Parameters.AddWithValue("@Numero", numeroNF);
+                        command.Parameters.AddWithValue("@Codigo", prod.Id);
+                        command.Parameters.AddWithValue("@Nome", prod.Nome);
+                        command.Parameters.AddWithValue("@Quantidade", qtd);
+                        command.Parameters.AddWithValue("@Valor", prod.Valor);
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
                 }
-                escritor.WriteLine($"Venda:{venda.VendaId};Vendedor:{venda.VendedorId}|{venda.VendedorNome};{linhaProduto}Valor Total R$:{venda.Valor};Data:{venda.DataVenda}");
+                connection.Close();
             }
         }
         public void IncluirVarios(List<Venda> lista)
         {
             foreach (var venda in lista)
             {
-                venda.SetVendaId();
-                using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-                using (var escritor = new StreamWriter(file))
-                {
-                    var repoProduto = new ProdutoRepository();
-                    var linhaProduto = "";
-                    foreach (var produto in venda.Produtos)
-                    {
-                        (var qtd, var prod) = produto;
-                        linhaProduto += $"Quantidade:{qtd}|Id:{prod.Id}|{prod.Nome}|Valor R$:{prod.Valor};";
-                        var diminuiEstoque = $"-{qtd}";
-                        repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
-                    }
-                    escritor.WriteLine($"Venda:{venda.VendaId};Vendedor:{venda.VendedorId}|{venda.VendedorNome};{linhaProduto}Valor Total R$:{venda.Valor};Data:{venda.DataVenda}");
-                }
+                IncluirUnico(venda);
             }
         }
         public bool Remover(string id)

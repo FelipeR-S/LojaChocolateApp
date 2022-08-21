@@ -165,27 +165,9 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirVarios(List<Funcionario> lista)
         {
-            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
+            foreach (var funcionario in lista)
             {
-                connection.Open();
-                foreach (var funcionario in lista)
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
-                        command.Parameters.AddWithValue("@Matricula", funcionario.Id.ToString());
-                        command.Parameters.AddWithValue("@Nome", funcionario.Nome);
-                        command.Parameters.AddWithValue("@CPF", funcionario.Cpf);
-                        command.Parameters.AddWithValue("@Contato", funcionario.Contato);
-                        command.Parameters.AddWithValue("@Salario", funcionario.Salario.ToString().Replace(',', '.'));
-                        command.Parameters.AddWithValue("@Cargo", funcionario.Cargo);
-                        command.Parameters.AddWithValue("@Cadastro", funcionario.DataCadastro);
-                        int recordsAffected = command.ExecuteNonQuery();
-                    }
-                }
-                connection.Close();
+                IncluirUnico(funcionario);
             }
         }
         public bool Remover(string id)

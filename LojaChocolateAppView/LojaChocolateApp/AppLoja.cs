@@ -839,18 +839,13 @@ namespace LojaChocolateApp
                 cboProduto1.Text = "";
             }
         }
-        /// <summary>
-        /// Remove <see cref="Produto"/> do texBox de Venda
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRemoverVenda_Click(object sender, EventArgs e)
+        private void RemoveVenda(string id)
         {
             try
             {
                 if (_addProdVenda > 0)
                 {
-                    var id = Convert.ToInt32(textIdRemoverVenda.Text);
+                    var idProd = id;
                     var linhas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
                     var listaLinha = new List<string>();
                     var contador = -1;
@@ -858,7 +853,7 @@ namespace LojaChocolateApp
                     for (int i = 0; i < linhas.Length - 1; i++)
                     {
                         var textoId = linhas[i].Split('|');
-                        if (id == Convert.ToInt32(textoId[1]))
+                        if (id == textoId[1].Replace(" ", ""))
                         {
                             contador = i;
                         }
@@ -892,7 +887,15 @@ namespace LojaChocolateApp
                 textIdRemoverVenda.Text = "";
                 cboProduto1.Text = "";
             }
-
+        }
+        /// <summary>
+        /// Remove <see cref="Produto"/> do texBox de Venda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoverVenda_Click(object sender, EventArgs e)
+        {
+            RemoveVenda(textIdRemoverVenda.Text);
         }
         /// <summary>
         /// Carrega elementos do combobox do submenu cadastrar vendas de forma dinamica
@@ -941,7 +944,7 @@ namespace LojaChocolateApp
             {
                 //Entrada de dados
                 var vendas = textProdVendas.Text.Replace("\r\n", "\n").Replace("\n", "\n").Replace("\r", "\n").Split('\n');
-                var entradaFuncionarioId = textIdVendasCadastro.Text.Split('|');
+                var entradaFuncionarioId = textIdVendasCadastro.Text.Replace(" ", "").Split('|');
                 var funcionarioId = entradaFuncionarioId[0];
                 var conflito = false;
                 var valorTotal = 0m;
@@ -959,46 +962,41 @@ namespace LojaChocolateApp
                 (var existeFuncionario, var funcionario) = repoFuncionario.GetDetalhes(funcionarioId);
                 if (textProdVendas.Text != "")
                 {
-                    if (existeFuncionario)
+                    for (int i = 0; i < vendas.Length - 1; i++)
                     {
-                        // Verifica estoque
-                        for (int i = 0; i < vendas.Length - 1; i++)
+                        var linha = vendas[i].Split('|');
+                        var qtdProdutos = Convert.ToInt32(linha[0]);
+                        (var exProd, var produto) = repoProduto.GetDetalhes(linha[1].Replace(" ", ""));
+                        if (qtdProdutos > produto.Estoque || !exProd)
                         {
-                            var linha = vendas[i].Split('|');
-                            var qtdProdutos = Convert.ToInt32(linha[0]);
-                            (var exProd, var produto) = repoProduto.GetDetalhes(linha[1]);
-                            if (qtdProdutos > produto.Estoque || !exProd)
-                            {
-                                MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
-                                    $"{produto.Nome} | ID: {produto.Id} | Estoque: {produto.Estoque}\n" +
-                                    $"Quantidade tentada: {qtdProdutos}");
-                                conflito = true;
-                                break;
-                            }
-                            else
-                            {
-                                listaProdVendas.Add(new Tuple<int, Produto>(qtdProdutos, produto));
-                            }
+                            MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
+                                $"{produto.Nome} | ID: {produto.Id} | Estoque: {produto.Estoque}\n" +
+                                $"Quantidade tentada: {qtdProdutos}");
+                            conflito = true;
+                            RemoveVenda(produto.Id);
+                            break;
                         }
-                        if (!conflito)
+                        else
                         {
-                            foreach (var item in listaProdVendas)
-                            {
-                                (var qtd, var prod) = item;
-                                valorTotal += qtd * prod.Valor;
-                                var diminuiEstoque = $"-{qtd}";
-                                // Altera estoque de produtos
-                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
-                            }
-                            var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
-                            repoVendas.IncluirUnico(venda);
-                            _addProdVenda = 0;
-                            MessageBox.Show("Cadastro concluído!");
-                            ApagaTextBoX();
+                            listaProdVendas.Add(new Tuple<int, Produto>(qtdProdutos, produto));
                         }
                     }
-                    else
-                        MessageBox.Show("Funcionário não encontrado na base de dados!");
+                    if (!conflito)
+                    {
+                        foreach (var item in listaProdVendas)
+                        {
+                            (var qtd, var prod) = item;
+                            valorTotal += qtd * prod.Valor;
+                            var diminuiEstoque = $"-{qtd}";
+                            // Altera estoque de produtos
+                            repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
+                        }
+                        var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
+                        repoVendas.IncluirUnico(venda);
+                        _addProdVenda = 0;
+                        MessageBox.Show("Cadastro concluído!");
+                        ApagaTextBoX();
+                    }
                 }
                 else
                     MessageBox.Show("Favor informar os produtos e quantidades!");
@@ -1091,6 +1089,17 @@ namespace LojaChocolateApp
                     else
                     {
                         tratamentoArquivo.IncluirVarios(inseridos);
+                        // Altera estoque de produtos
+                        var repoProduto = new ProdutoRepository();
+                        foreach (var venda in inseridos)
+                        {
+                            foreach (var prodVendas in venda.Produtos)
+                            {
+                                (var qtd, var prod) = prodVendas;
+                                var diminuiEstoque = Convert.ToInt32($"-{qtd}");
+                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
+                            }
+                        }
                         MessageBox.Show("Vendas inseridas com sucesso!");
                     }
                 }
@@ -1683,9 +1692,9 @@ namespace LojaChocolateApp
                     return true;
                 case "vendas":
                     var splitVenda = linha.Split(';');
-                    var patternProduto = @"^[\s]?[0-9]{12}[|][0-9]{12}[\s]?$";
+                    var patternProduto = @"^[\s]?[0-9]{1,3}[|][0-9]{12}[\s]?$";
                     var contador = 1;
-                    var listaIdProduto = new List<int>();
+                    var listaIdProduto = new List<string>();
                     var correto = false;
                     if (!Regex.IsMatch(splitVenda[0], patternID))
                     {
@@ -1701,7 +1710,7 @@ namespace LojaChocolateApp
                                 correto = false;
                                 break;
                             }
-                            var idProduto = Convert.ToInt32(vendaProduto[1]);
+                            var idProduto = vendaProduto[1];
                             if (listaIdProduto.Contains(idProduto))
                             {
                                 correto = false;

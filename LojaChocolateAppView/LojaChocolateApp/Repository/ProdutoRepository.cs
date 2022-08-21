@@ -142,26 +142,9 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirVarios(List<Produto> lista)
         {
-            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
+            foreach (var produto in lista)
             {
-                connection.Open();
-                foreach (var produto in lista)
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = "INSERT INTO[dbo].[Produtos] ([Codigo], [Nome], [Peso], [Valor], [Estoque], [Tipo]) VALUES(@Codigo, @Nome, @Peso, @Valor, @Estoque, @Tipo)";
-                        command.Parameters.AddWithValue("@Codigo", produto.Id);
-                        command.Parameters.AddWithValue("@Nome", produto.Nome);
-                        command.Parameters.AddWithValue("@Peso", produto.Peso.ToString().Replace(',', '.'));
-                        command.Parameters.AddWithValue("@Valor", produto.Valor.ToString().Replace(',', '.'));
-                        command.Parameters.AddWithValue("@Estoque", produto.Estoque);
-                        command.Parameters.AddWithValue("@Tipo", produto.Tipo);
-                        int recordsAffected = command.ExecuteNonQuery();
-                    }
-                }
-                connection.Close();
+                IncluirUnico(produto);
             }
         }
         public bool Remover(string id)
@@ -331,7 +314,7 @@ namespace LojaChocolateApp.Repository
                         connection.Open();
                         command.Connection = connection;
                         command.CommandType = CommandType.Text;
-                        command.CommandText = $"UPDATE [dbo].[Produtos] SET [Valor] = {novoValor.ToString().Replace(',','.')} WHERE [Codigo] = '{id}'";
+                        command.CommandText = $"UPDATE [dbo].[Produtos] SET [Valor] = {novoValor.ToString().Replace(',', '.')} WHERE [Codigo] = '{id}'";
                         int recordsAffected = command.ExecuteNonQuery();
                         connection.Close();
                     }
