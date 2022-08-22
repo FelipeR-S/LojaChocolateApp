@@ -1,6 +1,7 @@
 ﻿using LojaChocolateApp.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,21 +41,17 @@ namespace LojaChocolateApp.Model
         private int GetQuantidadeDeVendas()
         {
             var vendasId = 0;
-            var vendasRepo = new VendaRepository();
-            var listaVendas = vendasRepo.GetLista();
-            foreach (var venda in listaVendas)
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                var produto = vendasRepo.GetDetalhesVenda(venda.VendaId);
-                foreach (var prod in produto)
+                connection.Open();
+                var sqlQuery = $"select [produto codigo], sum(quantidade) as qtd from Vendas_Itens where [Produto Codigo] = '{this.Id}' group by[produto codigo]";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linhaProduto = prod.Split('|');
-                    var prodId = linhaProduto[1];
-                    var qtd = Convert.ToInt32(linhaProduto[0].Remove(0, linhaProduto[0].IndexOf(':') + 1));
-                    if (prodId == this.Id)
-                    {
-                        vendasId += qtd;
-                    }
+                    vendasId = Convert.ToInt32($"{srd.GetValue(1)}");
                 }
+                connection.Close();
             }
             return vendasId;
         }

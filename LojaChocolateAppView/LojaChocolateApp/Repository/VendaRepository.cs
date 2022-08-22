@@ -12,10 +12,6 @@ namespace LojaChocolateApp.Repository
 {
     public class VendaRepository : IRepository<Venda>
     {
-        /// <summary>
-        /// Local padrão do <see cref="VendaRepository"/>
-        /// </summary>
-        private static string _localDoArquivo = "VendasRepository.CSV";
         public Venda ConverteAtributos(string linha)
         {
             // Entrada
@@ -90,59 +86,45 @@ namespace LojaChocolateApp.Repository
         /// <returns></returns>
         public List<string> GetDetalhesVenda(string id)
         {
-            var existe = false;
-            var listaProdutos = new List<string>();
-            using (var fileStream = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var reader = new StreamReader(fileStream))
+            var listaDetalhes = new List<string>();
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!reader.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"select concat('Produto: ' + [produto Codigo], + ' | ' + [produto nome], ' | Qtd.: ' + convert(varchar, [Quantidade])) as Descricao, convert(decimal(10,2),[valor]) as Valor from Vendas_Itens where Numero = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader sr = cmd.ExecuteReader();
+                while (sr.Read())
                 {
-                    var linha = reader.ReadLine().ToString().Split(';');
-                    var idVenda = linha[0].Remove(0, linha[0].ToString().IndexOf(':') + 1);
-                    if (idVenda == id)
-                    {
-                        existe = true;
-                        var contador = 2;
-                        while (contador < linha.Length - 2)
-                        {
-                            var dadosProduto = linha[contador];
-                            listaProdutos.Add(dadosProduto);
-                            contador++;
-                        }
-                    }
+                    var descricaoProd = sr.GetValue(0).ToString();
+                    var valorProd = sr.GetValue(1).ToString();
+                    listaDetalhes.Add($"{descricaoProd};{valorProd}");
                 }
+                connection.Close();
             }
-            if (existe == true)
-            {
-                return listaProdutos;
-            }
-            else
-            {
-                var listaErro = new List<string>();
-                return listaErro;
-            }
+            return listaDetalhes;
         }
         public List<Venda> GetLista()
         {
-            var lista = new List<Venda>();
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var listaVendas = new List<Venda>();
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
-                {
-                    var linha = leitor.ReadLine();
-                    var dados = linha.Split(';');
-                    var id = dados[0].Remove(0, dados[0].IndexOf(':') + 1);
-                    var funcionario = dados[1].Split('|');
-                    var funcionarioId = funcionario[0].Remove(0, funcionario[0].IndexOf(':') + 1);
-                    var funcionarioNome = funcionario[1];
-                    var valorTotal = Convert.ToDecimal(dados[dados.Length - 2].Remove(0, dados[dados.Length - 2].IndexOf(':') + 1));
-                    var data = Convert.ToDateTime(dados[dados.Length - 1].Remove(0, dados[dados.Length - 1].IndexOf(':') + 1));
-                    var venda = new Venda(id, funcionarioId, funcionarioNome, valorTotal, data);
-                    lista.Add(venda);
+                connection.Open();
+                var sqlQuery = $"select [Numero], [Vendedor Matricula], [Vendedor Nome], [Total], [Data] from[Vendas_NF]";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader sr = cmd.ExecuteReader();
+                while (sr.Read())
+                {  
+                    var numero = sr.GetValue(0).ToString();
+                    var matricula = sr.GetValue(1).ToString();
+                    var nome = sr.GetValue(2).ToString();
+                    var valor = Convert.ToDecimal(sr.GetValue(3));
+                    var data = Convert.ToDateTime(sr.GetValue(4));
+                    var venda = new Venda(numero, matricula, nome, valor, data);
+                    listaVendas.Add(venda);
                 }
+                connection.Close();
             }
-            return lista;
+            return listaVendas;
         }
         public void IncluirUnico(Venda venda)
         {

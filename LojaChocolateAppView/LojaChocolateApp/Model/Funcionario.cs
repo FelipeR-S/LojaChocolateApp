@@ -1,6 +1,7 @@
 ﻿using LojaChocolateApp.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,14 +52,17 @@ namespace LojaChocolateApp.Model
         private int GetQuantidadeDeVendas()
         {
             var vendasId = 0;
-            var vendasRepo = new VendaRepository();
-            var listaVendas = vendasRepo.GetLista();
-            foreach (var venda in listaVendas)
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                if (venda.VendedorId == this.Id)
+                connection.Open();
+                var sqlQuery = $"select Count(*) from Funcionarios inner join Vendas_NF on Funcionarios.Matricula = Vendas_NF.[Vendedor Matricula] where matricula = '{this.Id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    vendasId++;
+                    vendasId = Convert.ToInt32($"{srd.GetValue(0)}");
                 }
+                connection.Close();
             }
             return vendasId;
         }

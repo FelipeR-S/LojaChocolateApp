@@ -1124,25 +1124,28 @@ namespace LojaChocolateApp
         /// </summary>
         private void PopulaListaVendas()
         {
-            var repoVendas = new VendaRepository();
-            var listaVendas = repoVendas.GetLista();
-            DesignDataGrid();
-            foreach (var venda in listaVendas)
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                var qtdTotal = 0;
-                var produtos = repoVendas.GetDetalhesVenda(venda.VendaId);
-                foreach (var produto in produtos)
+                var vendaRepo = new VendaRepository();
+                var vendas = vendaRepo.GetLista();
+                foreach (var venda in vendas)
                 {
-                    var dados = produto.Split('|');
-                    var qtd = Convert.ToInt32(dados[0].Remove(0, dados[0].IndexOf(':') + 1));
-                    qtdTotal += qtd;
+                    connection.Open();
+
+                    var sqlQuery = $"select [numero], sum([Quantidade]) from Vendas_Itens where numero = '{venda.VendaId}' group by[numero]";
+                    var qtd = "";
+                    SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                    SqlDataReader sr = cmd.ExecuteReader();
+                    while (sr.Read())
+                    {
+                        qtd = sr.GetValue(1).ToString();
+                    }
+                    dataGridVendasBindingSource
+                        .Add(new DataGridVendas() { Numero = venda.VendaId, Descricao = $"Vendido por: {venda.VendedorId} | {venda.VendedorNome} | Qtd de Produtos: {qtd}", Valor = venda.Valor.ToString("F2"), Data = venda.DataVenda.ToShortDateString(), Mais = "+" });
+                    connection.Close();
                 }
-                var id = $"{venda.VendaId}";
-                var descricao = $"Venda por {venda.VendedorNome}, id: {venda.VendedorId}, quantidade de produtos: {qtdTotal}";
-                var valor = $"{venda.Valor}";
-                var data = venda.DataVenda.ToShortDateString();
-                dataGridVendasBindingSource.Add(new DataGridVendas() { Id = id, Descricao = descricao, Valor = valor, Data = data, BtnText = "+" });
             }
+            DesignDataGrid();
             dataGridViewVendas.Visible = true;
         }
         /// <summary>
@@ -1186,12 +1189,11 @@ namespace LojaChocolateApp
                     {
                         var id = dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value.ToString();
                         index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
-                        var descricao = dataGridViewVendas.Rows[e.RowIndex].Cells[1].Value.ToString();
                         dataGridViewVendas.Rows[e.RowIndex].Selected = true;
 
                         // Replace na venda clicada "-"
                         dataGridViewVendas.Rows[index - 1].Cells[4].Value = "-";
-                        PopulaDetalhesBtn(id, index, descricao);
+                        PopulaDetalhesBtn(id, index);
                         goto SkipToEnd;
                     }
                     else
@@ -1230,9 +1232,9 @@ namespace LojaChocolateApp
         {
             dataGridViewVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Lato", 10, FontStyle.Bold);
             dataGridViewVendas.ColumnHeadersHeight = 30;
-            dataGridViewVendas.Columns[0].Width = 30;
+            dataGridViewVendas.Columns[0].Width = 60;
             dataGridViewVendas.Columns[0].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewVendas.Columns[1].Width = 410;
+            dataGridViewVendas.Columns[1].Width = 380;
             dataGridViewVendas.Columns[2].Width = 70;
             dataGridViewVendas.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewVendas.Columns[3].Width = 100;
@@ -1246,18 +1248,16 @@ namespace LojaChocolateApp
         /// <param name="idVenda"></param>
         /// <param name="index"></param>
         /// <param name="descricao"></param>
-        private void PopulaDetalhesBtn(string idVenda, int index, string descricao)
+        private void PopulaDetalhesBtn(string idVenda, int index)
         {
             var repovendas = new VendaRepository();
-            var produtos = repovendas.GetDetalhesVenda(idVenda);
-            // Detalhes adicionados
-            foreach (var produto in produtos)
+
+            var listaDetalhes = repovendas.GetDetalhesVenda(idVenda);
+            foreach (var detalhe in listaDetalhes)
             {
-                var dados = produto.Split('|');
-                var descricaoProd = $"{dados[0]} | {dados[1]} | {dados[2]}";
-                var valorProd = $"{dados[3].Remove(0, dados[3].IndexOf(':') + 1)}";
+                var detalheProduto = detalhe.Split(';');
                 dataGridVendasBindingSource
-                    .Insert(index, new DataGridVendas() { Id = "", Descricao = descricaoProd, Valor = valorProd, Data = "", BtnText = "" });
+                    .Insert(index, new DataGridVendas() { Numero = "", Descricao = detalheProduto[0], Valor = detalheProduto[1], Data = "", Mais = "" });
                 dataGridViewVendas.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(235, 167, 101);
             }
         }
