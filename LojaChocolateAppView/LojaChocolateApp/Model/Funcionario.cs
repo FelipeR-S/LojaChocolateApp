@@ -24,7 +24,7 @@ namespace LojaChocolateApp.Model
         public string Contato { get { return _contato; } private set { } }
         public decimal Salario { get { return _salario; } private set { } }
         public string Cargo { get { return _cargo; } private set { } }
-        public int QuantidadeDeVendas { get => _quantidadeDeVendas; }
+        public int QuantidadeDeVendas { get { return _quantidadeDeVendas; } private set { }  }
         public string DataCadastro { get { return _dataCadastro; } private set { } }
 
         public Funcionario(string id, string nome, string cpf, string contato, decimal salario, string cargo, string dataCadastro)

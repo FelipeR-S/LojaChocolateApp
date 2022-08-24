@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -28,6 +29,22 @@ namespace LojaChocolateApp
             SubMenuDesign();
             TelasDesign();
             EscondeTextoDetalhes();
+        }
+        //LOGIN
+        private void AppLoja_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            LoginLoja logon = new LoginLoja();
+
+            if (logon.ShowDialog() != DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                this.Show();
+            }
         }
         // INICIO ------------------------------------ FUNCIONARIOS ------------------------------------ INICIO //
         /// <summary>
@@ -740,25 +757,24 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnExibeTodosProdutos_Click(object sender, EventArgs e)
         {
-            flowLayoutLayoutExibeProdutos.Controls.Clear();
-            var ordem = comboBoxOrdemProdutos.Text;
-            var repo = new ProdutoRepository();
-            var lista = repo.GetLista();
-            var quantidade = 0;
-            foreach (var produto in lista)
-            {
-                quantidade += produto.Estoque;
-            }
-
-            tituloExibeProdutos.Text = $"Total de {lista.Count} tipos de produtos e {quantidade} produtos no estoque";
-            tituloExibeProdutos.Visible = true;
-            lista.Sort(new ProdutoRepository(ordem));
-            PopulaTodosProdutos(lista);
-            comboBoxOrdemProdutos.Text = "";
-            textIdBuscaProdutos.Text = "";
             try
             {
+                flowLayoutLayoutExibeProdutos.Controls.Clear();
+                var ordem = comboBoxOrdemProdutos.Text;
+                var repo = new ProdutoRepository();
+                var lista = repo.GetLista();
+                var quantidade = 0;
+                foreach (var produto in lista)
+                {
+                    quantidade += produto.Estoque;
+                }
 
+                tituloExibeProdutos.Text = $"Total de {lista.Count} tipos de produtos e {quantidade} produtos no estoque";
+                tituloExibeProdutos.Visible = true;
+                lista.Sort(new ProdutoRepository(ordem));
+                PopulaTodosProdutos(lista);
+                comboBoxOrdemProdutos.Text = "";
+                textIdBuscaProdutos.Text = "";
             }
             catch (FormatException)
             {
@@ -1739,6 +1755,8 @@ namespace LojaChocolateApp
                     return false;
             }
         }
+
+
         // INICIO ------------------------------------ FIM ------------------------------------ INICIO //
     }
 }

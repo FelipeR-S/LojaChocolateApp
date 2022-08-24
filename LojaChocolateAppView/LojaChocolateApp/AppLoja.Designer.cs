@@ -179,7 +179,6 @@
             this.panelConsultaVendas = new System.Windows.Forms.Panel();
             this.panelDataGridVendas = new System.Windows.Forms.Panel();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
-            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnCarregaListaVendas = new System.Windows.Forms.Button();
@@ -191,6 +190,7 @@
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
@@ -225,10 +225,10 @@
             this.panelConsultaVendas.SuspendLayout();
             this.panelDataGridVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -2213,10 +2213,6 @@
             this.dataGridViewVendas.TabIndex = 1;
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
             // 
-            // dataGridVendasBindingSource
-            // 
-            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
-            // 
             // panel19
             // 
             this.panel19.Location = new System.Drawing.Point(0, 60);
@@ -2313,6 +2309,10 @@
             this.maisDataGridViewTextBoxColumn.Name = "maisDataGridViewTextBoxColumn";
             this.maisDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dataGridVendasBindingSource
+            // 
+            this.dataGridVendasBindingSource.DataSource = typeof(LojaChocolateApp.Utils.DataGridVendas);
+            // 
             // AppLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2320,7 +2320,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 561);
             this.Controls.Add(this.panelMenuLateral);
-            this.Controls.Add(this.panelConsultaVendas);
             this.Controls.Add(this.panelCadastrarVendas);
             this.Controls.Add(this.panelExibirProdutos);
             this.Controls.Add(this.panelEstoqueProduto);
@@ -2329,6 +2328,7 @@
             this.Controls.Add(this.panelCadastrarFuncionario);
             this.Controls.Add(this.panelRemoverFuncionario);
             this.Controls.Add(this.panelLogoPrincipal);
+            this.Controls.Add(this.panelConsultaVendas);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2338,6 +2338,7 @@
             this.Name = "AppLoja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loja de Chocolate";
+            this.Load += new System.EventHandler(this.AppLoja_Load);
             this.panelMenuLateral.ResumeLayout(false);
             this.panelSubMenuVendas.ResumeLayout(false);
             this.panelSubMenuProdutos.ResumeLayout(false);
@@ -2390,11 +2391,11 @@
             this.panelConsultaVendas.ResumeLayout(false);
             this.panelDataGridVendas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
