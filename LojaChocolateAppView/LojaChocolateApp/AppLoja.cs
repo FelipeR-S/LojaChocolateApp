@@ -33,17 +33,25 @@ namespace LojaChocolateApp
         //LOGIN
         private void AppLoja_Load(object sender, EventArgs e)
         {
-            this.Hide();
-
-            LoginLoja logon = new LoginLoja();
-
-            if (logon.ShowDialog() != DialogResult.OK)
+            try
             {
-                Application.Exit();
+                this.Hide();
+
+                LoginLoja logon = new LoginLoja();
+
+                if (logon.ShowDialog() != DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    this.Show();
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                this.Show();
+                MessageBox.Show(ex.Message);
             }
         }
         // INICIO ------------------------------------ FUNCIONARIOS ------------------------------------ INICIO //
@@ -791,7 +799,6 @@ namespace LojaChocolateApp
         /// <param name="lista"></param>
         private void PopulaTodosProdutos(List<Produto> lista)
         {
-
             LayoutProdutos[] layoutLista = new LayoutProdutos[lista.Count];
             for (int i = 0; i < lista.Count; i++)
             {
@@ -855,6 +862,10 @@ namespace LojaChocolateApp
                 cboProduto1.Text = "";
             }
         }
+        /// <summary>
+        /// Remove Produto inserido no box de venda
+        /// </summary>
+        /// <param name="id">Id do produto</param>
         private void RemoveVenda(string id)
         {
             try
@@ -965,61 +976,71 @@ namespace LojaChocolateApp
                 var conflito = false;
                 var valorTotal = 0m;
                 var data = DateTime.Now;
-
-                //Repositorios
-                var repoFuncionario = new FuncionarioRepository();
-                var repoProduto = new ProdutoRepository();
-                var repoVendas = new VendaRepository();
-
-                //Listas
-                var listaProdVendas = new List<Tuple<int, Produto>>();
-
-                //Get Funcionario
-                (var existeFuncionario, var funcionario) = repoFuncionario.GetDetalhes(funcionarioId);
-                if (textProdVendas.Text != "")
+                if (funcionarioId != "")
                 {
-                    for (int i = 0; i < vendas.Length - 1; i++)
+                    //Repositorios
+                    var repoFuncionario = new FuncionarioRepository();
+                    var repoProduto = new ProdutoRepository();
+                    var repoVendas = new VendaRepository();
+
+                    //Listas
+                    var listaProdVendas = new List<Tuple<int, Produto>>();
+
+                    //Get Funcionario
+                    (var existeFuncionario, var funcionario) = repoFuncionario.GetDetalhes(funcionarioId);
+                    if (textProdVendas.Text != "")
                     {
-                        var linha = vendas[i].Split('|');
-                        var qtdProdutos = Convert.ToInt32(linha[0]);
-                        (var exProd, var produto) = repoProduto.GetDetalhes(linha[1].Replace(" ", ""));
-                        if (qtdProdutos > produto.Estoque || !exProd)
+                        for (int i = 0; i < vendas.Length - 1; i++)
                         {
-                            MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
-                                $"{produto.Nome} | ID: {produto.Id} | Estoque: {produto.Estoque}\n" +
-                                $"Quantidade tentada: {qtdProdutos}");
-                            conflito = true;
-                            RemoveVenda(produto.Id);
-                            break;
+                            var linha = vendas[i].Split('|');
+                            var qtdProdutos = Convert.ToInt32(linha[0]);
+                            if (qtdProdutos <= 0)
+                            {
+                                conflito = true;
+                                MessageBox.Show("Quantidade de produtos deve ser maior que 0.");
+                                RemoveVenda(linha[1].Replace(" ", ""));
+                                break;
+                            }
+                            else
+                            {
+                                (var exProd, var produto) = repoProduto.GetDetalhes(linha[1].Replace(" ", ""));
+                                if (qtdProdutos > produto.Estoque || !exProd)
+                                {
+                                    MessageBox.Show($"Impossível cadastrar a compra o produto abaixo possuí estoque insuficiente!\n" +
+                                        $"{produto.Nome} | ID: {produto.Id} | Estoque: {produto.Estoque}\n" +
+                                        $"Quantidade tentada: {qtdProdutos}");
+                                    conflito = true;
+                                    RemoveVenda(produto.Id);
+                                    break;
+                                }
+                                else
+                                {
+                                    listaProdVendas.Add(new Tuple<int, Produto>(qtdProdutos, produto));
+                                }
+                            }
                         }
-                        else
+                        if (!conflito)
                         {
-                            listaProdVendas.Add(new Tuple<int, Produto>(qtdProdutos, produto));
+                            foreach (var item in listaProdVendas)
+                            {
+                                (var qtd, var prod) = item;
+                                valorTotal += qtd * prod.Valor;
+                                var diminuiEstoque = $"-{qtd}";
+                                // Altera estoque de produtos
+                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
+                            }
+                            var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
+                            repoVendas.IncluirUnico(venda);
+                            _addProdVenda = 0;
+                            MessageBox.Show("Cadastro concluído!");
+                            ApagaTextBoX();
                         }
                     }
-                    if (!conflito)
-                    {
-                        foreach (var item in listaProdVendas)
-                        {
-                            (var qtd, var prod) = item;
-                            valorTotal += qtd * prod.Valor;
-                            var diminuiEstoque = $"-{qtd}";
-                            // Altera estoque de produtos
-                            repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
-                        }
-                        var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
-                        repoVendas.IncluirUnico(venda);
-                        _addProdVenda = 0;
-                        MessageBox.Show("Cadastro concluído!");
-                        ApagaTextBoX();
-                    }
+                    else
+                        MessageBox.Show("Favor informar os produtos e quantidades de forma correta!");
                 }
                 else
-                    MessageBox.Show("Favor informar os produtos e quantidades!");
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Favor inserir funcionário!");
+                    MessageBox.Show("Favor inserir funcionário!");
             }
             catch (Exception ex)
             {
@@ -1261,8 +1282,8 @@ namespace LojaChocolateApp
         /// <summary>
         /// Popula as linhas de detalhes de cada venda
         /// </summary>
-        /// <param name="idVenda"></param>
-        /// <param name="index"></param>
+        /// <param name="idVenda"> ID da venda</param>
+        /// <param name="index">Posição na tabela</param>
         /// <param name="descricao"></param>
         private void PopulaDetalhesBtn(string idVenda, int index)
         {
@@ -1755,8 +1776,6 @@ namespace LojaChocolateApp
                     return false;
             }
         }
-
-
         // INICIO ------------------------------------ FIM ------------------------------------ INICIO //
     }
 }

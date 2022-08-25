@@ -257,7 +257,7 @@ namespace LojaChocolateApp.Repository
                     SQLLinha = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)}";
                 }
                 connection.Close();
-                if (SQLCodigo == "" || SQLEstoque + quantidade <= 0)
+                if (SQLCodigo == "")
                 {
                     return (existe, produtoAnterior);
                 }

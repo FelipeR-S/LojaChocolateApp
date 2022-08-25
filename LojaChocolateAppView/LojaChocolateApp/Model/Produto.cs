@@ -23,7 +23,7 @@ namespace LojaChocolateApp.Model
         public decimal Valor { get { return _valor; } private set { } }
         public string Tipo { get { return _tipo; } private set { } }
         public int Estoque { get { return _estoque; } private set { } }
-        public int QuantidadeDeVendas { get => _quantidadeDeVendas; }
+        public int QuantidadeDeVendas { get { return _quantidadeDeVendas; } private set { } }
 
         public Produto(string id, string nome, decimal peso, decimal valor, string tipo, int estoque)
         {

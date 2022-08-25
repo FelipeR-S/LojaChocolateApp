@@ -26,6 +26,9 @@ namespace LojaChocolateApp
             InitializeComponent();
             CarregaComboBoxDatabase();
         }
+        /// <summary>
+        /// Carrega instancias do SQL Server
+        /// </summary>
         public void CarregaComboBoxDatabase()
         {
             var listaDatabase = new List<string>();
@@ -56,6 +59,11 @@ namespace LojaChocolateApp
                 e.Handled = true;
             }
         }
+        /// <summary>
+        /// Realiza tentativa de login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -87,6 +95,12 @@ namespace LojaChocolateApp
                 MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
             }
         }
+        /// <summary>
+        /// Recupera e atribui os dados de login
+        /// </summary>
+        /// <param name="database"></param>
+        /// <param name="usuario"></param>
+        /// <param name="senha"></param>
         private void DadosLogin(string database, string usuario, string senha)
         {
             _usuario = usuario;
