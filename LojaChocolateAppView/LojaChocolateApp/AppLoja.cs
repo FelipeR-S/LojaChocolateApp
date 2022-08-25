@@ -1025,9 +1025,6 @@ namespace LojaChocolateApp
                             {
                                 (var qtd, var prod) = item;
                                 valorTotal += qtd * prod.Valor;
-                                var diminuiEstoque = $"-{qtd}";
-                                // Altera estoque de produtos
-                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
                             }
                             var venda = new Venda(funcionario, listaProdVendas, valorTotal, data);
                             repoVendas.IncluirUnico(venda);
@@ -1091,6 +1088,7 @@ namespace LojaChocolateApp
         {
             try
             {
+                var produtoRepo = new ProdutoRepository();
                 var tratamentoArquivo = new VendaRepository();
                 var arquivo = textArquivoVendasCadastro.Text;
                 var correto = true;
@@ -1125,19 +1123,47 @@ namespace LojaChocolateApp
                     }
                     else
                     {
-                        tratamentoArquivo.IncluirVarios(inseridos);
-                        // Altera estoque de produtos
+                        // Inclui venda
                         var repoProduto = new ProdutoRepository();
+                        var listaErros = new List<string>();
+                        var contadorLinha = 0;
+                        var existeErro = false;
                         foreach (var venda in inseridos)
                         {
+                            var conflitosVenda = 0;
+                            contadorLinha++;
+                            var erro = "";
                             foreach (var prodVendas in venda.Produtos)
                             {
                                 (var qtd, var prod) = prodVendas;
-                                var diminuiEstoque = Convert.ToInt32($"-{qtd}");
-                                repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
+                                (var existe, var produtoEstoque) = repoProduto.GetDetalhes(prod.Id);
+                                if (qtd > produtoEstoque.Estoque)
+                                {
+                                    conflitosVenda++;
+                                    erro += $"Produto: {prod.Nome} | {prod.Id}\nPossui estoque insuficiente.\n" +
+                                        $"Quantidade solicitada: {qtd}\nQuantidade em Estoque:{produtoEstoque.Estoque}\n\n";
+                                    existeErro = true;
+                                }
                             }
+                            if (conflitosVenda > 0)
+                            {
+                                erro += $"Venda linha nº{contadorLinha} não foi cadastrada.";
+                                listaErros.Add(erro);
+                            }
+                            else
+                                tratamentoArquivo.IncluirUnico(venda);
                         }
-                        MessageBox.Show("Vendas inseridas com sucesso!");
+                        if (existeErro)
+                        {
+                            var erros = "";
+                            foreach (var msg in listaErros)
+                            {
+                                erros += $"{msg}\n\n";
+                            }
+                            MessageBox.Show(erros);
+                        }
+                        else
+                            MessageBox.Show("Vendas inseridas com sucesso!");
                     }
                 }
                 else
@@ -1559,6 +1585,7 @@ namespace LojaChocolateApp
             comboBoxOpcaoProdutos.Text = "";
             comboBoxOrdemProdutos.Text = "";
             cboProduto1.Text = "";
+            comboBoxOpcaoProdutos.Text = "Remover";
         }
         /// <summary>
         /// Permite apenas numeros na textbox

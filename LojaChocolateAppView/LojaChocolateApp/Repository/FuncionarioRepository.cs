@@ -197,7 +197,7 @@ namespace LojaChocolateApp.Repository
                         connection.Open();
                         command.Connection = connection;
                         command.CommandType = CommandType.Text;
-                        command.CommandText = $"DELETE FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                        command.CommandText = $"update [dbo].[Vendas_NF] set [Vendedor Matricula] = null where [Vendedor Matricula] = '{id}' DELETE FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
                         int recordsAffected = command.ExecuteNonQuery();
                         connection.Close();
                     }

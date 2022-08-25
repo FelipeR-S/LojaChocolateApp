@@ -113,7 +113,7 @@ namespace LojaChocolateApp.Repository
                 SqlCommand cmd = new SqlCommand(sqlQuery, connection);
                 SqlDataReader sr = cmd.ExecuteReader();
                 while (sr.Read())
-                {  
+                {
                     var numero = sr.GetValue(0).ToString();
                     var matricula = sr.GetValue(1).ToString();
                     var nome = sr.GetValue(2).ToString();
@@ -169,6 +169,10 @@ namespace LojaChocolateApp.Repository
                         command.Parameters.AddWithValue("@Quantidade", qtd);
                         command.Parameters.AddWithValue("@Valor", prod.Valor);
                         int recordsAffected = command.ExecuteNonQuery();
+
+                        var diminuiEstoque = Convert.ToInt32($"-{qtd}");
+                        var repoProduto = new ProdutoRepository();
+                        repoProduto.AlteraEstoqueRepository(prod.Id, Convert.ToInt32(diminuiEstoque));
                     }
                 }
                 connection.Close();
@@ -176,10 +180,7 @@ namespace LojaChocolateApp.Repository
         }
         public void IncluirVarios(List<Venda> lista)
         {
-            foreach (var venda in lista)
-            {
-                IncluirUnico(venda);
-            }
+            throw new NotImplementedException();
         }
         public bool Remover(string id)
         {
