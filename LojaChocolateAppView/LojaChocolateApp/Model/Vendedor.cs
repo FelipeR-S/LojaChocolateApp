@@ -8,7 +8,7 @@ namespace LojaChocolateApp.Model
 {
     public class Vendedor : Funcionario
     {
-        public Vendedor(int id, string nome, string cpf, string contato, decimal salario, string cargo, string dataCadastro) : base(id, nome, cpf, contato, salario, cargo, dataCadastro)
+        public Vendedor(string id, string nome, string cpf, string contato, decimal salario, string cargo, string dataCadastro) : base(id, nome, cpf, contato, salario, cargo, dataCadastro)
         {
         }
     }

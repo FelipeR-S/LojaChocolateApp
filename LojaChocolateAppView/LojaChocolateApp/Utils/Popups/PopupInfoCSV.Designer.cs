@@ -136,9 +136,9 @@
             this.ClientSize = new System.Drawing.Size(450, 430);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtFuncionarioCSV);
             this.Controls.Add(this.textInfoVendasCSV);
             this.Controls.Add(this.txtProdutoCSV);
+            this.Controls.Add(this.txtFuncionarioCSV);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
