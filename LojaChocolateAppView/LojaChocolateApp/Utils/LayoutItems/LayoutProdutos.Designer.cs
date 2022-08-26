@@ -88,7 +88,7 @@
             this.textValorLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textValorLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textValorLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textValorLayout.Location = new System.Drawing.Point(372, 79);
+            this.textValorLayout.Location = new System.Drawing.Point(365, 79);
             this.textValorLayout.Name = "textValorLayout";
             this.textValorLayout.Size = new System.Drawing.Size(59, 18);
             this.textValorLayout.TabIndex = 32;
@@ -100,9 +100,9 @@
             this.textVendasLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textVendasLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textVendasLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textVendasLayout.Location = new System.Drawing.Point(282, 79);
+            this.textVendasLayout.Location = new System.Drawing.Point(293, 79);
             this.textVendasLayout.Name = "textVendasLayout";
-            this.textVendasLayout.Size = new System.Drawing.Size(32, 18);
+            this.textVendasLayout.Size = new System.Drawing.Size(28, 18);
             this.textVendasLayout.TabIndex = 31;
             this.textVendasLayout.Text = "000";
             this.textVendasLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -112,9 +112,9 @@
             this.textEstoqueLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textEstoqueLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textEstoqueLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEstoqueLayout.Location = new System.Drawing.Point(189, 79);
+            this.textEstoqueLayout.Location = new System.Drawing.Point(179, 79);
             this.textEstoqueLayout.Name = "textEstoqueLayout";
-            this.textEstoqueLayout.Size = new System.Drawing.Size(25, 18);
+            this.textEstoqueLayout.Size = new System.Drawing.Size(65, 18);
             this.textEstoqueLayout.TabIndex = 30;
             this.textEstoqueLayout.Text = "000";
             this.textEstoqueLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -124,7 +124,7 @@
             this.textTipoLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textTipoLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textTipoLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTipoLayout.Location = new System.Drawing.Point(364, 49);
+            this.textTipoLayout.Location = new System.Drawing.Point(357, 49);
             this.textTipoLayout.Name = "textTipoLayout";
             this.textTipoLayout.Size = new System.Drawing.Size(67, 18);
             this.textTipoLayout.TabIndex = 29;
@@ -136,7 +136,7 @@
             this.textPesoLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textPesoLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textPesoLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPesoLayout.Location = new System.Drawing.Point(275, 49);
+            this.textPesoLayout.Location = new System.Drawing.Point(282, 49);
             this.textPesoLayout.Name = "textPesoLayout";
             this.textPesoLayout.Size = new System.Drawing.Size(39, 18);
             this.textPesoLayout.TabIndex = 28;
@@ -148,9 +148,9 @@
             this.textIdLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textIdLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textIdLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIdLayout.Location = new System.Drawing.Point(182, 49);
+            this.textIdLayout.Location = new System.Drawing.Point(172, 49);
             this.textIdLayout.Name = "textIdLayout";
-            this.textIdLayout.Size = new System.Drawing.Size(32, 18);
+            this.textIdLayout.Size = new System.Drawing.Size(72, 18);
             this.textIdLayout.TabIndex = 27;
             this.textIdLayout.Text = "000";
             this.textIdLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -160,7 +160,7 @@
             this.label11.AutoEllipsis = true;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(231, 79);
+            this.label11.Location = new System.Drawing.Point(257, 79);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 17);
@@ -172,7 +172,7 @@
             this.label4.AutoEllipsis = true;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(328, 79);
+            this.label4.Location = new System.Drawing.Point(334, 79);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 17);
@@ -184,7 +184,7 @@
             this.label7.AutoEllipsis = true;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(328, 49);
+            this.label7.Location = new System.Drawing.Point(334, 49);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 17);
@@ -233,7 +233,7 @@
             this.label5.AutoEllipsis = true;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(231, 49);
+            this.label5.Location = new System.Drawing.Point(257, 49);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 17);
@@ -248,9 +248,9 @@
             this.label2.Location = new System.Drawing.Point(137, 49);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 17);
+            this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Id:";
+            this.label2.Text = "Código:";
             // 
             // LayoutProdutos
             // 

@@ -9,16 +9,16 @@ namespace LojaChocolateApp.Model
 {
     public class Venda
     {
-        private int _vendaId;
+        private string _vendaId;
         private string _vendedorNome;
-        private int _vendedorId;
+        private string _vendedorId;
         private List<Tuple<int, Produto>> _produtos;
         private decimal _valorTotal;
         private DateTime _dataVenda;
 
-        public int VendaId { get { return _vendaId; } private set { } }
+        public string VendaId { get { return _vendaId; } private set { } }
         public string VendedorNome { get { return _vendedorNome; } private set { } }
-        public int VendedorId { get { return _vendedorId; } private set { } }
+        public string VendedorId { get { return _vendedorId; } private set { } }
         public List<Tuple<int, Produto>> Produtos { get { return _produtos; } private set { } }
         public decimal Valor { get { return _valorTotal; } private set { } }
         public DateTime DataVenda { get { return _dataVenda; } private set { } }
@@ -30,7 +30,7 @@ namespace LojaChocolateApp.Model
             _valorTotal = valorTotal;
             _dataVenda = data;
         }
-        public Venda(int id, int funcionarioId, string funcionarioNome, decimal valorTotal, DateTime data)
+        public Venda(string id, string funcionarioId, string funcionarioNome, decimal valorTotal, DateTime data)
         {
             _vendaId = id;
             _vendedorId = funcionarioId;
@@ -51,7 +51,7 @@ namespace LojaChocolateApp.Model
                     id++;
                 }
             }
-            this._vendaId = id;
+            //this._vendaId = id;
         }
     }
 }

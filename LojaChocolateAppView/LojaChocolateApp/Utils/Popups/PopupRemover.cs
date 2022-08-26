@@ -38,20 +38,20 @@ namespace LojaChocolateApp.Utils.Popups
             try
             {
                 var removido = false;
-                var id = 0;
+                var id = "";
                 if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
                 {
-                    id = Convert.ToInt32(textBoxIDPopup.Text);
+                    id = textBoxIDPopup.Text;
                     var repositorioFuncionario = new FuncionarioRepository();
                     removido = repositorioFuncionario.Remover(id);
                 }
                 if (panelRemoverProduto.Visible == true && panelRemoverFuncionario.Visible == false)
                 {
-                    id = Convert.ToInt32(textBoxIdProduto.Text);
+                    id = textBoxIdProduto.Text;
                     var repositorioProduto = new ProdutoRepository();
                     removido = repositorioProduto.Remover(id);
                 }
-                if (removido == false)
+                if (!removido)
                 {
                     MessageBox.Show($"ID nº {id} não encontrado!");
                 }

@@ -100,9 +100,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(25, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 21);
+            this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Id:";
+            this.label1.Text = "Matrícula";
             // 
             // textNomeLayout
             // 
@@ -120,7 +120,7 @@
             this.textIdLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textIdLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textIdLayout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIdLayout.Location = new System.Drawing.Point(54, 45);
+            this.textIdLayout.Location = new System.Drawing.Point(114, 45);
             this.textIdLayout.Name = "textIdLayout";
             this.textIdLayout.Size = new System.Drawing.Size(40, 22);
             this.textIdLayout.TabIndex = 25;
@@ -132,7 +132,7 @@
             this.textCpfLayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textCpfLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textCpfLayout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCpfLayout.Location = new System.Drawing.Point(337, 45);
+            this.textCpfLayout.Location = new System.Drawing.Point(337, 44);
             this.textCpfLayout.Name = "textCpfLayout";
             this.textCpfLayout.Size = new System.Drawing.Size(124, 22);
             this.textCpfLayout.TabIndex = 24;

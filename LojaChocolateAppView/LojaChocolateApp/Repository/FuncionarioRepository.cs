@@ -1,6 +1,8 @@
 ﻿using LojaChocolateApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,24 +27,19 @@ namespace LojaChocolateApp.Repository
         {
             _ordem = ordem;
         }
-        /// <summary>
-        /// Local padrão para o <see cref="FuncionarioRepository"/>
-        /// </summary>
-        private static string _localDoArquivo = "FuncionarioRepository.CSV";
-        /// <summary>
-        /// Local temporário para alterar ou remover objeto do <see cref="FuncionarioRepository"/>
-        /// </summary>
-        private static string _ArquivoTemporario = "temp.CSV";
         public Funcionario ConverteAtributos(string linha)
         {
             var dados = linha.Split(';');
-            var id = Convert.ToInt32(dados[0]);
+            var id = dados[0];
             var nome = dados[1];
             var cpf = dados[2];
             var contato = dados[3];
-            var salario = Convert.ToDecimal(dados[4]);
+            var salario = Math.Round(Convert.ToDecimal(dados[4]), 2);
             var cargo = dados[5];
-            var dataCadastro = dados[6];
+            // Converte Data Cadastro
+            var date = Convert.ToDateTime(dados[6]);
+            var dataCadastro = date.ToShortDateString();
+            // Converte Data Cadastroa
             switch (cargo.ToLower())
             {
                 case "vendedor":
@@ -56,121 +53,157 @@ namespace LojaChocolateApp.Repository
         public (bool, string) Existente(Funcionario funcionario)
         {
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLMatricula = "";
+            var stringSQLCPF = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [CPF] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{funcionario.Id}' or [CPF] = '{funcionario.Cpf}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var cadastrado = leitor.ReadLine().Split(';');
-                    if (cadastrado[0] == funcionario.Id.ToString() && cadastrado[2] == funcionario.Cpf)
-                    {
-                        existe = true;
-                        return (existe, "ID e CPF já existem no cadastro!");
-                    }
-                    if (cadastrado[0] == funcionario.Id.ToString())
-                    {
-                        existe = true;
-                        return (existe, "ID já existe no cadastro!");
-                    }
-                    if (cadastrado[2] == funcionario.Cpf)
-                    {
-                        existe = true;
-                        return (existe, "CPF já existe no cadastro!");
-                    }
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                    stringSQLCPF = srd.GetValue(1).ToString();
+                }
+                connection.Close();
+            }
+            if (stringSQLMatricula == "" && stringSQLCPF == "")
+            {
+                return (existe, "");
+            }
+            else
+            {
+                if (stringSQLMatricula == funcionario.Id.ToString() && stringSQLCPF == funcionario.Cpf)
+                {
+                    existe = true;
+                    return (existe, "ID e CPF já existem no cadastro!");
+                }
+                if (stringSQLMatricula == funcionario.Id.ToString())
+                {
+                    existe = true;
+                    return (existe, "ID já existe no cadastro!");
+                }
+                else
+                {
+                    existe = true;
+                    return (existe, "CPF já existe no cadastro!");
                 }
             }
-            return (existe, "");
         }
-        public (bool, Funcionario) GetDetalhes(int id)
+        public (bool, Funcionario) GetDetalhes(string id)
         {
-            var existe = false;
             Funcionario funcionario = null;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var existe = false;
+            var funcionarioString = "";
+
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var cadastrado = ConverteAtributos(linha);
-                    if (cadastrado.Id == id)
-                    {
-                        existe = true;
-                        funcionario = cadastrado;
-                    }
+                    funcionarioString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)};{srd.GetValue(6)}";
                 }
+                connection.Close();
             }
-            return (existe, funcionario);
+            if (funcionarioString == "")
+            {
+                return (existe, funcionario);
+            }
+            else
+            {
+                existe = true;
+                funcionario = ConverteAtributos(funcionarioString);
+                return (existe, funcionario);
+            }
         }
         public List<Funcionario> GetLista()
         {
             var lista = new List<Funcionario>();
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var funcionarioString = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro] FROM [dbo].[Funcionarios]";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var linha = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(linha);
+                    funcionarioString = $"{srd.GetValue(0)};{srd.GetValue(1)};{srd.GetValue(2)};{srd.GetValue(3)};{srd.GetValue(4)};{srd.GetValue(5)};{srd.GetValue(6)}";
+                    var funcionario = ConverteAtributos(funcionarioString);
                     lista.Add(funcionario);
                 }
+                connection.Close();
             }
             return lista;
         }
         public void IncluirUnico(Funcionario funcionario)
         {
-            using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO[dbo].[Funcionarios] ([Matricula], [Nome], [CPF], [Contato], [Salario], [Cargo], [Cadastro]) VALUES(@Matricula, @Nome, @CPF, @Contato, @Salario, @Cargo, @Cadastro)";
+                    command.Parameters.AddWithValue("@Matricula", funcionario.Id.ToString());
+                    command.Parameters.AddWithValue("@Nome", funcionario.Nome);
+                    command.Parameters.AddWithValue("@CPF", funcionario.Cpf);
+                    command.Parameters.AddWithValue("@Contato", funcionario.Contato);
+                    command.Parameters.AddWithValue("@Salario", funcionario.Salario.ToString().Replace(',', '.'));
+                    command.Parameters.AddWithValue("@Cargo", funcionario.Cargo);
+                    command.Parameters.AddWithValue("@Cadastro", funcionario.DataCadastro);
+
+                    connection.Open();
+                    int recordsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
         }
         public void IncluirVarios(List<Funcionario> lista)
         {
-            using (var file = new FileStream(_localDoArquivo, FileMode.Append))
-            using (var escritor = new StreamWriter(file))
+            foreach (var funcionario in lista)
             {
-                foreach (var funcionario in lista)
-                {
-                    escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
-                }
+                IncluirUnico(funcionario);
             }
         }
-        public bool Remover(int id)
+        public bool Remover(string id)
         {
-            var novoRepo = new List<Funcionario>();
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var stringSQLMatricula = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(dados);
-                    if (funcionario.Id == id)
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                }
+                connection.Close();
+                if (stringSQLMatricula == "")
+                {
+                    return existe;
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        existe = true;
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"update [dbo].[Vendas_NF] set [Vendedor Matricula] = null where [Vendedor Matricula] = '{id}' DELETE FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                        novoRepo.Add(funcionario);
+                    return existe;
                 }
             }
-            if (existe)
-            {
-                using (var novoFile = new FileStream(_ArquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(novoFile))
-                {
-                    foreach (var funcionario in novoRepo)
-                    {
-                        escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
-
-                    }
-                }
-                File.Delete(_localDoArquivo);
-                File.Move(_ArquivoTemporario, _localDoArquivo);
-                return existe;
-            }
-            else
-                return existe;
         }
         public (List<Funcionario>, List<string>, int) TrataCSV(string arquivo)
         {
@@ -231,46 +264,41 @@ namespace LojaChocolateApp.Repository
         /// <returns>Retorna <see cref="bool"/> para se a operação foi realizada e o sálario antigo</returns>
         public (bool, decimal) AlteraSalarioRepository(int id, decimal novoSalario)
         {
-            var novoRepository = new List<Funcionario>();
-            var salarioAntigo = 0m;
             var existe = false;
-            using (var file = new FileStream(_localDoArquivo, FileMode.Open))
-            using (var leitor = new StreamReader(file))
+            var salarioAntigo = 0m;
+            var stringSQLMatricula = "";
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                while (!leitor.EndOfStream)
+                connection.Open();
+                var sqlQuery = $"SELECT [Matricula], [Salario] FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                SqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
                 {
-                    var dados = leitor.ReadLine();
-                    var funcionario = ConverteAtributos(dados);
-
-                    if (funcionario.Id == id)
+                    stringSQLMatricula = srd.GetValue(0).ToString();
+                    salarioAntigo += Convert.ToDecimal(srd.GetValue(1));
+                }
+                connection.Close();
+                if (stringSQLMatricula == "")
+                {
+                    salarioAntigo = 0m;
+                    return (existe, salarioAntigo);
+                }
+                else
+                {
+                    existe = true;
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        salarioAntigo += funcionario.Salario;
-                        funcionario.AlteraSalario(novoSalario);
-                        existe = true;
-                        novoRepository.Add(funcionario);
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"UPDATE [dbo].[Funcionarios] SET [Salario] = '{novoSalario.ToString().Replace(',', '.')}' WHERE [Matricula] = '{id}'";
+                        int recordsAffected = command.ExecuteNonQuery();
+                        connection.Close();
                     }
-                    else
-                    {
-                        novoRepository.Add(funcionario);
-                    }
+                    return (existe, salarioAntigo);
                 }
             }
-            if (existe)
-            {
-                using (var novoFileStream = new FileStream(_ArquivoTemporario, FileMode.Create))
-                using (var escritor = new StreamWriter(novoFileStream))
-                {
-                    foreach (var funcionario in novoRepository)
-                    {
-                        escritor.WriteLine($"{funcionario.Id};{funcionario.Nome};{funcionario.Cpf};{funcionario.Contato};{funcionario.Salario};{funcionario.Cargo};{funcionario.DataCadastro}");
-                    }
-                }
-                File.Delete(_localDoArquivo);
-                File.Move(_ArquivoTemporario, _localDoArquivo);
-                return (true, salarioAntigo);
-            }
-            else
-                return (false, salarioAntigo);
         }
     }
 }

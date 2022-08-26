@@ -209,7 +209,7 @@
             this.textBoxIdProduto.ForeColor = System.Drawing.SystemColors.Window;
             this.textBoxIdProduto.Location = new System.Drawing.Point(220, 110);
             this.textBoxIdProduto.Name = "textBoxIdProduto";
-            this.textBoxIdProduto.Size = new System.Drawing.Size(100, 22);
+            this.textBoxIdProduto.Size = new System.Drawing.Size(159, 22);
             this.textBoxIdProduto.TabIndex = 14;
             // 
             // label7
@@ -243,9 +243,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(450, 280);
-            this.Controls.Add(this.panelRemoverFuncionario);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelRemoverProduto);
+            this.Controls.Add(this.panelRemoverFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 280);
