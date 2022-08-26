@@ -598,18 +598,26 @@ namespace LojaChocolateApp
                 switch (alternativa)
                 {
                     case "Remover":
-                        Form background = new Form();
-                        using (PopupRemover popupRemover = new PopupRemover(this))
+                        (var existeProd, var prod) = produtoRepo.GetDetalhes(id);
+                        if (existeProd)
                         {
-                            var backGroundDesign = new BackGroundPopup();
+                            Form background = new Form();
+                            using (PopupRemover popupRemover = new PopupRemover(this))
+                            {
+                                var backGroundDesign = new BackGroundPopup();
 
-                            backGroundDesign.BackGroundPopupDesign(background);
+                                backGroundDesign.BackGroundPopupDesign(background);
 
-                            popupRemover.Owner = background;
-                            popupRemover.panelRemoverFuncionario.Visible = false;
-                            popupRemover.panelRemoverProduto.Visible = true;
-                            popupRemover.ShowDialog();
-                            background.Dispose();
+                                popupRemover.Owner = background;
+                                popupRemover.panelRemoverFuncionario.Visible = false;
+                                popupRemover.panelRemoverProduto.Visible = true;
+                                popupRemover.ShowDialog();
+                                background.Dispose();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Produto com ID nº {id} não encontrado.");
                         }
                         break;
                     case "Inserir":
