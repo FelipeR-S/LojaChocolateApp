@@ -94,6 +94,54 @@
     <Compile Include="Utils\LayoutItems\LayoutProdutos.Designer.cs">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Panels\AlteraFuncionario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraFuncionario.Designer.cs">
+      <DependentUpon>AlteraFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraProdutos.Designer.cs">
+      <DependentUpon>AlteraProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarFuncionario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarFuncionario.Designer.cs">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarVenda.Designer.cs">
+      <DependentUpon>CadastrarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaFuncionarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaFuncionarios.Designer.cs">
+      <DependentUpon>ConsultaFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaProdutos.Designer.cs">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaVendas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaVendas.Designer.cs">
+      <DependentUpon>ConsultaVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\InserirProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\InserirProdutos.Designer.cs">
+      <DependentUpon>InserirProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Popups\PopupInfoCSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +153,9 @@
     </Compile>
     <Compile Include="Utils\Popups\PopupRemover.Designer.cs">
       <DependentUpon>PopupRemover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\TextBox.cs">
+      <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="AppLoja.resx">
       <DependentUpon>AppLoja.cs</DependentUpon>
@@ -127,6 +178,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\LayoutItems\LayoutProdutos.resx">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\AlteraFuncionario.resx">
+      <DependentUpon>AlteraFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\AlteraProdutos.resx">
+      <DependentUpon>AlteraProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\CadastrarFuncionario.resx">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\CadastrarVenda.resx">
+      <DependentUpon>CadastrarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaFuncionarios.resx">
+      <DependentUpon>ConsultaFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaProdutos.resx">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaVendas.resx">
+      <DependentUpon>ConsultaVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\InserirProdutos.resx">
+      <DependentUpon>InserirProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
       <DependentUpon>PopupInfoCSV.cs</DependentUpon>

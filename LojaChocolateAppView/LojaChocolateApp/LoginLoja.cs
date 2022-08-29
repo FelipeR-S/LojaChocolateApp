@@ -29,7 +29,7 @@ namespace LojaChocolateApp
         /// <summary>
         /// Carrega instancias do SQL Server
         /// </summary>
-        public void CarregaComboBoxDatabase()
+        private void CarregaComboBoxDatabase()
         {
             var listaDatabase = new List<string>();
             var database = "";

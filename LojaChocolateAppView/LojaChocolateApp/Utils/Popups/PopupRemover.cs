@@ -1,4 +1,5 @@
 ﻿using LojaChocolateApp.Repository;
+using LojaChocolateApp.Utils.Panels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,18 @@ namespace LojaChocolateApp.Utils.Popups
 {
     public partial class PopupRemover : Form
     {
-        AppLoja appLoja;
-        public PopupRemover(AppLoja loja)
+        AlteraFuncionario panelFuncionario;
+        AlteraProdutos panelProdutos;
+
+        public PopupRemover(AlteraFuncionario panel)
         {
             InitializeComponent();
-            this.appLoja = loja;
+            this.panelFuncionario = panel;
+        }
+        public PopupRemover(AlteraProdutos panel)
+        {
+            InitializeComponent();
+            this.panelProdutos = panel;
         }
         private void btnCANCELAR_Click(object sender, EventArgs e)
         {
@@ -30,8 +38,10 @@ namespace LojaChocolateApp.Utils.Popups
         /// <param name="e"></param>
         private void PopupRemoverFuncionario_Load(object sender, EventArgs e)
         {
-            textBoxIDPopup.Text = appLoja.textBoxRemoverFuncionario.Text;
-            textBoxIdProduto.Text = appLoja.textIdEstoqueProdutos.Text;
+            if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
+                textBoxIDPopup.Text = panelFuncionario.textBoxRemoverFuncionario.Text;
+            else 
+                textBoxIdProduto.Text = panelProdutos.textIdEstoqueProdutos.Text;
         }
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
@@ -68,7 +78,6 @@ namespace LojaChocolateApp.Utils.Popups
             }
             finally
             {
-                appLoja.textBoxRemoverFuncionario.Text = "";
                 this.Close();
             }
         }
