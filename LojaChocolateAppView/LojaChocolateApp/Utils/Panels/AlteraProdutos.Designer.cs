@@ -34,17 +34,17 @@
             this.BtnAlterarEstoque = new System.Windows.Forms.Button();
             this.panelNovoValorProduto = new System.Windows.Forms.Panel();
             this.textNovoValorProduto = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
             this.panelQuantidadeProduto = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
             this.textEstoqueQtdProdutos = new System.Windows.Forms.TextBox();
             this.comboBoxOpcaoProdutos = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.textIdEstoqueProdutos = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panelEstoqueProduto.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panelNovoValorProduto.SuspendLayout();
@@ -68,11 +68,11 @@
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.textBox3);
             this.panel12.Controls.Add(this.BtnAlterarEstoque);
             this.panel12.Controls.Add(this.panelNovoValorProduto);
             this.panel12.Controls.Add(this.panelQuantidadeProduto);
             this.panel12.Controls.Add(this.comboBoxOpcaoProdutos);
-            this.panel12.Controls.Add(this.label27);
             this.panel12.Controls.Add(this.textIdEstoqueProdutos);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 308);
@@ -97,8 +97,8 @@
             // 
             // panelNovoValorProduto
             // 
+            this.panelNovoValorProduto.Controls.Add(this.textBox5);
             this.panelNovoValorProduto.Controls.Add(this.textNovoValorProduto);
-            this.panelNovoValorProduto.Controls.Add(this.label37);
             this.panelNovoValorProduto.Location = new System.Drawing.Point(269, 65);
             this.panelNovoValorProduto.Name = "panelNovoValorProduto";
             this.panelNovoValorProduto.Size = new System.Drawing.Size(165, 53);
@@ -119,36 +119,14 @@
             this.textNovoValorProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textNovoValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label37.Location = new System.Drawing.Point(4, 20);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(45, 17);
-            this.label37.TabIndex = 37;
-            this.label37.Text = "Valor:";
-            // 
             // panelQuantidadeProduto
             // 
-            this.panelQuantidadeProduto.Controls.Add(this.label32);
+            this.panelQuantidadeProduto.Controls.Add(this.textBox4);
             this.panelQuantidadeProduto.Controls.Add(this.textEstoqueQtdProdutos);
             this.panelQuantidadeProduto.Location = new System.Drawing.Point(67, 65);
             this.panelQuantidadeProduto.Name = "panelQuantidadeProduto";
             this.panelQuantidadeProduto.Size = new System.Drawing.Size(182, 53);
             this.panelQuantidadeProduto.TabIndex = 36;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label32.Location = new System.Drawing.Point(6, 20);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(84, 17);
-            this.label32.TabIndex = 34;
-            this.label32.Text = "Quantidade:";
             // 
             // textEstoqueQtdProdutos
             // 
@@ -181,17 +159,6 @@
             this.comboBoxOpcaoProdutos.TabIndex = 1;
             this.comboBoxOpcaoProdutos.SelectedIndexChanged += new System.EventHandler(this.comboBoxOpcaoProdutos_SelectedIndexChanged);
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label27.Location = new System.Drawing.Point(73, 40);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(56, 17);
-            this.label27.TabIndex = 23;
-            this.label27.Text = "Código:";
-            // 
             // textIdEstoqueProdutos
             // 
             this.textIdEstoqueProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -209,43 +176,94 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.label26);
+            this.panel10.Controls.Add(this.textBox1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 134);
             this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(40, 40, 40, 20);
             this.panel10.Size = new System.Drawing.Size(714, 174);
             this.panel10.TabIndex = 22;
             // 
-            // label26
-            // 
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label26.Location = new System.Drawing.Point(50, 13);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(614, 147);
-            this.label26.TabIndex = 16;
-            this.label26.Text = resources.GetString("label26.Text");
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.textBox2);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(714, 134);
             this.panel11.TabIndex = 16;
             // 
-            // label28
+            // textBox1
             // 
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label28.Location = new System.Drawing.Point(226, 57);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(260, 29);
-            this.label28.TabIndex = 14;
-            this.label28.Text = "Estoque de Produtos";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(40, 40);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(634, 114);
+            this.textBox1.TabIndex = 19;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox2.Location = new System.Drawing.Point(-1, 57);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(715, 38);
+            this.textBox2.TabIndex = 20;
+            this.textBox2.Text = "Estoque de Produtos";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(70, 41);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(59, 18);
+            this.textBox3.TabIndex = 21;
+            this.textBox3.Text = "Código:";
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(3, 19);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(86, 18);
+            this.textBox4.TabIndex = 39;
+            this.textBox4.Text = "Quantidade:";
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.Black;
+            this.textBox5.Location = new System.Drawing.Point(3, 19);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(53, 18);
+            this.textBox5.TabIndex = 40;
+            this.textBox5.Text = "Valor:";
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // AlteraProdutos
             // 
@@ -267,7 +285,9 @@
             this.panelQuantidadeProduto.ResumeLayout(false);
             this.panelQuantidadeProduto.PerformLayout();
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -279,16 +299,16 @@
         private System.Windows.Forms.Button BtnAlterarEstoque;
         private System.Windows.Forms.Panel panelNovoValorProduto;
         public System.Windows.Forms.TextBox textNovoValorProduto;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Panel panelQuantidadeProduto;
-        private System.Windows.Forms.Label label32;
         public System.Windows.Forms.TextBox textEstoqueQtdProdutos;
         private System.Windows.Forms.ComboBox comboBoxOpcaoProdutos;
-        private System.Windows.Forms.Label label27;
         public System.Windows.Forms.TextBox textIdEstoqueProdutos;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

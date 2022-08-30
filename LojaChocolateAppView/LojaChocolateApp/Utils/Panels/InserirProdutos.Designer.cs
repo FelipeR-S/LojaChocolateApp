@@ -32,23 +32,23 @@
             this.textValorProduto = new System.Windows.Forms.TextBox();
             this.textTipoProduto = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.btnInserirProdutosCSV = new System.Windows.Forms.Button();
             this.btnInfoProduto = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.textArquivoProduto = new System.Windows.Forms.TextBox();
             this.btnInserirProdutoUnico = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.textEstoqueProduto = new System.Windows.Forms.TextBox();
             this.textPesoProduto = new System.Windows.Forms.TextBox();
             this.textNomeProduto = new System.Windows.Forms.TextBox();
             this.textIdProduto = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.panelInserirProduto.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -56,21 +56,21 @@
             // panelInserirProduto
             // 
             this.panelInserirProduto.BackColor = System.Drawing.Color.Transparent;
+            this.panelInserirProduto.Controls.Add(this.textBox9);
+            this.panelInserirProduto.Controls.Add(this.textBox8);
+            this.panelInserirProduto.Controls.Add(this.textBox7);
+            this.panelInserirProduto.Controls.Add(this.textBox6);
+            this.panelInserirProduto.Controls.Add(this.textBox5);
+            this.panelInserirProduto.Controls.Add(this.textBox4);
+            this.panelInserirProduto.Controls.Add(this.textBox3);
+            this.panelInserirProduto.Controls.Add(this.textBox2);
             this.panelInserirProduto.Controls.Add(this.textValorProduto);
             this.panelInserirProduto.Controls.Add(this.textTipoProduto);
             this.panelInserirProduto.Controls.Add(this.panel9);
             this.panelInserirProduto.Controls.Add(this.btnInserirProdutosCSV);
             this.panelInserirProduto.Controls.Add(this.btnInfoProduto);
-            this.panelInserirProduto.Controls.Add(this.label17);
-            this.panelInserirProduto.Controls.Add(this.label19);
             this.panelInserirProduto.Controls.Add(this.textArquivoProduto);
             this.panelInserirProduto.Controls.Add(this.btnInserirProdutoUnico);
-            this.panelInserirProduto.Controls.Add(this.label20);
-            this.panelInserirProduto.Controls.Add(this.label21);
-            this.panelInserirProduto.Controls.Add(this.label22);
-            this.panelInserirProduto.Controls.Add(this.label23);
-            this.panelInserirProduto.Controls.Add(this.label24);
-            this.panelInserirProduto.Controls.Add(this.label25);
             this.panelInserirProduto.Controls.Add(this.textEstoqueProduto);
             this.panelInserirProduto.Controls.Add(this.textPesoProduto);
             this.panelInserirProduto.Controls.Add(this.textNomeProduto);
@@ -114,23 +114,12 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.label16);
+            this.panel9.Controls.Add(this.textBox1);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(715, 74);
             this.panel9.TabIndex = 21;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(293, 28);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(200, 32);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Inserir Produtos";
             // 
             // btnInserirProdutosCSV
             // 
@@ -162,28 +151,6 @@
             this.btnInfoProduto.UseVisualStyleBackColor = false;
             this.btnInfoProduto.Click += new System.EventHandler(this.btnInfoProduto_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(80, 474);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 17);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "Inserir Arquivo";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(263, 428);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(232, 25);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "Inserir com arquivo CSV:";
-            // 
             // textArquivoProduto
             // 
             this.textArquivoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -211,72 +178,6 @@
             this.btnInserirProdutoUnico.Text = "Inserir";
             this.btnInserirProdutoUnico.UseVisualStyleBackColor = false;
             this.btnInserirProdutoUnico.Click += new System.EventHandler(this.btnInserirProdutoUnico_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(124, 280);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(57, 17);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "Estoque";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(124, 325);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 17);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Tipo";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(124, 237);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(40, 17);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Valor";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(124, 192);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 17);
-            this.label23.TabIndex = 8;
-            this.label23.Text = "Peso";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(124, 145);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 17);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Nome";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label25.Location = new System.Drawing.Point(124, 101);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(52, 17);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Código";
             // 
             // textEstoqueProduto
             // 
@@ -338,6 +239,125 @@
             this.textIdProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox1.Location = new System.Drawing.Point(0, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(715, 32);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = "Inserir Produtos";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(132, 101);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(52, 18);
+            this.textBox2.TabIndex = 16;
+            this.textBox2.Text = "Código";
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(129, 146);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(52, 18);
+            this.textBox3.TabIndex = 22;
+            this.textBox3.Text = "Nome";
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(129, 191);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(52, 18);
+            this.textBox4.TabIndex = 23;
+            this.textBox4.Text = "Peso";
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.Black;
+            this.textBox5.Location = new System.Drawing.Point(129, 236);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(52, 18);
+            this.textBox5.TabIndex = 24;
+            this.textBox5.Text = "Valor";
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.White;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.Black;
+            this.textBox6.Location = new System.Drawing.Point(129, 281);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(52, 18);
+            this.textBox6.TabIndex = 25;
+            this.textBox6.Text = "Estoque";
+            this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.White;
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.ForeColor = System.Drawing.Color.Black;
+            this.textBox7.Location = new System.Drawing.Point(129, 327);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(52, 18);
+            this.textBox7.TabIndex = 26;
+            this.textBox7.Text = "Tipo";
+            this.textBox7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.White;
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox8.Location = new System.Drawing.Point(0, 428);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(715, 26);
+            this.textBox8.TabIndex = 16;
+            this.textBox8.Text = "Inserir com arquivo CSV:";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.White;
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.ForeColor = System.Drawing.Color.Black;
+            this.textBox9.Location = new System.Drawing.Point(83, 475);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(98, 18);
+            this.textBox9.TabIndex = 27;
+            this.textBox9.Text = "Inserir Arquivo";
+            this.textBox9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
             // InserirProdutos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -364,22 +384,22 @@
         private System.Windows.Forms.TextBox textValorProduto;
         private System.Windows.Forms.ComboBox textTipoProduto;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnInserirProdutosCSV;
         private System.Windows.Forms.Button btnInfoProduto;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textArquivoProduto;
         private System.Windows.Forms.Button btnInserirProdutoUnico;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textEstoqueProduto;
         private System.Windows.Forms.TextBox textPesoProduto;
         private System.Windows.Forms.TextBox textNomeProduto;
         private System.Windows.Forms.TextBox textIdProduto;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

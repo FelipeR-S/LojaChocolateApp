@@ -16,7 +16,7 @@ namespace LojaChocolateApp.Utils.Popups
     {
         AlteraFuncionario panelFuncionario;
         AlteraProdutos panelProdutos;
-
+        private TextBoxControls _controle = new TextBoxControls();
         public PopupRemover(AlteraFuncionario panel)
         {
             InitializeComponent();
@@ -39,9 +39,9 @@ namespace LojaChocolateApp.Utils.Popups
         private void PopupRemoverFuncionario_Load(object sender, EventArgs e)
         {
             if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
-                textBoxIDPopup.Text = panelFuncionario.textBoxRemoverFuncionario.Text;
-            else 
-                textBoxIdProduto.Text = panelProdutos.textIdEstoqueProdutos.Text;
+                textBoxFunRemove.Text = textBoxFunRemove.Text.Replace("00", $"{panelFuncionario.textBoxRemoverFuncionario.Text}");
+            else
+                textBoxProdRemover.Text = textBoxProdRemover.Text.Replace("00", $"{panelProdutos.textIdEstoqueProdutos.Text}");
         }
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
@@ -51,13 +51,13 @@ namespace LojaChocolateApp.Utils.Popups
                 var id = "";
                 if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
                 {
-                    id = textBoxIDPopup.Text;
+                    id = panelFuncionario.textBoxRemoverFuncionario.Text;
                     var repositorioFuncionario = new FuncionarioRepository();
                     removido = repositorioFuncionario.Remover(id);
                 }
                 if (panelRemoverProduto.Visible == true && panelRemoverFuncionario.Visible == false)
                 {
-                    id = textBoxIdProduto.Text;
+                    id = panelProdutos.textIdEstoqueProdutos.Text;
                     var repositorioProduto = new ProdutoRepository();
                     removido = repositorioProduto.Remover(id);
                 }
@@ -80,6 +80,10 @@ namespace LojaChocolateApp.Utils.Popups
             {
                 this.Close();
             }
+        }
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
         }
     }
 }

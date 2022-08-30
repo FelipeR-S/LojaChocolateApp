@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panelRemoverFuncionario = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textSalarioFuncionario = new System.Windows.Forms.TextBox();
             this.btnAlterarSalarioFuncionario = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.textIdSlarioFuncionario = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnRemoverFuncionario = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.textBoxRemoverFuncionario = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.panelRemoverFuncionario.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -54,10 +54,10 @@
             // panelRemoverFuncionario
             // 
             this.panelRemoverFuncionario.BackColor = System.Drawing.Color.Transparent;
+            this.panelRemoverFuncionario.Controls.Add(this.textBox4);
+            this.panelRemoverFuncionario.Controls.Add(this.textBox3);
             this.panelRemoverFuncionario.Controls.Add(this.textSalarioFuncionario);
             this.panelRemoverFuncionario.Controls.Add(this.btnAlterarSalarioFuncionario);
-            this.panelRemoverFuncionario.Controls.Add(this.label36);
-            this.panelRemoverFuncionario.Controls.Add(this.label35);
             this.panelRemoverFuncionario.Controls.Add(this.textIdSlarioFuncionario);
             this.panelRemoverFuncionario.Controls.Add(this.panel16);
             this.panelRemoverFuncionario.Controls.Add(this.panel8);
@@ -70,6 +70,36 @@
             this.panelRemoverFuncionario.Name = "panelRemoverFuncionario";
             this.panelRemoverFuncionario.Size = new System.Drawing.Size(715, 560);
             this.panelRemoverFuncionario.TabIndex = 9;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(352, 382);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(92, 19);
+            this.textBox4.TabIndex = 29;
+            this.textBox4.Text = "Novo Salário:";
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(148, 382);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(73, 19);
+            this.textBox3.TabIndex = 19;
+            this.textBox3.Text = "Matrícula:";
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // textSalarioFuncionario
             // 
@@ -101,28 +131,6 @@
             this.btnAlterarSalarioFuncionario.UseVisualStyleBackColor = false;
             this.btnAlterarSalarioFuncionario.Click += new System.EventHandler(this.btnAlterarSalarioFuncionario_Click);
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label36.Location = new System.Drawing.Point(354, 382);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(91, 17);
-            this.label36.TabIndex = 28;
-            this.label36.Text = "Novo Salário:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label35.Location = new System.Drawing.Point(147, 382);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(70, 17);
-            this.label35.TabIndex = 26;
-            this.label35.Text = "Matrícula:";
-            // 
             // textIdSlarioFuncionario
             // 
             this.textIdSlarioFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -141,35 +149,55 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.Transparent;
-            this.panel16.Controls.Add(this.label29);
+            this.panel16.Controls.Add(this.textBox5);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 277);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(715, 80);
             this.panel16.TabIndex = 24;
             // 
-            // label29
+            // textBox5
             // 
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label29.Location = new System.Drawing.Point(267, 30);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(178, 29);
-            this.label29.TabIndex = 14;
-            this.label29.Text = "Alterar Salário";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox5.Location = new System.Drawing.Point(0, 26);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(715, 33);
+            this.textBox5.TabIndex = 19;
+            this.textBox5.Text = "Alterar Salário";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.Controls.Add(this.textBox2);
             this.panel8.Controls.Add(this.btnRemoverFuncionario);
-            this.panel8.Controls.Add(this.label18);
             this.panel8.Controls.Add(this.textBoxRemoverFuncionario);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 185);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(715, 92);
             this.panel8.TabIndex = 23;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(40, 44);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(73, 19);
+            this.textBox2.TabIndex = 18;
+            this.textBox2.Text = "Matrícula:";
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // btnRemoverFuncionario
             // 
@@ -185,17 +213,6 @@
             this.btnRemoverFuncionario.Text = "REMOVER";
             this.btnRemoverFuncionario.UseVisualStyleBackColor = false;
             this.btnRemoverFuncionario.Click += new System.EventHandler(this.btnRemoverFuncionario_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(44, 44);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(70, 17);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Matrícula:";
             // 
             // textBoxRemoverFuncionario
             // 
@@ -215,47 +232,56 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 86);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(715, 99);
             this.panel5.TabIndex = 22;
             // 
-            // label10
+            // textBox1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(80, 36);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(533, 34);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Para remover o funcionário declare a respectiva Matrícula e clique em REMOVER.\r\nA" +
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(0, 33);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(715, 40);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Text = "Para remover o funcionário declare a respectiva Matrícula e clique em REMOVER.\r\nA" +
     " ação vai remover do cadastro, porém o funcionário poderá ser cadastrado novamen" +
     "te.";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.textBox6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(715, 86);
             this.panel2.TabIndex = 16;
             // 
-            // label12
+            // textBox6
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label12.Location = new System.Drawing.Point(227, 47);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(269, 32);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Remover Funcionários";
+            this.textBox6.BackColor = System.Drawing.Color.White;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox6.Location = new System.Drawing.Point(0, 27);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(715, 33);
+            this.textBox6.TabIndex = 20;
+            this.textBox6.Text = "Remover Funcionários";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // AlteraFuncionario
             // 
@@ -272,6 +298,7 @@
             this.panelRemoverFuncionario.ResumeLayout(false);
             this.panelRemoverFuncionario.PerformLayout();
             this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -287,18 +314,18 @@
         private System.Windows.Forms.Panel panelRemoverFuncionario;
         public System.Windows.Forms.TextBox textSalarioFuncionario;
         private System.Windows.Forms.Button btnAlterarSalarioFuncionario;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label35;
         public System.Windows.Forms.TextBox textIdSlarioFuncionario;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnRemoverFuncionario;
-        private System.Windows.Forms.Label label18;
         public System.Windows.Forms.TextBox textBoxRemoverFuncionario;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
     }
 }

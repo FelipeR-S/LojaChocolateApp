@@ -12,6 +12,7 @@ namespace LojaChocolateApp.Utils.LayoutItems
 {
     public partial class LayoutProdutos : UserControl
     {
+        private TextBoxControls _controle = new TextBoxControls();
         #region Propriedades
         private string _nome;
         private string _id;
@@ -45,17 +46,10 @@ namespace LojaChocolateApp.Utils.LayoutItems
         public LayoutProdutos()
         {
             InitializeComponent();
-            ReadOnly();
         }
-        private void ReadOnly()
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
-            textNomeLayout.ReadOnly = true;
-            textIdLayout.ReadOnly = true;
-            textPesoLayout.ReadOnly = true;
-            textValorLayout.ReadOnly = true;
-            textTipoLayout.ReadOnly = true;
-            textEstoqueLayout.ReadOnly = true;
-            textVendasLayout.ReadOnly = true;
+            _controle.CopiarSelecionar(sender, e);
         }
     }
 }

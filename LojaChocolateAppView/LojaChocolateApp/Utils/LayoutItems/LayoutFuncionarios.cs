@@ -12,6 +12,7 @@ namespace LojaChocolateApp.Utils.LayoutItems
 {
     public partial class LayoutFuncionarios : UserControl
     {
+        private TextBoxControls _controle = new TextBoxControls();
         #region Propriedades
         private string _nome;
         private string _id;
@@ -48,33 +49,22 @@ namespace LojaChocolateApp.Utils.LayoutItems
         public LayoutFuncionarios()
         {
             InitializeComponent();
-            ReadOnly();
         }
-
         private void btnMaisDetalhes_Click(object sender, EventArgs e)
         {
             this.Height = 180;
             panelExibeDetalhes.Visible = true;
             btnMenosDetalhes.Visible = true;
         }
-
         private void btnMenosDetalhes_Click(object sender, EventArgs e)
         {
             this.Height = 80;
             panelExibeDetalhes.Visible = false;
             btnMenosDetalhes.Visible = false;
         }
-        private void ReadOnly()
+        public void CopiarSelecionar(object sender, KeyEventArgs e)
         {
-            textNomeLayout.ReadOnly = true;
-            textIdLayout.ReadOnly = true;
-            textCargoLayout.ReadOnly = true;
-            textCargoLayout.ReadOnly = true;
-            textCpfLayout.ReadOnly = true;
-            textContatoLayout.ReadOnly = true;
-            textSalarioLayout.ReadOnly = true;
-            textVendasLayout.ReadOnly = true;
-            textDataCadastroLayout.ReadOnly = true;
+            _controle.CopiarSelecionar(sender, e);
         }
     }
 }

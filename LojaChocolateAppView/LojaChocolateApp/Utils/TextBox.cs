@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,7 +18,7 @@ namespace LojaChocolateApp.Utils
         {
             foreach (Control c in control.Controls)
             {
-                if (c is TextBox)
+                if (c is TextBox && c.BackColor == Color.FromArgb(235, 167, 101))
                 {
                     ((TextBox)c).Clear();
                 }
@@ -39,10 +40,26 @@ namespace LojaChocolateApp.Utils
         public void OnlyNumbers(object sender, KeyPressEventArgs e)
         {
             char c = e.KeyChar;
-            if (!Char.IsDigit(c) && c != 8)
+            TextBox t = (TextBox)sender;
+            if (e.KeyChar == 3)
+                t.Copy();
+            if (e.KeyChar == 22)
             {
-                e.Handled = true;
+                t.Paste();
+                if (!Regex.IsMatch(t.Text, @"^[0-9]*$"))
+                {
+                    MessageBox.Show("Formato incorreto.");
+                    t.Text = string.Empty;
+                }
             }
+            if (e.KeyChar == 24)
+                t.Cut();
+            if (e.KeyChar == 26)
+                t.Undo();
+            if (e.KeyChar == 1)
+                t.SelectAll();
+            if (!Char.IsDigit(c) && c != 8)
+                e.Handled = true;
         }
         /// <summary>
         /// Permite apenas letras e "-" no textbox
@@ -52,10 +69,26 @@ namespace LojaChocolateApp.Utils
         public void OnlyChars(object sender, KeyPressEventArgs e)
         {
             char c = e.KeyChar;
-            if (Char.IsDigit(c) && c != 8 && c != 45)
+            TextBox t = (TextBox)sender;
+            if (e.KeyChar == 3)
+                t.Copy();
+            if (e.KeyChar == 22)
             {
-                e.Handled = true;
+                t.Paste();
+                if (!Regex.IsMatch(t.Text, @"^[A-Za-zÀ-ú\s?]*$"))
+                {
+                    MessageBox.Show("Formato incorreto.");
+                    t.Text = string.Empty;
+                }
             }
+            if (e.KeyChar == 24)
+                t.Cut();
+            if (e.KeyChar == 26)
+                t.Undo();
+            if (e.KeyChar == 1)
+                t.SelectAll();
+            if (!Char.IsLetter(c) && c != 8 && c != 32)
+                e.Handled = true;
         }
         /// <summary>
         /// Alterar formato de caracteres do CPF para inserção correta
@@ -67,16 +100,30 @@ namespace LojaChocolateApp.Utils
             TextBox t = (TextBox)sender;
             var posicao = t.SelectionStart;
             char c = e.KeyChar;
-            if (!Char.IsDigit(c) && c != 8)
+            if (e.KeyChar == 3)
+                t.Copy();
+            if (e.KeyChar == 22)
             {
-                e.Handled = true;
+                t.Paste();
+                if (!Regex.IsMatch(t.Text, @"^[0-9]{3}(\.?)[0-9]{3}(\.?)[0-9]{3}(\-?)[0-9]{2}$"))
+                {
+                    MessageBox.Show("Formato incorreto.");
+                    t.Text = string.Empty;
+                }
             }
+            if (e.KeyChar == 24)
+                t.Cut();
+            if (e.KeyChar == 26)
+                t.Undo();
+            if (e.KeyChar == 1)
+                t.SelectAll();
+            if (!Char.IsDigit(c) && c != 8)
+                e.Handled = true;
             else if (c == 8) posicao--;
             else if (posicao == 3 && c != 8 || posicao == 7 && c != 8)
             {
                 t.Text = t.Text.Insert(posicao, ".");
                 t.SelectionStart = posicao + 1;
-
             }
             else if (posicao == 11 && c != 8)
             {
@@ -94,10 +141,25 @@ namespace LojaChocolateApp.Utils
             TextBox t = (TextBox)sender;
             var posicao = t.SelectionStart;
             char c = e.KeyChar;
-            if (!Char.IsDigit(c) && c != 8)
+            if (e.KeyChar == 3)
+                t.Copy();
+            if (e.KeyChar == 22)
             {
-                e.Handled = true;
+                t.Paste();
+                if (!Regex.IsMatch(t.Text, @"^((\(?[0-9]{2}\)?\s?)?)+([0-9]{4,5})+(\-?\s?)+([0-9]{4})$"))
+                {
+                    MessageBox.Show("Formato incorreto.");
+                    t.Text = string.Empty;
+                }
             }
+            if (e.KeyChar == 24)
+                t.Cut();
+            if (e.KeyChar == 26)
+                t.Undo();
+            if (e.KeyChar == 1)
+                t.SelectAll();
+            if (!Char.IsDigit(c) && c != 8 || ModifierKeys.HasFlag(Keys.Control))
+                e.Handled = true;
             else if (c == 8) posicao--;
             else if (posicao == 0 && c != 8)
             {
@@ -122,9 +184,26 @@ namespace LojaChocolateApp.Utils
         /// <param name="e"></param>
         public void BoxValor(object sender, KeyPressEventArgs e)
         {
+            TextBox t = (TextBox)sender;
+            if (e.KeyChar == 3)
+                t.Copy();
+            if (e.KeyChar == 22)
+            {
+                t.Paste();
+                if (!Regex.IsMatch(t.Text, @"^([0-9]{1,2}\.?)?([0-9]{1,3}\,?)?[0-9]{1,2}$"))
+                {
+                    MessageBox.Show("Formato incorreto.");
+                    t.Text = string.Empty;
+                }
+            }
+            if (e.KeyChar == 24)
+                t.Cut();
+            if (e.KeyChar == 26)
+                t.Undo();
+            if (e.KeyChar == 1)
+                t.SelectAll();
             if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
             {
-                TextBox t = (TextBox)sender;
                 if (t.Text.Length < 9 || e.KeyChar.Equals((char)Keys.Back))
                 {
                     string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
@@ -247,6 +326,25 @@ namespace LojaChocolateApp.Utils
                     }
                 default:
                     return false;
+            }
+        }
+        public void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            if (e.KeyData == Keys.V && e.Modifiers == Keys.Control)
+            {
+                if (sender is TextBox)
+                    t.Paste();
+            }
+            if (e.KeyData == Keys.C && e.Modifiers == Keys.Control)
+            {
+                if (sender is TextBox)
+                    t.Copy();
+            }
+            if (e.KeyData == Keys.A && e.Modifiers == Keys.Control)
+            {
+                if (sender is TextBox)
+                   t.SelectAll();
             }
         }
     }

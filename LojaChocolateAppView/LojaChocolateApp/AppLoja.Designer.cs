@@ -48,6 +48,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.LogoMenu = new System.Windows.Forms.PictureBox();
+            this.panelLogin = new System.Windows.Forms.Panel();
+            this.labelCargo = new System.Windows.Forms.Label();
+            this.labelServer = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.txtCargo = new System.Windows.Forms.Label();
+            this.txtServidor = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.Label();
             this.panelLoadPanels = new System.Windows.Forms.Panel();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -58,6 +65,7 @@
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).BeginInit();
+            this.panelLogin.SuspendLayout();
             this.panelLoadPanels.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -78,7 +86,7 @@
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(248, 561);
+            this.panelMenuLateral.Size = new System.Drawing.Size(248, 596);
             this.panelMenuLateral.TabIndex = 1;
             // 
             // panelSubMenuVendas
@@ -361,14 +369,95 @@
             this.LogoMenu.TabStop = false;
             this.LogoMenu.Click += new System.EventHandler(this.LogoMenu_Click);
             // 
+            // panelLogin
+            // 
+            this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.panelLogin.Controls.Add(this.labelCargo);
+            this.panelLogin.Controls.Add(this.labelServer);
+            this.panelLogin.Controls.Add(this.labelUser);
+            this.panelLogin.Controls.Add(this.txtCargo);
+            this.panelLogin.Controls.Add(this.txtServidor);
+            this.panelLogin.Controls.Add(this.txtUser);
+            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogin.Location = new System.Drawing.Point(248, 0);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(716, 35);
+            this.panelLogin.TabIndex = 35;
+            // 
+            // labelCargo
+            // 
+            this.labelCargo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCargo.ForeColor = System.Drawing.Color.White;
+            this.labelCargo.Location = new System.Drawing.Point(305, 0);
+            this.labelCargo.Name = "labelCargo";
+            this.labelCargo.Size = new System.Drawing.Size(48, 35);
+            this.labelCargo.TabIndex = 5;
+            this.labelCargo.Text = "Cargo:";
+            this.labelCargo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelServer
+            // 
+            this.labelServer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServer.ForeColor = System.Drawing.Color.White;
+            this.labelServer.Location = new System.Drawing.Point(497, 0);
+            this.labelServer.Name = "labelServer";
+            this.labelServer.Size = new System.Drawing.Size(65, 35);
+            this.labelServer.TabIndex = 4;
+            this.labelServer.Text = "Servidor:";
+            this.labelServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelUser
+            // 
+            this.labelUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.ForeColor = System.Drawing.Color.White;
+            this.labelUser.Location = new System.Drawing.Point(3, 0);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(41, 35);
+            this.labelUser.TabIndex = 3;
+            this.labelUser.Text = "User:";
+            this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtCargo
+            // 
+            this.txtCargo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.ForeColor = System.Drawing.Color.White;
+            this.txtCargo.Location = new System.Drawing.Point(350, 0);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(141, 35);
+            this.txtCargo.TabIndex = 2;
+            this.txtCargo.Text = "txtCargo";
+            this.txtCargo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtServidor
+            // 
+            this.txtServidor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServidor.ForeColor = System.Drawing.Color.White;
+            this.txtServidor.Location = new System.Drawing.Point(559, 0);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(154, 35);
+            this.txtServidor.TabIndex = 1;
+            this.txtServidor.Text = "txtServidor";
+            this.txtServidor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtUser
+            // 
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.ForeColor = System.Drawing.Color.White;
+            this.txtUser.Location = new System.Drawing.Point(41, 0);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(264, 35);
+            this.txtUser.TabIndex = 0;
+            this.txtUser.Text = "txtUser";
+            this.txtUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panelLoadPanels
             // 
             this.panelLoadPanels.Controls.Add(this.panelLogoPrincipal);
-            this.panelLoadPanels.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelLoadPanels.Location = new System.Drawing.Point(247, 0);
+            this.panelLoadPanels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoadPanels.Location = new System.Drawing.Point(248, 35);
             this.panelLoadPanels.Name = "panelLoadPanels";
-            this.panelLoadPanels.Size = new System.Drawing.Size(717, 561);
-            this.panelLoadPanels.TabIndex = 34;
+            this.panelLoadPanels.Size = new System.Drawing.Size(716, 561);
+            this.panelLoadPanels.TabIndex = 36;
             // 
             // panelLogoPrincipal
             // 
@@ -377,13 +466,13 @@
             this.panelLogoPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogoPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelLogoPrincipal.Name = "panelLogoPrincipal";
-            this.panelLogoPrincipal.Size = new System.Drawing.Size(717, 561);
+            this.panelLogoPrincipal.Size = new System.Drawing.Size(716, 561);
             this.panelLogoPrincipal.TabIndex = 35;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoCor;
-            this.pictureBox2.Location = new System.Drawing.Point(108, 150);
+            this.pictureBox2.Location = new System.Drawing.Point(113, 139);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(500, 250);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -396,18 +485,20 @@
             // 
             // AppLoja
             // 
+            this.AcceptButton = this.btnCadastrarVendas;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(964, 561);
-            this.Controls.Add(this.panelMenuLateral);
+            this.ClientSize = new System.Drawing.Size(964, 596);
             this.Controls.Add(this.panelLoadPanels);
+            this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.panelMenuLateral);
             this.Font = new System.Drawing.Font("Lato", 9.749999F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.MaximumSize = new System.Drawing.Size(980, 600);
-            this.MinimumSize = new System.Drawing.Size(980, 600);
+            this.MaximumSize = new System.Drawing.Size(980, 635);
+            this.MinimumSize = new System.Drawing.Size(980, 635);
             this.Name = "AppLoja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loja de Chocolate";
@@ -418,6 +509,7 @@
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).EndInit();
+            this.panelLogin.ResumeLayout(false);
             this.panelLoadPanels.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
@@ -448,9 +540,16 @@
         private System.Windows.Forms.Button btnConsultarVendas;
         private System.Windows.Forms.Button btnCadastrarVendas;
         private System.Windows.Forms.BindingSource dataGridVendasBindingSource;
+        private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel panelLoadPanels;
         private System.Windows.Forms.Panel panelLogoPrincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label txtServidor;
+        private System.Windows.Forms.Label txtUser;
+        private System.Windows.Forms.Label txtCargo;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelServer;
+        private System.Windows.Forms.Label labelCargo;
     }
 }
 

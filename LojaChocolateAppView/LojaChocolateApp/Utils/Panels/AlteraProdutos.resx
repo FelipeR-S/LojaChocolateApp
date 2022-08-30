@@ -117,10 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label26.Text" xml:space="preserve">
+  <data name="textBox1.Text" xml:space="preserve">
     <value>Para remover o produto informe o Código, selecione a opção REMOVER e clique em Alterar Estoque.
 A ação vai remover do cadastro, porém o mesmo poderá ser inserido novamente.
 
-Para alterar o estoque declare o Código do produto, marque a opção desejada(INSERIR: aumentar a quantidade no estoque; RETIRAR: diminuir a quantidade no estoque; ou ALTERAR: Mudar o valor do produto), informe a quantidade e clique em Alterar Estoque.</value>
+Para alterar o estoque declare o Código do produto, marque a opção desejada(INSERIR: aumentar a quantidade no estoque; RETIRAR: diminuir a quantidade no estoque; ou ALTERAR: Mudar o valor do produto), informe a quantidade e clique em Alterar Estoque.
+</value>
   </data>
 </root>

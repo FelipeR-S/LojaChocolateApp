@@ -140,5 +140,9 @@ namespace LojaChocolateApp.Utils.Panels
         {
             _controle.OnlyNumbers(sender, e);
         }
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
+        }
     }
 }

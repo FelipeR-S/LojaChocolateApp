@@ -78,6 +78,7 @@
             this.txtFuncionarioCSV.Size = new System.Drawing.Size(377, 259);
             this.txtFuncionarioCSV.TabIndex = 20;
             this.txtFuncionarioCSV.Text = resources.GetString("txtFuncionarioCSV.Text");
+            this.txtFuncionarioCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // textInfoVendasCSV
             // 
@@ -92,6 +93,7 @@
             this.textInfoVendasCSV.Size = new System.Drawing.Size(404, 250);
             this.textInfoVendasCSV.TabIndex = 22;
             this.textInfoVendasCSV.Text = resources.GetString("textInfoVendasCSV.Text");
+            this.textInfoVendasCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // txtProdutoCSV
             // 
@@ -106,6 +108,7 @@
             this.txtProdutoCSV.Size = new System.Drawing.Size(385, 259);
             this.txtProdutoCSV.TabIndex = 21;
             this.txtProdutoCSV.Text = resources.GetString("txtProdutoCSV.Text");
+            this.txtProdutoCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // panel1
             // 

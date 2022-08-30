@@ -32,7 +32,7 @@ namespace LojaChocolateApp
             InitializeComponent();
             SubMenuDesign();
         }
-        //LOGIN        
+        //LOGIN    
         private void AppLoja_Load(object sender, EventArgs e)
         {
             try
@@ -47,6 +47,17 @@ namespace LojaChocolateApp
                 }
                 else
                 {
+                    if (logon.Usuario.ToLower() == "sa")
+                    {
+                        txtUser.Text = "Administrador";
+                        txtCargo.Text = "";
+                        labelCargo.Text = "";
+                    }
+                    else
+                    {
+                        txtUser.Text = logon.Usuario;
+                    }
+                    txtServidor.Text = logon.Database;
                     this.Show();
                 }
 
@@ -220,7 +231,6 @@ namespace LojaChocolateApp
             var panel = new CadastrarVenda();
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
-            panel.CarregaComboBoxProduto();
             EsconderSubMenu();
         }
         /// <summary>
