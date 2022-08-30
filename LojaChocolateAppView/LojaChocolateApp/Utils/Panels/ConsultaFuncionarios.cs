@@ -28,7 +28,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void btnExibeDetalhesFuncionario_Click(object sender, EventArgs e)
+        private void btnExibeDetalhesFuncionario_Click(object sender, EventArgs e)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// Carrega layout de detalhes de <see cref="Funcionario"/>
         /// </summary>
         /// <param name="funcionario"></param>
-        public void PopulaExibeDetalhe(Funcionario funcionario)
+        private void PopulaExibeDetalhe(Funcionario funcionario)
         {
             LayoutFuncionarios detalhes = new LayoutFuncionarios();
             detalhes.Nome = funcionario.Nome;
@@ -146,5 +146,10 @@ namespace LojaChocolateApp.Utils.Panels
         {
             _controle.OnlyNumbers(sender, e);
         }
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
+        }
+
     }
 }

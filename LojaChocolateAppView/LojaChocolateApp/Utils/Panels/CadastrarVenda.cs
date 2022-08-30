@@ -21,6 +21,7 @@ namespace LojaChocolateApp.Utils.Panels
         public CadastrarVenda()
         {
             InitializeComponent();
+            CarregaComboBoxProduto();
             textProdVendas.ReadOnly = true;
             textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             _addProdVenda = 0;
@@ -132,7 +133,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// <summary>
         /// Carrega elementos do combobox do submenu cadastrar vendas de forma dinamica
         /// </summary>
-        public void CarregaComboBoxProduto()
+        private void CarregaComboBoxProduto()
         {
             //ComboBox Funcionario
             var repoFuncionario = new FuncionarioRepository();
@@ -398,6 +399,10 @@ namespace LojaChocolateApp.Utils.Panels
         private void OpenFile(object sender, EventArgs e)
         {
             _controle.OpenFile(sender, e);
+        }
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
         }
     }
 }

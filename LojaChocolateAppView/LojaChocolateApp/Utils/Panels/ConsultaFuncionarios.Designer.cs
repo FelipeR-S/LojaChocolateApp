@@ -31,17 +31,17 @@
             this.panelConsultarFuncionario = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFuncionario = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.TituloExibeFuncionario = new System.Windows.Forms.Label();
+            this.TituloExibeFuncionario = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxOrdenar = new System.Windows.Forms.ComboBox();
             this.btnExibeTodosFuncionarios = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.btnBuscaIdFuncionario = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.textBoxIDDetalhesFuncionario = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panelConsultarFuncionario.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,28 +85,26 @@
             // 
             // TituloExibeFuncionario
             // 
-            this.TituloExibeFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TituloExibeFuncionario.AutoSize = true;
+            this.TituloExibeFuncionario.BackColor = System.Drawing.Color.White;
+            this.TituloExibeFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TituloExibeFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TituloExibeFuncionario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.TituloExibeFuncionario.Location = new System.Drawing.Point(51, 6);
+            this.TituloExibeFuncionario.Location = new System.Drawing.Point(47, 6);
             this.TituloExibeFuncionario.Name = "TituloExibeFuncionario";
-            this.TituloExibeFuncionario.Size = new System.Drawing.Size(64, 25);
-            this.TituloExibeFuncionario.TabIndex = 15;
+            this.TituloExibeFuncionario.Size = new System.Drawing.Size(622, 26);
+            this.TituloExibeFuncionario.TabIndex = 16;
             this.TituloExibeFuncionario.Text = "Título";
-            this.TituloExibeFuncionario.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TituloExibeFuncionario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.comboBoxOrdenar);
             this.panel3.Controls.Add(this.btnExibeTodosFuncionarios);
-            this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.btnBuscaIdFuncionario);
-            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.textBoxIDDetalhesFuncionario);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 60);
@@ -114,16 +112,46 @@
             this.panel3.Size = new System.Drawing.Size(715, 90);
             this.panel3.TabIndex = 28;
             // 
-            // label15
+            // textBox3
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(328, 50);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 17);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Ordenar por:";
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(0, 17);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(715, 18);
+            this.textBox3.TabIndex = 36;
+            this.textBox3.Text = "Informe a Matrícula para exibir detalhes do funcionário desejado ou clique no bot" +
+    "ão \"Todos\"";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(333, 51);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(85, 18);
+            this.textBox2.TabIndex = 35;
+            this.textBox2.Text = "Ordenar por:";
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(76, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(70, 18);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Text = "Matrícula";
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // comboBoxOrdenar
             // 
@@ -154,18 +182,6 @@
             this.btnExibeTodosFuncionarios.UseVisualStyleBackColor = false;
             this.btnExibeTodosFuncionarios.Click += new System.EventHandler(this.btnExibeTodosFuncionarios_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(87, 17);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(554, 17);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Informe a Matrícula para exibir detalhes do funcionário desejado ou clique no bot" +
-    "ão \"Todos\"";
-            // 
             // btnBuscaIdFuncionario
             // 
             this.btnBuscaIdFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
@@ -181,17 +197,6 @@
             this.btnBuscaIdFuncionario.UseVisualStyleBackColor = false;
             this.btnBuscaIdFuncionario.Click += new System.EventHandler(this.btnExibeDetalhesFuncionario_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(73, 50);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 17);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Matrícula";
-            // 
             // textBoxIDDetalhesFuncionario
             // 
             this.textBoxIDDetalhesFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -205,27 +210,31 @@
             this.textBoxIDDetalhesFuncionario.Size = new System.Drawing.Size(64, 25);
             this.textBoxIDDetalhesFuncionario.TabIndex = 0;
             this.textBoxIDDetalhesFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxIDDetalhesFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.textBox4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(715, 60);
             this.panel4.TabIndex = 16;
             // 
-            // label14
+            // textBox4
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(132, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(462, 32);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Consultar informações de Funcionários";
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.textBox4.Location = new System.Drawing.Point(0, 16);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(715, 32);
+            this.textBox4.TabIndex = 17;
+            this.textBox4.Text = "Consultar informações de Funcionários";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // ConsultaFuncionarios
             // 
@@ -255,16 +264,16 @@
         private System.Windows.Forms.Panel panelConsultarFuncionario;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label15;
         public System.Windows.Forms.ComboBox comboBoxOrdenar;
         private System.Windows.Forms.Button btnExibeTodosFuncionarios;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnBuscaIdFuncionario;
-        private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox textBoxIDDetalhesFuncionario;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFuncionario;
-        public System.Windows.Forms.Label TituloExibeFuncionario;
+        private System.Windows.Forms.TextBox TituloExibeFuncionario;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFuncionario;
     }
 }

@@ -14,7 +14,6 @@ namespace LojaChocolateApp.Utils.Panels
 {
     public partial class ConsultaVendas : UserControl
     {
-        private TextBoxControls _controle = new TextBoxControls();
         public ConsultaVendas()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void dataGridViewVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -149,7 +148,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="idVenda"> ID da venda</param>
         /// <param name="index">Posição na tabela</param>
         /// <param name="descricao"></param>
-        public void PopulaDetalhesBtn(string idVenda, int index)
+        private void PopulaDetalhesBtn(string idVenda, int index)
         {
             var repovendas = new VendaRepository();
 
