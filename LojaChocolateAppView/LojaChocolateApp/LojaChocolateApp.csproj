@@ -62,6 +62,12 @@
     <Compile Include="AppLoja.Designer.cs">
       <DependentUpon>AppLoja.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroLogin.Designer.cs">
+      <DependentUpon>CadastroLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginLoja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="Utils\LayoutItems\LayoutProdutos.Designer.cs">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\LayoutItems\NovoAcesso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\LayoutItems\NovoAcesso.Designer.cs">
+      <DependentUpon>NovoAcesso.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Panels\AlteraFuncionario.cs">
       <SubType>UserControl</SubType>
@@ -136,6 +148,12 @@
     <Compile Include="Utils\Panels\ConsultaVendas.Designer.cs">
       <DependentUpon>ConsultaVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Panels\ControleDeAcesso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ControleDeAcesso.Designer.cs">
+      <DependentUpon>ControleDeAcesso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Panels\InserirProdutos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +178,9 @@
     <EmbeddedResource Include="AppLoja.resx">
       <DependentUpon>AppLoja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CadastroLogin.resx">
+      <DependentUpon>CadastroLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginLoja.resx">
       <DependentUpon>LoginLoja.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\LayoutItems\LayoutProdutos.resx">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\LayoutItems\NovoAcesso.resx">
+      <DependentUpon>NovoAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Panels\AlteraFuncionario.resx">
       <DependentUpon>AlteraFuncionario.cs</DependentUpon>
@@ -199,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Panels\ConsultaVendas.resx">
       <DependentUpon>ConsultaVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ControleDeAcesso.resx">
+      <DependentUpon>ControleDeAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Panels\InserirProdutos.resx">
       <DependentUpon>InserirProdutos.cs</DependentUpon>

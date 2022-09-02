@@ -32,7 +32,7 @@ namespace LojaChocolateApp
             InitializeComponent();
             SubMenuDesign();
         }
-        //LOGIN    
+        //LOGIN
         private void AppLoja_Load(object sender, EventArgs e)
         {
             try
@@ -56,6 +56,8 @@ namespace LojaChocolateApp
                     else
                     {
                         txtUser.Text = logon.Usuario;
+                        //btnControleDeAcesso.Visible = false;
+                        //panelSubMenuFuncionario.Height = 105;
                     }
                     txtServidor.Text = logon.Database;
                     this.Show();
@@ -159,6 +161,19 @@ namespace LojaChocolateApp
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
         }
+        /// <summary>
+        /// Acessa Sistema de autorização de cadastro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnControleDeAcesso_Click(object sender, EventArgs e)
+        {
+            panelLoadPanels.Visible = true;
+            var panel = new ControleDeAcesso();
+            panelLoadPanels.Controls.Clear();
+            panelLoadPanels.Controls.Add(panel);
+            EsconderSubMenu();
+        }
         // FIM ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU PRODUTOS ------------------------------------ INICIO //
         /// <summary>
@@ -247,6 +262,8 @@ namespace LojaChocolateApp
             panel.dataGridViewVendas.Rows.Clear();
             EsconderSubMenu();
         }
+
+ 
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
     }
 }
