@@ -62,6 +62,19 @@ namespace LojaChocolateApp.Utils
                 e.Handled = true;
         }
         /// <summary>
+        /// Permite apenas Alfanuméricos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (!Char.IsLetterOrDigit(c) && c != 8)
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
         /// Permite apenas letras e "-" no textbox
         /// </summary>
         /// <param name="sender"></param>
@@ -345,6 +358,16 @@ namespace LojaChocolateApp.Utils
             {
                 if (sender is TextBox)
                    t.SelectAll();
+            }
+            if (e.KeyData == Keys.X && e.Modifiers == Keys.Control)
+            {
+                if (sender is TextBox)
+                    t.Cut();
+            }
+            if (e.KeyData == Keys.Z && e.Modifiers == Keys.Control)
+            {
+                if (sender is TextBox)
+                    t.Undo();
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using LojaChocolateApp.Repository;
+using LojaChocolateApp.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace LojaChocolateApp
 {
     public partial class LoginLoja : Form
     {
+        private TextBoxControls _controle = new TextBoxControls();
         private string _usuario;
         private string _password;
         private string _database;
@@ -53,11 +55,7 @@ namespace LojaChocolateApp
         }
         private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
         {
-            char c = e.KeyChar;
-            if (!Char.IsLetterOrDigit(c) && c != 8)
-            {
-                e.Handled = true;
-            }
+            _controle.OnlyNumbersAndChars(sender, e);
         }
         /// <summary>
         /// Realiza tentativa de login
@@ -106,6 +104,11 @@ namespace LojaChocolateApp
             _usuario = usuario;
             _password = senha;
             _database = database;
+        }
+        private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CadastroLogin cadastro = new CadastroLogin();
+            cadastro.Show();
         }
     }
 }
