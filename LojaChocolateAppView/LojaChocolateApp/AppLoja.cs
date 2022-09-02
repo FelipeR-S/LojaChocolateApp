@@ -52,6 +52,12 @@ namespace LojaChocolateApp
                         txtUser.Text = "Administrador";
                         txtCargo.Text = "";
                         labelCargo.Text = "";
+                        btnProdutos.Visible = false;
+                        btnVendas.Visible = false;
+                        btnCadastrarFuncionario.Visible = false;
+                        btnExcluirFuncionario.Visible = false;
+                        btnConsultarFuncionarios.Visible = false;
+                        panelSubMenuFuncionario.Height = 35;
                     }
                     else
                     {
