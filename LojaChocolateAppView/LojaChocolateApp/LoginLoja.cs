@@ -17,12 +17,6 @@ namespace LojaChocolateApp
     public partial class LoginLoja : Form
     {
         private TextBoxControls _controle = new TextBoxControls();
-        private string _usuario;
-        private string _password;
-        private string _database;
-        public string Usuario { get { return _usuario; } }
-        public string Password { get { return _password; } }
-        public string Database { get { return _database; } }
         public LoginLoja()
         {
             InitializeComponent();
@@ -53,10 +47,6 @@ namespace LojaChocolateApp
             }
             comboBoxDatabase.DataSource = listaDatabase;
         }
-        private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
-        {
-            _controle.OnlyNumbersAndChars(sender, e);
-        }
         /// <summary>
         /// Realiza tentativa de login
         /// </summary>
@@ -66,9 +56,11 @@ namespace LojaChocolateApp
         {
             try
             {
+                var conectado = false;
                 var databaseTxt = comboBoxDatabase.SelectedItem.ToString();
                 var login = textBoxUser.Text;
                 var senha = textBoxSenha.Text;
+                var cargo = "";
 
                 if (login == "" || senha == "" || databaseTxt == "")
                 {
@@ -81,11 +73,23 @@ namespace LojaChocolateApp
                     using (SqlConnection connection = new SqlConnection(LoginServer.Conexao(login)))
                     {
                         connection.Open();
+                        var SqlQuery = $"use [Loja_Chocolate] select [cargo] from [Cadastro de Usuário] where [Nome] = '{login}'";
+                        SqlCommand cmd = new SqlCommand(SqlQuery, connection);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            cargo = reader.GetString(0);
+                        }
+                        conectado = true;
                         this.DialogResult = DialogResult.OK;
-                        DadosLogin(database, login, senha);
                         connection.Close();
                     }
-                    this.Close();
+                    if (conectado == true)
+                    {
+                        AppLoja appLoja = new AppLoja(login, database, cargo);
+                        appLoja.ShowDialog();
+                        this.Hide();
+                    }
                 }
             }
             catch (Exception)
@@ -94,21 +98,22 @@ namespace LojaChocolateApp
             }
         }
         /// <summary>
-        /// Recupera e atribui os dados de login
+        /// Exibe painel de novo cadastro
         /// </summary>
-        /// <param name="database"></param>
-        /// <param name="usuario"></param>
-        /// <param name="senha"></param>
-        private void DadosLogin(string database, string usuario, string senha)
-        {
-            _usuario = usuario;
-            _password = senha;
-            _database = database;
-        }
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CadastroLogin cadastro = new CadastroLogin();
             cadastro.Show();
+        }
+        private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
+        {
+            _controle.OnlyNumbersAndChars(sender, e);
         }
     }
 }
