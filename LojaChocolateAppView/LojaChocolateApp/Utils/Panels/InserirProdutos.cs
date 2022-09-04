@@ -17,9 +17,11 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class InserirProdutos : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public InserirProdutos()
+        public InserirProdutos(bool darkMode)
         {
             InitializeComponent();
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Insere um unico <see cref="Produto"/> através dos dados informados

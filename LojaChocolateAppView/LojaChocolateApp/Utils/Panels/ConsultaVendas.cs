@@ -14,10 +14,17 @@ namespace LojaChocolateApp.Utils.Panels
 {
     public partial class ConsultaVendas : UserControl
     {
-        public ConsultaVendas()
+        public ConsultaVendas(bool darkMode)
         {
             InitializeComponent();
             dataGridViewVendas.Visible = false;
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
+            if (darkMode == true)
+                dataGridViewVendas.BackgroundColor = Color.FromArgb(30, 30, 30);
+
+            else
+                dataGridViewVendas.BackgroundColor = Color.White;
         }
         /// <summary>
         /// Insere dados na lista de vendas em um DataGrid

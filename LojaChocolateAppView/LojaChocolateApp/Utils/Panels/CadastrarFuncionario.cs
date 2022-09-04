@@ -17,9 +17,11 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class CadastrarFuncionario : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public CadastrarFuncionario()
+        public CadastrarFuncionario(bool darkMode)
         {
             InitializeComponent();
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Envia dados dos textbox para cadastro de <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>

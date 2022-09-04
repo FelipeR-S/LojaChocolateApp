@@ -15,9 +15,11 @@ namespace LojaChocolateApp.Utils.Panels
 {
     public partial class ControleDeAcesso : UserControl
     {
-        public ControleDeAcesso()
+        public ControleDeAcesso(bool darkMode)
         {
             InitializeComponent();
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Carrega Controles com informações dos cadastros solicitados.
