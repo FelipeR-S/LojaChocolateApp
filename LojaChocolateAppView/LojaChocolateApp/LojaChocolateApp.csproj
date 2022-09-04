@@ -87,6 +87,9 @@
     <Compile Include="Repository\SQLServerConn.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\ControleEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utils\DarkMode.cs">
       <SubType>Form</SubType>
     </Compile>

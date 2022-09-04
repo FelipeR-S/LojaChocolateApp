@@ -17,8 +17,10 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class CadastrarVenda : UserControl
     {
         private int _addProdVenda;
+        private bool _controleEstoque;
+        private int _quantidadeEstoque;
         private TextBoxControls _controle = new TextBoxControls();
-        public CadastrarVenda(bool darkMode)
+        public CadastrarVenda(bool darkMode, bool controleEstoque, int quantidadeEstoque)
         {
             InitializeComponent();
             CarregaComboBoxProduto();
@@ -27,6 +29,8 @@ namespace LojaChocolateApp.Utils.Panels
             _addProdVenda = 0;
             DarkMode activeDarkMode = new DarkMode(darkMode);
             activeDarkMode.GetDarkMode(this);
+            _quantidadeEstoque = quantidadeEstoque;
+            _controleEstoque = controleEstoque;
         }
         /// <summary>
         /// Adiciona <see cref="Produto"/> ao texBox de venda
@@ -253,6 +257,8 @@ namespace LojaChocolateApp.Utils.Panels
             }
             finally
             {
+                ControleEstoque controle = new ControleEstoque(_controleEstoque, _quantidadeEstoque);
+                controle.GetControleEstoque();
                 _controle.ApagaBox(this);
             }
         }
@@ -391,6 +397,8 @@ namespace LojaChocolateApp.Utils.Panels
             }
             finally
             {
+                ControleEstoque controle = new ControleEstoque(_controleEstoque, _quantidadeEstoque);
+                controle.GetControleEstoque();
                 _controle.ApagaBox(this);
             }
         }
