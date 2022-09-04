@@ -16,7 +16,7 @@ namespace LojaChocolateApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppLoja());
+            Application.Run(new LoginLoja());
         }
     }
 }

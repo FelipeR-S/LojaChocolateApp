@@ -23,51 +23,62 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
-        /// <summary>
-        /// Atributo para controles de TextBox
-        /// </summary>
-        private TextBoxControls _controle = new TextBoxControls();
+        private bool _sair;
+        private string _usuario;
+        private string _database;
+        private string _cargo;
         public AppLoja()
         {
+            _sair = false;
+            InitializeComponent();
+            SubMenuDesign();
+        }
+        public AppLoja(string usuario, string database, string cargo)
+        {
+            _usuario = usuario;
+            _database = database;
+            _cargo = cargo;
             InitializeComponent();
             SubMenuDesign();
         }
         //LOGIN
+        private void AppLoja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_sair == false)
+                Application.Exit();
+        }
         private void AppLoja_Load(object sender, EventArgs e)
         {
-            try
+            if (_usuario.ToLower() == "sa")
             {
-                this.Hide();
-
-                LoginLoja logon = new LoginLoja();
-
-                if (logon.ShowDialog() != DialogResult.OK)
-                {
-                    Application.Exit();
-                }
-                else
-                {
-                    if (logon.Usuario.ToLower() == "sa")
-                    {
-                        txtUser.Text = "Administrador";
-                        txtCargo.Text = "";
-                        labelCargo.Text = "";
-                    }
-                    else
-                    {
-                        txtUser.Text = logon.Usuario;
-                        //btnControleDeAcesso.Visible = false;
-                        //panelSubMenuFuncionario.Height = 105;
-                    }
-                    txtServidor.Text = logon.Database;
-                    this.Show();
-                }
-
+                txtUser.Text = "Administrador";
+                txtCargo.Text = "";
+                labelCargo.Text = "";
+                btnProdutos.Visible = false;
+                btnVendas.Visible = false;
+                btnCadastrarFuncionario.Visible = false;
+                btnExcluirFuncionario.Visible = false;
+                btnConsultarFuncionarios.Visible = false;
+                panelSubMenuFuncionario.Height = 35;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                txtUser.Text = _usuario;
+                txtCargo.Text = _cargo;
+                if (_cargo != "Gerente")
+                {
+                    btnFuncionarios.Visible = false;
+                }
             }
+            txtServidor.Text = _database;
+
+        }
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            _sair = true;
+            LoginLoja logon = new LoginLoja();
+            logon.Show();
+            this.Close();
         }
         // INICIO ------------------------------ VISIBILIDADE DE ELEMENTOS ------------------------------ INICIO //
         /// <summary>
@@ -262,8 +273,6 @@ namespace LojaChocolateApp
             panel.dataGridViewVendas.Rows.Clear();
             EsconderSubMenu();
         }
-
- 
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
     }
 }

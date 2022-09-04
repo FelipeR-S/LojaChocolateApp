@@ -31,19 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppLoja));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnConfigurar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.panelSubMenuVendas = new System.Windows.Forms.Panel();
             this.btnConsultarVendas = new System.Windows.Forms.Button();
             this.btnCadastrarVendas = new System.Windows.Forms.Button();
+            this.btnVendas = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuProdutos = new System.Windows.Forms.Panel();
             this.btnConsultarProdutos = new System.Windows.Forms.Button();
             this.btnEstoque = new System.Windows.Forms.Button();
             this.btnInserirProduto = new System.Windows.Forms.Button();
+            this.btnProdutos = new FontAwesome.Sharp.IconButton();
             this.panelSubMenuFuncionario = new System.Windows.Forms.Panel();
+            this.btnControleDeAcesso = new System.Windows.Forms.Button();
             this.btnConsultarFuncionarios = new System.Windows.Forms.Button();
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
+            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.LogoMenu = new System.Windows.Forms.PictureBox();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.labelCargo = new System.Windows.Forms.Label();
             this.labelServer = new System.Windows.Forms.Label();
@@ -53,29 +61,26 @@
             this.txtUser = new System.Windows.Forms.Label();
             this.panelLoadPanels = new System.Windows.Forms.Panel();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
-            this.btnControleDeAcesso = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnVendas = new FontAwesome.Sharp.IconButton();
-            this.btnProdutos = new FontAwesome.Sharp.IconButton();
-            this.btnFuncionarios = new FontAwesome.Sharp.IconButton();
-            this.LogoMenu = new System.Windows.Forms.PictureBox();
             this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenuLateral.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panelSubMenuVendas.SuspendLayout();
             this.panelSubMenuProdutos.SuspendLayout();
             this.panelSubMenuFuncionario.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).BeginInit();
             this.panelLogin.SuspendLayout();
             this.panelLoadPanels.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
             // 
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.panelMenuLateral.Controls.Add(this.panel2);
             this.panelMenuLateral.Controls.Add(this.panelSubMenuVendas);
             this.panelMenuLateral.Controls.Add(this.btnVendas);
             this.panelMenuLateral.Controls.Add(this.panelSubMenuProdutos);
@@ -89,6 +94,48 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(248, 596);
             this.panelMenuLateral.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnConfigurar);
+            this.panel2.Controls.Add(this.btnSair);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 523);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(248, 73);
+            this.panel2.TabIndex = 16;
+            // 
+            // btnConfigurar
+            // 
+            this.btnConfigurar.BackColor = System.Drawing.Color.White;
+            this.btnConfigurar.FlatAppearance.BorderSize = 0;
+            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfigurar.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigurar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnConfigurar.Location = new System.Drawing.Point(91, 26);
+            this.btnConfigurar.Name = "btnConfigurar";
+            this.btnConfigurar.Size = new System.Drawing.Size(137, 35);
+            this.btnConfigurar.TabIndex = 3;
+            this.btnConfigurar.Text = "Configurações";
+            this.btnConfigurar.UseVisualStyleBackColor = false;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.DarkRed;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(17, 26);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(56, 35);
+            this.btnSair.TabIndex = 2;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // panelSubMenuVendas
             // 
@@ -136,6 +183,30 @@
             this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarVendas.UseVisualStyleBackColor = true;
             this.btnCadastrarVendas.Click += new System.EventHandler(this.btnCadastrarVendas_Click);
+            // 
+            // btnVendas
+            // 
+            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendas.FlatAppearance.BorderSize = 0;
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnVendas.IconColor = System.Drawing.Color.White;
+            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVendas.IconSize = 25;
+            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.Location = new System.Drawing.Point(0, 460);
+            this.btnVendas.Name = "btnVendas";
+            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVendas.Size = new System.Drawing.Size(248, 45);
+            this.btnVendas.TabIndex = 0;
+            this.btnVendas.Text = "   Vendas";
+            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendas.UseVisualStyleBackColor = false;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // panelSubMenuProdutos
             // 
@@ -203,6 +274,29 @@
             this.btnInserirProduto.UseVisualStyleBackColor = true;
             this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
+            // btnProdutos
+            // 
+            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdutos.FlatAppearance.BorderSize = 0;
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnProdutos.IconColor = System.Drawing.Color.White;
+            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProdutos.IconSize = 25;
+            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.Location = new System.Drawing.Point(0, 310);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
+            this.btnProdutos.TabIndex = 0;
+            this.btnProdutos.Text = "  Produtos";
+            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            // 
             // panelSubMenuFuncionario
             // 
             this.panelSubMenuFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
@@ -215,6 +309,24 @@
             this.panelSubMenuFuncionario.Name = "panelSubMenuFuncionario";
             this.panelSubMenuFuncionario.Size = new System.Drawing.Size(248, 142);
             this.panelSubMenuFuncionario.TabIndex = 11;
+            // 
+            // btnControleDeAcesso
+            // 
+            this.btnControleDeAcesso.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnControleDeAcesso.FlatAppearance.BorderSize = 0;
+            this.btnControleDeAcesso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
+            this.btnControleDeAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControleDeAcesso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControleDeAcesso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnControleDeAcesso.Location = new System.Drawing.Point(0, 105);
+            this.btnControleDeAcesso.Name = "btnControleDeAcesso";
+            this.btnControleDeAcesso.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnControleDeAcesso.Size = new System.Drawing.Size(248, 35);
+            this.btnControleDeAcesso.TabIndex = 4;
+            this.btnControleDeAcesso.Text = "Controle de Acesso";
+            this.btnControleDeAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnControleDeAcesso.UseVisualStyleBackColor = true;
+            this.btnControleDeAcesso.Click += new System.EventHandler(this.btnControleDeAcesso_Click);
             // 
             // btnConsultarFuncionarios
             // 
@@ -270,6 +382,30 @@
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
             this.btnCadastrarFuncionario.Click += new System.EventHandler(this.btnCadastrarFuncionario_Click);
             // 
+            // btnFuncionarios
+            // 
+            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
+            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFuncionarios.IconSize = 25;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
+            this.btnFuncionarios.Name = "btnFuncionarios";
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
+            this.btnFuncionarios.TabIndex = 0;
+            this.btnFuncionarios.Text = "  Funcionários";
+            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
+            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(247, 0);
@@ -288,6 +424,18 @@
             this.panelLogo.Size = new System.Drawing.Size(248, 123);
             this.panelLogo.TabIndex = 0;
             // 
+            // LogoMenu
+            // 
+            this.LogoMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoMenu.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoBranco;
+            this.LogoMenu.Location = new System.Drawing.Point(20, 20);
+            this.LogoMenu.Name = "LogoMenu";
+            this.LogoMenu.Size = new System.Drawing.Size(208, 83);
+            this.LogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoMenu.TabIndex = 1;
+            this.LogoMenu.TabStop = false;
+            this.LogoMenu.Click += new System.EventHandler(this.LogoMenu_Click);
+            // 
             // panelLogin
             // 
             this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
@@ -301,7 +449,7 @@
             this.panelLogin.Location = new System.Drawing.Point(248, 0);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(716, 35);
-            this.panelLogin.TabIndex = 35;
+            this.panelLogin.TabIndex = 37;
             // 
             // labelCargo
             // 
@@ -376,7 +524,7 @@
             this.panelLoadPanels.Location = new System.Drawing.Point(248, 35);
             this.panelLoadPanels.Name = "panelLoadPanels";
             this.panelLoadPanels.Size = new System.Drawing.Size(716, 561);
-            this.panelLoadPanels.TabIndex = 36;
+            this.panelLoadPanels.TabIndex = 38;
             // 
             // panelLogoPrincipal
             // 
@@ -388,24 +536,6 @@
             this.panelLogoPrincipal.Size = new System.Drawing.Size(716, 561);
             this.panelLogoPrincipal.TabIndex = 35;
             // 
-            // btnControleDeAcesso
-            // 
-            this.btnControleDeAcesso.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnControleDeAcesso.FlatAppearance.BorderSize = 0;
-            this.btnControleDeAcesso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(139)))), ((int)(((byte)(60)))));
-            this.btnControleDeAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnControleDeAcesso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnControleDeAcesso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnControleDeAcesso.Location = new System.Drawing.Point(0, 105);
-            this.btnControleDeAcesso.Name = "btnControleDeAcesso";
-            this.btnControleDeAcesso.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnControleDeAcesso.Size = new System.Drawing.Size(248, 35);
-            this.btnControleDeAcesso.TabIndex = 4;
-            this.btnControleDeAcesso.Text = "Controle de Acesso";
-            this.btnControleDeAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnControleDeAcesso.UseVisualStyleBackColor = true;
-            this.btnControleDeAcesso.Click += new System.EventHandler(this.btnControleDeAcesso_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoCor;
@@ -415,89 +545,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // btnVendas
-            // 
-            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendas.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVendas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnVendas.IconColor = System.Drawing.Color.White;
-            this.btnVendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendas.IconSize = 25;
-            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(0, 460);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(248, 45);
-            this.btnVendas.TabIndex = 0;
-            this.btnVendas.Text = "   Vendas";
-            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendas.UseVisualStyleBackColor = false;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
-            // 
-            // btnProdutos
-            // 
-            this.btnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProdutos.FlatAppearance.BorderSize = 0;
-            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnProdutos.IconChar = FontAwesome.Sharp.IconChar.Box;
-            this.btnProdutos.IconColor = System.Drawing.Color.White;
-            this.btnProdutos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdutos.IconSize = 25;
-            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 310);
-            this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProdutos.Size = new System.Drawing.Size(248, 45);
-            this.btnProdutos.TabIndex = 0;
-            this.btnProdutos.Text = "  Produtos";
-            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdutos.UseVisualStyleBackColor = true;
-            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
-            // 
-            // btnFuncionarios
-            // 
-            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
-            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionarios.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFuncionarios.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnFuncionarios.IconColor = System.Drawing.Color.White;
-            this.btnFuncionarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFuncionarios.IconSize = 25;
-            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 123);
-            this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFuncionarios.Size = new System.Drawing.Size(248, 45);
-            this.btnFuncionarios.TabIndex = 0;
-            this.btnFuncionarios.Text = "  Funcionários";
-            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFuncionarios.UseVisualStyleBackColor = false;
-            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
-            // 
-            // LogoMenu
-            // 
-            this.LogoMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogoMenu.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoBranco;
-            this.LogoMenu.Location = new System.Drawing.Point(20, 20);
-            this.LogoMenu.Name = "LogoMenu";
-            this.LogoMenu.Size = new System.Drawing.Size(208, 83);
-            this.LogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoMenu.TabIndex = 1;
-            this.LogoMenu.TabStop = false;
-            this.LogoMenu.Click += new System.EventHandler(this.LogoMenu_Click);
             // 
             // dataGridVendasBindingSource
             // 
@@ -522,18 +569,20 @@
             this.Name = "AppLoja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loja de Chocolate";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppLoja_FormClosing);
             this.Load += new System.EventHandler(this.AppLoja_Load);
             this.panelMenuLateral.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panelSubMenuVendas.ResumeLayout(false);
             this.panelSubMenuProdutos.ResumeLayout(false);
             this.panelSubMenuFuncionario.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.panelLoadPanels.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -560,17 +609,20 @@
         private System.Windows.Forms.Button btnConsultarVendas;
         private System.Windows.Forms.Button btnCadastrarVendas;
         private System.Windows.Forms.BindingSource dataGridVendasBindingSource;
+        private System.Windows.Forms.Button btnControleDeAcesso;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnConfigurar;
+        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Panel panelLogin;
+        private System.Windows.Forms.Label labelCargo;
+        private System.Windows.Forms.Label labelServer;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label txtCargo;
+        private System.Windows.Forms.Label txtServidor;
+        private System.Windows.Forms.Label txtUser;
         private System.Windows.Forms.Panel panelLoadPanels;
         private System.Windows.Forms.Panel panelLogoPrincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label txtServidor;
-        private System.Windows.Forms.Label txtUser;
-        private System.Windows.Forms.Label txtCargo;
-        private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label labelServer;
-        private System.Windows.Forms.Label labelCargo;
-        private System.Windows.Forms.Button btnControleDeAcesso;
     }
 }
 
