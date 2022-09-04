@@ -529,7 +529,7 @@
             // 
             // panelLogoPrincipal
             // 
-            this.panelLogoPrincipal.BackColor = System.Drawing.Color.White;
+            this.panelLogoPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.panelLogoPrincipal.Controls.Add(this.pictureBoxLogo);
             this.panelLogoPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogoPrincipal.Location = new System.Drawing.Point(0, 0);

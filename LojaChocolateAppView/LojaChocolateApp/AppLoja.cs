@@ -80,10 +80,13 @@ namespace LojaChocolateApp
                 if (_darkMode == true)
                 {
                     panelLoadPanels.BackColor = Color.FromArgb(30, 30, 30);
-
+                    pictureBoxLogo.Image = Resources.LojaDeChocolateLogoBranco;
                 }
                 if (_darkMode == false)
+                {
                     panelLoadPanels.BackColor = Color.White;
+                    pictureBoxLogo.Image = Resources.LojaDeChocolateLogoCor;
+                }
             }
             catch (Exception ex)
             {
