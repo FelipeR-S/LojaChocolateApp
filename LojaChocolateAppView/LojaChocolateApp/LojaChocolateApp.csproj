@@ -87,6 +87,9 @@
     <Compile Include="Repository\SQLServerConn.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\DarkMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utils\DataGridVendas.cs" />
     <Compile Include="Utils\LayoutItems\LayoutFuncionarios.cs">
       <SubType>UserControl</SubType>
@@ -160,6 +163,12 @@
     <Compile Include="Utils\Panels\InserirProdutos.Designer.cs">
       <DependentUpon>InserirProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Popups\PopupConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Popups\PopupConfig.Designer.cs">
+      <DependentUpon>PopupConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Popups\PopupInfoCSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Panels\InserirProdutos.resx">
       <DependentUpon>InserirProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Popups\PopupConfig.resx">
+      <DependentUpon>PopupConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
       <DependentUpon>PopupInfoCSV.cs</DependentUpon>

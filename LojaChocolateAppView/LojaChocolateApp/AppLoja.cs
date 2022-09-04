@@ -23,6 +23,9 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
+        private bool _darkMode;
+        private bool _controleEstoque;
+        private int _quantidadeEstoque;
         private bool _sair;
         private string _usuario;
         private string _database;
@@ -32,14 +35,94 @@ namespace LojaChocolateApp
             _sair = false;
             InitializeComponent();
             SubMenuDesign();
+            GetConfigs();
         }
         public AppLoja(string usuario, string database, string cargo)
         {
+            _sair = false;
             _usuario = usuario;
             _database = database;
             _cargo = cargo;
             InitializeComponent();
             SubMenuDesign();
+        }
+        // CONFIGURAÇÕES
+        /// <summary>
+        /// Abre form de configurações
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnConfigurar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PopupConfig config = new PopupConfig(_usuario);
+                config.ShowDialog();
+                GetConfigs();
+                DarkMode(this);
+                ControleEstoque();
+                panelLoadPanels.Controls.Clear();
+                panelLoadPanels.Controls.Add(panelLogoPrincipal);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Ativa ou desativa o modo Dark
+        /// </summary>
+        /// <param name="control"></param>
+        private void DarkMode(Control control)
+        {
+            try
+            {
+                if (_darkMode == true)
+                {
+                    panelLoadPanels.BackColor = Color.FromArgb(30, 30, 30);
+
+                }
+                if (_darkMode == false)
+                    panelLoadPanels.BackColor = Color.White;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ControleEstoque()
+        {
+            if (_controleEstoque == true)
+            {
+
+            }
+        }
+        /// <summary>
+        /// Recebe da Databese as configurações
+        /// </summary>
+        private void GetConfigs()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
+                {
+                    connection.Open();
+                    var sqlQuery = $"use [Loja_Chocolate] select [DarkMode], [Aviso Estoque], [Limite Estoque] from [Configurações] where [User] = '{_usuario}'";
+                    SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        _darkMode = reader.GetBoolean(0);
+                        _controleEstoque = reader.GetBoolean(1);
+                        _quantidadeEstoque = Convert.ToInt32(reader.GetValue(2));
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         //LOGIN
         private void AppLoja_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,6 +132,7 @@ namespace LojaChocolateApp
         }
         private void AppLoja_Load(object sender, EventArgs e)
         {
+            txtServidor.Text = _database;
             if (_usuario.ToLower() == "sa")
             {
                 txtUser.Text = "Administrador";
@@ -60,6 +144,7 @@ namespace LojaChocolateApp
                 btnExcluirFuncionario.Visible = false;
                 btnConsultarFuncionarios.Visible = false;
                 panelSubMenuFuncionario.Height = 35;
+                btnConfigurar.Visible = false;
             }
             else
             {
@@ -69,9 +154,18 @@ namespace LojaChocolateApp
                 {
                     btnFuncionarios.Visible = false;
                 }
+                GetConfigs();
+                DarkMode(this);
+                ControleEstoque();
             }
-            txtServidor.Text = _database;
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -140,8 +234,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new CadastrarFuncionario();
+            var panel = new CadastrarFuncionario(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -153,8 +246,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new AlteraFuncionario();
+            var panel = new AlteraFuncionario(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -166,8 +258,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnConsultarFuncionarios_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new ConsultaFuncionarios();
+            var panel = new ConsultaFuncionarios(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -179,8 +270,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnControleDeAcesso_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new ControleDeAcesso();
+            var panel = new ControleDeAcesso(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -203,8 +293,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnInserirProduto_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new InserirProdutos();
+            var panel = new InserirProdutos(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -216,8 +305,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnEstoque_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new AlteraProdutos();
+            var panel = new AlteraProdutos(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -229,8 +317,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnConsultarProdutos_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new ConsultaProdutos();
+            var panel = new ConsultaProdutos(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -253,8 +340,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnCadastrarVendas_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new CadastrarVenda();
+            var panel = new CadastrarVenda(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
@@ -266,8 +352,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void btnConsultarVendas_Click(object sender, EventArgs e)
         {
-            panelLoadPanels.Visible = true;
-            var panel = new ConsultaVendas();
+            var panel = new ConsultaVendas(_darkMode);
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             panel.dataGridViewVendas.Rows.Clear();

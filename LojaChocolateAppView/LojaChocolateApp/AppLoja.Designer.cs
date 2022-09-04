@@ -61,7 +61,7 @@
             this.txtUser = new System.Windows.Forms.Label();
             this.panelLoadPanels = new System.Windows.Forms.Panel();
             this.panelLogoPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.dataGridVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenuLateral.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,7 +73,7 @@
             this.panelLogin.SuspendLayout();
             this.panelLoadPanels.SuspendLayout();
             this.panelLogoPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +120,7 @@
             this.btnConfigurar.TabIndex = 3;
             this.btnConfigurar.Text = "Configurações";
             this.btnConfigurar.UseVisualStyleBackColor = false;
+            this.btnConfigurar.Click += new System.EventHandler(this.btnConfigurar_Click);
             // 
             // btnSair
             // 
@@ -529,22 +530,22 @@
             // panelLogoPrincipal
             // 
             this.panelLogoPrincipal.BackColor = System.Drawing.Color.White;
-            this.panelLogoPrincipal.Controls.Add(this.pictureBox2);
+            this.panelLogoPrincipal.Controls.Add(this.pictureBoxLogo);
             this.panelLogoPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogoPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelLogoPrincipal.Name = "panelLogoPrincipal";
             this.panelLogoPrincipal.Size = new System.Drawing.Size(716, 561);
             this.panelLogoPrincipal.TabIndex = 35;
             // 
-            // pictureBox2
+            // pictureBoxLogo
             // 
-            this.pictureBox2.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoCor;
-            this.pictureBox2.Location = new System.Drawing.Point(113, 139);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(500, 250);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxLogo.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoCor;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(113, 139);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(500, 250);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLogo.TabIndex = 1;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // dataGridVendasBindingSource
             // 
@@ -582,7 +583,7 @@
             this.panelLoadPanels.ResumeLayout(false);
             this.panelLogoPrincipal.ResumeLayout(false);
             this.panelLogoPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -622,7 +623,7 @@
         private System.Windows.Forms.Label txtUser;
         private System.Windows.Forms.Panel panelLoadPanels;
         private System.Windows.Forms.Panel panelLogoPrincipal;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
 

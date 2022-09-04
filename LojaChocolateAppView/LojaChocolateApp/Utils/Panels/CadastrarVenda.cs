@@ -18,13 +18,15 @@ namespace LojaChocolateApp.Utils.Panels
     {
         private int _addProdVenda;
         private TextBoxControls _controle = new TextBoxControls();
-        public CadastrarVenda()
+        public CadastrarVenda(bool darkMode)
         {
             InitializeComponent();
             CarregaComboBoxProduto();
             textProdVendas.ReadOnly = true;
             textProdVendas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             _addProdVenda = 0;
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Adiciona <see cref="Produto"/> ao texBox de venda

@@ -15,9 +15,11 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class AlteraFuncionario : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public AlteraFuncionario()
+        public AlteraFuncionario(bool darkMode)
         {
             InitializeComponent();
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Invoca Popup para aceitar remoção do <see cref="Funcionario"/> do <see cref="FuncionarioRepository"/> caso ele exista

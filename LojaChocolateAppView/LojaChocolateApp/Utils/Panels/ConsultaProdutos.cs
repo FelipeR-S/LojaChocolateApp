@@ -16,11 +16,13 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class ConsultaProdutos : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public ConsultaProdutos()
+        public ConsultaProdutos(bool darkMode)
         {
             InitializeComponent();
             flowLayoutLayoutExibeProdutos.Controls.Clear();
             tituloExibeProdutos.Visible = false;
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Exibe detalhes de um <see cref="Produto"/> a partir do seu id
@@ -120,20 +122,7 @@ namespace LojaChocolateApp.Utils.Panels
             LayoutProdutos[] layoutLista = new LayoutProdutos[lista.Count];
             for (int i = 0; i < lista.Count; i++)
             {
-                layoutLista[i] = new LayoutProdutos();
-                layoutLista[i].Nome = lista[i].Nome;
-                layoutLista[i].Id = lista[i].Id.ToString();
-                layoutLista[i].Peso = $"{lista[i].Peso}g";
-                layoutLista[i].Estoque = lista[i].Estoque.ToString();
-                layoutLista[i].Valor = $"R$ {lista[i].Valor}";
-                layoutLista[i].Tipo = lista[i].Tipo;
-                layoutLista[i].Vendas = lista[i].QuantidadeDeVendas.ToString();
-
-                if (flowLayoutLayoutExibeProdutos.Controls.Count < 0)
-                {
-                    flowLayoutLayoutExibeProdutos.Controls.Clear();
-                }
-                flowLayoutLayoutExibeProdutos.Controls.Add(layoutLista[i]);
+                PopulaExibeDetalheProduto(lista[i]);
             }
         }
         private void OnlyNumbers(object sender, KeyPressEventArgs e)

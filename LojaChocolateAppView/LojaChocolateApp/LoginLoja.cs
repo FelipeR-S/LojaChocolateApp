@@ -27,25 +27,33 @@ namespace LojaChocolateApp
         /// </summary>
         private void CarregaComboBoxDatabase()
         {
-            var listaDatabase = new List<string>();
-            var database = "";
-            listaDatabase.Add(database);
-
-            string ServerName = Environment.MachineName;
-            RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-            using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
+            try
             {
-                RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
-                if (instanceKey != null)
+                var listaDatabase = new List<string>();
+                var database = "";
+                listaDatabase.Add(database);
+
+                string ServerName = Environment.MachineName;
+                RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+                using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
                 {
-                    foreach (var instanceName in instanceKey.GetValueNames())
+                    RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+                    if (instanceKey != null)
                     {
-                        database = ServerName + "\\" + instanceName;
-                        listaDatabase.Add(database);
+                        foreach (var instanceName in instanceKey.GetValueNames())
+                        {
+                            database = ServerName + "\\" + instanceName;
+                            listaDatabase.Add(database);
+                        }
                     }
                 }
+                comboBoxDatabase.DataSource = listaDatabase;
             }
-            comboBoxDatabase.DataSource = listaDatabase;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         /// <summary>
         /// Realiza tentativa de login
@@ -81,20 +89,24 @@ namespace LojaChocolateApp
                             cargo = reader.GetString(0);
                         }
                         conectado = true;
-                        this.DialogResult = DialogResult.OK;
                         connection.Close();
                     }
                     if (conectado == true)
                     {
+                        this.Visible = false;
+                        this.ShowInTaskbar = false;
                         AppLoja appLoja = new AppLoja(login, database, cargo);
                         appLoja.ShowDialog();
-                        this.Hide();
                     }
                 }
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>

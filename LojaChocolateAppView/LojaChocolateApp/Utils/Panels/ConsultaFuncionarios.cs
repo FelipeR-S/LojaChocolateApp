@@ -17,11 +17,13 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class ConsultaFuncionarios : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public ConsultaFuncionarios()
+        public ConsultaFuncionarios(bool darkMode)
         {
             InitializeComponent();
             flowLayoutPanelFuncionario.Controls.Clear();
             TituloExibeFuncionario.Visible = false;
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Recupera detalhes do <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/> quando ele existe
@@ -64,18 +66,19 @@ namespace LojaChocolateApp.Utils.Panels
         private void PopulaExibeDetalhe(Funcionario funcionario)
         {
             LayoutFuncionarios detalhes = new LayoutFuncionarios();
+            detalhes = new LayoutFuncionarios();
             detalhes.Nome = funcionario.Nome;
             detalhes.Id = funcionario.Id.ToString();
             detalhes.Cargo = funcionario.Cargo;
             detalhes.Cpf = funcionario.Cpf;
             detalhes.Contato = funcionario.Contato;
             detalhes.Salario = $"R$ {funcionario.Salario}";
-            detalhes.DataCadastro = funcionario.DataCadastro;
+            detalhes.DataCadastro = funcionario.DataCadastro.ToString();
             detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
-            detalhes.Imagem = Resources.userWhite;
-            detalhes.BackGroundColor = Color.FromArgb(238, 118, 0);
+            detalhes.BackGroundColor = Color.Gray;
+            detalhes.panelExibeDetalhes.Visible = false;
+            detalhes.Height = 80;
             detalhes.btnMenosDetalhes.Visible = false;
-            detalhes.btnMaisDetalhes.Visible = false;
 
             if (flowLayoutPanelFuncionario.Controls.Count < 0)
             {
@@ -121,25 +124,7 @@ namespace LojaChocolateApp.Utils.Panels
             LayoutFuncionarios[] layoutLista = new LayoutFuncionarios[lista.Count];
             for (int i = 0; i < lista.Count; i++)
             {
-                layoutLista[i] = new LayoutFuncionarios();
-                layoutLista[i].Nome = lista[i].Nome;
-                layoutLista[i].Id = lista[i].Id.ToString();
-                layoutLista[i].Cargo = lista[i].Cargo;
-                layoutLista[i].Cpf = lista[i].Cpf;
-                layoutLista[i].Contato = lista[i].Contato;
-                layoutLista[i].Salario = $"R$ {lista[i].Salario}";
-                layoutLista[i].DataCadastro = lista[i].DataCadastro.ToString();
-                layoutLista[i].Vendas = lista[i].QuantidadeDeVendas.ToString();
-                layoutLista[i].BackGroundColor = Color.Gray;
-                layoutLista[i].panelExibeDetalhes.Visible = false;
-                layoutLista[i].Height = 80;
-                layoutLista[i].btnMenosDetalhes.Visible = false;
-
-                if (flowLayoutPanelFuncionario.Controls.Count < 0)
-                {
-                    flowLayoutPanelFuncionario.Controls.Clear();
-                }
-                flowLayoutPanelFuncionario.Controls.Add(layoutLista[i]);
+               PopulaExibeDetalhe(lista[i]);
             }
         }
         private void OnlyNumbers(object sender, KeyPressEventArgs e)

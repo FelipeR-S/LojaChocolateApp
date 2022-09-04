@@ -16,11 +16,13 @@ namespace LojaChocolateApp.Utils.Panels
     public partial class AlteraProdutos : UserControl
     {
         private TextBoxControls _controle = new TextBoxControls();
-        public AlteraProdutos()
+        public AlteraProdutos(bool darkMode)
         {
             InitializeComponent();
             panelQuantidadeProduto.Visible = false;
             panelNovoValorProduto.Visible = false;
+            DarkMode activeDarkMode = new DarkMode(darkMode);
+            activeDarkMode.GetDarkMode(this);
         }
         /// <summary>
         /// Altera Estoque removendo, aumentando, diminuindo a quantidade ou alterando o valor do <see cref="Produto"/>
