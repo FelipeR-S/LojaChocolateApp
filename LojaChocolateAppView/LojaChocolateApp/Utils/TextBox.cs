@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -369,6 +370,27 @@ namespace LojaChocolateApp.Utils
                 if (sender is TextBox)
                     t.Undo();
             }
+        }
+        public Image OpenFileImage(object sender, EventArgs e)
+        {
+            Image imagem = null;
+            OpenFileDialog arquivo = new OpenFileDialog();
+            //Filtro
+            arquivo.Filter = "Image Files|*.jpg;*.jpeg;*.png;...";
+
+            if (arquivo.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo file = new FileInfo(arquivo.FileName);
+                var fileSize = file.Length;
+                if (fileSize > 800000)
+                    MessageBox.Show("O arquivo deve ter tamanho máximo de 800kb.");
+                else
+                {
+                    imagem = Image.FromFile(arquivo.FileName);
+                    return imagem;
+                }
+            }
+            return imagem;
         }
     }
 }

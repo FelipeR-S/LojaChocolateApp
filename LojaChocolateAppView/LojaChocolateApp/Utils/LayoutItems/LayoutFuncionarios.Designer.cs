@@ -38,6 +38,7 @@
             this.btnMenosDetalhes = new System.Windows.Forms.Button();
             this.btnMaisDetalhes = new System.Windows.Forms.Button();
             this.BackColorLayout = new System.Windows.Forms.Panel();
+            this.btnAddImagem = new FontAwesome.Sharp.IconButton();
             this.pictureLayout = new System.Windows.Forms.PictureBox();
             this.panelExibeDetalhes = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -191,12 +192,31 @@
             // BackColorLayout
             // 
             this.BackColorLayout.BackColor = System.Drawing.Color.Transparent;
+            this.BackColorLayout.Controls.Add(this.btnAddImagem);
             this.BackColorLayout.Controls.Add(this.pictureLayout);
             this.BackColorLayout.Dock = System.Windows.Forms.DockStyle.Left;
             this.BackColorLayout.Location = new System.Drawing.Point(0, 0);
             this.BackColorLayout.Name = "BackColorLayout";
             this.BackColorLayout.Size = new System.Drawing.Size(132, 80);
             this.BackColorLayout.TabIndex = 16;
+            // 
+            // btnAddImagem
+            // 
+            this.btnAddImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnAddImagem.FlatAppearance.BorderSize = 0;
+            this.btnAddImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddImagem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddImagem.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAddImagem.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAddImagem.IconColor = System.Drawing.Color.White;
+            this.btnAddImagem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddImagem.IconSize = 20;
+            this.btnAddImagem.Location = new System.Drawing.Point(107, 56);
+            this.btnAddImagem.Name = "btnAddImagem";
+            this.btnAddImagem.Size = new System.Drawing.Size(24, 24);
+            this.btnAddImagem.TabIndex = 11;
+            this.btnAddImagem.UseVisualStyleBackColor = false;
+            this.btnAddImagem.Click += new System.EventHandler(this.btnAddImagem_Click);
             // 
             // pictureLayout
             // 
@@ -434,5 +454,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Panel panelDetalhes;
+        private FontAwesome.Sharp.IconButton btnAddImagem;
     }
 }

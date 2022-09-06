@@ -64,7 +64,11 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="produto"></param>
         private void PopulaExibeDetalheProduto(Produto produto)
         {
+            SQLServerConn server = new SQLServerConn();
             var layoutProdutos = new LayoutProdutos();
+            Image imagem = server.GetImagemSql("Produto", produto.Id);
+            if (imagem != null)
+                layoutProdutos.Imagem = imagem;
             layoutProdutos.Nome = produto.Nome;
             layoutProdutos.Id = produto.Id.ToString();
             layoutProdutos.Peso = $"{produto.Peso}g";

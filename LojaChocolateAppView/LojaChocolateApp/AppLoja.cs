@@ -1,23 +1,11 @@
-﻿using LojaChocolateApp.Model;
-using LojaChocolateApp.Properties;
+﻿using LojaChocolateApp.Properties;
 using LojaChocolateApp.Repository;
 using LojaChocolateApp.Utils;
-using LojaChocolateApp.Utils.LayoutItems;
 using LojaChocolateApp.Utils.Panels;
 using LojaChocolateApp.Utils.Popups;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace LojaChocolateApp
@@ -112,7 +100,8 @@ namespace LojaChocolateApp
                     {
                         _darkMode = reader.GetBoolean(0);
                         _controleEstoque = reader.GetBoolean(1);
-                        _quantidadeEstoque = Convert.ToInt32(reader.GetValue(2));
+                        if (_controleEstoque == true)
+                            _quantidadeEstoque = Convert.ToInt32(reader.GetValue(2));
                     }
                     connection.Close();
                 }

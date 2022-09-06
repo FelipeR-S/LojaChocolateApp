@@ -6,11 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace LojaChocolateApp.Utils.Panels
 {
@@ -65,6 +68,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="funcionario"></param>
         private void PopulaExibeDetalhe(Funcionario funcionario)
         {
+            SQLServerConn server = new SQLServerConn();
             LayoutFuncionarios detalhes = new LayoutFuncionarios();
             detalhes = new LayoutFuncionarios();
             detalhes.Nome = funcionario.Nome;
@@ -75,7 +79,12 @@ namespace LojaChocolateApp.Utils.Panels
             detalhes.Salario = $"R$ {funcionario.Salario}";
             detalhes.DataCadastro = funcionario.DataCadastro.ToString();
             detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
-            detalhes.BackGroundColor = Color.Gray;
+            Image imagem = server.GetImagemSql("Funcionario", funcionario.Id);
+            if (imagem == null)
+                detalhes.Imagem = Resources.userWhite;
+            else
+                detalhes.Imagem = imagem;
+            detalhes.BackGroundColor = System.Drawing.Color.Gray;
             detalhes.panelExibeDetalhes.Visible = false;
             detalhes.Height = 80;
             detalhes.btnMenosDetalhes.Visible = false;
@@ -124,7 +133,7 @@ namespace LojaChocolateApp.Utils.Panels
             LayoutFuncionarios[] layoutLista = new LayoutFuncionarios[lista.Count];
             for (int i = 0; i < lista.Count; i++)
             {
-               PopulaExibeDetalhe(lista[i]);
+                PopulaExibeDetalhe(lista[i]);
             }
         }
         private void OnlyNumbers(object sender, KeyPressEventArgs e)
