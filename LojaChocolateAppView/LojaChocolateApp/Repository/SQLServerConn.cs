@@ -18,6 +18,7 @@ namespace LojaChocolateApp.Repository
         private static string _database = "Loja_Chocolate";
         private static string _user;
         private static string _password;
+        public static string User { get { return _user; } }
         public SQLServerConn(string server, string login, string senha)
         {
             _server = server;

@@ -85,6 +85,10 @@ namespace LojaChocolateApp
                 else
                     MessageBox.Show("Dados inseridos já foram cadastrados no sistema.");
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Não é possível cadastrar usuário pois a matrícula não existe no registro de Funcionários.");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

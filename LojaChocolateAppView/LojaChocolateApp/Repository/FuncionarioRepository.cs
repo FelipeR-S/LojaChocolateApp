@@ -192,17 +192,18 @@ namespace LojaChocolateApp.Repository
                 else
                 {
                     existe = true;
-                    using (SqlCommand command = new SqlCommand())
+                    connection.Open();
+                    SqlCommand cmdProcedure = new SqlCommand("sp_RemoveFuncionario", connection);
+                    cmdProcedure.CommandType = CommandType.StoredProcedure;
+                    cmdProcedure.Parameters.AddWithValue("@matricula", id);
+                    SqlDataReader rdr = cmdProcedure.ExecuteReader();
+                    while (rdr.Read())
                     {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = $"update [dbo].[Vendas_NF] set [Vendedor Matricula] = null where [Vendedor Matricula] = '{id}' DELETE FROM [dbo].[Funcionarios] WHERE [Matricula] = '{id}'";
-                        int recordsAffected = command.ExecuteNonQuery();
-                        connection.Close();
+                        int recordsAffected = cmdProcedure.ExecuteNonQuery();
                     }
-                    return existe;
+                    connection.Close();
                 }
+                return existe;
             }
         }
         public (List<Funcionario>, List<string>, int) TrataCSV(string arquivo)

@@ -67,7 +67,6 @@ namespace LojaChocolateApp.Utils.Panels
                 }
                 flowLayoutPanelCadastros.Controls.Add(layoutLista[i]);
             }
-
         }
         /// <summary>
         /// Acessa o Database e recupera lista de solicitações de cadastro.

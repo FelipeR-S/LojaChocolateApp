@@ -49,8 +49,11 @@ namespace LojaChocolateApp
                 config.ShowDialog();
                 GetConfigs();
                 DarkMode();
-                ControleEstoque controle = new ControleEstoque(_controleEstoque, _quantidadeEstoque);
-                controle.GetControleEstoque();
+                if (_controleEstoque == true)
+                {
+                    ControleEstoque controle = new ControleEstoque(_controleEstoque, _quantidadeEstoque);
+                    controle.GetControleEstoque();
+                }
                 panelLoadPanels.Controls.Clear();
                 panelLoadPanels.Controls.Add(panelLogoPrincipal);
             }

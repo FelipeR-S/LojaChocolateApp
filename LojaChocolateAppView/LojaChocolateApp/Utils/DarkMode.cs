@@ -15,41 +15,37 @@ namespace LojaChocolateApp.Utils
         {
             _darkMode = darkMode;
         }
-
+        /// <summary>
+        /// Gera o darkMode
+        /// </summary>
+        /// <param name="control"></param>
         public void GetDarkMode(Control control)
         {
-            try
+            if (_darkMode == true)
             {
-                if (_darkMode == true)
+                foreach (Control c in control.Controls)
                 {
-                    foreach (Control c in control.Controls)
+                    if (_darkMode == true)
                     {
-                        if (_darkMode == true)
+                        if (c is TextBox && c.BackColor == Color.White)
                         {
-                            if (c is TextBox && c.BackColor == Color.White)
-                            {
-                                ((TextBox)c).BackColor = Color.FromArgb(30, 30, 30);
-                                ((TextBox)c).ForeColor = Color.White;
-                            }
-                        }
-                        if (_darkMode == false)
-                        {
-                            if (c is TextBox && c.BackColor == Color.FromArgb(30, 30, 30))
-                            {
-                                ((TextBox)c).BackColor = Color.White;
-                                ((TextBox)c).ForeColor = Color.Black;
-                            }
-                        }
-                        if (c.HasChildren)
-                        {
-                            GetDarkMode(c);
+                            ((TextBox)c).BackColor = Color.FromArgb(30, 30, 30);
+                            ((TextBox)c).ForeColor = Color.White;
                         }
                     }
+                    if (_darkMode == false)
+                    {
+                        if (c is TextBox && c.BackColor == Color.FromArgb(30, 30, 30))
+                        {
+                            ((TextBox)c).BackColor = Color.White;
+                            ((TextBox)c).ForeColor = Color.Black;
+                        }
+                    }
+                    if (c.HasChildren)
+                    {
+                        GetDarkMode(c);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
