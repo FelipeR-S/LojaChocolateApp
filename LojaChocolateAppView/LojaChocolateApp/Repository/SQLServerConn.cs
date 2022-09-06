@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -70,6 +73,131 @@ namespace LojaChocolateApp.Repository
                 SqlCommand cmd = new SqlCommand(sqlQuery, connection);
                 SqlDataReader srd = cmd.ExecuteReader();
                 connection.Close();
+            }
+        }
+        /// <summary>
+        /// Insere Imagem no banco de dados
+        /// </summary>
+        /// <param name="imagem"></param>
+        /// <param name="tipo"></param>
+        /// <param name="id"></param>
+        public void InsereImagemSql(byte[] imagem, string tipo, string id)
+        {
+            var existe = false;
+            var tabela = "";
+            var coluna = "";
+            switch (tipo)
+            {
+                case "Produto":
+                    tabela = "[dbo].[Tabela_Imagens_Produtos]";
+                    coluna = "[Codigo]";
+                    break;
+                case "Funcionario":
+                    tabela = "[dbo].[Tabela_Imagens_Funcionarios]";
+                    coluna = "[Matricula]";
+                    break;
+                default:
+                    break;
+            }
+            using (SqlConnection connection = new SqlConnection(StrCon))
+            {
+                connection.Open();
+                var sqlQueryVerifica = $"select {coluna} from {tabela} where {coluna} = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQueryVerifica, connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var dadoTabela = reader.GetValue(0).ToString();
+                    if (id == dadoTabela)
+                        existe = true;
+                }
+                connection.Close();
+                if (existe == false)
+                {
+                    var sqlInsereMatricula = $"insert into {tabela} ({coluna}) values (@dados)";
+                    using (SqlCommand command = new SqlCommand(sqlInsereMatricula, connection))
+                    {
+                        connection.Open();
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@dados", id);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                var sqlInsereImagem = $"update {tabela} set [Imagem] = @imagem where {coluna} = '{id}'";
+                using (SqlCommand command = new SqlCommand(sqlInsereImagem, connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@imagem", imagem);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        public byte[] ConvertImageToByte(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+        public Image ConvertByteArrayToImage(byte[] dados)
+        {
+            using (MemoryStream ms = new MemoryStream(dados))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        public Image GetImagemSql(string tipo, string id)
+        {
+            Image imagem = null;
+            var existe = false;
+            var tabela = "";
+            var coluna = "";
+            switch (tipo)
+            {
+                case "Produto":
+                    tabela = "[dbo].[Tabela_Imagens_Produtos]";
+                    coluna = "[Codigo]";
+                    break;
+                case "Funcionario":
+                    tabela = "[dbo].[Tabela_Imagens_Funcionarios]";
+                    coluna = "[Matricula]";
+                    break;
+                default:
+                    break;
+            }
+            using (SqlConnection connection = new SqlConnection(StrCon))
+            {
+                connection.Open();
+                var sqlQueryVerifica = $"select {coluna} from {tabela} where {coluna} = '{id}'";
+                SqlCommand cmd = new SqlCommand(sqlQueryVerifica, connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var idTabela = reader.GetValue(0).ToString();
+                    if (id == idTabela)
+                        existe = true;
+                }
+                connection.Close();
+                if (existe == true)
+                {
+                    connection.Open();
+                    var sqlRetiraImagem = $"select [Imagem] from {tabela} where {coluna} = '{id}'";
+                    SqlCommand cmdImg = new SqlCommand(sqlRetiraImagem, connection);
+                    SqlDataReader readerImg = cmdImg.ExecuteReader();
+                    while (readerImg.Read())
+                    {
+                        byte[] dadosImagem = (byte[])readerImg.GetValue(0);
+                        imagem = ConvertByteArrayToImage(dadosImagem);
+                    }
+                    connection.Close();
+                    return imagem;
+                }
+                else
+                    return imagem;
             }
         }
     }

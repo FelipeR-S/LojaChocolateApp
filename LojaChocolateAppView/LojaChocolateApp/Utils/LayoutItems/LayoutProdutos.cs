@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,22 @@ namespace LojaChocolateApp.Utils.LayoutItems
         private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
             _controle.CopiarSelecionar(sender, e);
+        }
+        private void btnAddImagem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SQLServerConn server = new SQLServerConn();
+                var imagem = _controle.OpenFileImage(sender, e);
+                var imgByte = server.ConvertImageToByte(imagem);
+                server.InsereImagemSql(imgByte, "Produto", this.Id);
+                this.Imagem = imagem;
+                MessageBox.Show("Imagem Cadastrada!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
