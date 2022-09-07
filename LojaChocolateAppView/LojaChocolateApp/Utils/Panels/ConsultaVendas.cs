@@ -47,8 +47,16 @@ namespace LojaChocolateApp.Utils.Panels
                     {
                         qtd = sr.GetValue(1).ToString();
                     }
-                    dataGridVendasBindingSource
-                        .Add(new DataGridVendas() { Numero = venda.VendaId, Descricao = $"Vendido por: {venda.VendedorId} | {venda.VendedorNome} | Qtd de Produtos: {qtd}", Valor = venda.Valor.ToString("F2"), Data = venda.DataVenda.ToShortDateString(), Mais = "+" });
+                    if (String.IsNullOrEmpty(venda.VendedorId))
+                    {
+                        dataGridVendasBindingSource
+                            .Add(new DataGridVendas() { Numero = venda.VendaId, Descricao = $"Funcionário desligado | {venda.VendedorNome} | Qtd de Produtos: {qtd}", Valor = venda.Valor.ToString("F2"), Data = venda.DataVenda.ToShortDateString(), Mais = "+" });
+                    }
+                    else
+                    {
+                        dataGridVendasBindingSource
+                            .Add(new DataGridVendas() { Numero = venda.VendaId, Descricao = $"Vendido por: {venda.VendedorId} | {venda.VendedorNome} | Qtd de Produtos: {qtd}", Valor = venda.Valor.ToString("F2"), Data = venda.DataVenda.ToShortDateString(), Mais = "+" });
+                    }
                     connection.Close();
                 }
             }
@@ -66,49 +74,41 @@ namespace LojaChocolateApp.Utils.Panels
             {
                 if (e.RowIndex != -1)
                 {
-                    var index = -1;
-                    //Remove detalhes
-                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "-" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
+                    ExibeDetalhesLinha(sender, e);
+                }
+                if (e.RowIndex == -1 && e.ColumnIndex == dataGridViewVendas.Columns.Count - 1)
+                {
+                    var linhas = dataGridViewVendas.Rows.Count - 1;
+                    var colunas = dataGridViewVendas.Columns.Count - 1;
+                    if (dataGridViewVendas.Columns[colunas].HeaderText == "+")
                     {
-                        index = dataGridViewVendas.Rows[e.RowIndex].Index;
-                        var contador = index;
-                        while (contador + 1 < dataGridViewVendas.Rows.Count)
+                        dataGridViewVendas.Columns[colunas].HeaderText = "-";
+                        while (linhas != -1)
                         {
-                            if (dataGridViewVendas.Rows[index + 1].Index == dataGridViewVendas.Rows.Count)
+                            if (dataGridViewVendas.Rows[linhas].Cells[4].Value.ToString() != "-")
                             {
-                                break;
+                                var id = dataGridViewVendas.Rows[linhas].Cells[0].Value.ToString();
+                                dataGridViewVendas.Rows[linhas].Cells[4].Value = "-";
+                                PopulaDetalhesBtn(id, linhas + 1);
                             }
-                            else
-                            {
-                                if (dataGridViewVendas.Rows[index + 1].Cells[0].Value.ToString() == "")
-                                {
-                                    dataGridViewVendas.Rows.RemoveAt(index + 1);
-                                }
-                                else
-                                    break;
-                            }
+                            linhas--;
                         }
-                        dataGridViewVendas.Rows[index].Cells[4].Value = "+";
-                        goto SkipToEnd;
-                    }
-                    //Exibe detalhes
-                    if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "+" && dataGridViewVendas.Columns[e.ColumnIndex].HeaderText == "+")
-                    {
-                        var id = dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
-                        dataGridViewVendas.Rows[e.RowIndex].Selected = true;
-
-                        // Replace na venda clicada "-"
-                        dataGridViewVendas.Rows[index - 1].Cells[4].Value = "-";
-                        PopulaDetalhesBtn(id, index);
-                        goto SkipToEnd;
                     }
                     else
                     {
-                        goto SkipToEnd;
+                        dataGridViewVendas.Columns[colunas].HeaderText = "+";
+                        while (linhas != -1)
+                        {
+                            if (dataGridViewVendas.Rows[linhas].Cells[0].Value.ToString() == "")
+                                dataGridViewVendas.Rows.RemoveAt(linhas);
+                            else
+                                dataGridViewVendas.Rows[linhas].Cells[4].Value = "+";
+                            linhas--;
+                        }
                     }
+
+
                 }
-            SkipToEnd:;
             }
             catch (Exception ex)
             {
@@ -163,9 +163,60 @@ namespace LojaChocolateApp.Utils.Panels
             foreach (var detalhe in listaDetalhes)
             {
                 var detalheProduto = detalhe.Split(';');
+                if (detalheProduto[0].StartsWith(" "))
+                    detalheProduto[0] = detalheProduto[0].Insert(0, "Produto Removido ");
                 dataGridVendasBindingSource
                     .Insert(index, new DataGridVendas() { Numero = "", Descricao = detalheProduto[0], Valor = detalheProduto[1], Data = "", Mais = "" });
                 dataGridViewVendas.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(235, 167, 101);
+            }
+        }
+        private void ExibeDetalhesLinha(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var colunas = dataGridViewVendas.Columns.Count - 1;
+                var index = -1;
+                //Remove detalhes
+                if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "-" && e.ColumnIndex == colunas)
+                {
+                    index = dataGridViewVendas.Rows[e.RowIndex].Index;
+                    var contador = index;
+                    while (contador + 1 < dataGridViewVendas.Rows.Count)
+                    {
+                        if (dataGridViewVendas.Rows[index + 1].Index == dataGridViewVendas.Rows.Count)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            if (dataGridViewVendas.Rows[index + 1].Cells[0].Value.ToString() == "")
+                            {
+                                dataGridViewVendas.Rows.RemoveAt(index + 1);
+                            }
+                            else
+                                break;
+                        }
+                    }
+                    dataGridViewVendas.Rows[index].Cells[4].Value = "+";
+                    goto SkipToEnd;
+                }
+                //Exibe detalhes
+                if (dataGridViewVendas.Rows[e.RowIndex].Cells[4].Value.ToString() == "+" && e.ColumnIndex == colunas)
+                {
+                    var id = dataGridViewVendas.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    index = dataGridViewVendas.Rows[e.RowIndex].Index + 1;
+                    dataGridViewVendas.Rows[e.RowIndex].Selected = true;
+
+                    // Replace na venda clicada "-"
+                    dataGridViewVendas.Rows[index - 1].Cells[4].Value = "-";
+                    PopulaDetalhesBtn(id, index);
+                    goto SkipToEnd;
+                }
+                else
+                {
+                    goto SkipToEnd;
+                }
+            SkipToEnd:;
             }
         }
     }
