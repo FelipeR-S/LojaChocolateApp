@@ -49,8 +49,7 @@ namespace LojaChocolateApp.Utils
                 t.Paste();
                 if (!Regex.IsMatch(t.Text, @"^[0-9]*$"))
                 {
-                    MessageBox.Show("Formato incorreto.");
-                    t.Text = string.Empty;
+                    t.Text = Regex.Replace(t.Text, @"[^0-9]", "");
                 }
             }
             if (e.KeyChar == 24)
@@ -91,8 +90,7 @@ namespace LojaChocolateApp.Utils
                 t.Paste();
                 if (!Regex.IsMatch(t.Text, @"^[A-Za-zÀ-ú\s?]*$"))
                 {
-                    MessageBox.Show("Formato incorreto.");
-                    t.Text = string.Empty;
+                    t.Text = Regex.Replace(t.Text, @"[^A-Za-zÀ-ú\s?]", "");
                 }
             }
             if (e.KeyChar == 24)
