@@ -65,7 +65,7 @@
             this.btnExcluirFuncionario.TabIndex = 1;
             this.btnExcluirFuncionario.Text = "REMOVER";
             this.btnExcluirFuncionario.UseVisualStyleBackColor = false;
-            this.btnExcluirFuncionario.Click += new System.EventHandler(this.btnExcluirFuncionario_Click);
+            this.btnExcluirFuncionario.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCANCELAR
             // 

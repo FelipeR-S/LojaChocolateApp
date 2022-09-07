@@ -44,15 +44,15 @@ namespace LojaChocolateApp.Utils.Popups
             else
                 textBoxProdRemover.Text = textBoxProdRemover.Text.Replace("00", $"{panelProdutos.textIdEstoqueProdutos.Text}");
         }
-        private void btnExcluirFuncionario_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             try
             {
-                var idUser = GetMatriculaUser(SQLServerConn.User);
                 var removido = false;
                 var id = "";
                 if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
                 {
+                    var idUser = GetMatriculaUser(SQLServerConn.User);
                     id = panelFuncionario.textBoxRemoverFuncionario.Text;
                     if (id != idUser)
                     {

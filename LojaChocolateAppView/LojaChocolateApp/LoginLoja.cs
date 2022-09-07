@@ -17,6 +17,7 @@ namespace LojaChocolateApp
     public partial class LoginLoja : Form
     {
         private TextBoxControls _controle = new TextBoxControls();
+        private CadastroLogin _cadastro = new CadastroLogin();
         public LoginLoja()
         {
             InitializeComponent();
@@ -64,6 +65,7 @@ namespace LojaChocolateApp
         {
             try
             {
+                _cadastro.Close();
                 var conectado = false;
                 var databaseTxt = comboBoxDatabase.SelectedItem.ToString();
                 var login = textBoxUser.Text;
@@ -116,8 +118,7 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CadastroLogin cadastro = new CadastroLogin();
-            cadastro.Show();
+            _cadastro.Show();
         }
         private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
         {
