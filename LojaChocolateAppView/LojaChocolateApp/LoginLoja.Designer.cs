@@ -84,7 +84,7 @@
             this.panelDatabase.Location = new System.Drawing.Point(0, 100);
             this.panelDatabase.Name = "panelDatabase";
             this.panelDatabase.Size = new System.Drawing.Size(384, 80);
-            this.panelDatabase.TabIndex = 5;
+            this.panelDatabase.TabIndex = 0;
             // 
             // comboBoxDatabase
             // 
@@ -94,7 +94,7 @@
             this.comboBoxDatabase.MaximumSize = new System.Drawing.Size(300, 0);
             this.comboBoxDatabase.Name = "comboBoxDatabase";
             this.comboBoxDatabase.Size = new System.Drawing.Size(300, 25);
-            this.comboBoxDatabase.TabIndex = 2;
+            this.comboBoxDatabase.TabIndex = 0;
             // 
             // label2
             // 
@@ -115,7 +115,7 @@
             this.panelLogin.Location = new System.Drawing.Point(0, 180);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(384, 80);
-            this.panelLogin.TabIndex = 6;
+            this.panelLogin.TabIndex = 1;
             // 
             // panelLinha
             // 
@@ -143,10 +143,10 @@
             this.textBoxUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUser.ForeColor = System.Drawing.Color.White;
             this.textBoxUser.Location = new System.Drawing.Point(42, 42);
-            this.textBoxUser.MaxLength = 150;
+            this.textBoxUser.MaxLength = 15;
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(300, 22);
-            this.textBoxUser.TabIndex = 0;
+            this.textBoxUser.TabIndex = 1;
             this.textBoxUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbersAndChars);
             // 
@@ -159,7 +159,7 @@
             this.panelSenha.Location = new System.Drawing.Point(0, 260);
             this.panelSenha.Name = "panelSenha";
             this.panelSenha.Size = new System.Drawing.Size(384, 80);
-            this.panelSenha.TabIndex = 7;
+            this.panelSenha.TabIndex = 2;
             // 
             // panel3
             // 
@@ -190,9 +190,10 @@
             this.textBoxSenha.MaxLength = 8;
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(300, 22);
-            this.textBoxSenha.TabIndex = 0;
+            this.textBoxSenha.TabIndex = 2;
             this.textBoxSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSenha.UseSystemPasswordChar = true;
+            this.textBoxSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSenha_KeyPress);
             // 
             // panel2
             // 
@@ -201,7 +202,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 340);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(384, 46);
-            this.panel2.TabIndex = 8;
+            this.panel2.TabIndex = 3;
             // 
             // btnLogin
             // 
@@ -212,7 +213,7 @@
             this.btnLogin.Location = new System.Drawing.Point(42, 6);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(300, 32);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -224,7 +225,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 386);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(384, 95);
-            this.panel4.TabIndex = 10;
+            this.panel4.TabIndex = 5;
             // 
             // label4
             // 
@@ -244,7 +245,7 @@
             this.linkCadastrar.Location = new System.Drawing.Point(0, 500);
             this.linkCadastrar.Name = "linkCadastrar";
             this.linkCadastrar.Size = new System.Drawing.Size(384, 21);
-            this.linkCadastrar.TabIndex = 11;
+            this.linkCadastrar.TabIndex = 4;
             this.linkCadastrar.TabStop = true;
             this.linkCadastrar.Text = "Cadastrar Novo Acesso";
             this.linkCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

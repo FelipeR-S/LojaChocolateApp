@@ -92,6 +92,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(32, 18);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "CPF:";
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -106,6 +107,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(63, 18);
             this.textBox2.TabIndex = 8;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Matrícula:";
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -120,6 +122,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(36, 18);
             this.textBox3.TabIndex = 7;
+            this.textBox3.TabStop = false;
             this.textBox3.Text = "User:";
             this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -147,6 +150,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(102, 18);
             this.textBox5.TabIndex = 10;
+            this.textBox5.TabStop = false;
             this.textBox5.Text = "Tipo de Acesso:";
             this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 

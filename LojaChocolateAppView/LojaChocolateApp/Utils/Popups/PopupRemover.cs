@@ -41,8 +41,8 @@ namespace LojaChocolateApp.Utils.Popups
         {
             if (panelRemoverFuncionario.Visible == true && panelRemoverProduto.Visible == false)
                 textBoxFunRemove.Text = textBoxFunRemove.Text.Replace("00", $"{panelFuncionario.textBoxRemoverFuncionario.Text}");
-            else
-                textBoxProdRemover.Text = textBoxProdRemover.Text.Replace("00", $"{panelProdutos.textIdEstoqueProdutos.Text}");
+           // else
+             //   textBoxProdRemover.Text = textBoxProdRemover.Text.Replace("00", $"{panelProdutos.textIdEstoqueProdutos.Text}");
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace LojaChocolateApp.Utils.Popups
                 }
                 if (panelRemoverProduto.Visible == true && panelRemoverFuncionario.Visible == false)
                 {
-                    id = panelProdutos.textIdEstoqueProdutos.Text;
+                    //id = panelProdutos.textIdEstoqueProdutos.Text;
                     var repositorioProduto = new ProdutoRepository();
                     removido = repositorioProduto.Remover(id);
                     if (!removido)

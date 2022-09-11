@@ -23,7 +23,7 @@ namespace LojaChocolateApp.Utils.Panels
         public ConsultaFuncionarios(bool darkMode)
         {
             InitializeComponent();
-            flowLayoutPanelFuncionario.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
             TituloExibeFuncionario.Visible = false;
             DarkMode activeDarkMode = new DarkMode(darkMode);
             activeDarkMode.GetDarkMode(this);
@@ -37,7 +37,7 @@ namespace LojaChocolateApp.Utils.Panels
         {
             try
             {
-                flowLayoutPanelFuncionario.Controls.Clear();
+                flowLayoutPanel1.Controls.Clear();
                 TituloExibeFuncionario.Visible = false;
                 var id = textBoxIDDetalhesFuncionario.Text;
                 var repoFuncionario = new FuncionarioRepository();
@@ -68,9 +68,10 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="funcionario"></param>
         private void PopulaExibeDetalhe(Funcionario funcionario)
         {
-            SQLServerConn server = new SQLServerConn();
-            LayoutFuncionarios detalhes = new LayoutFuncionarios();
-            detalhes = new LayoutFuncionarios();
+            var server = new SQLServerConn();
+            var detalhes = new LayoutFuncionarios();
+            detalhes.Height = 80;
+            detalhes.Width = 500;
             detalhes.Nome = funcionario.Nome;
             detalhes.Id = funcionario.Id.ToString();
             detalhes.Cargo = funcionario.Cargo;
@@ -79,21 +80,20 @@ namespace LojaChocolateApp.Utils.Panels
             detalhes.Salario = $"R$ {funcionario.Salario}";
             detalhes.DataCadastro = funcionario.DataCadastro.ToString();
             detalhes.Vendas = funcionario.QuantidadeDeVendas.ToString();
-            Image imagem = server.GetImagemSql("Funcionario", funcionario.Id);
+            var imagem = server.GetImagemSql("Funcionario", funcionario.Id);
             if (imagem == null)
                 detalhes.Imagem = Resources.userWhite;
             else
                 detalhes.Imagem = imagem;
             detalhes.BackGroundColor = System.Drawing.Color.Gray;
             detalhes.panelExibeDetalhes.Visible = false;
-            detalhes.Height = 80;
             detalhes.btnMenosDetalhes.Visible = false;
 
-            if (flowLayoutPanelFuncionario.Controls.Count < 0)
+            if (flowLayoutPanel1.Controls.Count < 0)
             {
-                flowLayoutPanelFuncionario.Controls.Clear();
+                flowLayoutPanel1.Controls.Clear();
             }
-            flowLayoutPanelFuncionario.Controls.Add(detalhes);
+            flowLayoutPanel1.Controls.Add(detalhes);
         }
         /// <summary>
         /// Recupera e exibe lista de todos os <see cref="Funcionario"/> no <see cref="FuncionarioRepository"/>
@@ -104,7 +104,7 @@ namespace LojaChocolateApp.Utils.Panels
         {
             try
             {
-                flowLayoutPanelFuncionario.Controls.Clear();
+                flowLayoutPanel1.Controls.Clear();
                 var ordem = comboBoxOrdenar.Text;
                 var repo = new FuncionarioRepository();
                 var lista = repo.GetLista();
@@ -144,6 +144,5 @@ namespace LojaChocolateApp.Utils.Panels
         {
             _controle.CopiarSelecionar(sender, e);
         }
-
     }
 }

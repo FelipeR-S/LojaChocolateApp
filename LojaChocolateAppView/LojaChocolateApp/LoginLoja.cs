@@ -126,7 +126,15 @@ namespace LojaChocolateApp
         }
         private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
         {
-            _controle.OnlyNumbersAndChars(sender, e);
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
+            else
+                _controle.OnlyNumbersAndChars(sender, e);
+        }
+        private void textBoxSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
         }
     }
 }

@@ -137,16 +137,17 @@ namespace LojaChocolateApp.Utils.Panels
         /// </summary>
         private void DesignDataGrid()
         {
-            dataGridViewVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Lato", 10, FontStyle.Bold);
-            dataGridViewVendas.ColumnHeadersHeight = 30;
+            dataGridViewVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dataGridViewVendas.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewVendas.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
             dataGridViewVendas.Columns[0].Width = 60;
             dataGridViewVendas.Columns[0].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewVendas.Columns[1].Width = 380;
+            dataGridViewVendas.Columns[1].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewVendas.Columns[2].Width = 70;
             dataGridViewVendas.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewVendas.Columns[3].Width = 100;
+            dataGridViewVendas.Columns[3].Width = 90;
             dataGridViewVendas.Columns[3].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewVendas.Columns[4].Width = 30;
+            dataGridViewVendas.Columns[4].Width = 40;
             dataGridViewVendas.Columns[4].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         /// <summary>

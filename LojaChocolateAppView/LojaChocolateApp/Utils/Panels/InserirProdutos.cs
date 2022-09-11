@@ -30,56 +30,7 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="e"></param>
         private void btnInserirProdutoUnico_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var verifica = new ProdutoRepository();
-                var id = textIdProduto.Text;
-                var nome = textNomeProduto.Text;
-                var peso = Convert.ToDecimal(textPesoProduto.Text);
-                var valor = Convert.ToDecimal(textValorProduto.Text);
-                var tipo = textTipoProduto.Text;
-                switch (tipo)
-                {
-                    case "Chocolate":
-                        break;
-                    case "Presentes":
-                        break;
-                    default:
-                        tipo = "Chocolate";
-                        break;
-                }
-                var estoque = Convert.ToInt32(textEstoqueProduto.Text);
-                var produto = new Produto(id, nome, peso, valor, tipo, estoque);
-                (var existe, var msg) = verifica.Existente(produto);
 
-                if (existe)
-                {
-                    MessageBox.Show(msg);
-                }
-                else
-                {
-                    verifica.IncluirUnico(produto);
-                    MessageBox.Show("Cadastro Concluído");
-                    _controle.ApagaBox(this);
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Todos os campos devem ser preenchidos");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Todos os campos devem ser preenchidos");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                _controle.ApagaBox(this);
-            }
         }
         /// <summary>
         /// Insere uma lista de produtos a partir de arquivo CSV

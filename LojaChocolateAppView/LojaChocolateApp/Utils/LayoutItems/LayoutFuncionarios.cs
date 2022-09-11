@@ -79,12 +79,15 @@ namespace LojaChocolateApp.Utils.LayoutItems
         {
             try
             {
-                SQLServerConn server = new SQLServerConn();
                 var imagem = _controle.OpenFileImage(sender, e);
-                var imgByte = server.ConvertImageToByte(imagem);
-                server.InsereImagemSql(imgByte, "Funcionario", this.Id);
-                this.Imagem = imagem;
-                MessageBox.Show("Imagem Cadastrada!");
+                if (imagem != null)
+                {
+                    SQLServerConn server = new SQLServerConn();
+                    var imgByte = server.ConvertImageToByte(imagem);
+                    server.InsereImagemSql(imgByte, "Funcionario", this.Id);
+                    this.Imagem = imagem;
+                    MessageBox.Show("Imagem Cadastrada!");
+                }
             }
             catch (Exception ex)
             {
