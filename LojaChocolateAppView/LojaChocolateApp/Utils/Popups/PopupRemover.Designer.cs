@@ -32,11 +32,11 @@
             this.btnExcluirFuncionario = new System.Windows.Forms.Button();
             this.btnCANCELAR = new System.Windows.Forms.Button();
             this.panelRemoverFuncionario = new System.Windows.Forms.Panel();
-            this.panelRemoverProduto = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBoxProdRemover = new System.Windows.Forms.TextBox();
-            this.textBoxFunRemove = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxFunRemove = new System.Windows.Forms.TextBox();
+            this.panelRemoverProduto = new System.Windows.Forms.Panel();
+            this.textBoxProdRemover = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panelRemoverFuncionario.SuspendLayout();
             this.panelRemoverProduto.SuspendLayout();
@@ -92,45 +92,20 @@
             this.panelRemoverFuncionario.Size = new System.Drawing.Size(450, 193);
             this.panelRemoverFuncionario.TabIndex = 10;
             // 
-            // panelRemoverProduto
+            // textBox4
             // 
-            this.panelRemoverProduto.Controls.Add(this.textBoxProdRemover);
-            this.panelRemoverProduto.Controls.Add(this.textBox1);
-            this.panelRemoverProduto.Location = new System.Drawing.Point(0, 0);
-            this.panelRemoverProduto.Name = "panelRemoverProduto";
-            this.panelRemoverProduto.Size = new System.Drawing.Size(450, 193);
-            this.panelRemoverProduto.TabIndex = 19;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(0, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(450, 32);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.Text = "Deseja Remover o Produto?";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
-            // 
-            // textBoxProdRemover
-            // 
-            this.textBoxProdRemover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
-            this.textBoxProdRemover.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProdRemover.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProdRemover.ForeColor = System.Drawing.Color.White;
-            this.textBoxProdRemover.Location = new System.Drawing.Point(0, 74);
-            this.textBoxProdRemover.Multiline = true;
-            this.textBoxProdRemover.Name = "textBoxProdRemover";
-            this.textBoxProdRemover.Size = new System.Drawing.Size(450, 107);
-            this.textBoxProdRemover.TabIndex = 18;
-            this.textBoxProdRemover.Text = "Deseja realmente remover o produto do ID informado?\r\n\r\nNúmero de Código nº 00\r\n\r\n" +
-    "A remoção vai tira-lo do cadastro \r\npodendo gerar falhas nas informações de vend" +
-    "as!";
-            this.textBoxProdRemover.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxProdRemover.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.White;
+            this.textBox4.Location = new System.Drawing.Point(0, 24);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(450, 32);
+            this.textBox4.TabIndex = 19;
+            this.textBox4.TabStop = false;
+            this.textBox4.Text = "Deseja Remover o Funcionário?";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // textBoxFunRemove
             // 
@@ -143,25 +118,54 @@
             this.textBoxFunRemove.Name = "textBoxFunRemove";
             this.textBoxFunRemove.Size = new System.Drawing.Size(450, 107);
             this.textBoxFunRemove.TabIndex = 20;
+            this.textBoxFunRemove.TabStop = false;
             this.textBoxFunRemove.Text = "Deseja realmente remover o funcionário do ID informado? \r\n\r\nNúmero da Matrícula n" +
     "º 00\r\n\r\nA remoção vai tira-lo do cadastro \r\npodendo gerar falhas nas informações" +
     " de vendas!";
             this.textBoxFunRemove.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxFunRemove.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
-            // textBox4
+            // panelRemoverProduto
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(0, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(450, 32);
-            this.textBox4.TabIndex = 19;
-            this.textBox4.Text = "Deseja Remover o Funcionário?";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            this.panelRemoverProduto.Controls.Add(this.textBoxProdRemover);
+            this.panelRemoverProduto.Controls.Add(this.textBox1);
+            this.panelRemoverProduto.Location = new System.Drawing.Point(0, 0);
+            this.panelRemoverProduto.Name = "panelRemoverProduto";
+            this.panelRemoverProduto.Size = new System.Drawing.Size(450, 193);
+            this.panelRemoverProduto.TabIndex = 19;
+            // 
+            // textBoxProdRemover
+            // 
+            this.textBoxProdRemover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.textBoxProdRemover.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProdRemover.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProdRemover.ForeColor = System.Drawing.Color.White;
+            this.textBoxProdRemover.Location = new System.Drawing.Point(0, 74);
+            this.textBoxProdRemover.Multiline = true;
+            this.textBoxProdRemover.Name = "textBoxProdRemover";
+            this.textBoxProdRemover.Size = new System.Drawing.Size(450, 107);
+            this.textBoxProdRemover.TabIndex = 18;
+            this.textBoxProdRemover.TabStop = false;
+            this.textBoxProdRemover.Text = "Deseja realmente remover o produto do ID informado?\r\n\r\nNúmero de Código nº 00\r\n\r\n" +
+    "A remoção vai tira-lo do cadastro \r\npodendo gerar falhas nas informações de vend" +
+    "as!";
+            this.textBoxProdRemover.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxProdRemover.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(0, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(450, 32);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.TabStop = false;
+            this.textBox1.Text = "Deseja Remover o Produto?";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // PopupRemover
             // 

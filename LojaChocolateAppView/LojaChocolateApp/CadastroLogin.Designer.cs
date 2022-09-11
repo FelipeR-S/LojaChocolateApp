@@ -97,6 +97,7 @@
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(640, 104);
             this.textBox7.TabIndex = 8;
+            this.textBox7.TabStop = false;
             this.textBox7.Text = resources.GetString("textBox7.Text");
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -219,6 +220,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(101, 18);
             this.textBox5.TabIndex = 13;
+            this.textBox5.TabStop = false;
             this.textBox5.Text = "Repetir Senha:";
             this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -234,6 +236,7 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(101, 18);
             this.textBox6.TabIndex = 12;
+            this.textBox6.TabStop = false;
             this.textBox6.Text = "Senha:";
             this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -249,6 +252,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(101, 18);
             this.textBox4.TabIndex = 9;
+            this.textBox4.TabStop = false;
             this.textBox4.Text = "Matrícula:";
             this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -264,6 +268,7 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(101, 18);
             this.textBox3.TabIndex = 11;
+            this.textBox3.TabStop = false;
             this.textBox3.Text = "CPF:";
             this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -279,6 +284,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(101, 18);
             this.textBox2.TabIndex = 10;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Usuário:";
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -294,6 +300,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(512, 32);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Cadastro de Novo Usuário";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);

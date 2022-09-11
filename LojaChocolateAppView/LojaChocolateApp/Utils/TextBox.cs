@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaChocolateApp.Utils.LayoutItems;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -356,7 +357,7 @@ namespace LojaChocolateApp.Utils
             if (e.KeyData == Keys.A && e.Modifiers == Keys.Control)
             {
                 if (sender is TextBox)
-                   t.SelectAll();
+                    t.SelectAll();
             }
             if (e.KeyData == Keys.X && e.Modifiers == Keys.Control)
             {
@@ -389,6 +390,45 @@ namespace LojaChocolateApp.Utils
                 }
             }
             return imagem;
+        }
+
+        public void AumentaTxT(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox && ((TextBox)c).Font.Size <= 10 && ((TextBox)c).Font.Size > 9)
+                {
+                    if (((TextBox)c).Font.Style == FontStyle.Regular)
+                        ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Regular);
+                    else
+                        ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Bold);
+                }
+                if (c is TextBox && ((TextBox)c).Font.Size == 19)
+                    ((TextBox)c).Font = new Font("Segoe UI", 24, FontStyle.Bold);
+                if (c is TextBox && ((TextBox)c).Font.Size == 12)
+                    ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Regular);
+                if (c.HasChildren)
+                    AumentaTxT(c);
+            }
+        }
+        public void DiminuiTxT(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox && ((TextBox)c).Font.Size == 16)
+                {
+                    if (((TextBox)c).Font.Style == FontStyle.Regular)
+                        ((TextBox)c).Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    else
+                        ((TextBox)c).Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                }
+                if (c is TextBox && ((TextBox)c).Font.Size == 24)
+                    ((TextBox)c).Font = new Font("Segoe UI", 19, FontStyle.Bold);
+                if (c is TextBox && ((TextBox)c).Font.Size == 16)
+                    ((TextBox)c).Font = new Font("Segoe UI", 12, FontStyle.Regular);
+                if (c.HasChildren)
+                    DiminuiTxT(c);
+            }
         }
     }
 }

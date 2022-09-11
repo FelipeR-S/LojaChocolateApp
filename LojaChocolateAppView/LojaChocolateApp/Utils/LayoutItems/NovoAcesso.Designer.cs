@@ -45,12 +45,12 @@
             // 
             this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNome.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.Color.White;
             this.txtNome.Location = new System.Drawing.Point(24, 16);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(182, 18);
+            this.txtNome.Size = new System.Drawing.Size(157, 16);
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
             this.txtNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -59,11 +59,12 @@
             // 
             this.txtMatricula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMatricula.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatricula.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatricula.ForeColor = System.Drawing.Color.White;
-            this.txtMatricula.Location = new System.Drawing.Point(393, 16);
+            this.txtMatricula.Location = new System.Drawing.Point(348, 16);
             this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(58, 18);
+            this.txtMatricula.Size = new System.Drawing.Size(58, 16);
             this.txtMatricula.TabIndex = 2;
             this.txtMatricula.Text = "Matrícula";
             this.txtMatricula.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -72,11 +73,12 @@
             // 
             this.txtCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCpf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.ForeColor = System.Drawing.Color.White;
-            this.txtCpf.Location = new System.Drawing.Point(499, 16);
+            this.txtCpf.Location = new System.Drawing.Point(462, 16);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(135, 18);
+            this.txtCpf.Size = new System.Drawing.Size(113, 16);
             this.txtCpf.TabIndex = 3;
             this.txtCpf.Text = "CPF";
             this.txtCpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -85,13 +87,14 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(466, 16);
+            this.textBox1.Location = new System.Drawing.Point(429, 16);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(32, 18);
+            this.textBox1.Size = new System.Drawing.Size(32, 16);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "CPF:";
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -99,13 +102,14 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(322, 16);
+            this.textBox2.Location = new System.Drawing.Point(288, 16);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(63, 18);
+            this.textBox2.Size = new System.Drawing.Size(59, 16);
             this.textBox2.TabIndex = 8;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Matrícula:";
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -113,13 +117,14 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(211, 16);
+            this.textBox3.Location = new System.Drawing.Point(189, 16);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(36, 18);
+            this.textBox3.Size = new System.Drawing.Size(31, 16);
             this.textBox3.TabIndex = 7;
+            this.textBox3.TabStop = false;
             this.textBox3.Text = "User:";
             this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -127,11 +132,12 @@
             // 
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.White;
-            this.txtUser.Location = new System.Drawing.Point(250, 16);
+            this.txtUser.Location = new System.Drawing.Point(222, 16);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(65, 18);
+            this.txtUser.Size = new System.Drawing.Size(58, 16);
             this.txtUser.TabIndex = 1;
             this.txtUser.Text = "User";
             this.txtUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -140,13 +146,14 @@
             // 
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.White;
             this.textBox5.Location = new System.Drawing.Point(24, 44);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(102, 18);
+            this.textBox5.Size = new System.Drawing.Size(102, 16);
             this.textBox5.TabIndex = 10;
+            this.textBox5.TabStop = false;
             this.textBox5.Text = "Tipo de Acesso:";
             this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -154,13 +161,14 @@
             // 
             this.comboBoxCargo.BackColor = System.Drawing.Color.Gainsboro;
             this.comboBoxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCargo.FormattingEnabled = true;
             this.comboBoxCargo.Items.AddRange(new object[] {
             "Gerente",
             "Vendedor"});
             this.comboBoxCargo.Location = new System.Drawing.Point(133, 41);
             this.comboBoxCargo.Name = "comboBoxCargo";
-            this.comboBoxCargo.Size = new System.Drawing.Size(129, 25);
+            this.comboBoxCargo.Size = new System.Drawing.Size(129, 23);
             this.comboBoxCargo.TabIndex = 4;
             this.comboBoxCargo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -172,9 +180,9 @@
             this.btnInserirProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInserirProduto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInserirProduto.ForeColor = System.Drawing.Color.White;
-            this.btnInserirProduto.Location = new System.Drawing.Point(470, 41);
+            this.btnInserirProduto.Location = new System.Drawing.Point(428, 41);
             this.btnInserirProduto.Name = "btnInserirProduto";
-            this.btnInserirProduto.Size = new System.Drawing.Size(164, 24);
+            this.btnInserirProduto.Size = new System.Drawing.Size(149, 24);
             this.btnInserirProduto.TabIndex = 6;
             this.btnInserirProduto.Text = "Negar Acesso";
             this.btnInserirProduto.UseVisualStyleBackColor = false;
@@ -190,7 +198,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(287, 41);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 24);
+            this.button1.Size = new System.Drawing.Size(135, 24);
             this.button1.TabIndex = 5;
             this.button1.Text = "Permitir Acesso";
             this.button1.UseVisualStyleBackColor = false;
@@ -215,7 +223,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NovoAcesso";
-            this.Size = new System.Drawing.Size(650, 77);
+            this.Size = new System.Drawing.Size(592, 77);
             this.ResumeLayout(false);
             this.PerformLayout();
 

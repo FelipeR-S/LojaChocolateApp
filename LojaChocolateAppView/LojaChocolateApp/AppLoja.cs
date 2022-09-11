@@ -12,6 +12,7 @@ namespace LojaChocolateApp
 {
     public partial class AppLoja : Form
     {
+        private static TextBoxControls _controle = new TextBoxControls();
         private bool _darkMode;
         private bool _controleEstoque;
         private int _quantidadeEstoque;
@@ -19,6 +20,7 @@ namespace LojaChocolateApp
         private string _usuario;
         private string _database;
         private string _cargo;
+
         public AppLoja()
         {
             _sair = false;
@@ -35,7 +37,37 @@ namespace LojaChocolateApp
             InitializeComponent();
             SubMenuDesign();
         }
-        // CONFIGURAÇÕES
+        private void AppLoja_ClientSizeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                panelLoadPanels.Update();
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    _controle.AumentaTxT(this);
+                    var maxWidth = panelLogin.Width;
+                    var centerWidth = panelLogin.Width / 2;
+                    labelServer.Location = new Point(maxWidth - 202, 0);
+                    txtServidor.Location = new Point(maxWidth - 140, 0);
+                    labelCargo.Location = new Point(centerWidth - 45, 0);
+                    txtCargo.Location = new Point(centerWidth, 0);
+                    panelLoadPanels.Padding = new Padding(200, 100, 200, 0);
+                }
+                else
+                {
+                    _controle.DiminuiTxT(this);
+                    labelServer.Location = new Point(497, 0);
+                    txtServidor.Location = new Point(559, 0);
+                    labelCargo.Location = new Point(305, 0);
+                    txtCargo.Location = new Point(350, 0);
+                    panelLoadPanels.Padding = new Padding(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         /// <summary>
         /// Abre form de configurações
         /// </summary>
@@ -132,10 +164,9 @@ namespace LojaChocolateApp
                     labelCargo.Text = "";
                     btnProdutos.Visible = false;
                     btnVendas.Visible = false;
-                    btnCadastrarFuncionario.Visible = false;
                     btnExcluirFuncionario.Visible = false;
                     btnConsultarFuncionarios.Visible = false;
-                    panelSubMenuFuncionario.Height = 35;
+                    panelSubMenuFuncionario.Height = 70;
                     btnConfigurar.Visible = false;
                 }
                 else
@@ -225,9 +256,12 @@ namespace LojaChocolateApp
         private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
             var panel = new CadastrarFuncionario(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Botão de submenu REMOVER do MENU FUNCIONARIO que invoca painel de REMOVER
@@ -237,9 +271,12 @@ namespace LojaChocolateApp
         private void btnExcluirFuncionario_Click(object sender, EventArgs e)
         {
             var panel = new AlteraFuncionario(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Botão de submenu CONSULTAR do MENU FUNCIONARIO que invoca painel de CONSULTAR
@@ -249,9 +286,12 @@ namespace LojaChocolateApp
         private void btnConsultarFuncionarios_Click(object sender, EventArgs e)
         {
             var panel = new ConsultaFuncionarios(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Acessa Sistema de autorização de cadastro
@@ -261,9 +301,12 @@ namespace LojaChocolateApp
         private void btnControleDeAcesso_Click(object sender, EventArgs e)
         {
             var panel = new ControleDeAcesso(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         // FIM ------------------------------------ SUBMENU FUNCIONARIO ------------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU PRODUTOS ------------------------------------ INICIO //
@@ -284,9 +327,12 @@ namespace LojaChocolateApp
         private void btnInserirProduto_Click(object sender, EventArgs e)
         {
             var panel = new InserirProdutos(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Botão do submenu ESTOQUE do MENU PRODUTOS que invoca painel de ESTOQUE
@@ -296,9 +342,12 @@ namespace LojaChocolateApp
         private void btnEstoque_Click(object sender, EventArgs e)
         {
             var panel = new AlteraProdutos(_darkMode, _controleEstoque, _quantidadeEstoque);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Botão do submenu CONSULTA do MENU PRODUTOS que invoca painel de CONSULTA
@@ -308,9 +357,12 @@ namespace LojaChocolateApp
         private void btnConsultarProdutos_Click(object sender, EventArgs e)
         {
             var panel = new ConsultaProdutos(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         // FIM ------------------------------------ SUBMENU PRODUTOS ------------------------------------ FIM //
         // INICIO ------------------------------------ SUBMENU VENDAS ------------------------------------ INICIO //
@@ -331,9 +383,12 @@ namespace LojaChocolateApp
         private void btnCadastrarVendas_Click(object sender, EventArgs e)
         {
             var panel = new CadastrarVenda(_darkMode, _controleEstoque, _quantidadeEstoque);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         /// <summary>
         /// Botão do submenu CONSULTAR do MENU VENDAS que invoca painel Lista de Vendas
@@ -343,10 +398,13 @@ namespace LojaChocolateApp
         private void btnConsultarVendas_Click(object sender, EventArgs e)
         {
             var panel = new ConsultaVendas(_darkMode);
+            panel.Dock = DockStyle.Fill;
             panelLoadPanels.Controls.Clear();
             panelLoadPanels.Controls.Add(panel);
             panel.dataGridViewVendas.Rows.Clear();
             EsconderSubMenu();
+            if (WindowState == FormWindowState.Maximized)
+                _controle.AumentaTxT(this);
         }
         // FIM ------------------------------------ SUBMENU VENDAS ------------------------------------ FIM //
     }

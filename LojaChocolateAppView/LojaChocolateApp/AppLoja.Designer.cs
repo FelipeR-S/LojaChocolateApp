@@ -117,7 +117,7 @@
             this.btnConfigurar.Location = new System.Drawing.Point(91, 26);
             this.btnConfigurar.Name = "btnConfigurar";
             this.btnConfigurar.Size = new System.Drawing.Size(137, 35);
-            this.btnConfigurar.TabIndex = 3;
+            this.btnConfigurar.TabIndex = 13;
             this.btnConfigurar.Text = "Configurações";
             this.btnConfigurar.UseVisualStyleBackColor = false;
             this.btnConfigurar.Click += new System.EventHandler(this.btnConfigurar_Click);
@@ -133,7 +133,7 @@
             this.btnSair.Location = new System.Drawing.Point(17, 26);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(56, 35);
-            this.btnSair.TabIndex = 2;
+            this.btnSair.TabIndex = 14;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -161,7 +161,7 @@
             this.btnConsultarVendas.Name = "btnConsultarVendas";
             this.btnConsultarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsultarVendas.Size = new System.Drawing.Size(248, 35);
-            this.btnConsultarVendas.TabIndex = 48;
+            this.btnConsultarVendas.TabIndex = 11;
             this.btnConsultarVendas.Text = "Consultar";
             this.btnConsultarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarVendas.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@
             this.btnCadastrarVendas.Name = "btnCadastrarVendas";
             this.btnCadastrarVendas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnCadastrarVendas.Size = new System.Drawing.Size(248, 35);
-            this.btnCadastrarVendas.TabIndex = 47;
+            this.btnCadastrarVendas.TabIndex = 10;
             this.btnCadastrarVendas.Text = "Cadastrar";
             this.btnCadastrarVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrarVendas.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnVendas.Size = new System.Drawing.Size(248, 45);
-            this.btnVendas.TabIndex = 0;
+            this.btnVendas.TabIndex = 9;
             this.btnVendas.Text = "   Vendas";
             this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -233,7 +233,7 @@
             this.btnConsultarProdutos.Name = "btnConsultarProdutos";
             this.btnConsultarProdutos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsultarProdutos.Size = new System.Drawing.Size(248, 35);
-            this.btnConsultarProdutos.TabIndex = 3;
+            this.btnConsultarProdutos.TabIndex = 8;
             this.btnConsultarProdutos.Text = "Consultar";
             this.btnConsultarProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarProdutos.UseVisualStyleBackColor = true;
@@ -251,7 +251,7 @@
             this.btnEstoque.Name = "btnEstoque";
             this.btnEstoque.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnEstoque.Size = new System.Drawing.Size(248, 35);
-            this.btnEstoque.TabIndex = 2;
+            this.btnEstoque.TabIndex = 7;
             this.btnEstoque.Text = "Estoque";
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@
             this.btnInserirProduto.Name = "btnInserirProduto";
             this.btnInserirProduto.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnInserirProduto.Size = new System.Drawing.Size(248, 35);
-            this.btnInserirProduto.TabIndex = 1;
+            this.btnInserirProduto.TabIndex = 6;
             this.btnInserirProduto.Text = "Inserir";
             this.btnInserirProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInserirProduto.UseVisualStyleBackColor = true;
@@ -291,7 +291,7 @@
             this.btnProdutos.Name = "btnProdutos";
             this.btnProdutos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnProdutos.Size = new System.Drawing.Size(248, 45);
-            this.btnProdutos.TabIndex = 0;
+            this.btnProdutos.TabIndex = 5;
             this.btnProdutos.Text = "  Produtos";
             this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -423,7 +423,7 @@
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Padding = new System.Windows.Forms.Padding(20);
             this.panelLogo.Size = new System.Drawing.Size(248, 123);
-            this.panelLogo.TabIndex = 0;
+            this.panelLogo.TabIndex = 10;
             // 
             // LogoMenu
             // 
@@ -450,7 +450,7 @@
             this.panelLogin.Location = new System.Drawing.Point(248, 0);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(716, 35);
-            this.panelLogin.TabIndex = 37;
+            this.panelLogin.TabIndex = 99;
             // 
             // labelCargo
             // 
@@ -459,7 +459,7 @@
             this.labelCargo.Location = new System.Drawing.Point(305, 0);
             this.labelCargo.Name = "labelCargo";
             this.labelCargo.Size = new System.Drawing.Size(48, 35);
-            this.labelCargo.TabIndex = 5;
+            this.labelCargo.TabIndex = 99;
             this.labelCargo.Text = "Cargo:";
             this.labelCargo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -470,7 +470,7 @@
             this.labelServer.Location = new System.Drawing.Point(497, 0);
             this.labelServer.Name = "labelServer";
             this.labelServer.Size = new System.Drawing.Size(65, 35);
-            this.labelServer.TabIndex = 4;
+            this.labelServer.TabIndex = 99;
             this.labelServer.Text = "Servidor:";
             this.labelServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -481,7 +481,7 @@
             this.labelUser.Location = new System.Drawing.Point(3, 0);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(41, 35);
-            this.labelUser.TabIndex = 3;
+            this.labelUser.TabIndex = 99;
             this.labelUser.Text = "User:";
             this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -492,7 +492,7 @@
             this.txtCargo.Location = new System.Drawing.Point(350, 0);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(141, 35);
-            this.txtCargo.TabIndex = 2;
+            this.txtCargo.TabIndex = 99;
             this.txtCargo.Text = "txtCargo";
             this.txtCargo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -502,8 +502,8 @@
             this.txtServidor.ForeColor = System.Drawing.Color.White;
             this.txtServidor.Location = new System.Drawing.Point(559, 0);
             this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(154, 35);
-            this.txtServidor.TabIndex = 1;
+            this.txtServidor.Size = new System.Drawing.Size(157, 35);
+            this.txtServidor.TabIndex = 99;
             this.txtServidor.Text = "txtServidor";
             this.txtServidor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -514,12 +514,14 @@
             this.txtUser.Location = new System.Drawing.Point(41, 0);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(264, 35);
-            this.txtUser.TabIndex = 0;
+            this.txtUser.TabIndex = 99;
             this.txtUser.Text = "txtUser";
             this.txtUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLoadPanels
             // 
+            this.panelLoadPanels.AutoScroll = true;
+            this.panelLoadPanels.AutoSize = true;
             this.panelLoadPanels.Controls.Add(this.panelLogoPrincipal);
             this.panelLoadPanels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLoadPanels.Location = new System.Drawing.Point(248, 35);
@@ -529,21 +531,24 @@
             // 
             // panelLogoPrincipal
             // 
+            this.panelLogoPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelLogoPrincipal.AutoSize = true;
+            this.panelLogoPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelLogoPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.panelLogoPrincipal.Controls.Add(this.pictureBoxLogo);
-            this.panelLogoPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogoPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelLogoPrincipal.Name = "panelLogoPrincipal";
-            this.panelLogoPrincipal.Size = new System.Drawing.Size(716, 561);
+            this.panelLogoPrincipal.Size = new System.Drawing.Size(616, 392);
             this.panelLogoPrincipal.TabIndex = 35;
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = global::LojaChocolateApp.Properties.Resources.LojaDeChocolateLogoCor;
             this.pictureBoxLogo.Location = new System.Drawing.Point(113, 139);
+            this.pictureBoxLogo.MaximumSize = new System.Drawing.Size(1000, 500);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(500, 250);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 1;
             this.pictureBoxLogo.TabStop = false;
             // 
@@ -556,6 +561,7 @@
             this.AcceptButton = this.btnCadastrarVendas;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(964, 596);
             this.Controls.Add(this.panelLoadPanels);
@@ -565,13 +571,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.MaximumSize = new System.Drawing.Size(980, 635);
             this.MinimumSize = new System.Drawing.Size(980, 635);
             this.Name = "AppLoja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loja de Chocolate";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppLoja_FormClosing);
             this.Load += new System.EventHandler(this.AppLoja_Load);
+            this.ClientSizeChanged += new System.EventHandler(this.AppLoja_ClientSizeChanged);
             this.panelMenuLateral.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelSubMenuVendas.ResumeLayout(false);
@@ -581,11 +587,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoMenu)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.panelLoadPanels.ResumeLayout(false);
+            this.panelLoadPanels.PerformLayout();
             this.panelLogoPrincipal.ResumeLayout(false);
-            this.panelLogoPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendasBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

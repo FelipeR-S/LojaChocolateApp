@@ -77,18 +77,14 @@ namespace LojaChocolateApp.Utils.LayoutItems
         /// <param name="e"></param>
         private void btnAddImagem_Click(object sender, EventArgs e)
         {
-            try
+            var imagem = _controle.OpenFileImage(sender, e);
+            if (imagem != null)
             {
                 SQLServerConn server = new SQLServerConn();
-                var imagem = _controle.OpenFileImage(sender, e);
                 var imgByte = server.ConvertImageToByte(imagem);
                 server.InsereImagemSql(imgByte, "Funcionario", this.Id);
                 this.Imagem = imagem;
                 MessageBox.Show("Imagem Cadastrada!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
     }

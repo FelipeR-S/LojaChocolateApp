@@ -67,22 +67,23 @@
             this.panelTodos.Controls.Add(this.textBox1);
             this.panelTodos.Controls.Add(this.textNomeLayout);
             this.panelTodos.Controls.Add(this.BackColorLayout);
+            this.panelTodos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTodos.Location = new System.Drawing.Point(0, 0);
             this.panelTodos.Name = "panelTodos";
-            this.panelTodos.Size = new System.Drawing.Size(440, 100);
-            this.panelTodos.TabIndex = 10;
+            this.panelTodos.Size = new System.Drawing.Size(500, 100);
+            this.panelTodos.TabIndex = 0;
             // 
             // textValorLayout
             // 
             this.textValorLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textValorLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textValorLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValorLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textValorLayout.ForeColor = System.Drawing.Color.White;
-            this.textValorLayout.Location = new System.Drawing.Point(380, 76);
+            this.textValorLayout.Location = new System.Drawing.Point(419, 70);
             this.textValorLayout.Name = "textValorLayout";
             this.textValorLayout.ReadOnly = true;
-            this.textValorLayout.Size = new System.Drawing.Size(49, 18);
-            this.textValorLayout.TabIndex = 32;
+            this.textValorLayout.Size = new System.Drawing.Size(71, 20);
+            this.textValorLayout.TabIndex = 6;
             this.textValorLayout.Text = "000,00";
             this.textValorLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textValorLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -91,13 +92,13 @@
             // 
             this.textVendasLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textVendasLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textVendasLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textVendasLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textVendasLayout.ForeColor = System.Drawing.Color.White;
-            this.textVendasLayout.Location = new System.Drawing.Point(295, 76);
+            this.textVendasLayout.Location = new System.Drawing.Point(342, 70);
             this.textVendasLayout.Name = "textVendasLayout";
             this.textVendasLayout.ReadOnly = true;
-            this.textVendasLayout.Size = new System.Drawing.Size(28, 18);
-            this.textVendasLayout.TabIndex = 31;
+            this.textVendasLayout.Size = new System.Drawing.Size(28, 20);
+            this.textVendasLayout.TabIndex = 5;
             this.textVendasLayout.Text = "000";
             this.textVendasLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textVendasLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -106,13 +107,13 @@
             // 
             this.textEstoqueLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEstoqueLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textEstoqueLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEstoqueLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEstoqueLayout.ForeColor = System.Drawing.Color.White;
-            this.textEstoqueLayout.Location = new System.Drawing.Point(166, 76);
+            this.textEstoqueLayout.Location = new System.Drawing.Point(178, 70);
             this.textEstoqueLayout.Name = "textEstoqueLayout";
             this.textEstoqueLayout.ReadOnly = true;
-            this.textEstoqueLayout.Size = new System.Drawing.Size(63, 18);
-            this.textEstoqueLayout.TabIndex = 30;
+            this.textEstoqueLayout.Size = new System.Drawing.Size(93, 20);
+            this.textEstoqueLayout.TabIndex = 4;
             this.textEstoqueLayout.Text = "000";
             this.textEstoqueLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textEstoqueLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -121,13 +122,13 @@
             // 
             this.textTipoLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textTipoLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textTipoLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTipoLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTipoLayout.ForeColor = System.Drawing.Color.White;
-            this.textTipoLayout.Location = new System.Drawing.Point(380, 46);
+            this.textTipoLayout.Location = new System.Drawing.Point(419, 40);
             this.textTipoLayout.Name = "textTipoLayout";
             this.textTipoLayout.ReadOnly = true;
-            this.textTipoLayout.Size = new System.Drawing.Size(49, 18);
-            this.textTipoLayout.TabIndex = 29;
+            this.textTipoLayout.Size = new System.Drawing.Size(71, 20);
+            this.textTipoLayout.TabIndex = 3;
             this.textTipoLayout.Text = "Chocolate";
             this.textTipoLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textTipoLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -136,13 +137,13 @@
             // 
             this.textPesoLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPesoLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textPesoLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPesoLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPesoLayout.ForeColor = System.Drawing.Color.White;
-            this.textPesoLayout.Location = new System.Drawing.Point(284, 46);
+            this.textPesoLayout.Location = new System.Drawing.Point(330, 40);
             this.textPesoLayout.Name = "textPesoLayout";
             this.textPesoLayout.ReadOnly = true;
-            this.textPesoLayout.Size = new System.Drawing.Size(39, 18);
-            this.textPesoLayout.TabIndex = 28;
+            this.textPesoLayout.Size = new System.Drawing.Size(40, 20);
+            this.textPesoLayout.TabIndex = 2;
             this.textPesoLayout.Text = "0000";
             this.textPesoLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textPesoLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -151,14 +152,14 @@
             // 
             this.textIdLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textIdLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textIdLayout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdLayout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdLayout.ForeColor = System.Drawing.Color.White;
-            this.textIdLayout.Location = new System.Drawing.Point(166, 46);
+            this.textIdLayout.Location = new System.Drawing.Point(166, 40);
             this.textIdLayout.Name = "textIdLayout";
             this.textIdLayout.ReadOnly = true;
-            this.textIdLayout.Size = new System.Drawing.Size(63, 18);
-            this.textIdLayout.TabIndex = 27;
-            this.textIdLayout.Text = "000";
+            this.textIdLayout.Size = new System.Drawing.Size(105, 20);
+            this.textIdLayout.TabIndex = 1;
+            this.textIdLayout.Text = "000000000000";
             this.textIdLayout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textIdLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -166,13 +167,14 @@
             // 
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox5.Location = new System.Drawing.Point(345, 76);
+            this.textBox5.Location = new System.Drawing.Point(383, 70);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(45, 18);
+            this.textBox5.Size = new System.Drawing.Size(45, 20);
             this.textBox5.TabIndex = 39;
+            this.textBox5.TabStop = false;
             this.textBox5.Text = "Valor:";
             this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -180,13 +182,14 @@
             // 
             this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox6.Location = new System.Drawing.Point(345, 46);
+            this.textBox6.Location = new System.Drawing.Point(383, 40);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(35, 18);
+            this.textBox6.Size = new System.Drawing.Size(35, 20);
             this.textBox6.TabIndex = 38;
+            this.textBox6.TabStop = false;
             this.textBox6.Text = "Tipo:";
             this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -194,13 +197,14 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox3.Location = new System.Drawing.Point(259, 76);
+            this.textBox3.Location = new System.Drawing.Point(286, 70);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(49, 18);
+            this.textBox3.Size = new System.Drawing.Size(58, 20);
             this.textBox3.TabIndex = 37;
+            this.textBox3.TabStop = false;
             this.textBox3.Text = "Vendas:";
             this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -208,13 +212,14 @@
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox4.Location = new System.Drawing.Point(259, 46);
+            this.textBox4.Location = new System.Drawing.Point(286, 40);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(36, 18);
+            this.textBox4.Size = new System.Drawing.Size(36, 20);
             this.textBox4.TabIndex = 36;
+            this.textBox4.TabStop = false;
             this.textBox4.Text = "Peso:";
             this.textBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -222,13 +227,14 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(114, 76);
+            this.textBox2.Location = new System.Drawing.Point(114, 70);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(58, 18);
+            this.textBox2.Size = new System.Drawing.Size(58, 20);
             this.textBox2.TabIndex = 35;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Estoque:";
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -236,13 +242,14 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(114, 46);
+            this.textBox1.Location = new System.Drawing.Point(114, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(58, 18);
+            this.textBox1.Size = new System.Drawing.Size(58, 20);
             this.textBox1.TabIndex = 34;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Código:";
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -250,13 +257,13 @@
             // 
             this.textNomeLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNomeLayout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textNomeLayout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNomeLayout.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNomeLayout.ForeColor = System.Drawing.Color.White;
             this.textNomeLayout.Location = new System.Drawing.Point(114, 7);
             this.textNomeLayout.Name = "textNomeLayout";
             this.textNomeLayout.ReadOnly = true;
-            this.textNomeLayout.Size = new System.Drawing.Size(269, 26);
-            this.textNomeLayout.TabIndex = 33;
+            this.textNomeLayout.Size = new System.Drawing.Size(376, 23);
+            this.textNomeLayout.TabIndex = 0;
             this.textNomeLayout.Text = "Nome";
             this.textNomeLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
@@ -285,7 +292,7 @@
             this.btnAddImagem.Location = new System.Drawing.Point(76, 76);
             this.btnAddImagem.Name = "btnAddImagem";
             this.btnAddImagem.Size = new System.Drawing.Size(24, 24);
-            this.btnAddImagem.TabIndex = 13;
+            this.btnAddImagem.TabIndex = 0;
             this.btnAddImagem.UseVisualStyleBackColor = false;
             this.btnAddImagem.Click += new System.EventHandler(this.btnAddImagem_Click);
             // 
@@ -312,7 +319,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.panelTodos);
             this.Name = "LayoutProdutos";
-            this.Size = new System.Drawing.Size(440, 100);
+            this.Size = new System.Drawing.Size(500, 100);
             this.panelTodos.ResumeLayout(false);
             this.panelTodos.PerformLayout();
             this.BackColorLayout.ResumeLayout(false);

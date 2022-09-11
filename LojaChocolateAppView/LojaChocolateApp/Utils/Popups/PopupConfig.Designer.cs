@@ -50,7 +50,7 @@
             this.btnAplicar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(244, 36);
-            this.btnAplicar.TabIndex = 6;
+            this.btnAplicar.TabIndex = 3;
             this.btnAplicar.Text = "Aplicar";
             this.btnAplicar.UseVisualStyleBackColor = false;
             this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
@@ -74,7 +74,7 @@
             this.panelQuantidade.Margin = new System.Windows.Forms.Padding(4);
             this.panelQuantidade.Name = "panelQuantidade";
             this.panelQuantidade.Size = new System.Drawing.Size(244, 43);
-            this.panelQuantidade.TabIndex = 5;
+            this.panelQuantidade.TabIndex = 2;
             // 
             // label1
             // 
@@ -99,7 +99,7 @@
             this.comboBoxAvisoEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAvisoEstoque.Name = "comboBoxAvisoEstoque";
             this.comboBoxAvisoEstoque.Size = new System.Drawing.Size(77, 25);
-            this.comboBoxAvisoEstoque.TabIndex = 4;
+            this.comboBoxAvisoEstoque.TabIndex = 2;
             // 
             // checkBoxEstoque
             // 
@@ -109,7 +109,7 @@
             this.checkBoxEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxEstoque.Name = "checkBoxEstoque";
             this.checkBoxEstoque.Size = new System.Drawing.Size(226, 21);
-            this.checkBoxEstoque.TabIndex = 3;
+            this.checkBoxEstoque.TabIndex = 1;
             this.checkBoxEstoque.Text = "Ativar Aviso de Estoque Mínimo";
             this.checkBoxEstoque.UseVisualStyleBackColor = true;
             this.checkBoxEstoque.CheckedChanged += new System.EventHandler(this.checkBoxEstoque_CheckedChanged);
@@ -122,7 +122,7 @@
             this.checkBoxDarkMode.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDarkMode.Name = "checkBoxDarkMode";
             this.checkBoxDarkMode.Size = new System.Drawing.Size(136, 21);
-            this.checkBoxDarkMode.TabIndex = 2;
+            this.checkBoxDarkMode.TabIndex = 0;
             this.checkBoxDarkMode.Text = "Ativar Dark Mode";
             this.checkBoxDarkMode.UseVisualStyleBackColor = true;
             // 

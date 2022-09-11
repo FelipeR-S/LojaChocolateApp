@@ -77,6 +77,7 @@ namespace LojaChocolateApp.Utils.Panels
                     {
                         repo.IncluirUnico(novoFuncionario);
                         MessageBox.Show("Cadastro Concluído");
+                        _controle.ApagaBox(this);
                     }
                 }
             }
@@ -91,10 +92,6 @@ namespace LojaChocolateApp.Utils.Panels
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                _controle.ApagaBox(this);
             }
         }
         /// <summary>
@@ -228,6 +225,12 @@ namespace LojaChocolateApp.Utils.Panels
         private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
             _controle.CopiarSelecionar(sender, e);
+        }
+        private void textBoxArquivo_KeyUp(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
+            if (e.KeyData == Keys.Enter)
+                _controle.OpenFile(sender, e);
         }
     }
 }

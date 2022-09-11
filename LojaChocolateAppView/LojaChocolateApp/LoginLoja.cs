@@ -17,7 +17,7 @@ namespace LojaChocolateApp
     public partial class LoginLoja : Form
     {
         private TextBoxControls _controle = new TextBoxControls();
-        private CadastroLogin _cadastro = new CadastroLogin();
+        private static CadastroLogin _cadastro = new CadastroLogin();
         public LoginLoja()
         {
             InitializeComponent();
@@ -118,7 +118,16 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            _cadastro.Show();
+            try
+            {
+                CadastroLogin cadastro = new CadastroLogin();
+                _cadastro = cadastro;
+                _cadastro.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -126,7 +135,15 @@ namespace LojaChocolateApp
         }
         private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
         {
-            _controle.OnlyNumbersAndChars(sender, e);
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
+            else
+                _controle.OnlyNumbersAndChars(sender, e);
+        }
+        private void textBoxSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
         }
     }
 }

@@ -33,52 +33,47 @@ namespace LojaChocolateApp.Utils.Panels
             try
             {
                 var verifica = new ProdutoRepository();
-                var id = textIdProduto.Text;
-                var nome = textNomeProduto.Text;
-                var peso = Convert.ToDecimal(textPesoProduto.Text);
-                var valor = Convert.ToDecimal(textValorProduto.Text);
-                var tipo = textTipoProduto.Text;
-                switch (tipo)
+                if (String.IsNullOrEmpty(textIdProduto.Text) || String.IsNullOrEmpty(textNomeProduto.Text) ||
+                    String.IsNullOrEmpty(textPesoProduto.Text) || String.IsNullOrEmpty(textValorProduto.Text))
                 {
-                    case "Chocolate":
-                        break;
-                    case "Presentes":
-                        break;
-                    default:
-                        tipo = "Chocolate";
-                        break;
-                }
-                var estoque = Convert.ToInt32(textEstoqueProduto.Text);
-                var produto = new Produto(id, nome, peso, valor, tipo, estoque);
-                (var existe, var msg) = verifica.Existente(produto);
-
-                if (existe)
-                {
-                    MessageBox.Show(msg);
+                    MessageBox.Show("Todos os campos devem ser preenchidos!");
                 }
                 else
                 {
-                    verifica.IncluirUnico(produto);
-                    MessageBox.Show("Cadastro Concluído");
-                    _controle.ApagaBox(this);
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Todos os campos devem ser preenchidos");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Todos os campos devem ser preenchidos");
+                    var id = textIdProduto.Text;
+                    var nome = textNomeProduto.Text;
+                    var peso = Convert.ToDecimal(textPesoProduto.Text);
+                    var valor = Convert.ToDecimal(textValorProduto.Text);
+                    var tipo = textTipoProduto.Text;
+                    switch (tipo)
+                    {
+                        case "Chocolate":
+                            break;
+                        case "Presentes":
+                            break;
+                        default:
+                            tipo = "Chocolate";
+                            break;
+                    }
+                    var estoque = Convert.ToInt32(textEstoqueProduto.Text);
+                    var produto = new Produto(id, nome, peso, valor, tipo, estoque);
+                    (var existe, var msg) = verifica.Existente(produto);
 
+                    if (existe)
+                    {
+                        MessageBox.Show(msg);
+                    }
+                    else
+                    {
+                        verifica.IncluirUnico(produto);
+                        MessageBox.Show("Cadastro Concluído");
+                        _controle.ApagaBox(this);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                _controle.ApagaBox(this);
             }
         }
         /// <summary>
@@ -197,6 +192,12 @@ namespace LojaChocolateApp.Utils.Panels
         private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
             _controle.CopiarSelecionar(sender, e);
+        }
+        private void textArquivoProduto_KeyUp(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
+            if (e.KeyData == Keys.Enter)
+                _controle.OpenFile(sender, e);
         }
     }
 }

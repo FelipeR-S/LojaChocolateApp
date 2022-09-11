@@ -414,5 +414,11 @@ namespace LojaChocolateApp.Utils.Panels
         {
             _controle.CopiarSelecionar(sender, e);
         }
+        private void textArquivoVendasCadastro_KeyUp(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
+            if (e.KeyData == Keys.Enter)
+                _controle.OpenFile(sender, e);
+        }
     }
 }
