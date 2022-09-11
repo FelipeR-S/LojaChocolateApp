@@ -39,26 +39,33 @@ namespace LojaChocolateApp
         }
         private void AppLoja_ClientSizeChanged(object sender, EventArgs e)
         {
-            //panelLoadPanels.Update();
-            if (WindowState == FormWindowState.Maximized)
+            try
             {
-                _controle.AumentaTxT(this);
-                var maxWidth = panelLogin.Width;
-                var centerWidth = panelLogin.Width / 2;
-                labelServer.Location = new Point(maxWidth - 202, 0);
-                txtServidor.Location = new Point(maxWidth - 140, 0);
-                labelCargo.Location = new Point(centerWidth - 45, 0);
-                txtCargo.Location = new Point(centerWidth, 0);
-                panelLoadPanels.Padding = new Padding(200, 100, 200, 0);
+                panelLoadPanels.Update();
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    _controle.AumentaTxT(this);
+                    var maxWidth = panelLogin.Width;
+                    var centerWidth = panelLogin.Width / 2;
+                    labelServer.Location = new Point(maxWidth - 202, 0);
+                    txtServidor.Location = new Point(maxWidth - 140, 0);
+                    labelCargo.Location = new Point(centerWidth - 45, 0);
+                    txtCargo.Location = new Point(centerWidth, 0);
+                    panelLoadPanels.Padding = new Padding(200, 100, 200, 0);
+                }
+                else
+                {
+                    _controle.DiminuiTxT(this);
+                    labelServer.Location = new Point(497, 0);
+                    txtServidor.Location = new Point(559, 0);
+                    labelCargo.Location = new Point(305, 0);
+                    txtCargo.Location = new Point(350, 0);
+                    panelLoadPanels.Padding = new Padding(0);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                _controle.DiminuiTxT(this);
-                labelServer.Location = new Point(497, 0);
-                txtServidor.Location = new Point(559, 0);
-                labelCargo.Location = new Point(305, 0);
-                txtCargo.Location = new Point(350, 0);
-                panelLoadPanels.Padding = new Padding(0);
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>

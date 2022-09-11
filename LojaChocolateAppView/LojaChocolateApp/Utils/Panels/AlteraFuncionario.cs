@@ -28,10 +28,10 @@ namespace LojaChocolateApp.Utils.Panels
         /// <param name="e"></param>
         private void btnRemoverFuncionario_Click(object sender, EventArgs e)
         {
-            Form background = new Form();
-            var id = textBoxRemoverFuncionario.Text;
             try
             {
+                Form background = new Form();
+                var id = textBoxRemoverFuncionario.Text;
                 var funcionarioRepo = new FuncionarioRepository();
                 (var existe, var funcionario) = funcionarioRepo.GetDetalhes(id);
                 if (existe)
@@ -61,7 +61,6 @@ namespace LojaChocolateApp.Utils.Panels
             finally
             {
                 _controle.ApagaBox(this);
-                background.Dispose();
             }
         }
         /// <summary>

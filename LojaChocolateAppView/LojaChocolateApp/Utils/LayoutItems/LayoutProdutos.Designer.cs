@@ -262,7 +262,7 @@
             this.textNomeLayout.Location = new System.Drawing.Point(114, 7);
             this.textNomeLayout.Name = "textNomeLayout";
             this.textNomeLayout.ReadOnly = true;
-            this.textNomeLayout.Size = new System.Drawing.Size(269, 23);
+            this.textNomeLayout.Size = new System.Drawing.Size(376, 23);
             this.textNomeLayout.TabIndex = 0;
             this.textNomeLayout.Text = "Nome";
             this.textNomeLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);

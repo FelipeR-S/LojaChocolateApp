@@ -501,6 +501,7 @@
             this.textArquivoVendasCadastro.Size = new System.Drawing.Size(320, 25);
             this.textArquivoVendasCadastro.TabIndex = 7;
             this.textArquivoVendasCadastro.Click += new System.EventHandler(this.OpenFile);
+            this.textArquivoVendasCadastro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textArquivoVendasCadastro_KeyUp);
             // 
             // textBox10
             // 

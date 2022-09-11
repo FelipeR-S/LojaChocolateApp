@@ -74,7 +74,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.595366F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.347594F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.01426F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(715, 573);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(715, 575);
             this.tableLayoutPanel3.TabIndex = 33;
             // 
             // panel3
@@ -308,7 +308,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 164);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(709, 406);
+            this.panel9.Size = new System.Drawing.Size(709, 408);
             this.panel9.TabIndex = 34;
             // 
             // flowLayoutLayoutExibeProdutos
@@ -319,7 +319,7 @@
             this.flowLayoutLayoutExibeProdutos.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutLayoutExibeProdutos.Name = "flowLayoutLayoutExibeProdutos";
             this.flowLayoutLayoutExibeProdutos.Padding = new System.Windows.Forms.Padding(22, 0, 22, 20);
-            this.flowLayoutLayoutExibeProdutos.Size = new System.Drawing.Size(709, 406);
+            this.flowLayoutLayoutExibeProdutos.Size = new System.Drawing.Size(709, 408);
             this.flowLayoutLayoutExibeProdutos.TabIndex = 6;
             // 
             // ConsultaProdutos
@@ -333,7 +333,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(715, 560);
             this.Name = "ConsultaProdutos";
-            this.Size = new System.Drawing.Size(715, 573);
+            this.Size = new System.Drawing.Size(715, 575);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);

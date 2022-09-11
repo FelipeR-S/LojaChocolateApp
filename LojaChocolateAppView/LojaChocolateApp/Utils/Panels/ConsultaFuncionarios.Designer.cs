@@ -74,7 +74,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.238859F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.7041F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.3104F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 575);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 577);
             this.tableLayoutPanel1.TabIndex = 32;
             // 
             // panel2
@@ -310,7 +310,7 @@
             this.panelBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBack.Location = new System.Drawing.Point(3, 158);
             this.panelBack.Name = "panelBack";
-            this.panelBack.Size = new System.Drawing.Size(709, 414);
+            this.panelBack.Size = new System.Drawing.Size(709, 416);
             this.panelBack.TabIndex = 34;
             // 
             // flowLayoutPanel1
@@ -321,7 +321,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 414);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 416);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // ConsultaFuncionarios
@@ -335,7 +335,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(715, 560);
             this.Name = "ConsultaFuncionarios";
-            this.Size = new System.Drawing.Size(715, 575);
+            this.Size = new System.Drawing.Size(715, 577);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -489,6 +489,7 @@
             this.textArquivoProduto.Size = new System.Drawing.Size(281, 29);
             this.textArquivoProduto.TabIndex = 7;
             this.textArquivoProduto.Click += new System.EventHandler(this.OpenFile);
+            this.textArquivoProduto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textArquivoProduto_KeyUp);
             // 
             // textBox9
             // 

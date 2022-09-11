@@ -42,25 +42,18 @@ namespace LojaChocolateApp.Utils.LayoutItems
         /// <param name="e"></param>
         private void btnNegar_Click(object sender, EventArgs e)
         {
-            try
+            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
             {
-                using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
-                {
-                    connection.Open();
-                    var matricula = txtMatricula.Text;
-                    var SQLQuery = $"DELETE FROM [dbo].[Cadastro de Usuário] WHERE [Matricula] = '{matricula}'";
-                    SqlCommand cmd = new SqlCommand(SQLQuery, connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    connection.Close();
-                }
-                MessageBox.Show("Cadastro Removido!");
-                Controls.Clear();
-                this.Height = 0;
+                connection.Open();
+                var matricula = txtMatricula.Text;
+                var SQLQuery = $"DELETE FROM [dbo].[Cadastro de Usuário] WHERE [Matricula] = '{matricula}'";
+                SqlCommand cmd = new SqlCommand(SQLQuery, connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                connection.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            MessageBox.Show("Cadastro Removido!");
+            Controls.Clear();
+            this.Height = 0;
         }
         /// <summary>
         /// Cria login de acesso através da tabela de cadastros
@@ -69,37 +62,30 @@ namespace LojaChocolateApp.Utils.LayoutItems
         /// <param name="e"></param>
         private void btnPermitir_Click(object sender, EventArgs e)
         {
-            try
+            var cargo = comboBoxCargo.Text;
+            var matricula = txtMatricula.Text;
+            if (cargo != String.Empty)
             {
-                var cargo = comboBoxCargo.Text;
-                var matricula = txtMatricula.Text;
-                if (cargo != String.Empty)
+                using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
                 {
-                    using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("NovoAcesso", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@matricula", matricula);
+                    cmd.Parameters.AddWithValue("@Cargo", cargo);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
                     {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand("NovoAcesso", connection);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@matricula", matricula);
-                        cmd.Parameters.AddWithValue("@Cargo", cargo);
-                        SqlDataReader rdr = cmd.ExecuteReader();
-                        while (rdr.Read())
-                        {
-                            int recordsAffected = cmd.ExecuteNonQuery();
-                        }
-                        connection.Close();
+                        int recordsAffected = cmd.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Cadastro Concluído!");
-                    Controls.Clear();
-                    this.Height = 0;
+                    connection.Close();
                 }
-                else
-                    MessageBox.Show("Favor selecionar um cargo.");
+                MessageBox.Show("Cadastro Concluído!");
+                Controls.Clear();
+                this.Height = 0;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Favor selecionar um cargo.");
         }
         private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
