@@ -450,6 +450,7 @@
             this.btnCadastrarVendaUnica.TabIndex = 6;
             this.btnCadastrarVendaUnica.Text = "Cadastrar";
             this.btnCadastrarVendaUnica.UseVisualStyleBackColor = false;
+            this.btnCadastrarVendaUnica.Click += new System.EventHandler(this.btnCadastrarVendaUnica_Click);
             // 
             // btnRemoverVenda
             // 

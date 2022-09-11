@@ -68,7 +68,7 @@ namespace LojaChocolateApp.Utils.Popups
                 }
                 if (panelRemoverProduto.Visible == true && panelRemoverFuncionario.Visible == false)
                 {
-                    //id = panelProdutos.textIdEstoqueProdutos.Text;
+                    id = panelProdutos.textIdEstoqueProdutos.Text;
                     var repositorioProduto = new ProdutoRepository();
                     removido = repositorioProduto.Remover(id);
                     if (!removido)
