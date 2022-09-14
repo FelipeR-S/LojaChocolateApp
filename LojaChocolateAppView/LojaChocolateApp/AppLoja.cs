@@ -121,7 +121,7 @@ namespace LojaChocolateApp
         /// <summary>
         /// Recebe da Databese as configurações
         /// </summary>
-        private void GetConfigs()
+        public void GetConfigs()
         {
             try
             {

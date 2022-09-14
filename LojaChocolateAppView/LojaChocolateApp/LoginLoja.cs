@@ -123,16 +123,16 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           try
-           {
-               CadastroLogin cadastro = new CadastroLogin();
-               _cadastro = cadastro;
-               _cadastro.Show();
-           }
-           catch (Exception ex)
-           {
-               MessageBox.Show(ex.Message);
-           }
+            try
+            {
+                CadastroLogin cadastro = new CadastroLogin();
+                _cadastro = cadastro;
+                _cadastro.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
         {

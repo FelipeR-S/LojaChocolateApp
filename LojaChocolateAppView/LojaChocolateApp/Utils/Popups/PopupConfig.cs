@@ -95,7 +95,8 @@ namespace LojaChocolateApp.Utils.Popups
                     {
                         _darkMode = reader.GetBoolean(0);
                         _controleEstoque = reader.GetBoolean(1);
-                        _quantidadeEstoque = Convert.ToInt32(reader.GetValue(2));
+                        if (_controleEstoque == true)
+                            _quantidadeEstoque = Convert.ToInt32(reader.GetValue(2));
                     }
                     connection.Close();
                 }
