@@ -67,12 +67,22 @@ namespace LojaChocolateApp.Repository
             var index = diretorio.Length - 9;
             diretorio = diretorio.Remove(index);
             diretorio += @"Database\loja_Chocolate";
-            var sqlQuery = $"USE [master] if DB_ID ('loja_Chocolate') Is null CREATE DATABASE [Loja_Chocolate] ON (FILENAME = N'{diretorio}.mdf'), ( FILENAME = N'{diretorio}.ldf') FOR ATTACH";
-            using (SqlConnection connection = new SqlConnection(SQLServerConn.StrConSA))
+            var sqlDB = $"USE [master] if DB_ID ('loja_Chocolate') Is null begin CREATE DATABASE [Loja_Chocolate] ON (FILENAME = N'{diretorio}.mdf'), ( FILENAME = N'{diretorio}.ldf') FOR ATTACH end";
+            //Cria DB
+            using (SqlConnection connection = new SqlConnection(StrConSA))
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
-                SqlDataReader srd = cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(sqlDB, connection);
+                SqlDataReader sdr = cmd.ExecuteReader();
+                connection.Close();
+            }
+            // Criar Certificados e Login Cadastro
+            var sqlCertificadoCadastro = "Use [loja_Chocolate] exec ChavesCertificados; exec CriaLoginCadastro;";
+            using (SqlConnection connection = new SqlConnection(StrConSA))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCertificadoCadastro, connection);
+                SqlDataReader sdr = cmd.ExecuteReader();
                 connection.Close();
             }
         }

@@ -7,7 +7,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -102,9 +104,12 @@ namespace LojaChocolateApp
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
+                if (ex.Message.Contains("Falha de logon do usuário"))
+                    MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
+                else
+                    MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
@@ -118,16 +123,16 @@ namespace LojaChocolateApp
         /// <param name="e"></param>
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try
-            {
-                CadastroLogin cadastro = new CadastroLogin();
-                _cadastro = cadastro;
-                _cadastro.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           try
+           {
+               CadastroLogin cadastro = new CadastroLogin();
+               _cadastro = cadastro;
+               _cadastro.Show();
+           }
+           catch (Exception ex)
+           {
+               MessageBox.Show(ex.Message);
+           }
         }
         private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
         {
