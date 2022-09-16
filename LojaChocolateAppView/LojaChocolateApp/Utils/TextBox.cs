@@ -391,7 +391,6 @@ namespace LojaChocolateApp.Utils
             }
             return imagem;
         }
-
         public void AumentaTxT(Control control)
         {
             foreach (Control c in control.Controls)
@@ -399,14 +398,14 @@ namespace LojaChocolateApp.Utils
                 if (c is TextBox && ((TextBox)c).Font.Size <= 10 && ((TextBox)c).Font.Size > 9)
                 {
                     if (((TextBox)c).Font.Style == FontStyle.Regular)
-                        ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Regular);
+                        ((TextBox)c).Font = new Font("Segoe UI", 12, FontStyle.Regular);
                     else
-                        ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Bold);
+                        ((TextBox)c).Font = new Font("Segoe UI", 12, FontStyle.Bold);
                 }
-                if (c is TextBox && ((TextBox)c).Font.Size == 19)
-                    ((TextBox)c).Font = new Font("Segoe UI", 24, FontStyle.Bold);
-                if (c is TextBox && ((TextBox)c).Font.Size == 12)
-                    ((TextBox)c).Font = new Font("Segoe UI", 16, FontStyle.Regular);
+                if (c is TextBox && ((TextBox)c).Font.Size == 18)
+                    ((TextBox)c).Font = new Font("Segoe UI", 22, FontStyle.Bold);
+                if (c is ComboBox && ((ComboBox)c).Font.Size <= 10 && ((ComboBox)c).Font.Size > 9)
+                    ((ComboBox)c).Font = new Font("Segoe UI", 12, FontStyle.Regular);
                 if (c.HasChildren)
                     AumentaTxT(c);
             }
@@ -415,17 +414,17 @@ namespace LojaChocolateApp.Utils
         {
             foreach (Control c in control.Controls)
             {
-                if (c is TextBox && ((TextBox)c).Font.Size == 16)
+                if (c is TextBox && ((TextBox)c).Font.Size == 12)
                 {
                     if (((TextBox)c).Font.Style == FontStyle.Regular)
                         ((TextBox)c).Font = new Font("Segoe UI", 10, FontStyle.Regular);
                     else
                         ((TextBox)c).Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 }
-                if (c is TextBox && ((TextBox)c).Font.Size == 24)
-                    ((TextBox)c).Font = new Font("Segoe UI", 19, FontStyle.Bold);
-                if (c is TextBox && ((TextBox)c).Font.Size == 16)
-                    ((TextBox)c).Font = new Font("Segoe UI", 12, FontStyle.Regular);
+                if (c is TextBox && ((TextBox)c).Font.Size == 22)
+                    ((TextBox)c).Font = new Font("Segoe UI", 18, FontStyle.Bold);
+                if (c is ComboBox && ((ComboBox)c).Font.Size == 12)
+                    ((ComboBox)c).Font = new Font("Segoe UI", 10, FontStyle.Regular);
                 if (c.HasChildren)
                     DiminuiTxT(c);
             }

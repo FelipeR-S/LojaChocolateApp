@@ -40,7 +40,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textSalarioFuncionario = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.PanelTituloAlteraFuncionario = new System.Windows.Forms.TableLayoutPanel();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,7 +60,7 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.PanelTituloAlteraFuncionario.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -201,14 +201,14 @@
             this.textIdSlarioFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textIdSlarioFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdSlarioFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textIdSlarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdSlarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdSlarioFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textIdSlarioFuncionario.Location = new System.Drawing.Point(89, 10);
             this.textIdSlarioFuncionario.Margin = new System.Windows.Forms.Padding(5, 0, 10, 0);
             this.textIdSlarioFuncionario.MaxLength = 3;
             this.textIdSlarioFuncionario.Name = "textIdSlarioFuncionario";
             this.textIdSlarioFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdSlarioFuncionario.Size = new System.Drawing.Size(153, 33);
+            this.textIdSlarioFuncionario.Size = new System.Drawing.Size(153, 25);
             this.textIdSlarioFuncionario.TabIndex = 2;
             this.textIdSlarioFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdSlarioFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -234,14 +234,14 @@
             this.textSalarioFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textSalarioFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textSalarioFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textSalarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSalarioFuncionario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalarioFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textSalarioFuncionario.Location = new System.Drawing.Point(385, 10);
             this.textSalarioFuncionario.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.textSalarioFuncionario.MaxLength = 3;
             this.textSalarioFuncionario.Name = "textSalarioFuncionario";
             this.textSalarioFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSalarioFuncionario.Size = new System.Drawing.Size(164, 33);
+            this.textSalarioFuncionario.Size = new System.Drawing.Size(164, 25);
             this.textSalarioFuncionario.TabIndex = 3;
             this.textSalarioFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textSalarioFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
@@ -249,34 +249,34 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.tableLayoutPanel4);
+            this.panel6.Controls.Add(this.PanelTituloAlteraFuncionario);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(3, 236);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(549, 82);
             this.panel6.TabIndex = 31;
             // 
-            // tableLayoutPanel4
+            // PanelTituloAlteraFuncionario
             // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.13514F));
-            this.tableLayoutPanel4.Controls.Add(this.textBox5, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 82);
-            this.tableLayoutPanel4.TabIndex = 21;
+            this.PanelTituloAlteraFuncionario.AutoSize = true;
+            this.PanelTituloAlteraFuncionario.ColumnCount = 1;
+            this.PanelTituloAlteraFuncionario.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.13514F));
+            this.PanelTituloAlteraFuncionario.Controls.Add(this.textBox5, 0, 0);
+            this.PanelTituloAlteraFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelTituloAlteraFuncionario.Location = new System.Drawing.Point(0, 0);
+            this.PanelTituloAlteraFuncionario.Name = "PanelTituloAlteraFuncionario";
+            this.PanelTituloAlteraFuncionario.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.PanelTituloAlteraFuncionario.RowCount = 1;
+            this.PanelTituloAlteraFuncionario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelTituloAlteraFuncionario.Size = new System.Drawing.Size(549, 82);
+            this.PanelTituloAlteraFuncionario.TabIndex = 21;
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 18.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.textBox5.Location = new System.Drawing.Point(3, 33);
             this.textBox5.Multiline = true;
@@ -339,14 +339,14 @@
             this.textBoxRemoverFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxRemoverFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRemoverFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRemoverFuncionario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRemoverFuncionario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRemoverFuncionario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxRemoverFuncionario.Location = new System.Drawing.Point(87, 0);
             this.textBoxRemoverFuncionario.Margin = new System.Windows.Forms.Padding(5, 0, 10, 0);
             this.textBoxRemoverFuncionario.MaxLength = 3;
             this.textBoxRemoverFuncionario.Name = "textBoxRemoverFuncionario";
             this.textBoxRemoverFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxRemoverFuncionario.Size = new System.Drawing.Size(286, 33);
+            this.textBoxRemoverFuncionario.Size = new System.Drawing.Size(286, 25);
             this.textBoxRemoverFuncionario.TabIndex = 0;
             this.textBoxRemoverFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxRemoverFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -442,7 +442,7 @@
             this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.textBox6.Location = new System.Drawing.Point(3, 33);
             this.textBox6.Multiline = true;
@@ -480,8 +480,8 @@
             this.tableLayoutPanel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.PanelTituloAlteraFuncionario.ResumeLayout(false);
+            this.PanelTituloAlteraFuncionario.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -513,7 +513,7 @@
         private System.Windows.Forms.TextBox textBox3;
         public System.Windows.Forms.TextBox textSalarioFuncionario;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel PanelTituloAlteraFuncionario;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

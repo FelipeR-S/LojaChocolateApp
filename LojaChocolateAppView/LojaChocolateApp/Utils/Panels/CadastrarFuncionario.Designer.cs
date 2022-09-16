@@ -147,14 +147,14 @@
             this.comboBoxCargo.BackColor = System.Drawing.Color.White;
             this.comboBoxCargo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCargo.FormattingEnabled = true;
             this.comboBoxCargo.Items.AddRange(new object[] {
             "Vendedor",
             "Gerente"});
             this.comboBoxCargo.Location = new System.Drawing.Point(112, 8);
             this.comboBoxCargo.Name = "comboBoxCargo";
-            this.comboBoxCargo.Size = new System.Drawing.Size(434, 29);
+            this.comboBoxCargo.Size = new System.Drawing.Size(434, 25);
             this.comboBoxCargo.TabIndex = 5;
             // 
             // textBox7
@@ -164,8 +164,7 @@
             this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.Black;
-            this.textBox7.Location = new System.Drawing.Point(3, 12);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox7.Location = new System.Drawing.Point(3, 8);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(103, 18);
@@ -194,13 +193,13 @@
             this.textBoxSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxSalario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSalario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxSalario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSalario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSalario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxSalario.Location = new System.Drawing.Point(112, 8);
             this.textBoxSalario.MaxLength = 8;
             this.textBoxSalario.Name = "textBoxSalario";
             this.textBoxSalario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxSalario.Size = new System.Drawing.Size(434, 29);
+            this.textBoxSalario.Size = new System.Drawing.Size(434, 25);
             this.textBoxSalario.TabIndex = 4;
             this.textBoxSalario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
@@ -212,8 +211,7 @@
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(3, 12);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox6.Location = new System.Drawing.Point(3, 8);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(103, 18);
@@ -242,13 +240,13 @@
             this.textBoxContato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxContato.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxContato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxContato.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContato.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContato.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxContato.Location = new System.Drawing.Point(112, 8);
             this.textBoxContato.MaxLength = 14;
             this.textBoxContato.Name = "textBoxContato";
             this.textBoxContato.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxContato.Size = new System.Drawing.Size(434, 29);
+            this.textBoxContato.Size = new System.Drawing.Size(434, 25);
             this.textBoxContato.TabIndex = 3;
             this.textBoxContato.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxContato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxContato);
@@ -260,8 +258,7 @@
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(3, 12);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox5.Location = new System.Drawing.Point(3, 8);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(103, 18);
@@ -290,13 +287,13 @@
             this.textBoxCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxCpf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxCpf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxCpf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCpf.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCpf.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxCpf.Location = new System.Drawing.Point(112, 8);
             this.textBoxCpf.MaxLength = 14;
             this.textBoxCpf.Name = "textBoxCpf";
             this.textBoxCpf.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxCpf.Size = new System.Drawing.Size(434, 29);
+            this.textBoxCpf.Size = new System.Drawing.Size(434, 25);
             this.textBoxCpf.TabIndex = 2;
             this.textBoxCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxCPF);
@@ -308,8 +305,7 @@
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(3, 12);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox4.Location = new System.Drawing.Point(3, 8);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(103, 18);
@@ -338,14 +334,14 @@
             this.textBoxId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxId.Location = new System.Drawing.Point(112, 8);
             this.textBoxId.MaxLength = 3;
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxId.Size = new System.Drawing.Size(434, 29);
+            this.textBoxId.Size = new System.Drawing.Size(434, 25);
             this.textBoxId.TabIndex = 0;
             this.textBoxId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -357,8 +353,7 @@
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(3, 12);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox2.Location = new System.Drawing.Point(3, 8);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(103, 18);
@@ -387,13 +382,13 @@
             this.textBoxNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxNome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNome.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxNome.Location = new System.Drawing.Point(112, 8);
             this.textBoxNome.MaxLength = 150;
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxNome.Size = new System.Drawing.Size(434, 29);
+            this.textBoxNome.Size = new System.Drawing.Size(434, 25);
             this.textBoxNome.TabIndex = 1;
             this.textBoxNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyChars);
@@ -405,8 +400,7 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(3, 12);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox3.Location = new System.Drawing.Point(3, 8);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(103, 18);
@@ -454,12 +448,12 @@
             this.textBoxArquivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textBoxArquivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxArquivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxArquivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxArquivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxArquivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxArquivo.Location = new System.Drawing.Point(112, 3);
             this.textBoxArquivo.Name = "textBoxArquivo";
             this.textBoxArquivo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxArquivo.Size = new System.Drawing.Size(281, 29);
+            this.textBoxArquivo.Size = new System.Drawing.Size(281, 25);
             this.textBoxArquivo.TabIndex = 7;
             this.textBoxArquivo.Click += new System.EventHandler(this.OpenFile);
             this.textBoxArquivo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxArquivo_KeyUp);
@@ -471,8 +465,7 @@
             this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.Black;
-            this.textBox8.Location = new System.Drawing.Point(3, 7);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBox8.Location = new System.Drawing.Point(3, 3);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(103, 18);
@@ -501,13 +494,13 @@
             this.textBox9.BackColor = System.Drawing.Color.White;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.textBox9.Location = new System.Drawing.Point(3, 406);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(549, 26);
+            this.textBox9.Size = new System.Drawing.Size(549, 28);
             this.textBox9.TabIndex = 99;
             this.textBox9.TabStop = false;
             this.textBox9.Text = "Cadastrar com arquivo CSV:";

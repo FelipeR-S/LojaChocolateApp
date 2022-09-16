@@ -71,9 +71,7 @@ namespace LojaChocolateApp.Utils.Panels
                             }
                         }
                         else
-                        {
                             MessageBox.Show($"Produto com Código nº {id} não encontrado.");
-                        }
                         break;
                     case "Inserir":
                         quantidade = textEstoqueQtdProdutos.Text;
@@ -93,17 +91,27 @@ namespace LojaChocolateApp.Utils.Panels
                     case "Retirar":
                         quantidade = textEstoqueQtdProdutos.Text;
                         var qtdRetirar = Convert.ToInt32($"-{quantidade}");
-                        (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, qtdRetirar);
-                        if (concluido && produto != null)
-                        {
-                            MessageBox.Show($"Alteração Concluída!\n" +
-                                $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
-                                $"de: {produto.Estoque} para {produto.Estoque + qtdRetirar}");
-                        }
+                        //Verifica Estoque
+                        var existeEstoque = false;
+                        Produto prodEstoque = null;
+                        (existeEstoque, prodEstoque) = produtoRepo.GetDetalhes(id);
+                        if (prodEstoque.Estoque < Convert.ToInt32(quantidade))
+                            MessageBox.Show($"Quantidade solicitada exceda a do estoque.\n Qtd solicitada: -{quantidade} | Qtd em estoque: {prodEstoque.Estoque}");
                         else
                         {
-                            msg += "Não foi possível retirar a quantidade informada!\nVerifique se o ID está correto ou se há produtos suficientes no estoque!";
-                            MessageBox.Show(msg);
+                            //Altera Estoque
+                            (concluido, produto) = produtoRepo.AlteraEstoqueRepository(id, qtdRetirar);
+                            if (concluido && produto != null)
+                            {
+                                MessageBox.Show($"Alteração Concluída!\n" +
+                                    $"O produto:{produto.Nome}\n teve sua quantidade alterada\n" +
+                                    $"de: {produto.Estoque} para {produto.Estoque + qtdRetirar}");
+                            }
+                            else
+                            {
+                                msg += "Não foi possível retirar a quantidade informada!\nVerifique se o ID está correto ou se há produtos suficientes no estoque!";
+                                MessageBox.Show(msg);
+                            }
                         }
                         break;
                     case "Alterar Valor":

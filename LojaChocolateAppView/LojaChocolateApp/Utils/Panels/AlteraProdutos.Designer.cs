@@ -263,13 +263,13 @@
             this.textNovoValorProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textNovoValorProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textNovoValorProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textNovoValorProduto.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNovoValorProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNovoValorProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textNovoValorProduto.Location = new System.Drawing.Point(66, 3);
             this.textNovoValorProduto.MaxLength = 8;
             this.textNovoValorProduto.Name = "textNovoValorProduto";
             this.textNovoValorProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textNovoValorProduto.Size = new System.Drawing.Size(111, 33);
+            this.textNovoValorProduto.Size = new System.Drawing.Size(111, 25);
             this.textNovoValorProduto.TabIndex = 3;
             this.textNovoValorProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textNovoValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
@@ -295,7 +295,7 @@
             // 
             this.comboBoxOpcaoProdutos.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBoxOpcaoProdutos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxOpcaoProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxOpcaoProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOpcaoProdutos.FormattingEnabled = true;
             this.comboBoxOpcaoProdutos.Items.AddRange(new object[] {
             "Remover",
@@ -305,7 +305,7 @@
             this.comboBoxOpcaoProdutos.Location = new System.Drawing.Point(3, 7);
             this.comboBoxOpcaoProdutos.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.comboBoxOpcaoProdutos.Name = "comboBoxOpcaoProdutos";
-            this.comboBoxOpcaoProdutos.Size = new System.Drawing.Size(180, 29);
+            this.comboBoxOpcaoProdutos.Size = new System.Drawing.Size(180, 25);
             this.comboBoxOpcaoProdutos.TabIndex = 1;
             this.comboBoxOpcaoProdutos.SelectedValueChanged += new System.EventHandler(this.comboBoxOpcaoProdutos_SelectedIndexChanged);
             // 
@@ -355,13 +355,13 @@
             this.textEstoqueQtdProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textEstoqueQtdProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textEstoqueQtdProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textEstoqueQtdProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEstoqueQtdProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEstoqueQtdProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textEstoqueQtdProdutos.Location = new System.Drawing.Point(124, 3);
             this.textEstoqueQtdProdutos.MaxLength = 4;
             this.textEstoqueQtdProdutos.Name = "textEstoqueQtdProdutos";
             this.textEstoqueQtdProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textEstoqueQtdProdutos.Size = new System.Drawing.Size(52, 33);
+            this.textEstoqueQtdProdutos.Size = new System.Drawing.Size(52, 25);
             this.textEstoqueQtdProdutos.TabIndex = 2;
             this.textEstoqueQtdProdutos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textEstoqueQtdProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -404,7 +404,7 @@
             this.textIdEstoqueProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textIdEstoqueProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdEstoqueProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdEstoqueProdutos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdEstoqueProdutos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textIdEstoqueProdutos.Location = new System.Drawing.Point(75, 3);
             this.textIdEstoqueProdutos.MaxLength = 12;

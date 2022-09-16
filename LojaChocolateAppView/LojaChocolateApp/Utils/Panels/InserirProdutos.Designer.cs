@@ -114,13 +114,13 @@
             this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.textBox8.Location = new System.Drawing.Point(3, 406);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 20, 3, 10);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(549, 26);
+            this.textBox8.Size = new System.Drawing.Size(549, 28);
             this.textBox8.TabIndex = 99;
             this.textBox8.TabStop = false;
             this.textBox8.Text = "Inserir com arquivo CSV:";
@@ -162,14 +162,14 @@
             // 
             this.textTipoProduto.Dock = System.Windows.Forms.DockStyle.Top;
             this.textTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textTipoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTipoProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTipoProduto.FormattingEnabled = true;
             this.textTipoProduto.Items.AddRange(new object[] {
             "Chocolate",
             "Presentes"});
             this.textTipoProduto.Location = new System.Drawing.Point(112, 8);
             this.textTipoProduto.Name = "textTipoProduto";
-            this.textTipoProduto.Size = new System.Drawing.Size(434, 29);
+            this.textTipoProduto.Size = new System.Drawing.Size(434, 25);
             this.textTipoProduto.TabIndex = 5;
             // 
             // textBox7
@@ -208,13 +208,13 @@
             this.textEstoqueProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textEstoqueProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textEstoqueProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textEstoqueProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEstoqueProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEstoqueProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textEstoqueProduto.Location = new System.Drawing.Point(112, 8);
             this.textEstoqueProduto.MaxLength = 4;
             this.textEstoqueProduto.Name = "textEstoqueProduto";
             this.textEstoqueProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textEstoqueProduto.Size = new System.Drawing.Size(434, 29);
+            this.textEstoqueProduto.Size = new System.Drawing.Size(434, 25);
             this.textEstoqueProduto.TabIndex = 4;
             this.textEstoqueProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textEstoqueProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -255,14 +255,14 @@
             this.textValorProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textValorProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textValorProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textValorProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValorProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textValorProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textValorProduto.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textValorProduto.Location = new System.Drawing.Point(112, 8);
             this.textValorProduto.MaxLength = 8;
             this.textValorProduto.Name = "textValorProduto";
             this.textValorProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textValorProduto.Size = new System.Drawing.Size(434, 29);
+            this.textValorProduto.Size = new System.Drawing.Size(434, 25);
             this.textValorProduto.TabIndex = 3;
             this.textValorProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxValor);
@@ -303,14 +303,14 @@
             this.textPesoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textPesoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textPesoProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textPesoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPesoProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPesoProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textPesoProduto.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textPesoProduto.Location = new System.Drawing.Point(112, 8);
             this.textPesoProduto.MaxLength = 4;
             this.textPesoProduto.Name = "textPesoProduto";
             this.textPesoProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textPesoProduto.Size = new System.Drawing.Size(434, 29);
+            this.textPesoProduto.Size = new System.Drawing.Size(434, 25);
             this.textPesoProduto.TabIndex = 2;
             this.textPesoProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textPesoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -351,13 +351,13 @@
             this.textIdProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textIdProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textIdProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textIdProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIdProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIdProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textIdProduto.Location = new System.Drawing.Point(112, 8);
             this.textIdProduto.MaxLength = 12;
             this.textIdProduto.Name = "textIdProduto";
             this.textIdProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textIdProduto.Size = new System.Drawing.Size(434, 29);
+            this.textIdProduto.Size = new System.Drawing.Size(434, 25);
             this.textIdProduto.TabIndex = 0;
             this.textIdProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textIdProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
@@ -398,13 +398,13 @@
             this.textNomeProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textNomeProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textNomeProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textNomeProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNomeProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNomeProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textNomeProduto.Location = new System.Drawing.Point(112, 8);
             this.textNomeProduto.MaxLength = 150;
             this.textNomeProduto.Name = "textNomeProduto";
             this.textNomeProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textNomeProduto.Size = new System.Drawing.Size(434, 29);
+            this.textNomeProduto.Size = new System.Drawing.Size(434, 25);
             this.textNomeProduto.TabIndex = 1;
             this.textNomeProduto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textNomeProduto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
@@ -481,12 +481,12 @@
             this.textArquivoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(167)))), ((int)(((byte)(101)))));
             this.textArquivoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textArquivoProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textArquivoProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textArquivoProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textArquivoProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textArquivoProduto.Location = new System.Drawing.Point(112, 3);
             this.textArquivoProduto.Name = "textArquivoProduto";
             this.textArquivoProduto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textArquivoProduto.Size = new System.Drawing.Size(281, 29);
+            this.textArquivoProduto.Size = new System.Drawing.Size(281, 25);
             this.textArquivoProduto.TabIndex = 7;
             this.textArquivoProduto.Click += new System.EventHandler(this.OpenFile);
             this.textArquivoProduto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textArquivoProduto_KeyUp);

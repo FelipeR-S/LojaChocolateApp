@@ -51,7 +51,8 @@ namespace LojaChocolateApp
                     txtServidor.Location = new Point(maxWidth - 140, 0);
                     labelCargo.Location = new Point(centerWidth - 45, 0);
                     txtCargo.Location = new Point(centerWidth, 0);
-                    panelLoadPanels.Padding = new Padding(200, 100, 200, 0);
+                    if (panelLoadPanels.Width >= 1300)
+                        panelLoadPanels.Padding = new Padding(200, 100, 200, 0);
                 }
                 else
                 {
@@ -164,9 +165,8 @@ namespace LojaChocolateApp
                     labelCargo.Text = "";
                     btnProdutos.Visible = false;
                     btnVendas.Visible = false;
-                    btnExcluirFuncionario.Visible = false;
                     btnConsultarFuncionarios.Visible = false;
-                    panelSubMenuFuncionario.Height = 70;
+                    panelSubMenuFuncionario.Height = 105;
                     btnConfigurar.Visible = false;
                 }
                 else

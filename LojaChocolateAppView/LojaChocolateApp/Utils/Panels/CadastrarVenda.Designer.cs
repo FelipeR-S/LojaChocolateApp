@@ -114,13 +114,13 @@
             this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.textBox2.Location = new System.Drawing.Point(3, 415);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 10);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(629, 26);
+            this.textBox2.Size = new System.Drawing.Size(629, 28);
             this.textBox2.TabIndex = 99;
             this.textBox2.TabStop = false;
             this.textBox2.Text = "Cadastrar com arquivo CSV:";

@@ -44,7 +44,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.flowLayoutLayoutExibeProdutos = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -52,7 +51,6 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -60,11 +58,11 @@
             this.tableLayoutPanel3.AutoSize = true;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutLayoutExibeProdutos, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.panel5, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel8, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.panel9, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -72,9 +70,9 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.60714F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.595366F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.347594F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.01426F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(715, 575);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.07143F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(715, 560);
             this.tableLayoutPanel3.TabIndex = 33;
             // 
             // panel3
@@ -82,10 +80,10 @@
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.tableLayoutPanel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 97);
+            this.panel3.Location = new System.Drawing.Point(3, 94);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
-            this.panel3.Size = new System.Drawing.Size(709, 31);
+            this.panel3.Size = new System.Drawing.Size(709, 30);
             this.panel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -110,7 +108,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 30);
             this.tableLayoutPanel4.TabIndex = 20;
             // 
             // btnBuscaIdProduto
@@ -123,7 +121,7 @@
             this.btnBuscaIdProduto.ForeColor = System.Drawing.SystemColors.Window;
             this.btnBuscaIdProduto.Location = new System.Drawing.Point(225, 3);
             this.btnBuscaIdProduto.Name = "btnBuscaIdProduto";
-            this.btnBuscaIdProduto.Size = new System.Drawing.Size(62, 25);
+            this.btnBuscaIdProduto.Size = new System.Drawing.Size(62, 24);
             this.btnBuscaIdProduto.TabIndex = 1;
             this.btnBuscaIdProduto.Text = "Buscar";
             this.btnBuscaIdProduto.UseVisualStyleBackColor = false;
@@ -213,7 +211,7 @@
             this.btnExibeTodosProdutos.ForeColor = System.Drawing.SystemColors.Window;
             this.btnExibeTodosProdutos.Location = new System.Drawing.Point(484, 3);
             this.btnExibeTodosProdutos.Name = "btnExibeTodosProdutos";
-            this.btnExibeTodosProdutos.Size = new System.Drawing.Size(62, 25);
+            this.btnExibeTodosProdutos.Size = new System.Drawing.Size(62, 24);
             this.btnExibeTodosProdutos.TabIndex = 3;
             this.btnExibeTodosProdutos.Text = "Todos";
             this.btnExibeTodosProdutos.UseVisualStyleBackColor = false;
@@ -225,10 +223,10 @@
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.tituloExibeProdutos);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 134);
+            this.panel5.Location = new System.Drawing.Point(3, 130);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
-            this.panel5.Size = new System.Drawing.Size(709, 24);
+            this.panel5.Size = new System.Drawing.Size(709, 28);
             this.panel5.TabIndex = 31;
             // 
             // tituloExibeProdutos
@@ -255,7 +253,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(80, 20, 80, 0);
-            this.panel6.Size = new System.Drawing.Size(709, 60);
+            this.panel6.Size = new System.Drawing.Size(709, 58);
             this.panel6.TabIndex = 17;
             // 
             // textBox1
@@ -279,10 +277,10 @@
             this.panel8.AutoSize = true;
             this.panel8.Controls.Add(this.textBox8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 69);
+            this.panel8.Location = new System.Drawing.Point(3, 67);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
-            this.panel8.Size = new System.Drawing.Size(709, 22);
+            this.panel8.Size = new System.Drawing.Size(709, 21);
             this.panel8.TabIndex = 18;
             // 
             // textBox8
@@ -302,25 +300,16 @@
     "os\"";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.flowLayoutLayoutExibeProdutos);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 164);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(709, 408);
-            this.panel9.TabIndex = 34;
-            // 
             // flowLayoutLayoutExibeProdutos
             // 
             this.flowLayoutLayoutExibeProdutos.AutoScroll = true;
             this.flowLayoutLayoutExibeProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutLayoutExibeProdutos.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutLayoutExibeProdutos.Location = new System.Drawing.Point(0, 161);
             this.flowLayoutLayoutExibeProdutos.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutLayoutExibeProdutos.Name = "flowLayoutLayoutExibeProdutos";
             this.flowLayoutLayoutExibeProdutos.Padding = new System.Windows.Forms.Padding(22, 0, 22, 20);
-            this.flowLayoutLayoutExibeProdutos.Size = new System.Drawing.Size(709, 408);
-            this.flowLayoutLayoutExibeProdutos.TabIndex = 6;
+            this.flowLayoutLayoutExibeProdutos.Size = new System.Drawing.Size(715, 399);
+            this.flowLayoutLayoutExibeProdutos.TabIndex = 32;
             // 
             // ConsultaProdutos
             // 
@@ -333,7 +322,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(715, 560);
             this.Name = "ConsultaProdutos";
-            this.Size = new System.Drawing.Size(715, 575);
+            this.Size = new System.Drawing.Size(715, 560);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -345,7 +334,6 @@
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,7 +356,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox tituloExibeProdutos;
-        public System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutLayoutExibeProdutos;
     }
 }
