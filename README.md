@@ -32,7 +32,7 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 <br>
 <img alt="menu" title="menu" src="./GithubGif/MenuDropDown.gif"/>
 <br><br>
-<h2 >TextBox</h2>
+<h2><b>TextBox</b></h2>
 <p>Utiliza-se de textbox para inserção de dados onde os campos são configurados para recuperar as informações de forma correta.</p>
 <p>Os campos Id, Estoque, contato, salário entre outros aceitam apenas valores numéricos os mesmos tem um limite de caracteres e são configurados quando necessário</p>
 <br>
@@ -63,7 +63,22 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 <br>
 <img alt="Erro nos dados" title="Erro nos dados" src="./GithubGif/DadosErrados.gif"/>
 <br><br>
-<p>Mais erros são esperados como: id incorreto em busca de detalhes; produto com pouco estoque; CSV incorreto, entre outros</p><br>
+<p>Mais erros são esperados como: id incorreto em busca de detalhes; produto com pouco estoque; CSV incorreto, entre outros</p>
+<br>
+<h2><b>Cadastro de Novo Usuário</b></h2>
+<p>Incluido a possibilidade de criar um novo acesso mediante a aprovação de um gerente.</p><br>
+<img alt="Cadastro de novo Login" title="Cadastro de novo Login" src="./GithubGif/CadastroNovoLogin.gif"/>
+<br>
+<img alt="Autorização de novo Login" title="Autorização de novo Login" src="./GithubGif/AutorizacaoNovoLogin.gif"/>
+<br><br>
+<h2><b>Controle de Acesso de Usuários</b></h2>
+<p>Habilitada a possibilidade de diferentes views para cada hierarquia de funcionário. O usuário <b>"Gerente"</b> terá acesso a todas as funções da aplicação inclusive a de aprovar novo login, já o vendedor não tera acesso ao menu de funcionários.</p><br>
+<img alt="Controle de Acesso" title="Controle de Acesso" src="./GithubGif/ControleDeAcesso.gif"/>
+<br><br>
+<h2><b>DarkMode e viso de Estoque Baixo</b></h2>
+<p>A funcionalidade de darkmode altera o fundo de painéis que são brancos, substituíndo a cor por um cinza próximo ao preto, além disso as fontes são alteradas para a cor branca. O aviso de estoque baixo informa o usuário se o estoque de um produto está abaixo do escolhido.</p><br>
+<img alt="DarkMode e Limite de Estoque" title="DarkMode e Limite de Es" src="./GithubGif/DarkModeLimiteEstoque.gif"/>
+<br><br>
 
 # **Tecnologias**
 
@@ -77,6 +92,7 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 
 # **Pré-Requisitos**
 
+<p>Para garantir o funcionamento da aplicação deve-se extrair o arquivo na raiz do disco C: ou em outro disco.</p>
 <p>Será necessária a instalação do MS SQL Server 2019, seguindo o passo a passo abaixo. O download está no link a seguir: https://www.microsoft.com/pt-br/sql-server/sql-server-downloads</p>
 <p>Obs.: A versão utilizada no projeto foi a "Developer".</p>
 <h3><b>Processo de Instalação MS SQL SERVER 2019</b></h3>
@@ -87,8 +103,6 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 <p>Para que o banco de dados da aplicação fique funcional é necessário dar permissão de usuário no arquivo conforme segue:</p>
 <p>Acesse o caminho "LojaChocolateApp\LojaChocolateAppView\LojaChocolateApp\Database" e para ambos os arquivos da pasta clique com o botão direito e vá em propriedades.</p>
 <p>Em propriedades acesse a aba segurança e clique em editar, para editar permissões do "SISTEMA" e conceda "Controle Total".</p>
-
-
 <p>Após isso basta apenas finalizar a instalação e utilizar a aplicação.</p>
 <p>Para utilizar a aplicação basta salva-la em seu computador e utilizar seu atalho.</p>
 <p>Caso ocorra algum problema ao acessar o atalho deve acessar o seguinte diretório:<br> LojaChocolateAppView/LojaChocolateApp/bin/Debug/LojaChocolateApp.exe</p><br>
