@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace LojaChocolateApp.Utils.LayoutItems
 {
     public partial class LayoutProdutos : UserControl
     {
+        private TextBoxControls _controle = new TextBoxControls();
         #region Propriedades
         private string _nome;
         private string _id;
@@ -45,17 +47,19 @@ namespace LojaChocolateApp.Utils.LayoutItems
         public LayoutProdutos()
         {
             InitializeComponent();
-            ReadOnly();
         }
-        private void ReadOnly()
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
         {
-            textNomeLayout.ReadOnly = true;
-            textIdLayout.ReadOnly = true;
-            textPesoLayout.ReadOnly = true;
-            textValorLayout.ReadOnly = true;
-            textTipoLayout.ReadOnly = true;
-            textEstoqueLayout.ReadOnly = true;
-            textVendasLayout.ReadOnly = true;
+            _controle.CopiarSelecionar(sender, e);
+        }
+        private void btnAddImagem_Click(object sender, EventArgs e)
+        {
+            SQLServerConn server = new SQLServerConn();
+            var imagem = _controle.OpenFileImage(sender, e);
+            var imgByte = server.ConvertImageToByte(imagem);
+            server.InsereImagemSql(imgByte, "Produto", this.Id);
+            this.Imagem = imagem;
+            MessageBox.Show("Imagem Cadastrada!");
         }
     }
 }

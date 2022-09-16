@@ -46,6 +46,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.linkCadastrar = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDatabase.SuspendLayout();
@@ -83,7 +84,7 @@
             this.panelDatabase.Location = new System.Drawing.Point(0, 100);
             this.panelDatabase.Name = "panelDatabase";
             this.panelDatabase.Size = new System.Drawing.Size(384, 80);
-            this.panelDatabase.TabIndex = 5;
+            this.panelDatabase.TabIndex = 0;
             // 
             // comboBoxDatabase
             // 
@@ -93,7 +94,7 @@
             this.comboBoxDatabase.MaximumSize = new System.Drawing.Size(300, 0);
             this.comboBoxDatabase.Name = "comboBoxDatabase";
             this.comboBoxDatabase.Size = new System.Drawing.Size(300, 25);
-            this.comboBoxDatabase.TabIndex = 2;
+            this.comboBoxDatabase.TabIndex = 0;
             // 
             // label2
             // 
@@ -114,7 +115,7 @@
             this.panelLogin.Location = new System.Drawing.Point(0, 180);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(384, 80);
-            this.panelLogin.TabIndex = 6;
+            this.panelLogin.TabIndex = 1;
             // 
             // panelLinha
             // 
@@ -142,10 +143,10 @@
             this.textBoxUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUser.ForeColor = System.Drawing.Color.White;
             this.textBoxUser.Location = new System.Drawing.Point(42, 42);
-            this.textBoxUser.MaxLength = 150;
+            this.textBoxUser.MaxLength = 15;
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(300, 22);
-            this.textBoxUser.TabIndex = 0;
+            this.textBoxUser.TabIndex = 1;
             this.textBoxUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbersAndChars);
             // 
@@ -158,7 +159,7 @@
             this.panelSenha.Location = new System.Drawing.Point(0, 260);
             this.panelSenha.Name = "panelSenha";
             this.panelSenha.Size = new System.Drawing.Size(384, 80);
-            this.panelSenha.TabIndex = 7;
+            this.panelSenha.TabIndex = 2;
             // 
             // panel3
             // 
@@ -186,11 +187,13 @@
             this.textBoxSenha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSenha.ForeColor = System.Drawing.Color.White;
             this.textBoxSenha.Location = new System.Drawing.Point(42, 42);
+            this.textBoxSenha.MaxLength = 8;
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(300, 22);
-            this.textBoxSenha.TabIndex = 0;
+            this.textBoxSenha.TabIndex = 2;
             this.textBoxSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSenha.UseSystemPasswordChar = true;
+            this.textBoxSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSenha_KeyPress);
             // 
             // panel2
             // 
@@ -199,7 +202,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 340);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(384, 46);
-            this.panel2.TabIndex = 8;
+            this.panel2.TabIndex = 3;
             // 
             // btnLogin
             // 
@@ -210,7 +213,7 @@
             this.btnLogin.Location = new System.Drawing.Point(42, 6);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(300, 32);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -221,17 +224,33 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 386);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(384, 55);
-            this.panel4.TabIndex = 10;
+            this.panel4.Size = new System.Drawing.Size(384, 95);
+            this.panel4.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(42, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(300, 46);
+            this.label4.Size = new System.Drawing.Size(300, 92);
             this.label4.TabIndex = 0;
             this.label4.Text = "Caso for o primeiro acesso utilize \r\no user \"SA\" do SQLServer";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linkCadastrar
+            // 
+            this.linkCadastrar.BackColor = System.Drawing.Color.Transparent;
+            this.linkCadastrar.DisabledLinkColor = System.Drawing.Color.Black;
+            this.linkCadastrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkCadastrar.LinkColor = System.Drawing.Color.White;
+            this.linkCadastrar.Location = new System.Drawing.Point(0, 500);
+            this.linkCadastrar.Name = "linkCadastrar";
+            this.linkCadastrar.Size = new System.Drawing.Size(384, 21);
+            this.linkCadastrar.TabIndex = 4;
+            this.linkCadastrar.TabStop = true;
+            this.linkCadastrar.Text = "Cadastrar Novo Acesso";
+            this.linkCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkCadastrar.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkCadastrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCadastrar_LinkClicked);
             // 
             // LoginLoja
             // 
@@ -239,6 +258,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(384, 561);
+            this.Controls.Add(this.linkCadastrar);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelSenha);
@@ -254,6 +274,7 @@
             this.Name = "LoginLoja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginLoja";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginLoja_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelDatabase.ResumeLayout(false);
@@ -273,7 +294,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelDatabase;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxDatabase;
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel panelLinha;
         private System.Windows.Forms.Label label1;
@@ -286,5 +306,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkCadastrar;
+        public System.Windows.Forms.ComboBox comboBoxDatabase;
     }
 }

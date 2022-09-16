@@ -1,8 +1,12 @@
-﻿using System;
+﻿using LojaChocolateApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +16,7 @@ namespace LojaChocolateApp.Utils.LayoutItems
 {
     public partial class LayoutFuncionarios : UserControl
     {
+        private TextBoxControls _controle = new TextBoxControls();
         #region Propriedades
         private string _nome;
         private string _id;
@@ -48,33 +53,39 @@ namespace LojaChocolateApp.Utils.LayoutItems
         public LayoutFuncionarios()
         {
             InitializeComponent();
-            ReadOnly();
         }
-
         private void btnMaisDetalhes_Click(object sender, EventArgs e)
         {
             this.Height = 180;
             panelExibeDetalhes.Visible = true;
             btnMenosDetalhes.Visible = true;
         }
-
         private void btnMenosDetalhes_Click(object sender, EventArgs e)
         {
             this.Height = 80;
             panelExibeDetalhes.Visible = false;
             btnMenosDetalhes.Visible = false;
         }
-        private void ReadOnly()
+        public void CopiarSelecionar(object sender, KeyEventArgs e)
         {
-            textNomeLayout.ReadOnly = true;
-            textIdLayout.ReadOnly = true;
-            textCargoLayout.ReadOnly = true;
-            textCargoLayout.ReadOnly = true;
-            textCpfLayout.ReadOnly = true;
-            textContatoLayout.ReadOnly = true;
-            textSalarioLayout.ReadOnly = true;
-            textVendasLayout.ReadOnly = true;
-            textDataCadastroLayout.ReadOnly = true;
+            _controle.CopiarSelecionar(sender, e);
+        }
+        /// <summary>
+        /// Abre dialogo para inserir imagem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddImagem_Click(object sender, EventArgs e)
+        {
+            var imagem = _controle.OpenFileImage(sender, e);
+            if (imagem != null)
+            {
+                SQLServerConn server = new SQLServerConn();
+                var imgByte = server.ConvertImageToByte(imagem);
+                server.InsereImagemSql(imgByte, "Funcionario", this.Id);
+                this.Imagem = imagem;
+                MessageBox.Show("Imagem Cadastrada!");
+            }
         }
     }
 }

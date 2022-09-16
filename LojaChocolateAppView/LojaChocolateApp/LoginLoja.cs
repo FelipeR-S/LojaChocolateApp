@@ -1,4 +1,5 @@
 ﻿using LojaChocolateApp.Repository;
+using LojaChocolateApp.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +18,8 @@ namespace LojaChocolateApp
 {
     public partial class LoginLoja : Form
     {
-        private string _usuario;
-        private string _password;
-        private string _database;
-        public string Usuario { get { return _usuario; } }
-        public string Password { get { return _password; } }
-        public string Database { get { return _database; } }
+        private TextBoxControls _controle = new TextBoxControls();
+        private static CadastroLogin _cadastro = new CadastroLogin();
         public LoginLoja()
         {
             InitializeComponent();
@@ -29,35 +28,35 @@ namespace LojaChocolateApp
         /// <summary>
         /// Carrega instancias do SQL Server
         /// </summary>
-        public void CarregaComboBoxDatabase()
+        private void CarregaComboBoxDatabase()
         {
-            var listaDatabase = new List<string>();
-            var database = "";
-            listaDatabase.Add(database);
-
-            string ServerName = Environment.MachineName;
-            RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
-            using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
+            try
             {
-                RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
-                if (instanceKey != null)
+                var listaDatabase = new List<string>();
+                var database = "";
+                listaDatabase.Add(database);
+
+                string ServerName = Environment.MachineName;
+                RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+                using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
                 {
-                    foreach (var instanceName in instanceKey.GetValueNames())
+                    RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+                    if (instanceKey != null)
                     {
-                        database = ServerName + "\\" + instanceName;
-                        listaDatabase.Add(database);
+                        foreach (var instanceName in instanceKey.GetValueNames())
+                        {
+                            database = ServerName + "\\" + instanceName;
+                            listaDatabase.Add(database);
+                        }
                     }
                 }
+                comboBoxDatabase.DataSource = listaDatabase;
             }
-            comboBoxDatabase.DataSource = listaDatabase;
-        }
-        private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
-        {
-            char c = e.KeyChar;
-            if (!Char.IsLetterOrDigit(c) && c != 8)
+            catch (Exception ex)
             {
-                e.Handled = true;
+                MessageBox.Show(ex.Message);
             }
+
         }
         /// <summary>
         /// Realiza tentativa de login
@@ -68,9 +67,12 @@ namespace LojaChocolateApp
         {
             try
             {
+                _cadastro.Close();
+                var conectado = false;
                 var databaseTxt = comboBoxDatabase.SelectedItem.ToString();
                 var login = textBoxUser.Text;
                 var senha = textBoxSenha.Text;
+                var cargo = "";
 
                 if (login == "" || senha == "" || databaseTxt == "")
                 {
@@ -83,29 +85,70 @@ namespace LojaChocolateApp
                     using (SqlConnection connection = new SqlConnection(LoginServer.Conexao(login)))
                     {
                         connection.Open();
-                        this.DialogResult = DialogResult.OK;
-                        DadosLogin(database, login, senha);
+                        var SqlQuery = $"use [Loja_Chocolate] select [cargo] from [Cadastro de Usuário] where [Nome] = '{login}'";
+                        SqlCommand cmd = new SqlCommand(SqlQuery, connection);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            cargo = reader.GetString(0);
+                        }
+                        conectado = true;
                         connection.Close();
                     }
-                    this.Close();
+                    if (conectado == true)
+                    {
+                        this.Visible = false;
+                        this.ShowInTaskbar = false;
+                        AppLoja appLoja = new AppLoja(login, database, cargo);
+                        appLoja.ShowDialog();
+                    }
                 }
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
+                if (ex.Message.Contains("Falha de logon do usuário"))
+                    MessageBox.Show("Usuário ou senha incorretos.\n Favor verificar!");
+                else
+                    MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>
-        /// Recupera e atribui os dados de login
+        /// Exibe painel de novo cadastro
         /// </summary>
-        /// <param name="database"></param>
-        /// <param name="usuario"></param>
-        /// <param name="senha"></param>
-        private void DadosLogin(string database, string usuario, string senha)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            _usuario = usuario;
-            _password = senha;
-            _database = database;
+            try
+            {
+                CadastroLogin cadastro = new CadastroLogin();
+                _cadastro = cadastro;
+                _cadastro.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void LoginLoja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void OnlyNumbersAndChars(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
+            else
+                _controle.OnlyNumbersAndChars(sender, e);
+        }
+        private void textBoxSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnLogin_Click(sender, e);
         }
     }
 }

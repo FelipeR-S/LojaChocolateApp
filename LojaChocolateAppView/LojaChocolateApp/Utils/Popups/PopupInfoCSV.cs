@@ -12,6 +12,7 @@ namespace LojaChocolateApp.Utils.Popups
 {
     public partial class PopupInfoCSV : Form
     {
+        private TextBoxControls _controle = new TextBoxControls();
         public PopupInfoCSV()
         {
             InitializeComponent();
@@ -19,6 +20,10 @@ namespace LojaChocolateApp.Utils.Popups
         private void btnFechaPopup_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void CopiarSelecionar(object sender, KeyEventArgs e)
+        {
+            _controle.CopiarSelecionar(sender, e);
         }
     }
 }

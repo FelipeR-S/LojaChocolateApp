@@ -39,10 +39,56 @@
     <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>C:\Users\felip\.nuget\packages\materialskin.updated\0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,6 +107,12 @@
     </Compile>
     <Compile Include="AppLoja.Designer.cs">
       <DependentUpon>AppLoja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroLogin.Designer.cs">
+      <DependentUpon>CadastroLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginLoja.cs">
       <SubType>Form</SubType>
@@ -81,6 +133,12 @@
     <Compile Include="Repository\SQLServerConn.cs" />
     <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Utils\BackGroundPopup.cs" />
+    <Compile Include="Utils\ControleEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DarkMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utils\DataGridVendas.cs" />
     <Compile Include="Utils\LayoutItems\LayoutFuncionarios.cs">
       <SubType>UserControl</SubType>
@@ -94,6 +152,72 @@
     <Compile Include="Utils\LayoutItems\LayoutProdutos.Designer.cs">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LayoutItems\NovoAcesso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\LayoutItems\NovoAcesso.Designer.cs">
+      <DependentUpon>NovoAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraFuncionario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraFuncionario.Designer.cs">
+      <DependentUpon>AlteraFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\AlteraProdutos.Designer.cs">
+      <DependentUpon>AlteraProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarFuncionario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarFuncionario.Designer.cs">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\CadastrarVenda.Designer.cs">
+      <DependentUpon>CadastrarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaFuncionarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaFuncionarios.Designer.cs">
+      <DependentUpon>ConsultaFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaProdutos.Designer.cs">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaVendas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ConsultaVendas.Designer.cs">
+      <DependentUpon>ConsultaVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\ControleDeAcesso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\ControleDeAcesso.Designer.cs">
+      <DependentUpon>ControleDeAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Panels\InserirProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Panels\InserirProdutos.Designer.cs">
+      <DependentUpon>InserirProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Popups\PopupConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Popups\PopupConfig.Designer.cs">
+      <DependentUpon>PopupConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Popups\PopupInfoCSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,8 +230,14 @@
     <Compile Include="Utils\Popups\PopupRemover.Designer.cs">
       <DependentUpon>PopupRemover.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\TextBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="AppLoja.resx">
       <DependentUpon>AppLoja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroLogin.resx">
+      <DependentUpon>CadastroLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginLoja.resx">
       <DependentUpon>LoginLoja.cs</DependentUpon>
@@ -127,6 +257,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\LayoutItems\LayoutProdutos.resx">
       <DependentUpon>LayoutProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\LayoutItems\NovoAcesso.resx">
+      <DependentUpon>NovoAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\AlteraFuncionario.resx">
+      <DependentUpon>AlteraFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\AlteraProdutos.resx">
+      <DependentUpon>AlteraProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\CadastrarFuncionario.resx">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\CadastrarVenda.resx">
+      <DependentUpon>CadastrarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaFuncionarios.resx">
+      <DependentUpon>ConsultaFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaProdutos.resx">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ConsultaVendas.resx">
+      <DependentUpon>ConsultaVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\ControleDeAcesso.resx">
+      <DependentUpon>ControleDeAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Panels\InserirProdutos.resx">
+      <DependentUpon>InserirProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Popups\PopupConfig.resx">
+      <DependentUpon>PopupConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Popups\PopupInfoCSV.resx">
       <DependentUpon>PopupInfoCSV.cs</DependentUpon>

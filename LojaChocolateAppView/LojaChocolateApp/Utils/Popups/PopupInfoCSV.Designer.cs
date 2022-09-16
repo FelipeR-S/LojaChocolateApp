@@ -77,7 +77,9 @@
             this.txtFuncionarioCSV.Name = "txtFuncionarioCSV";
             this.txtFuncionarioCSV.Size = new System.Drawing.Size(377, 259);
             this.txtFuncionarioCSV.TabIndex = 20;
+            this.txtFuncionarioCSV.TabStop = false;
             this.txtFuncionarioCSV.Text = resources.GetString("txtFuncionarioCSV.Text");
+            this.txtFuncionarioCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // textInfoVendasCSV
             // 
@@ -91,7 +93,9 @@
             this.textInfoVendasCSV.Name = "textInfoVendasCSV";
             this.textInfoVendasCSV.Size = new System.Drawing.Size(404, 250);
             this.textInfoVendasCSV.TabIndex = 22;
+            this.textInfoVendasCSV.TabStop = false;
             this.textInfoVendasCSV.Text = resources.GetString("textInfoVendasCSV.Text");
+            this.textInfoVendasCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // txtProdutoCSV
             // 
@@ -105,7 +109,9 @@
             this.txtProdutoCSV.Name = "txtProdutoCSV";
             this.txtProdutoCSV.Size = new System.Drawing.Size(385, 259);
             this.txtProdutoCSV.TabIndex = 21;
+            this.txtProdutoCSV.TabStop = false;
             this.txtProdutoCSV.Text = resources.GetString("txtProdutoCSV.Text");
+            this.txtProdutoCSV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CopiarSelecionar);
             // 
             // panel1
             // 
@@ -125,7 +131,7 @@
             this.label1.Location = new System.Drawing.Point(60, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(333, 30);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 99;
             this.label1.Text = "Informações para o Arquivo CSV";
             // 
             // PopupInfoCSV

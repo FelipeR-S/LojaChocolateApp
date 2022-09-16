@@ -174,7 +174,7 @@ namespace LojaChocolateApp.Repository
                         connection.Open();
                         command.Connection = connection;
                         command.CommandType = CommandType.Text;
-                        command.CommandText = $"update [dbo].[Vendas_Itens] set [Produto Codigo] = null where [Produto Codigo] = '{id}' DELETE FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
+                        command.CommandText = $"update [dbo].[Vendas_Itens] set [Produto Codigo] = null where [Produto Codigo] = '{id}' DELETE FROM [dbo].[Tabela_Imagens_Produtos] where [Codigo] = '{id}' DELETE FROM [dbo].[Produtos] WHERE [Codigo] = '{id}'";
                         int recordsAffected = command.ExecuteNonQuery();
                         connection.Close();
                     }
