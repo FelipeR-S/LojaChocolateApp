@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.238859F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.964286F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.14286F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 566);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 569);
             this.tableLayoutPanel1.TabIndex = 32;
             // 
             // flowLayoutPanel1
@@ -80,10 +80,10 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 160);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 161);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 403);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 405);
             this.flowLayoutPanel1.TabIndex = 32;
             // 
             // panel2
@@ -91,7 +91,7 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 86);
+            this.panel2.Location = new System.Drawing.Point(3, 87);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
             this.panel2.Size = new System.Drawing.Size(709, 29);
@@ -236,7 +236,7 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.TituloExibeFuncionario);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 121);
+            this.panel7.Location = new System.Drawing.Point(3, 122);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
             this.panel7.Size = new System.Drawing.Size(709, 33);
@@ -293,7 +293,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 62);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(80, 0, 80, 0);
-            this.panel1.Size = new System.Drawing.Size(709, 18);
+            this.panel1.Size = new System.Drawing.Size(709, 19);
             this.panel1.TabIndex = 18;
             // 
             // textBox3
@@ -324,7 +324,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(715, 560);
             this.Name = "ConsultaFuncionarios";
-            this.Size = new System.Drawing.Size(715, 566);
+            this.Size = new System.Drawing.Size(715, 569);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);

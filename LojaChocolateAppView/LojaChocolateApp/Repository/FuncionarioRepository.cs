@@ -263,7 +263,7 @@ namespace LojaChocolateApp.Repository
         /// <param name="id"></param>
         /// <param name="novoSalario"></param>
         /// <returns>Retorna <see cref="bool"/> para se a operação foi realizada e o sálario antigo</returns>
-        public (bool, decimal) AlteraSalarioRepository(int id, decimal novoSalario)
+        public (bool, decimal) AlteraSalarioRepository(string id, decimal novoSalario)
         {
             var existe = false;
             var salarioAntigo = 0m;

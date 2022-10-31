@@ -72,7 +72,7 @@ namespace LojaChocolateApp.Utils.Panels
         {
             try
             {
-                var id = Convert.ToInt32(textIdSlarioFuncionario.Text);
+                var id = textIdSlarioFuncionario.Text;
                 var salario = Convert.ToDecimal(textSalarioFuncionario.Text);
                 var repoFuncionario = new FuncionarioRepository();
                 (var existe, var salarioAntigo) = repoFuncionario.AlteraSalarioRepository(id, salario);
