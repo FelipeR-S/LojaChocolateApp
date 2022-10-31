@@ -34,19 +34,41 @@ namespace LojaChocolateApp.Utils.Panels
                 var id = textBoxRemoverFuncionario.Text;
                 var funcionarioRepo = new FuncionarioRepository();
                 (var existe, var funcionario) = funcionarioRepo.GetDetalhes(id);
+
                 if (existe)
                 {
-                    using (PopupRemover popupRemover = new PopupRemover(this))
+                    /// Verifica se existe cadastro pendente
+                    var sqlServer = new SQLServerConn();
+                    var lista = sqlServer.GetListaCadastro();
+                    var cadastroPendente = false;
+
+                    foreach (var cadastro in lista)
                     {
-                        var backGroundDesign = new BackGroundPopup();
+                        var dados = cadastro.Split(';');
+                        var idCadastro = dados[2];
+                        if (idCadastro == id)
+                        {
+                            cadastroPendente = true;
+                            break;
+                        }
+                    }
 
-                        backGroundDesign.BackGroundPopupDesign(background);
+                    if (cadastroPendente)
+                        MessageBox.Show("Usuário não pode ser excluído pois seu cadastro de login está pendente!");
+                    else
+                    {
+                        using (PopupRemover popupRemover = new PopupRemover(this))
+                        {
+                            var backGroundDesign = new BackGroundPopup();
 
-                        popupRemover.Owner = background;
-                        popupRemover.panelRemoverProduto.Visible = false;
-                        popupRemover.panelRemoverFuncionario.Visible = true;
-                        popupRemover.ShowDialog();
-                        background.Dispose();
+                            backGroundDesign.BackGroundPopupDesign(background);
+
+                            popupRemover.Owner = background;
+                            popupRemover.panelRemoverProduto.Visible = false;
+                            popupRemover.panelRemoverFuncionario.Visible = true;
+                            popupRemover.ShowDialog();
+                            background.Dispose();
+                        }
                     }
                 }
                 else
@@ -72,7 +94,7 @@ namespace LojaChocolateApp.Utils.Panels
         {
             try
             {
-                var id = Convert.ToInt32(textIdSlarioFuncionario.Text);
+                var id = textIdSlarioFuncionario.Text;
                 var salario = Convert.ToDecimal(textSalarioFuncionario.Text);
                 var repoFuncionario = new FuncionarioRepository();
                 (var existe, var salarioAntigo) = repoFuncionario.AlteraSalarioRepository(id, salario);

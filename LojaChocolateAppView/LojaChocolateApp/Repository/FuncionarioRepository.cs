@@ -185,13 +185,18 @@ namespace LojaChocolateApp.Repository
                     stringSQLMatricula = srd.GetValue(0).ToString();
                 }
                 connection.Close();
-                if (stringSQLMatricula == "")
+            }
+
+            if (stringSQLMatricula == "")
+            {
+                return existe;
+            }
+            else
+            {
+                existe = true;
+                //Remove funcionário
+                using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
                 {
-                    return existe;
-                }
-                else
-                {
-                    existe = true;
                     connection.Open();
                     SqlCommand cmdProcedure = new SqlCommand("sp_RemoveFuncionario", connection);
                     cmdProcedure.CommandType = CommandType.StoredProcedure;
@@ -263,7 +268,7 @@ namespace LojaChocolateApp.Repository
         /// <param name="id"></param>
         /// <param name="novoSalario"></param>
         /// <returns>Retorna <see cref="bool"/> para se a operação foi realizada e o sálario antigo</returns>
-        public (bool, decimal) AlteraSalarioRepository(int id, decimal novoSalario)
+        public (bool, decimal) AlteraSalarioRepository(string id, decimal novoSalario)
         {
             var existe = false;
             var salarioAntigo = 0m;
