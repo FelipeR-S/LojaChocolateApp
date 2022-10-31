@@ -185,13 +185,18 @@ namespace LojaChocolateApp.Repository
                     stringSQLMatricula = srd.GetValue(0).ToString();
                 }
                 connection.Close();
-                if (stringSQLMatricula == "")
+            }
+
+            if (stringSQLMatricula == "")
+            {
+                return existe;
+            }
+            else
+            {
+                existe = true;
+                //Remove funcionário
+                using (SqlConnection connection = new SqlConnection(SQLServerConn.StrCon))
                 {
-                    return existe;
-                }
-                else
-                {
-                    existe = true;
                     connection.Open();
                     SqlCommand cmdProcedure = new SqlCommand("sp_RemoveFuncionario", connection);
                     cmdProcedure.CommandType = CommandType.StoredProcedure;
