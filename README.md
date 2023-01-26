@@ -75,7 +75,7 @@ A aplicação tem como função gerir necessidades básicas de uma pequena loja 
 <p>Habilitada a possibilidade de diferentes views para cada hierarquia de funcionário. O usuário <b>"Gerente"</b> terá acesso a todas as funções da aplicação inclusive a de aprovar novo login, já o vendedor não tera acesso ao menu de funcionários.</p><br>
 <img alt="Controle de Acesso" title="Controle de Acesso" src="./GithubGif/ControleDeAcesso.gif"/>
 <br><br>
-<h2><b>DarkMode e viso de Estoque Baixo</b></h2>
+<h2><b>DarkMode e Aviso de Estoque Baixo</b></h2>
 <p>A funcionalidade de darkmode altera o fundo de painéis que são brancos, substituíndo a cor por um cinza próximo ao preto, além disso as fontes são alteradas para a cor branca. O aviso de estoque baixo informa o usuário se o estoque de um produto está abaixo do escolhido.</p><br>
 <img alt="DarkMode e Limite de Estoque" title="DarkMode e Limite de Es" src="./GithubGif/DarkModeLimiteEstoque.gif"/>
 <br><br>
